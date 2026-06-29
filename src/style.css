@@ -119,6 +119,7 @@ html, body {
   isolation: isolate;
 }
 #pf-page.page-scrollable { overflow-y: auto; }
+#pf-page:has(.page-home) { overflow: visible; }
 
 /* page-enter animation */
 .page { animation: pageIn 0.35s ease both; }
