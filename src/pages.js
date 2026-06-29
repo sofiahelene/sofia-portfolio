@@ -226,6 +226,7 @@ export const pages = {
         </div>
       </div>
       <div class="proj-story-strip" id="sc-edition" style="display:none;">
+        <div class="brume-note" style="margin-left:0;margin-bottom:0.5rem;white-space:normal">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g')}</div>
         <div class="sc-viewport">
           <div class="sc-container">
             ${[
