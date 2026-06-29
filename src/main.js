@@ -121,6 +121,10 @@ function navigateTo(pageId) {
         { opacity: 0, y: 16 },
         { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out', clearProps: 'transform,opacity' }
       );
+      incoming.querySelectorAll('.proj-back[data-page]').forEach(btn => {
+        btn.addEventListener('click', e => { e.preventDefault(); navigateTo(btn.dataset.page); });
+        initLetterSwap(btn);
+      });
       const grid = incoming.querySelector('.proj-image-grid');
       if (grid) initLightbox(grid);
       const readmeBtn = incoming.querySelector('.readme-btn');
@@ -1348,6 +1352,9 @@ function applyLang(lang) {
   const navApropos = document.getElementById('nav-apropos');
   if (navProjets) { navProjets.textContent = lang === 'en' ? 'PROJECTS' : 'PROJETS'; initLetterSwap(navProjets); }
   if (navApropos) { navApropos.textContent = lang === 'en' ? 'ABOUT' : 'À PROPOS'; initLetterSwap(navApropos); }
+  // Re-colorize header logo in case the img reloaded during language switch
+  const logoImg = document.querySelector('.pf-logo-img');
+  if (logoImg) colorizeImg(logoImg);
 }
 
 const langSplash = document.getElementById('lang-splash');

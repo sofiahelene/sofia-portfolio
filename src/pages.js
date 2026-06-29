@@ -531,9 +531,8 @@ export const pages = {
       <div class="contact-ribbon-single" id="contact-ribbons">
         <div class="ribbon-track">
           ${(() => {
-            const t1 = `<span class="ribbon-item">${t('Vous cherchez une directrice artistique&nbsp;? Ne cherchez plus&nbsp;!', 'Looking for an art director?&nbsp; Look no further&nbsp;!')}</span>`;
-            const t2 = `<span class="ribbon-item">en recherche d'une alternance, 1/2 semaines</span>`;
-            const base = [t1, t2, t1, t1, t2].join('');
+            const item = `<span class="ribbon-item">Vous cherchez une directrice artistique&nbsp;? Ne cherchez plus&nbsp;! Je suis en recherche d'une alternance, 1/2 semaines.</span>`;
+            const base = Array(8).fill(item).join('');
             return base + base;
           })()}
         </div>
