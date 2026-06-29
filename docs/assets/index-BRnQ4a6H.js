@@ -373,6 +373,7 @@
         <h2 class="proj-name">Do It Again Édition</h2>
       </div>
       <button class="readme-btn readme-btn--spaced" data-readme="do-it-again-edition">${j("Lisez-moi","Read me")}</button>
+      <span class="brume-note">${j("Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g","Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g")}</span>
       <div class="proj-story-strip">
         <div class="sc-viewport">
           <div class="sc-container">
