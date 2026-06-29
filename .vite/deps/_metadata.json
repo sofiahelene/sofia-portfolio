@@ -1,0 +1,33 @@
+{
+  "hash": "b9a61b5c",
+  "configHash": "dd4ff678",
+  "lockfileHash": "0b6fea82",
+  "browserHash": "3dcd1366",
+  "optimized": {
+    "gsap": {
+      "src": "../../node_modules/gsap/index.js",
+      "file": "gsap.js",
+      "fileHash": "33cd8ee5",
+      "needsInterop": false
+    },
+    "gsap/SplitText": {
+      "src": "../../node_modules/gsap/SplitText.js",
+      "file": "gsap_SplitText.js",
+      "fileHash": "ef7dea4c",
+      "needsInterop": false
+    },
+    "gsap/ScrollTrigger": {
+      "src": "../../node_modules/gsap/ScrollTrigger.js",
+      "file": "gsap_ScrollTrigger.js",
+      "fileHash": "42667a0a",
+      "needsInterop": false
+    },
+    "ogl": {
+      "src": "../../node_modules/ogl/src/index.js",
+      "file": "ogl.js",
+      "fileHash": "9a3d6e4b",
+      "needsInterop": false
+    }
+  },
+  "chunks": {}
+}

@@ -1,0 +1,20 @@
+node_modules/
+.DS_Store
+.claude/
+.agents/
+skills-lock.json
+dist/
+
+# 3D/HDR/environment files (not needed for GitHub Pages)
+*.exr
+*.hdr
+*.glb
+*.gltf
+City Central Square Night/
+Office Interior/
+Partly Cloudy Open Sky/
+
+# Videos over 100MB (GitHub hard limit)
+*/videos/Book_open_1.mov
+public/videos/Book_open_1.mov
+docs/videos/Book_open_1.mov
