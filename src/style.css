@@ -80,7 +80,7 @@ html, body {
 .nav-link:hover { color: #00bbd1; }
 .nav-link.active { color: #00bbd1; }
 .nav-link.active::before { content: '— '; }
-#nav-apropos { letter-spacing: 0.22em; }
+#nav-apropos { letter-spacing: 0.35em; }
 
 /* ── Accessibility utility ── */
 .sr-only {
@@ -1288,7 +1288,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   margin-left: auto;
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   color: #00bbd1;
   text-decoration: none;
