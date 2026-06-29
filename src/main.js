@@ -212,9 +212,7 @@ const readmeContent = {
   },
   'terrasses': {
     title: 'Terrasses des Oliviers',
-    body: window.LANG === 'en'
-      ? `An illustrated and editorial project about the Mediterranean landscape — olive trees, terraces and southern light. Combining illustration and photography, it explores the relationship between memory, place and nature.`
-      : `Un projet illustré et éditorial autour du paysage méditerranéen — oliviers, terrasses et lumière du sud. Mêlant illustration et photographie, il explore la relation entre mémoire, lieu et nature.`,
+    body: `Pendant ce stage j'étais chargée de dessiner les plantes et les terrasses pour le site internet et les réseaux sociaux de l'entreprise. J'ai ensuite transformé ces éléments en un guide afin de présenter le concept de l'entreprise, avec une courte animation 3D du livre.\n\nJ'ai travaillé à partir d'un image de référence, en supprimant la jonction entre le mur et le plafond pour créer un effet plus lumineux. Deux versions ont été réalisées, une avec flèches pour les clients et une sans pour les réseaux sociaux.\n\nJ'ai dessiné les plantes individuellement afin qu'elles puissent être utilisées seules ou sur tous les supports. Une approche graphique simplifiée, fondée sur des contrastes clair et foncé, permet une lisibilité optimale et une adaptabilité à toutes les échelles, contrairement aux fleurs plus détaillées.\n\nLa dernière étape de l'illustration consistait à assembler tous les éléments sur Photoshop. Deux versions ont été réalisées avec des balcons différents afin de refléter la diversité des appartements parisiens et de montrer un balcon moderne typique en parallèle du style haussmannien.`,
   },
   'paris': {
     title: 'Paris',
@@ -281,7 +279,7 @@ function initReadMe(btn) {
       <div class="rm-card">
         <button class="rm-close">✕</button>
         <h3 class="rm-title">${content.title}</h3>
-        <p class="rm-body">${content.body}</p>
+        <div class="rm-body">${content.body.split('\n\n').map(p => `<p style="margin-bottom:0.8em">${p}</p>`).join('')}</div>
       </div>`;
     document.body.appendChild(overlay);
 
