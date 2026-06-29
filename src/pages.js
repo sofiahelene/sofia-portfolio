@@ -210,6 +210,7 @@ export const pages = {
           <button class="pf-toggle-btn" data-view="charte">${t('Charte Graphique', 'Brand Guidelines')}</button>
         </div>
         <button class="readme-btn" data-readme="do-it-again">${t('Lisez-moi', 'Read me')}</button>
+        <span class="brume-note" id="dia-edition-note" style="display:none">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g')}</span>
         <button class="storyboard-btn" id="storyboard-btn" style="display:none;">Storyboard</button>
         <div class="book-controls" id="book-controls" style="display:none;">
           <button class="book-ctrl-btn" id="book-prev">← ${t('Préc.', 'Prev.')}</button>
@@ -226,7 +227,6 @@ export const pages = {
         </div>
       </div>
       <div class="proj-story-strip" id="sc-edition" style="display:none;">
-        <div class="brume-note" style="margin-left:0;margin-bottom:0.5rem;white-space:normal">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g')}</div>
         <div class="sc-viewport">
           <div class="sc-container">
             ${[

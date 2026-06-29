@@ -309,6 +309,9 @@ function initToggle(toggle) {
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const view = btn.dataset.view;
+      // Show Do It Again edition note only on edition tab
+      const diaNote = document.getElementById('dia-edition-note');
+      if (diaNote) diaNote.style.display = view === 'edition' ? '' : 'none';
       // Update photo readme button when switching tabs
       const photoReadmeBtn = document.getElementById('photo-readme-btn');
       if (photoReadmeBtn) {
