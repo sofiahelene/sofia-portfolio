@@ -5,16 +5,17 @@ node_modules/
 skills-lock.json
 dist/
 
-# 3D/HDR/environment files (not needed for GitHub Pages)
+# 3D/HDR/environment files not needed for the site
 *.exr
 *.hdr
 *.glb
 *.gltf
+*.bin
 City Central Square Night/
 Office Interior/
 Partly Cloudy Open Sky/
+macbook_pro_m3_16_inch_2024/
 
-# Videos over 100MB (GitHub hard limit)
-*/videos/Book_open_1.mov
+# Only exclude videos truly over GitHub's 100MB hard limit
 public/videos/Book_open_1.mov
 docs/videos/Book_open_1.mov
