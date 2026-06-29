@@ -1048,6 +1048,10 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   right: 1.5rem;
   pointer-events: none;
 }
+.cv-logo-wrap .proj-logo-anim {
+  width: 9cm;
+  height: 9cm;
+}
 
 /* ── About ── */
 .page-about { position: relative; overflow: hidden; }
