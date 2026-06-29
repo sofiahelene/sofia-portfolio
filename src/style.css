@@ -1161,7 +1161,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .contact-field input:focus, .contact-field textarea:focus { border-color: #00bbd1; }
 .contact-field input::placeholder, .contact-field textarea::placeholder { color: #bbb; }
 .contact-submit {
-  background: #0a0a0a; color: #fff; border: none; border-radius: 8px;
+  background: #00bbd1; color: #fff; border: none; border-radius: 8px;
   padding: 0.93rem 2rem; font-size: 0.8rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
   transition: background 0.2s; width: 100%;
