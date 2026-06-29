@@ -67,7 +67,7 @@ html, body {
   z-index: 50;
 }
 .pf-logo-link { display: flex; align-items: center; text-decoration: none; }
-.pf-logo-img { height: 52px; width: auto; display: block; filter: brightness(0) saturate(100%) invert(63%) sepia(68%) saturate(554%) hue-rotate(157deg) brightness(97%) contrast(100%); }
+.pf-logo-img { height: 52px; width: auto; display: block; filter: brightness(0) saturate(100%) invert(63%) sepia(100%) hue-rotate(170deg) saturate(700%) brightness(82%); }
 .pf-spacer {}
 .pf-nav { display: flex; gap: 1.2rem; justify-content: flex-end; }
 .nav-link {
@@ -1198,7 +1198,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   width: 5cm;
   height: 5cm;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(63%) sepia(68%) saturate(554%) hue-rotate(157deg) brightness(97%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(63%) sepia(100%) hue-rotate(170deg) saturate(700%) brightness(82%);
   animation: logo-drift 8s ease-in-out infinite;
   transform-origin: center;
 }
