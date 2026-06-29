@@ -398,7 +398,7 @@ export const pages = {
         <h2 class="proj-name">Do It Again Édition</h2>
       </div>
       <button class="readme-btn readme-btn--spaced" data-readme="do-it-again-edition">${t('Lisez-moi', 'Read me')}</button>
-      <span class="brume-note">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g')}</span>
+      <div class="brume-note" style="margin-left:0;margin-bottom:0.5rem;white-space:normal">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g')}</div>
       <div class="proj-story-strip">
         <div class="sc-viewport">
           <div class="sc-container">
