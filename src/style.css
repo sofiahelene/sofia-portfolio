@@ -1056,18 +1056,26 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 }
 
 /* ── About ── */
-.page-about { position: relative; overflow-y: auto; }
+.page-about {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100%;
+}
 
 /* ── About parallax hero ── */
 .aph-root {
+  flex-shrink: 0;
   position: relative;
-  height: calc(1500px + 100vh);
+  width: calc(1500px + 100vw);
+  height: 100%;
   pointer-events: none;
 }
 .aph-sticky {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  left: 0;
+  width: 100vw;
+  height: 100%;
   overflow: hidden;
 }
 .aph-center {
@@ -1100,19 +1108,17 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   pointer-events: none;
   z-index: 0;
 }
-.about-bg-name {
-  position: absolute; top: 0; left: 0;
-  display: flex; flex-direction: column; line-height: 0.85;
-  pointer-events: none; user-select: none;
-}
-.about-bg-name span {
-  font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900;
-  letter-spacing: -0.02em; text-transform: uppercase;
-  color: rgba(0,187,209,0.06);
-}
 .about-content {
-  position: relative; z-index: 2;
-  margin-left: 45%; max-width: 340px; padding-top: 0.8rem;
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  z-index: 2;
+  padding: 3rem 3rem 3rem 4rem;
+  box-sizing: border-box;
+  margin-left: 0;
+  max-width: none;
 }
 .about-role {
   font-size: 0.52rem; font-weight: 500;
