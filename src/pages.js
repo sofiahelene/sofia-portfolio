@@ -434,6 +434,7 @@ export const pages = {
           </div>
         </div>
       </div>
+      <button class="readme-btn readme-btn--spaced" data-readme="whitby">${t('Lisez-moi', 'Read me')}</button>
       <div class="proj-story-strip" id="sc-whitby" style="display:none;">
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">

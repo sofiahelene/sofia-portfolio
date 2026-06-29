@@ -220,6 +220,10 @@ const readmeContent = {
     title: 'Paris',
     body: `L'objectif du projet consistait à explorer les formes carrées et triangulaires dans la ville. J'ai choisi le noir et blanc afin de mieux souligner les lignes, les formes et les jeux d'ombres.`,
   },
+  'whitby': {
+    title: 'Whitby',
+    body: `Une exploration de la ville historique de Whitby, qui s'est inspirée par ses racines gothiques tout en les réinterprétant de manière contemporaine.`,
+  },
 };
 
 function initContactRibbons(el) {
