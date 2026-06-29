@@ -1076,14 +1076,6 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   background: #00bbd1;
   z-index: 0;
 }
-.aph-white-mask {
-  position: absolute;
-  inset: 0;
-  background: #fff;
-  z-index: 2;
-  will-change: opacity;
-  pointer-events: none;
-}
 .aph-items {
   position: absolute;
   inset: 0;

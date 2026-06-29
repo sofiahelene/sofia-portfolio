@@ -241,21 +241,14 @@ function initContactRibbons(el) {
 
 // ── About parallax hero ──────────────────────────────────────────────────────
 function initAboutHero(page) {
-  const mask   = page.querySelector('.aph-white-mask');
-  const items  = [...page.querySelectorAll('.aph-item')];
-  if (!mask || !items.length) return;
+  const items = [...page.querySelectorAll('.aph-item')];
+  if (!items.length) return;
 
   const SECTION = 1500;
   const speeds = [-0.35, 0.18, -0.28, -0.45];
 
   function update() {
     const sy = page.scrollTop;
-
-    // White mask fades out over first SECTION px, revealing blue background
-    const maskOpacity = Math.max(0, 1 - sy / SECTION);
-    mask.style.opacity = maskOpacity;
-
-    // Parallax items float at different speeds, fade+scale near end
     items.forEach((item, i) => {
       const y = sy * speeds[i];
       const fadeStart = SECTION * 0.6;
