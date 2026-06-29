@@ -245,15 +245,16 @@ function initAboutHero(page) {
   if (!items.length) return;
 
   const SECTION = 1500;
-  const speeds = [-0.35, 0.18, -0.28, -0.45];
+  // horizontal drift speeds — negative = moves left; portrait slowest, book fastest
+  const xSpeeds = [0, -0.4, -0.75, -0.2];
 
   function update() {
     const sy = page.scrollTop;
     items.forEach((item, i) => {
-      const y = sy * speeds[i];
-      const fadeStart = SECTION * 0.6;
-      const fadeProgress = Math.max(0, Math.min((sy - fadeStart) / (SECTION * 0.4), 1));
-      item.style.transform = `translateY(${y}px) scale(${1 - 0.15 * fadeProgress})`;
+      const x = sy * xSpeeds[i];
+      const fadeStart = SECTION * 0.35;
+      const fadeProgress = Math.max(0, Math.min((sy - fadeStart) / (SECTION * 0.55), 1));
+      item.style.transform = `translateX(${x}px) scale(${1 - 0.1 * fadeProgress})`;
       item.style.opacity = 1 - fadeProgress;
     });
   }
