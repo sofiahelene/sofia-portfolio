@@ -1282,11 +1282,13 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   margin-bottom: 0.5rem;
 }
 .proj-inline-header .proj-toc-title { text-align: left; }
+.proj-inline-header .proj-toc-num { color: #00bbd1; font-size: 1.25em; }
+.proj-inline-header .proj-toc-cat { color: #00bbd1; }
 .proj-inline-link {
   margin-left: auto;
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #00bbd1;
   text-decoration: none;
