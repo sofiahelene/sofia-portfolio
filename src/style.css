@@ -1056,7 +1056,58 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 }
 
 /* ── About ── */
-.page-about { position: relative; overflow: hidden; }
+.page-about { position: relative; overflow-y: auto; }
+
+/* ── About parallax hero ── */
+.aph-root {
+  position: relative;
+  height: calc(1500px + 100vh);
+  pointer-events: none;
+}
+.aph-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.aph-center {
+  position: absolute;
+  inset: 0;
+  background: #00bbd1;
+  z-index: 0;
+}
+.aph-white-mask {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  z-index: 2;
+  will-change: opacity;
+  pointer-events: none;
+}
+.aph-items {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.aph-item {
+  position: absolute;
+  background: #fff;
+  border-radius: 6px;
+  will-change: transform, opacity;
+}
+.aph-item--1 { width: 30%; height: 36vh; top: 62vh; left: 6%; }
+.aph-item--2 { width: 55%; height: 42vh; top: 28vh; left: 22%; }
+.aph-item--3 { width: 28%; height: 34vh; top: 55vh; right: 6%; }
+.aph-item--4 { width: 38%; height: 44vh; top: 38vh; left: 8%; }
+.aph-fade {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 24vh;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.6));
+  pointer-events: none;
+  z-index: 0;
+}
 .about-bg-name {
   position: absolute; top: 0; left: 0;
   display: flex; flex-direction: column; line-height: 0.85;

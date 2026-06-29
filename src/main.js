@@ -130,6 +130,8 @@ function navigateTo(pageId) {
       incoming.querySelectorAll('.readme-btn').forEach(initReadMe);
       const contactForm = incoming.querySelector('#contact-form');
       if (contactForm) initContactForm(contactForm);
+      const aphRoot = incoming.querySelector('.aph-root');
+      if (aphRoot) initAboutHero(incoming);
       const strips = incoming.querySelectorAll('.proj-story-strip');
       if (strips.length) {
         strips.forEach(s => initStoryCarousel(s));
@@ -235,6 +237,36 @@ function initContactRibbons(el) {
   function onKey(e) { if (e.key === 'Enter' || e.key === ' ') split(); }
   el.addEventListener('click', split);
   el.addEventListener('keydown', onKey);
+}
+
+// ── About parallax hero ──────────────────────────────────────────────────────
+function initAboutHero(page) {
+  const mask   = page.querySelector('.aph-white-mask');
+  const items  = [...page.querySelectorAll('.aph-item')];
+  if (!mask || !items.length) return;
+
+  const SECTION = 1500;
+  const speeds = [-0.35, 0.18, -0.28, -0.45];
+
+  function update() {
+    const sy = page.scrollTop;
+
+    // White mask fades out over first SECTION px, revealing blue background
+    const maskOpacity = Math.max(0, 1 - sy / SECTION);
+    mask.style.opacity = maskOpacity;
+
+    // Parallax items float at different speeds, fade+scale near end
+    items.forEach((item, i) => {
+      const y = sy * speeds[i];
+      const fadeStart = SECTION * 0.6;
+      const fadeProgress = Math.max(0, Math.min((sy - fadeStart) / (SECTION * 0.4), 1));
+      item.style.transform = `translateY(${y}px) scale(${1 - 0.15 * fadeProgress})`;
+      item.style.opacity = 1 - fadeProgress;
+    });
+  }
+
+  page.addEventListener('scroll', update, { passive: true });
+  update();
 }
 
 function initContactForm(form) {

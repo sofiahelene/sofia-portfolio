@@ -464,7 +464,19 @@ export const pages = {
   // ── À PROPOS ─────────────────────────────────────────────────────────────
   apropos: () => `
     <div class="page page-inner page-about">
-      <div class="about-bg-name" aria-hidden="true"><span>SOFIA</span><span>LUCAS</span></div>
+      <div class="aph-root">
+        <div class="aph-sticky">
+          <div class="aph-center"></div>
+          <div class="aph-white-mask"></div>
+          <div class="aph-items">
+            <div class="aph-item aph-item--1"></div>
+            <div class="aph-item aph-item--2"></div>
+            <div class="aph-item aph-item--3"></div>
+            <div class="aph-item aph-item--4"></div>
+          </div>
+        </div>
+        <div class="aph-fade"></div>
+      </div>
       <div class="about-content">
         <p class="about-role">${t('Junior Art Director', 'Junior Art Director')}</p>
         <p class="about-lead">${t('Hey, je m\'appelle Sofia Lucas.', 'Hey, my name is Sofia Lucas.')}</p>
