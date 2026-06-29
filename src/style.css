@@ -653,7 +653,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 }
 .readme-btn {
   background: none;
-  border: 1px solid #00bbd1;
+  border: 1px solid #0a0a0a;
   border-radius: 2rem;
   padding: 0.4rem 1.2rem;
   font-size: 0.78rem;
@@ -725,7 +725,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .pf-toggle {
   display: flex;
   gap: 0;
-  border: 1px solid #00bbd1;
+  border: 1px solid #0a0a0a;
   border-radius: 2rem;
   width: fit-content;
   overflow: hidden;
