@@ -653,7 +653,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 }
 .readme-btn {
   background: none;
-  border: 1px solid #0a0a0a;
+  border: 1px solid #00bbd1;
   border-radius: 2rem;
   padding: 0.4rem 1.2rem;
   font-size: 0.78rem;
@@ -664,7 +664,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
-.readme-btn:hover { background: #0a0a0a; color: #fff; }
+.readme-btn:hover { background: #00bbd1; border-color: #00bbd1; color: #fff; }
 .readme-btn--spaced { display: block; margin: 1.5rem 0; }
 .brume-note {
   font-size: 0.75rem;
@@ -725,7 +725,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .pf-toggle {
   display: flex;
   gap: 0;
-  border: 1px solid #0a0a0a;
+  border: 1px solid #00bbd1;
   border-radius: 2rem;
   width: fit-content;
   overflow: hidden;
@@ -743,11 +743,12 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   transition: background 0.2s, color 0.2s;
 }
 .pf-toggle-btn.active {
-  background: #0a0a0a;
+  background: #00bbd1;
   color: #fff;
 }
 .pf-toggle-btn:hover:not(.active) {
-  color: #00bbd1;
+  background: #00bbd1;
+  color: #fff;
 }
 
 /* ── Motion Panel ── */
