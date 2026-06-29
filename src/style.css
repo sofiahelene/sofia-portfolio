@@ -79,7 +79,6 @@ html, body {
 }
 .nav-link:hover { color: #00bbd1; }
 .nav-link.active { color: #00bbd1; }
-.nav-link.active::before { content: '— '; }
 #nav-apropos .ls-char { margin-right: 0.18em; }
 
 /* ── Accessibility utility ── */
