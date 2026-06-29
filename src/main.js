@@ -309,6 +309,17 @@ function initToggle(toggle) {
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const view = btn.dataset.view;
+      // Update photo readme button when switching tabs
+      const photoReadmeBtn = document.getElementById('photo-readme-btn');
+      if (photoReadmeBtn) {
+        const readmeMap = { paris: 'paris', whitby: 'whitby' };
+        if (readmeMap[view]) {
+          photoReadmeBtn.dataset.readme = readmeMap[view];
+          photoReadmeBtn.style.display = '';
+        } else {
+          photoReadmeBtn.style.display = 'none';
+        }
+      }
       Object.entries(panels).forEach(([key, id]) => {
         const el = document.getElementById(id);
         if (!el) return;

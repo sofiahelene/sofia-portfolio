@@ -420,13 +420,15 @@ export const pages = {
   proj_photographie: () => `
     <div class="page page-inner proj-detail">
       <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
-      <div class="pf-toggle" id="pf-toggle" style="margin-top:0.2rem">
-        <button class="pf-toggle-btn active" data-view="paris">Paris</button>
-        <button class="pf-toggle-btn" data-view="whitby">Whitby</button>
-        <button class="pf-toggle-btn" data-view="diptyques">${t('Diptyques', 'Diptychs')}</button>
+      <div class="photo-toggle-row" style="display:flex;align-items:center;gap:0.75rem;margin-top:0.2rem">
+        <div class="pf-toggle" id="pf-toggle">
+          <button class="pf-toggle-btn active" data-view="paris">Paris</button>
+          <button class="pf-toggle-btn" data-view="whitby">Whitby</button>
+          <button class="pf-toggle-btn" data-view="diptyques">${t('Diptyques', 'Diptychs')}</button>
+        </div>
+        <button class="readme-btn" id="photo-readme-btn" data-readme="paris">${t('Lisez-moi', 'Read me')}</button>
       </div>
       <div class="proj-story-strip" id="sc-paris">
-        <button class="readme-btn readme-btn--spaced" data-readme="paris">${t('Lisez-moi', 'Read me')}</button>
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">
             ${['LUCAS-Sofia-001.jpg','LUCAS-Sofia-002.jpg','LUCAS-Sofia-003.jpg','LUCAS-Sofia-004.jpg','LUCAS-Sofia-006.jpg','LUCAS-Sofia-008.jpg','IMG_6833.jpg']
@@ -435,7 +437,6 @@ export const pages = {
         </div>
       </div>
       <div class="proj-story-strip" id="sc-whitby" style="display:none;">
-        <button class="readme-btn readme-btn--spaced" data-readme="whitby">${t('Lisez-moi', 'Read me')}</button>
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">
             ${['13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg']
