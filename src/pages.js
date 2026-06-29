@@ -175,7 +175,7 @@ export const pages = {
         </div>
         <button class="readme-btn" data-readme="star-guitar">${t('Lisez-moi', 'Read me')}</button>
       </div>
-      <div class="pf-motion-panel" id="sc-motion">
+      <div class="pf-motion-panel" id="sc-motion" style="margin-top:1cm">
         <div class="motion-player">
           <video loop playsinline src="/videos/Trainanimation_1.MP4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
@@ -200,6 +200,7 @@ export const pages = {
 
   proj_do_it_again: () => `
     <div class="page page-inner proj-detail">
+      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
       <div class="pf-controls">
         <div class="pf-toggle" id="pf-toggle">
           <button class="pf-toggle-btn active" data-view="identite">${t('Identité visuelle', 'Visual Identity')}</button>
@@ -241,7 +242,7 @@ export const pages = {
           </div>
         </div>
       </div>
-      <div class="pf-motion-panel" id="sc-motion" style="display:none;">
+      <div class="pf-motion-panel" id="sc-motion" style="display:none;margin-top:1cm">
         <div class="motion-player">
           <video loop playsinline src="/videos/LUCAS-Sofia-dossiermotion.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
@@ -419,11 +420,7 @@ export const pages = {
   proj_photographie: () => `
     <div class="page page-inner proj-detail">
       <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
-      <div class="proj-detail-info">
-        <span class="proj-type">${t('Photographie', 'Photography')}</span>
-        <h2 class="proj-name">${t('Photographie', 'Photography')}</h2>
-      </div>
-      <div class="pf-toggle" id="pf-toggle">
+      <div class="pf-toggle" id="pf-toggle" style="margin-top:0.2rem">
         <button class="pf-toggle-btn active" data-view="paris">Paris</button>
         <button class="pf-toggle-btn" data-view="whitby">Whitby</button>
         <button class="pf-toggle-btn" data-view="diptyques">${t('Diptyques', 'Diptychs')}</button>
@@ -533,7 +530,12 @@ export const pages = {
       </div>
       <div class="contact-ribbon-single" id="contact-ribbons">
         <div class="ribbon-track">
-          ${Array.from({length:10}, () => `<span class="ribbon-item">${t('Vous cherchez une directrice artistique&nbsp;? Ne cherchez plus&nbsp;!', 'Looking for an art director?&nbsp; Look no further&nbsp;!')}</span>`).join('')}
+          ${(() => {
+            const t1 = `<span class="ribbon-item">${t('Vous cherchez une directrice artistique&nbsp;? Ne cherchez plus&nbsp;!', 'Looking for an art director?&nbsp; Look no further&nbsp;!')}</span>`;
+            const t2 = `<span class="ribbon-item">en recherche d'une alternance, 1/2 semaines</span>`;
+            const base = [t1, t2, t1, t1, t2].join('');
+            return base + base;
+          })()}
         </div>
       </div>
     </div>

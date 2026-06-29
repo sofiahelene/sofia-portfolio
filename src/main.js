@@ -73,6 +73,7 @@ function navigateTo(pageId) {
       // "Voir le projet" links navigate to the full project page
       incoming.querySelectorAll('.proj-inline-link[data-page]').forEach(link => {
         link.addEventListener('click', e => { e.preventDefault(); navigateTo(link.dataset.page); });
+        initLetterSwap(link, { staggerDuration: 0.02, duration: 0.55 });
       });
       // Init carousels for inline sections
       incoming.querySelectorAll('.proj-story-strip').forEach(strip => initNativeCarousel(strip));
@@ -783,7 +784,7 @@ function initOGLCarousel(container, items) {
       p.x          = p.width * i;
       // Create title label on first resize
       if (!p.title && p.label) {
-        p.title = makeTitleMesh(gl, p.plane, p.label, 'bold 28px Inter,sans-serif', '#1f01ff');
+        p.title = makeTitleMesh(gl, p.plane, p.label, 'bold 28px Inter,sans-serif', '#26b8ce');
       }
       if (p.title) {
         const th = p.plane.scale.y * 0.10;

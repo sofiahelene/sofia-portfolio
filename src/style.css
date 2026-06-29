@@ -235,7 +235,7 @@ html, body {
 .page-home {
   width: 100%; height: 100%;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -567,10 +567,10 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .proj-detail { padding: 1cm 1.4rem 2rem; }
 .proj-back {
   display: inline-block; margin-bottom: 1rem;
-  font-size: 0.55rem; font-weight: 600; letter-spacing: 0.12em;
-  color: #999; text-decoration: none; transition: color 0.15s;
+  font-size: 0.9rem; font-weight: 600; letter-spacing: 0.12em;
+  color: #26b8ce; text-decoration: none; transition: opacity 0.15s;
 }
-.proj-back:hover { color: #26b8ce; }
+.proj-back:hover { opacity: 0.7; }
 .proj-detail-media { margin-bottom: 1rem; border-radius: 2px; overflow: hidden; }
 .proj-detail-info { max-width: 480px; }
 
@@ -744,6 +744,9 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .pf-toggle-btn.active {
   background: #0a0a0a;
   color: #fff;
+}
+.pf-toggle-btn:hover:not(.active) {
+  color: #26b8ce;
 }
 
 /* ── Motion Panel ── */
@@ -1043,7 +1046,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .about-bg-name span {
   font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 900;
   letter-spacing: -0.02em; text-transform: uppercase;
-  color: rgba(31,1,255,0.06);
+  color: rgba(38,184,206,0.06);
 }
 .about-content {
   position: relative; z-index: 2;
@@ -1247,7 +1250,9 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   letter-spacing: 0.04em;
   width: 4rem;
   white-space: nowrap;
+  font-family: 'DX Burst', sans-serif;
 }
+.proj-toc-row td.proj-toc-num { color: #26b8ce; }
 .proj-toc-cat {
   font-weight: 700;
   text-align: center;
@@ -1284,13 +1289,14 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #0a0a0a;
+  color: #26b8ce;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  transition: color 0.15s;
+  transition: opacity 0.15s;
+  overflow: hidden;
 }
-.proj-inline-link:hover { color: #26b8ce; }
+.proj-inline-link:hover { opacity: 0.75; }
 .proj-inline-title {
   font-size: clamp(1.4rem, 3vw, 2.2rem);
   font-weight: 700;
