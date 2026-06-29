@@ -1031,15 +1031,22 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   width: 100%; height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 1.5rem;
   box-sizing: border-box;
+  position: relative;
 }
 .cv-img {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
   display: block;
+}
+.cv-logo-wrap {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  pointer-events: none;
 }
 
 /* ── About ── */

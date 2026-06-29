@@ -457,6 +457,9 @@ export const pages = {
   cv: () => `
     <div class="page page-cv">
       <img src="/cv.png" alt="CV Sofia Lucas" class="cv-img">
+      <div class="cv-logo-wrap">
+        <img src="/STAR.png" alt="" class="proj-logo-anim" aria-hidden="true">
+      </div>
     </div>
   `,
 
