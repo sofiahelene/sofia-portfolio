@@ -165,7 +165,6 @@ export const pages = {
     <div class="page page-inner proj-detail">
       <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
       <div class="proj-detail-info">
-        <span class="proj-type">${t('Motion Design · 2026', 'Motion Design · 2026')}</span>
         <h2 class="proj-name">Star Guitar</h2>
       </div>
       <div class="pf-controls">
@@ -272,7 +271,6 @@ export const pages = {
     <div class="page page-inner proj-detail">
       <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
       <div class="proj-detail-info">
-        <span class="proj-type">${t('Édition · 2025', 'Editorial · 2025')}</span>
         <h2 class="proj-name">Brume</h2>
       </div>
       <div class="pf-controls">
@@ -315,7 +313,6 @@ export const pages = {
     <div class="page page-inner proj-detail">
       <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
       <div class="proj-detail-info">
-        <span class="proj-type">${t('Identité Visuelle · Projet partenariat', 'Visual Identity · Partnership Project')}</span>
         <h2 class="proj-name">Les Petits Frères des Pauvres</h2>
       </div>
       <div class="pf-controls">
@@ -354,7 +351,6 @@ export const pages = {
     <div class="page page-inner proj-detail">
       <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
       <div class="proj-detail-info">
-        <span class="proj-type">${t('Illustration · Édition · 2025', 'Illustration · Editorial · 2025')}</span>
         <h2 class="proj-name">Terrasses des Oliviers</h2>
       </div>
       <div class="pf-controls">
@@ -395,7 +391,6 @@ export const pages = {
     <div class="page page-inner proj-detail">
       <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
       <div class="proj-detail-info">
-        <span class="proj-type">${t('Édition · Projet fin d\'études', 'Editorial · Final Year Project')}</span>
         <h2 class="proj-name">Do It Again Édition</h2>
       </div>
       <button class="readme-btn readme-btn--spaced" data-readme="do-it-again-edition">${t('Lisez-moi', 'Read me')}</button>
