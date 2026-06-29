@@ -423,10 +423,10 @@
           <div class="aph-center"></div>
           <div class="aph-white-mask"></div>
           <div class="aph-items">
-            <div class="aph-item aph-item--1"><img src="/IMG_0153%202.jpg" alt="Sofia Lucas" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;"></div>
+            <div class="aph-item aph-item--1"></div>
             <div class="aph-item aph-item--2"></div>
             <div class="aph-item aph-item--3"></div>
-            <div class="aph-item aph-item--4"></div>
+            <div class="aph-item aph-item--4"><img src="/IMG_0153%202.jpg" alt="Sofia Lucas" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;"></div>
           </div>
         </div>
         <div class="aph-fade"></div>
