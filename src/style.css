@@ -1252,7 +1252,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   white-space: nowrap;
   font-family: 'DX Burst', sans-serif;
 }
-.proj-toc-row td.proj-toc-num { color: #00bbd1; }
+.proj-toc-row td.proj-toc-num { color: #00bbd1; font-size: 1.25em; }
 .proj-toc-cat {
   font-weight: 700;
   text-align: center;
