@@ -1073,7 +1073,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .aph-center {
   position: absolute;
   inset: 0;
-  background: #00bbd1;
+  background: #fff;
   z-index: 0;
 }
 .aph-items {
