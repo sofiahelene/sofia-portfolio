@@ -127,8 +127,7 @@ function navigateTo(pageId) {
       });
       const grid = incoming.querySelector('.proj-image-grid');
       if (grid) initLightbox(grid);
-      const readmeBtn = incoming.querySelector('.readme-btn');
-      if (readmeBtn) initReadMe(readmeBtn);
+      incoming.querySelectorAll('.readme-btn').forEach(initReadMe);
       const contactForm = incoming.querySelector('#contact-form');
       if (contactForm) initContactForm(contactForm);
       const strips = incoming.querySelectorAll('.proj-story-strip');
@@ -216,6 +215,10 @@ const readmeContent = {
     body: window.LANG === 'en'
       ? `An illustrated and editorial project about the Mediterranean landscape — olive trees, terraces and southern light. Combining illustration and photography, it explores the relationship between memory, place and nature.`
       : `Un projet illustré et éditorial autour du paysage méditerranéen — oliviers, terrasses et lumière du sud. Mêlant illustration et photographie, il explore la relation entre mémoire, lieu et nature.`,
+  },
+  'paris': {
+    title: 'Paris',
+    body: `L'objectif du projet consistait à explorer les formes carrées et triangulaires dans la ville. J'ai choisi le noir et blanc afin de mieux souligner les lignes, les formes et les jeux d'ombres.`,
   },
 };
 

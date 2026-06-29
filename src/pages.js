@@ -425,6 +425,7 @@ export const pages = {
         <button class="pf-toggle-btn" data-view="whitby">Whitby</button>
         <button class="pf-toggle-btn" data-view="diptyques">${t('Diptyques', 'Diptychs')}</button>
       </div>
+      <button class="readme-btn readme-btn--spaced" data-readme="paris">${t('Lisez-moi', 'Read me')}</button>
       <div class="proj-story-strip" id="sc-paris">
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">
