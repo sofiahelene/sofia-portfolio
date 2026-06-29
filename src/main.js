@@ -784,7 +784,7 @@ function initOGLCarousel(container, items) {
       p.x          = p.width * i;
       // Create title label on first resize
       if (!p.title && p.label) {
-        p.title = makeTitleMesh(gl, p.plane, p.label, 'bold 28px Inter,sans-serif', '#26b8ce');
+        p.title = makeTitleMesh(gl, p.plane, p.label, 'bold 28px Inter,sans-serif', '#00bbd1');
       }
       if (p.title) {
         const th = p.plane.scale.y * 0.10;
@@ -1409,7 +1409,7 @@ function drawSplash(starScale) {
   splashCanvas.height = H;
 
   // Fill solid blue
-  splashCtx.fillStyle = '#26b8ce';
+  splashCtx.fillStyle = '#00bbd1';
   splashCtx.fillRect(0, 0, W, H);
 
   if (!starImg) return;
@@ -1492,7 +1492,7 @@ gsap.ticker.add(() => {
 
 // ── Custom cursor ─────────────────────────────────────────────────────────────
 (function initCustomCursor() {
-  const BLUE  = '#26b8ce';
+  const BLUE  = '#00bbd1';
   const WHITE = '#ffffff';
   const RADIUS = 6;
   const TAIL_MAX = 46;
