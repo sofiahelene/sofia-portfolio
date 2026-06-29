@@ -1251,18 +1251,11 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   white-space: nowrap;
   font-family: 'DX Burst', sans-serif;
 }
-.proj-toc-row td.proj-toc-num {
-  color: #26b8ce;
-  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-}
+.proj-toc-row td.proj-toc-num { color: #00bbd1; }
 .proj-toc-cat {
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.02em;
-}
-.proj-toc-row td.proj-toc-cat {
-  color: #26b8ce;
-  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
 }
 .proj-toc-title {
   text-align: right;
@@ -1293,7 +1286,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   margin-left: auto;
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #00bbd1;
   text-decoration: none;
