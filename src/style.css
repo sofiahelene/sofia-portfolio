@@ -80,7 +80,7 @@ html, body {
 .nav-link:hover { color: #00bbd1; }
 .nav-link.active { color: #00bbd1; }
 .nav-link.active::before { content: '— '; }
-#nav-apropos { letter-spacing: 0.35em; }
+#nav-apropos .ls-char { margin-right: 0.18em; }
 
 /* ── Accessibility utility ── */
 .sr-only {
@@ -1285,11 +1285,12 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .proj-inline-header .proj-toc-title { text-align: left; }
 .proj-inline-header .proj-toc-num { color: #00bbd1; font-size: 1.25em; }
 .proj-inline-header .proj-toc-cat { color: #00bbd1; }
+.proj-inline-link .ls-char { margin-right: 0.18em; }
 .proj-inline-link {
   margin-left: auto;
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.35em;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: #00bbd1;
   text-decoration: none;
