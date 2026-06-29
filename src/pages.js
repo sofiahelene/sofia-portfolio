@@ -456,7 +456,7 @@ export const pages = {
   // ── CV ───────────────────────────────────────────────────────────────────
   cv: () => `
     <div class="page page-cv">
-      <iframe src="/cv.pdf" class="cv-iframe" title="CV Sofia Lucas"></iframe>
+      <img src="/cv.png" alt="CV Sofia Lucas" class="cv-img">
     </div>
   `,
 
