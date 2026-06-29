@@ -1092,7 +1092,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   display: flex;
   width: max-content;
   white-space: nowrap;
-  animation: ribbon-scroll 55s linear infinite;
+  animation: ribbon-scroll 90s linear infinite;
 }
 .ribbon-track--reverse {
   animation-name: ribbon-scroll-reverse;
