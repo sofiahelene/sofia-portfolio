@@ -1108,7 +1108,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .aph-title {
   font-family: 'DX Burst', sans-serif;
   font-size: clamp(1.6rem, 7vw, 5.2rem);
-  color: #0a0a0a;
+  color: #00bbd1;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   line-height: 1;
