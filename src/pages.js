@@ -481,10 +481,10 @@ export const pages = {
       </div>
       <div class="about-content">
         <p class="about-role">${t('Junior Art Director', 'Junior Art Director')}</p>
-        <p class="about-lead">${t('Hey, je m\'appelle Sofia Lucas.', 'Hey, my name is Sofia Lucas.')}</p>
-        <p>${t('Britannique installée à Paris, je réunis une double formation — une licence en Français et Sciences Politiques, suivie d\'un Bachelor en Direction Artistique et Graphisme à la LISAA Paris.', 'British-born and based in Paris, I bring a dual background — a BA in French and Political Science, followed by a Bachelor\'s in Art Direction and Graphic Design at LISAA Paris.')}</p>
-        <p>${t('Mon travail puise dans les voyages, la musique électronique, le cinéma et l\'architecture du quotidien. Le dessin reste au cœur de toute ma pratique.', 'My work draws from travel, electronic music, cinema and everyday architecture. Drawing remains at the heart of everything I do.')}</p>
-        <p>${t('Ouverte aux collaborations freelance et aux opportunités en direction artistique, motion design et identité visuelle.', 'Open to freelance collaborations and opportunities in art direction, motion design and visual identity.')}</p>
+        <p class="about-lead">${t('Bonjour ! Je suis Sofia, directrice artistique britannique.', 'Hello! I\'m Sofia, a British art director.')}</p>
+        <p>${t('Après j\'ai obtenu mon bachelor en français et sciences politiques au Royaume-Uni, je me suis installée à Paris pour me tourner vers le milieu créatif et obtenir mon bachelor en Direction Artistique à LISAA Paris.', 'After completing my bachelor\'s degree in French and Political Science in the UK, I moved to Paris to turn towards the creative field and complete my bachelor\'s in Art Direction at LISAA Paris.')}</p>
+        <p>${t('Mon portfolio reflète un mélange d\'influences culturelles, façonné par les lieux que j\'ai traversés et les études que j\'ai suivies.', 'My portfolio reflects a blend of cultural influences, shaped by the places I\'ve lived and the studies I\'ve pursued.')}</p>
+        <p>${t('En dehors de mes études, j\'aime l\'escalade, la musique électronique, le cinéma, la cuisine et la lecture. Mes inspirations incluent Yorgos Lanthimos, Wolfgang Tillmans, Sofia Coppola, Jamie Hewlett et Robert Valley.', 'Outside of my studies, I enjoy climbing, electronic music, cinema, cooking and reading. My inspirations include Yorgos Lanthimos, Wolfgang Tillmans, Sofia Coppola, Jamie Hewlett and Robert Valley.')}</p>
         <div class="about-refs">
           <span class="about-refs-lbl">${t('Références', 'References')}</span>
           Lanthimos · Coppola · Tillmans · Hewlett · Valley
