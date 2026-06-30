@@ -261,7 +261,9 @@ function initAboutHero(page) {
   const anchor = aboutContent ? aboutContent.offsetLeft : 0;
   if (!items.length) return;
 
-  const SECTION = 700;
+  const FADE_SECTION = 500;
+  const SLIDE_DISTANCE = 350;
+  const SLIDE_OFFSET = 300; // px the text starts to the right of its final spot
   const xSpeeds = [0, -0.4, -0.75, -0.2];
 
   let current = 0;
@@ -271,20 +273,21 @@ function initAboutHero(page) {
   function render() {
     current += (target - current) * 0.07; // ease-out lerp
 
-    let lastFadeProgress = 0;
     items.forEach((item, i) => {
       const x = current * xSpeeds[i];
-      const fadeStart = SECTION * 0.35;
-      const fadeProgress = Math.max(0, Math.min((current - fadeStart) / (SECTION * 0.55), 1));
+      const fadeStart = FADE_SECTION * 0.35;
+      const fadeProgress = Math.max(0, Math.min((current - fadeStart) / (FADE_SECTION * 0.55), 1));
       item.style.transform = `translateX(${x}px) scale(${1 - 0.1 * fadeProgress})`;
       item.style.opacity = 1 - fadeProgress;
-      lastFadeProgress = fadeProgress;
     });
 
     if (aboutInner) {
-      aboutInner.style.opacity = lastFadeProgress;
-      aboutInner.style.pointerEvents = lastFadeProgress > 0.6 ? 'auto' : 'none';
-      aboutInner.style.transform = `translateX(${current - anchor}px)`;
+      const slideStart = FADE_SECTION * 0.9; // hero fully faded by here
+      const slideProgress = Math.max(0, Math.min((current - slideStart) / SLIDE_DISTANCE, 1));
+      const slideOffset = (1 - slideProgress) * SLIDE_OFFSET;
+      aboutInner.style.opacity = slideProgress;
+      aboutInner.style.pointerEvents = slideProgress > 0.9 ? 'auto' : 'none';
+      aboutInner.style.transform = `translateX(${current - anchor + slideOffset}px)`;
     }
 
     if (Math.abs(target - current) > 0.3) {
