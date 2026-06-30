@@ -264,7 +264,11 @@ function initAboutHero(page) {
   const FADE_SECTION = 500;
   const SLIDE_DISTANCE = 350;
   const SLIDE_OFFSET = 300; // px the text starts to the right of its final spot
-  const xSpeeds = [0, -0.4, -0.75, -0.2];
+  const xSpeeds = { 'aph-item--1': 0, 'aph-item--2': -0.4, 'aph-item--3': -0.75, 'aph-item--4': -0.2 };
+  const speedFor = item => {
+    for (const cls in xSpeeds) { if (item.classList.contains(cls)) return xSpeeds[cls]; }
+    return 0;
+  };
 
   let current = 0;
   let target = 0;
@@ -273,8 +277,8 @@ function initAboutHero(page) {
   function render() {
     current += (target - current) * 0.07; // ease-out lerp
 
-    items.forEach((item, i) => {
-      const x = current * xSpeeds[i];
+    items.forEach((item) => {
+      const x = current * speedFor(item);
       const fadeStart = FADE_SECTION * 0.35;
       const fadeProgress = Math.max(0, Math.min((current - fadeStart) / (FADE_SECTION * 0.55), 1));
       item.style.transform = `translateX(${x}px) scale(${1 - 0.1 * fadeProgress})`;
