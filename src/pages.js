@@ -468,7 +468,7 @@ export const pages = {
         <div class="aph-sticky">
           <div class="aph-center"></div>
           <div class="aph-items">
-            <div class="aph-item aph-item--1" style="background:transparent"></div>
+            <div class="aph-item aph-item--1"><img src="/images/Brume/Images/2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;"></div>
             <div class="aph-item aph-item--2"><img src="/images/Photographie/LUCAS-Sofia-002.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;"></div>
             <div class="aph-item aph-item--3"><img src="/images/_MG_0108.jpg" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;"></div>
             <div class="aph-item aph-item--4" style="background:transparent"><img src="/IMG_0153%202.jpg" alt="Sofia Lucas" style="width:100%;height:100%;object-fit:contain;display:block;"></div>
