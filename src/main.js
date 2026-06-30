@@ -256,6 +256,9 @@ function initContactRibbons(el) {
 // ── About parallax hero ──────────────────────────────────────────────────────
 function initAboutHero(page) {
   const items = [...page.querySelectorAll('.aph-item')];
+  const aboutInner = page.querySelector('.about-content-inner');
+  const aboutContent = page.querySelector('.about-content');
+  const anchor = aboutContent ? aboutContent.offsetLeft : 0;
   if (!items.length) return;
 
   const SECTION = 700;
@@ -268,13 +271,21 @@ function initAboutHero(page) {
   function render() {
     current += (target - current) * 0.07; // ease-out lerp
 
+    let lastFadeProgress = 0;
     items.forEach((item, i) => {
       const x = current * xSpeeds[i];
       const fadeStart = SECTION * 0.35;
       const fadeProgress = Math.max(0, Math.min((current - fadeStart) / (SECTION * 0.55), 1));
       item.style.transform = `translateX(${x}px) scale(${1 - 0.1 * fadeProgress})`;
       item.style.opacity = 1 - fadeProgress;
+      lastFadeProgress = fadeProgress;
     });
+
+    if (aboutInner) {
+      aboutInner.style.opacity = lastFadeProgress;
+      aboutInner.style.pointerEvents = lastFadeProgress > 0.6 ? 'auto' : 'none';
+      aboutInner.style.transform = `translateX(${current - anchor}px)`;
+    }
 
     if (Math.abs(target - current) > 0.3) {
       raf = requestAnimationFrame(render);
