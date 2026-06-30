@@ -274,6 +274,13 @@ function initAboutHero(page) {
     if (!raf) raf = requestAnimationFrame(render);
   }, { passive: true });
 
+  const scrollBtn = page.querySelector('#aph-scroll-btn');
+  if (scrollBtn) {
+    scrollBtn.addEventListener('click', () => {
+      page.scrollBy({ left: 700, behavior: 'smooth' });
+    });
+  }
+
   render();
 }
 
