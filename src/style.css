@@ -1098,6 +1098,16 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 }
 .aph-item--1 { width: 30%; height: 36vh; top: 62vh; left: 6%; }
 .aph-item--2 { width: 55%; height: 42vh; top: 28vh; left: 22%; }
+.aph-item--text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DX Burst', sans-serif;
+  font-size: 3.2rem;
+  color: #0a0a0a;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
 .aph-item--3 { width: 28%; height: 34vh; top: 55vh; right: 6%; }
 .aph-item--4 { width: 38%; height: 44vh; top: 38vh; left: 8%; }
 .aph-fade {
