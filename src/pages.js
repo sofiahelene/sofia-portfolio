@@ -209,7 +209,7 @@ export const pages = {
           <button class="pf-toggle-btn" data-view="charte">${t('Charte Graphique', 'Brand Guidelines')}</button>
         </div>
         <button class="readme-btn" data-readme="do-it-again">${t('Lisez-moi', 'Read me')}</button>
-        <span class="brume-note" id="dia-edition-note" style="display:none">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g')}</span>
+        <span class="brume-note" id="dia-edition-note" style="display:none">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition is printed on 180g and 300g gloss paper')}</span>
         <button class="storyboard-btn" id="storyboard-btn" style="display:none;">Storyboard</button>
         <div class="book-controls" id="book-controls" style="display:none;">
           <button class="book-ctrl-btn" id="book-prev">← ${t('Préc.', 'Prev.')}</button>
@@ -394,7 +394,7 @@ export const pages = {
         <h2 class="proj-name">Do It Again Édition</h2>
       </div>
       <button class="readme-btn readme-btn--spaced" data-readme="do-it-again-edition">${t('Lisez-moi', 'Read me')}</button>
-      <div class="brume-note" style="margin-left:0;margin-bottom:0.5rem;white-space:normal">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g')}</div>
+      <div class="brume-note" style="margin-left:0;margin-bottom:0.5rem;white-space:normal">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition is printed on 180g and 300g gloss paper')}</div>
       <div class="proj-story-strip">
         <div class="sc-viewport">
           <div class="sc-container">
@@ -470,7 +470,7 @@ export const pages = {
           <div class="aph-items">
             <div class="aph-item aph-item--1" style="background:transparent"></div>
             <div class="aph-item aph-item--2 aph-item--text" style="background:transparent">
-              <span class="aph-title">À PROPOS</span>
+              <span class="aph-title">${t('À PROPOS', 'ABOUT')}</span>
               <button class="aph-scroll-btn" id="aph-scroll-btn">${t('Défiler', 'Scroll')} <span class="aph-scroll-arrow">→</span></button>
             </div>
             <div class="aph-item aph-item--3" style="background:transparent"></div>
@@ -548,7 +548,7 @@ export const pages = {
       <div class="contact-ribbon-single" id="contact-ribbons">
         <div class="ribbon-track">
           ${(() => {
-            const item = `<span class="ribbon-item">Vous cherchez une directrice artistique&nbsp;? Ne cherchez plus&nbsp;! Je suis en recherche d'une alternance, 1/2 semaines.</span>`;
+            const item = `<span class="ribbon-item">${t('Vous cherchez une directrice artistique&nbsp;? Ne cherchez plus&nbsp;! Je suis en recherche d\'une alternance, 1/2 semaines.', 'Looking for an art director&nbsp;? Look no further&nbsp;! I\'m seeking a work-study placement, 1/2 weeks.')}</span>`;
             const base = Array(8).fill(item).join('');
             return base + base;
           })()}

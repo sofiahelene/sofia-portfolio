@@ -183,46 +183,60 @@ function navigateTo(pageId) {
 // ── Read Me ───────────────────────────────────────────────────────────────────
 const readmeContent = {
   'petits-freres': {
-    title: 'Les Petits Frères des Pauvres',
-    body: window.LANG === 'en'
-      ? `Les Petits Frères des Pauvres is an association that fights against the isolation and loneliness of elderly people. As a group, we created the visual identity for a popular dance event in Paris — centred around illustration, vivid colours, dancing and community. We also respected the existing brand guidelines of the association to ensure visual consistency.`
-      : `Les Petits Frères des Pauvres luttent contre l'isolement et la solitude des personnes âgées. En groupes, nous étions chargées de créer l'identité visuelle d'une balle se rendre à Paris. La direction artistique générale est axée autour du dessin, des couleurs vives, et met en avant la danse, le vivre-ensemble, la joie, le partage. Nous devions également intégrer et respecter des éléments et des règles de la charte graphique, afin de garantir une cohérence avec l'identité existante de l'association. Nous avons basé notre campagne de communication à travers la création de deux personnages principaux : Annie et Léo, représentants une accompagnée et un accompagnant de l'association Petits Frères des Pauvres. Ils seront mis en avant dans chacun de nos canaux de communication, afin de créer de l'attachement et de permettre aux lecteurs de s'identifier, de se sentir concernés. L'objectif de l'événement n'était pas seulement de rassembler les gens autour de la danse, mais aussi de sensibiliser à l'association et de recruter de nouveaux bénévoles. Nous avons donc créé des flyers pensés pour attirer un public jeune et engagé. Enfin, nous avons créé une série de goodies pour l'événement, mettant en avant Annie et Leo sur chaque support, ainsi que le logo original et les éléments de la charte graphique.`,
+    title: () => window.t('Les Petits Frères des Pauvres', 'Les Petits Frères des Pauvres'),
+    body: () => window.t(
+      `Les Petits Frères des Pauvres luttent contre l'isolement et la solitude des personnes âgées. En groupes, nous étions chargées de créer l'identité visuelle d'une balle se rendre à Paris. La direction artistique générale est axée autour du dessin, des couleurs vives, et met en avant la danse, le vivre-ensemble, la joie, le partage. Nous devions également intégrer et respecter des éléments et des règles de la charte graphique, afin de garantir une cohérence avec l'identité existante de l'association. Nous avons basé notre campagne de communication à travers la création de deux personnages principaux : Annie et Léo, représentants une accompagnée et un accompagnant de l'association Petits Frères des Pauvres. Ils seront mis en avant dans chacun de nos canaux de communication, afin de créer de l'attachement et de permettre aux lecteurs de s'identifier, de se sentir concernés. L'objectif de l'événement n'était pas seulement de rassembler les gens autour de la danse, mais aussi de sensibiliser à l'association et de recruter de nouveaux bénévoles. Nous avons donc créé des flyers pensés pour attirer un public jeune et engagé. Enfin, nous avons créé une série de goodies pour l'événement, mettant en avant Annie et Leo sur chaque support, ainsi que le logo original et les éléments de la charte graphique.`,
+      `Les Petits Frères des Pauvres is an association that fights against the isolation and loneliness of elderly people. As a group, we were tasked with creating the visual identity for a dance event in Paris. The overall art direction centres on drawing and vivid colours, celebrating dance, togetherness, joy and sharing. We also had to integrate and respect elements of the association's existing brand guidelines to ensure consistency with its identity. We built our communication campaign around two main characters: Annie and Léo, representing a person supported by and a volunteer of Petits Frères des Pauvres. They appear across every communication channel, creating attachment and helping readers identify with and feel concerned by the cause. The event's goal wasn't just to bring people together around dance, but also to raise awareness of the association and recruit new volunteers. We therefore designed flyers aimed at attracting a young, engaged audience. Finally, we created a series of goodies for the event, featuring Annie and Léo on every item alongside the original logo and brand guideline elements.`
+    ),
   },
   'brume': {
-    title: 'Brume',
-    body: window.LANG === 'en'
-      ? `An editorial project exploring texture, blur and print. Brume is a graphic exploration of the in-between — between visible and invisible, between form and matter.`
-      : `Ce livre fait partie d'une collection de trois éditions. La collection est née de l'envie de confronter l'écriture poétique aux regards de graphistes contemporains, et ce livret explore les poèmes à travers des illustrations. J'ai choisi de centrer mon édition de Brume sur la bande dessinée car j'ai voulu concevoir une bande dessinée qui puisse être regardée avec ou sans texte. Les personnages ont d'abord été dessinés à la main pour développer leur identité et explorer les liens possibles avec le poème. Les bandes dessinées étaient originalement en couleur, mais le résultat final était trop lourd pour un livre pensé comme léger et délicat. J'ai donc converti les dessins en bitmap afin d'obtenir un rendu plus léger et épuré, tout en renforçant l'esthétique de la bande dessinée et du pop art. Enfin, chaque édition de Brume est accompagnée d'une courte vidéo de feuilletage, offrant un effet visuel supplémentaire et privilégiant la lecture des images plutôt que celle du texte. Bien que toujours délicat, Brume s'apparente davantage à une œuvre d'art qu'à un livre destiné à la lecture régulièrement. La reliure, tout aussi fragile, fait pleinement partie de la composition au même titre que les dessins, et l'objet doit donc être manipulé avec soin et respect.`,
+    title: () => 'Brume',
+    body: () => window.t(
+      `Ce livre fait partie d'une collection de trois éditions. La collection est née de l'envie de confronter l'écriture poétique aux regards de graphistes contemporains, et ce livret explore les poèmes à travers des illustrations. J'ai choisi de centrer mon édition de Brume sur la bande dessinée car j'ai voulu concevoir une bande dessinée qui puisse être regardée avec ou sans texte. Les personnages ont d'abord été dessinés à la main pour développer leur identité et explorer les liens possibles avec le poème. Les bandes dessinées étaient originalement en couleur, mais le résultat final était trop lourd pour un livre pensé comme léger et délicat. J'ai donc converti les dessins en bitmap afin d'obtenir un rendu plus léger et épuré, tout en renforçant l'esthétique de la bande dessinée et du pop art. Enfin, chaque édition de Brume est accompagnée d'une courte vidéo de feuilletage, offrant un effet visuel supplémentaire et privilégiant la lecture des images plutôt que celle du texte. Bien que toujours délicat, Brume s'apparente davantage à une œuvre d'art qu'à un livre destiné à la lecture régulièrement. La reliure, tout aussi fragile, fait pleinement partie de la composition au même titre que les dessins, et l'objet doit donc être manipulé avec soin et respect.`,
+      `This book is part of a collection of three editions. The collection was born from a desire to confront poetic writing with the perspectives of contemporary graphic designers, and this booklet explores the poems through illustration. I chose to centre my edition of Brume on comic art, wanting to design a comic that could be read with or without text. The characters were first hand-drawn to develop their identity and explore possible connections with the poem. The comics were originally in colour, but the final result felt too heavy for a book meant to be light and delicate. I therefore converted the drawings to bitmap to achieve a lighter, more refined look while reinforcing the comic-book and pop-art aesthetic. Finally, each edition of Brume comes with a short flip-through video, adding an extra visual effect and prioritising the reading of images over text. Though always delicate, Brume feels closer to a work of art than a book meant for regular reading. The binding, just as fragile, is fully part of the composition alongside the drawings, and the object should therefore be handled with care and respect.`
+    ),
   },
   'star-guitar': {
-    title: 'Star Guitar',
-    body: window.LANG === 'en'
-      ? `An animation inspired by the Chemical Brothers' eponymous music video. A train travels through shifting landscapes — day, night, different climates — each carriage bearing the mark of its sonic environment.`
-      : `Inspired by the Chemical Brother's clip Star Guitar, mon idée était que le train traverse le jour et la nuit, ainsi que différents climats. En suivant son trajet, le train raconte une histoire de son environnement. J'ai choisi un thème bleu et turquoise pour le train afin d'ajouter une touche de couleur, en accord avec les rythmes fun et dynamiques de la musique, tout en complétant l'environnement naturel en arrière-plan. Chaque déclinaison existe en deux versions, une avec des fenêtres turquoise pour représenter les lumières éteintes pendant la journée, et une avec des lumières jaunes pour représenter les lumières allumées dans les wagons la nuit.`,
+    title: () => 'Star Guitar',
+    body: () => window.t(
+      `Inspired by the Chemical Brother's clip Star Guitar, mon idée était que le train traverse le jour et la nuit, ainsi que différents climats. En suivant son trajet, le train raconte une histoire de son environnement. J'ai choisi un thème bleu et turquoise pour le train afin d'ajouter une touche de couleur, en accord avec les rythmes fun et dynamiques de la musique, tout en complétant l'environnement naturel en arrière-plan. Chaque déclinaison existe en deux versions, une avec des fenêtres turquoise pour représenter les lumières éteintes pendant la journée, et une avec des lumières jaunes pour représenter les lumières allumées dans les wagons la nuit.`,
+      `Inspired by the Chemical Brothers' clip Star Guitar, my idea was to have the train travel through day and night, as well as different climates. As it follows its route, the train tells the story of its surrounding environment. I chose a blue and turquoise theme for the train to add a touch of colour, in keeping with the fun, dynamic rhythms of the music, while complementing the natural environment in the background. Each variation exists in two versions — one with turquoise windows representing lights off during the day, and one with yellow lights representing lit-up carriages at night.`
+    ),
   },
   'do-it-again-edition': {
-    title: 'Do It Again Édition',
-    body: window.LANG === 'en'
-      ? `An editorial project built around repetition and rhythm. The layout explores the page as a visual score — each spread replays the same graphic gesture in a slightly different form, creating a hypnotic progression from start to finish.`
-      : `Projet éditorial autour de la répétition et du rythme. La maquette explore la mise en page comme partition visuelle — chaque double-page rejoue un même geste graphique sous une forme légèrement différente, créant une progression hypnotique du début à la fin.`,
+    title: () => window.t('Do It Again Édition', 'Do It Again Editorial'),
+    body: () => window.t(
+      `Projet éditorial autour de la répétition et du rythme. La maquette explore la mise en page comme partition visuelle — chaque double-page rejoue un même geste graphique sous une forme légèrement différente, créant une progression hypnotique du début à la fin.`,
+      `An editorial project built around repetition and rhythm. The layout explores the page as a visual score — each spread replays the same graphic gesture in a slightly different form, creating a hypnotic progression from start to finish.`
+    ),
   },
   'do-it-again': {
-    title: 'Do It Again',
-    body: window.LANG === 'en'
-      ? `In this project, I created the visual identity for a fictitious tour by The Chemical Brothers, an iconic duo on the electronic music scene. Starting from the concept of a retrospective album gathering their greatest hits, I wanted to design a visual identity capable of representing that era on its own, while fitting harmoniously into the group's existing artistic direction. To achieve this, I chose to work with circular and geometric shapes, which can be easily juxtaposed with the recurring images and characters strongly present in the duo's earlier works.`
-      : `Dans ce projet, j'ai créé l'identité visuelle d'une tournée fictive de The Chemical Brothers, un duo emblématique de la scène de la musique électronique. En partant de l'idée d'un album rétrospectif regroupant leurs plus grands succès, j'ai souhaité concevoir une identité visuelle capable de représenter cette époque à elle seule, tout en s'intégrant harmonieusement à la direction artistique déjà existante du groupe. Pour cela, j'ai choisi de travailler avec des formes circulaires et géométriques, qui peuvent être facilement juxtaposées aux images et personnages récurrents fortement présents dans les œuvres plus anciennes du duo.`,
+    title: () => 'Do It Again',
+    body: () => window.t(
+      `Dans ce projet, j'ai créé l'identité visuelle d'une tournée fictive de The Chemical Brothers, un duo emblématique de la scène de la musique électronique. En partant de l'idée d'un album rétrospectif regroupant leurs plus grands succès, j'ai souhaité concevoir une identité visuelle capable de représenter cette époque à elle seule, tout en s'intégrant harmonieusement à la direction artistique déjà existante du groupe. Pour cela, j'ai choisi de travailler avec des formes circulaires et géométriques, qui peuvent être facilement juxtaposées aux images et personnages récurrents fortement présents dans les œuvres plus anciennes du duo.`,
+      `In this project, I created the visual identity for a fictitious tour by The Chemical Brothers, an iconic duo on the electronic music scene. Starting from the concept of a retrospective album gathering their greatest hits, I wanted to design a visual identity capable of representing that era on its own, while fitting harmoniously into the group's existing artistic direction. To achieve this, I chose to work with circular and geometric shapes, which can be easily juxtaposed with the recurring images and characters strongly present in the duo's earlier works.`
+    ),
   },
   'terrasses': {
-    title: 'Terrasses des Oliviers',
-    body: `Pendant ce stage j'étais chargée de dessiner les plantes et les terrasses pour le site internet et les réseaux sociaux de l'entreprise. J'ai ensuite transformé ces éléments en un guide afin de présenter le concept de l'entreprise, avec une courte animation 3D du livre.\n\nJ'ai travaillé à partir d'un image de référence, en supprimant la jonction entre le mur et le plafond pour créer un effet plus lumineux. Deux versions ont été réalisées, une avec flèches pour les clients et une sans pour les réseaux sociaux.\n\nJ'ai dessiné les plantes individuellement afin qu'elles puissent être utilisées seules ou sur tous les supports. Une approche graphique simplifiée, fondée sur des contrastes clair et foncé, permet une lisibilité optimale et une adaptabilité à toutes les échelles, contrairement aux fleurs plus détaillées.\n\nLa dernière étape de l'illustration consistait à assembler tous les éléments sur Photoshop. Deux versions ont été réalisées avec des balcons différents afin de refléter la diversité des appartements parisiens et de montrer un balcon moderne typique en parallèle du style haussmannien.`,
+    title: () => 'Terrasses des Oliviers',
+    body: () => window.t(
+      `Pendant ce stage j'étais chargée de dessiner les plantes et les terrasses pour le site internet et les réseaux sociaux de l'entreprise. J'ai ensuite transformé ces éléments en un guide afin de présenter le concept de l'entreprise, avec une courte animation 3D du livre.\n\nJ'ai travaillé à partir d'un image de référence, en supprimant la jonction entre le mur et le plafond pour créer un effet plus lumineux. Deux versions ont été réalisées, une avec flèches pour les clients et une sans pour les réseaux sociaux.\n\nJ'ai dessiné les plantes individuellement afin qu'elles puissent être utilisées seules ou sur tous les supports. Une approche graphique simplifiée, fondée sur des contrastes clair et foncé, permet une lisibilité optimale et une adaptabilité à toutes les échelles, contrairement aux fleurs plus détaillées.\n\nLa dernière étape de l'illustration consistait à assembler tous les éléments sur Photoshop. Deux versions ont été réalisées avec des balcons différents afin de refléter la diversité des appartements parisiens et de montrer un balcon moderne typique en parallèle du style haussmannien.`,
+      `During this internship I was responsible for drawing the plants and terraces for the company's website and social media. I then turned these elements into a guide to present the company's concept, accompanied by a short 3D animation of the book.\n\nI worked from a reference image, removing the join between the wall and ceiling to create a brighter effect. Two versions were produced — one with arrows for clients, and one without for social media.\n\nI drew the plants individually so they could be used on their own or across any medium. A simplified graphic approach, built on light and dark contrasts, ensures optimal legibility and adaptability at any scale, unlike more detailed flowers.\n\nThe final step of the illustration was assembling all the elements in Photoshop. Two versions were created with different balconies to reflect the diversity of Parisian apartments, showing a typical modern balcony alongside the Haussmannian style.`
+    ),
   },
   'paris': {
-    title: 'Paris',
-    body: `L'objectif du projet consistait à explorer les formes carrées et triangulaires dans la ville. J'ai choisi le noir et blanc afin de mieux souligner les lignes, les formes et les jeux d'ombres.`,
+    title: () => 'Paris',
+    body: () => window.t(
+      `L'objectif du projet consistait à explorer les formes carrées et triangulaires dans la ville. J'ai choisi le noir et blanc afin de mieux souligner les lignes, les formes et les jeux d'ombres.`,
+      `The goal of the project was to explore square and triangular shapes within the city. I chose black and white to better highlight the lines, shapes and play of shadows.`
+    ),
   },
   'whitby': {
-    title: 'Whitby',
-    body: `Une exploration de la ville historique de Whitby, qui s'est inspirée par ses racines gothiques tout en les réinterprétant de manière contemporaine.`,
+    title: () => 'Whitby',
+    body: () => window.t(
+      `Une exploration de la ville historique de Whitby, qui s'est inspirée par ses racines gothiques tout en les réinterprétant de manière contemporaine.`,
+      `An exploration of the historic town of Whitby, drawing on its gothic roots while reinterpreting them in a contemporary way.`
+    ),
   },
 };
 
@@ -290,7 +304,7 @@ function initContactForm(form) {
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    if (btn) { btn.disabled = true; btn.textContent = 'Envoi…'; }
+    if (btn) { btn.disabled = true; btn.textContent = window.t('Envoi…', 'Sending…'); }
 
     try {
       const data = new FormData(form);
@@ -308,8 +322,8 @@ function initContactForm(form) {
         throw new Error('server error');
       }
     } catch {
-      if (btn) { btn.disabled = false; btn.textContent = 'Envoyer'; }
-      alert('Une erreur est survenue, veuillez réessayer.');
+      if (btn) { btn.disabled = false; btn.textContent = window.t('Envoyer', 'Send'); }
+      alert(window.t('Une erreur est survenue, veuillez réessayer.', 'An error occurred, please try again.'));
     }
   });
 }
@@ -325,8 +339,8 @@ function initReadMe(btn) {
     overlay.innerHTML = `
       <div class="rm-card">
         <button class="rm-close">✕</button>
-        <h3 class="rm-title">${content.title}</h3>
-        <div class="rm-body">${content.body.split('\n\n').map(p => `<p style="margin-bottom:0.8em">${p}</p>`).join('')}</div>
+        <h3 class="rm-title">${content.title()}</h3>
+        <div class="rm-body">${content.body().split('\n\n').map(p => `<p style="margin-bottom:0.8em">${p}</p>`).join('')}</div>
       </div>`;
     document.body.appendChild(overlay);
 
