@@ -471,7 +471,7 @@ export const pages = {
             <div class="aph-item aph-item--1" style="background:transparent"></div>
             <div class="aph-item aph-item--2 aph-item--text" style="background:transparent">
               <span class="aph-title">À PROPOS</span>
-              <button class="aph-scroll-btn" id="aph-scroll-btn">${t('Défiler', 'Scroll')}</button>
+              <button class="aph-scroll-btn" id="aph-scroll-btn">${t('Défiler', 'Scroll')} <span class="aph-scroll-arrow">→</span></button>
             </div>
             <div class="aph-item aph-item--3" style="background:transparent"></div>
             <div class="aph-item aph-item--4" style="background:transparent"><img src="/IMG_0153%202.jpg" alt="Sofia Lucas" style="width:100%;height:100%;object-fit:contain;display:block;"></div>
