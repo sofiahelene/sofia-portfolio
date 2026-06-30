@@ -1744,34 +1744,3 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .lang-btn:hover {
   background: rgba(255,255,255,0.15);
 }
-
-/* ── Shooting star (About page) ── */
-.shooting-star {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 56px;
-  height: auto;
-  pointer-events: none;
-  z-index: 60;
-  opacity: 0;
-  display: none;
-  will-change: transform, opacity;
-}
-.shooting-star.active {
-  display: block;
-  animation: shooting-star-fly 7s ease-in-out infinite;
-}
-/* Arc: left-center -> top-center -> right-center -> off-screen.
-   Flight is 2s of the 7s cycle (2s flight + 5s pause), so each
-   stop below is placed at its time-fraction * (2/7 = 28.571%). */
-@keyframes shooting-star-fly {
-  0%     { transform: translate(-15vw, 20vh) rotate(117deg) scale(0.85); opacity: 0; }
-  1.43%  { opacity: 1; }
-  9.52%  { transform: translate(25vw, 9vh)   rotate(121deg) scale(1);    opacity: 1; }
-  14.29% { transform: translate(50vw, 6vh)   rotate(132deg) scale(1);    opacity: 1; }
-  19.05% { transform: translate(75vw, 9vh)   rotate(143deg) scale(1);    opacity: 1; }
-  26%    { opacity: 1; }
-  28.57% { transform: translate(115vw, 20vh) rotate(147deg) scale(0.85); opacity: 0; }
-  100%   { transform: translate(115vw, 20vh) rotate(147deg) scale(0.85); opacity: 0; }
-}

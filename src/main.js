@@ -66,9 +66,6 @@ function navigateTo(pageId) {
     if (!incoming) return;
     incoming.querySelectorAll('.proj-logo-anim').forEach(colorizeImg);
 
-    const shootingStar = document.getElementById('shooting-star');
-    if (shootingStar) shootingStar.classList.toggle('active', pageId === 'apropos');
-
     if (pageId === 'home') {
       animateHomeEntrance(incoming, false);
       incoming.querySelectorAll('video').forEach(v => {
