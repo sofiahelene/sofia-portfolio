@@ -1744,3 +1744,29 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .lang-btn:hover {
   background: rgba(255,255,255,0.15);
 }
+
+/* ── Shooting star (About page) ── */
+.shooting-star {
+  position: fixed;
+  top: 9vh;
+  left: 0;
+  width: 56px;
+  height: auto;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0;
+  display: none;
+  will-change: transform, opacity;
+}
+.shooting-star.active {
+  display: block;
+  animation: shooting-star-fly 6.5s linear infinite;
+}
+@keyframes shooting-star-fly {
+  0%     { transform: translate(-15vw, 0)    rotate(132deg) scale(0.9); opacity: 0; }
+  3%     { opacity: 1; }
+  10%    { transform: translate(25vw, -2vh)  rotate(132deg) scale(1);   opacity: 1; }
+  20%    { transform: translate(85vw, 3vh)   rotate(132deg) scale(1);   opacity: 1; }
+  23.08% { transform: translate(115vw, 5vh)  rotate(132deg) scale(0.9); opacity: 0; }
+  100%   { transform: translate(115vw, 5vh)  rotate(132deg) scale(0.9); opacity: 0; }
+}
