@@ -258,7 +258,7 @@ function initAboutHero(page) {
   const items = [...page.querySelectorAll('.aph-item')];
   if (!items.length) return;
 
-  const SECTION = 1500;
+  const SECTION = 700;
   const xSpeeds = [0, -0.4, -0.75, -0.2];
 
   let current = 0;

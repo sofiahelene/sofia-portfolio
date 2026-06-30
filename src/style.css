@@ -1067,7 +1067,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .aph-root {
   flex-shrink: 0;
   position: relative;
-  width: calc(1500px + 100vw);
+  width: calc(700px + 100vw);
   height: 100%;
   pointer-events: none;
 }
@@ -1154,23 +1154,26 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   overflow-y: auto;
   position: relative;
   z-index: 2;
-  padding: 3rem 3rem 3rem 4rem;
+  padding: 3rem;
   box-sizing: border-box;
   margin-left: 0;
   max-width: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-.about-role {
-  font-size: 0.52rem; font-weight: 500;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: #00bbd1; margin-bottom: 0.8rem;
+.about-lead,
+.about-content p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #00bbd1;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-bottom: 1.2rem;
 }
-.about-lead { font-size: 0.95rem; font-weight: 700; color: #0a0a0a; margin-bottom: 0.7rem; line-height: 1.3; }
-.about-content p { font-size: 0.65rem; line-height: 1.75; color: #444; margin-bottom: 0.6rem; }
-.about-refs {
-  margin-top: 1rem; padding-top: 0.9rem; border-top: 1px solid #e8e8e8;
-  font-size: 0.55rem; color: #888; letter-spacing: 0.06em;
-}
-.about-refs-lbl { font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-right: 0.5rem; color: #bbb; }
 
 /* ── Contact ── */
 /* ── Contact ribbon ── */

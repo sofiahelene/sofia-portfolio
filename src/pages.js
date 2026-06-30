@@ -480,15 +480,10 @@ export const pages = {
         <div class="aph-fade"></div>
       </div>
       <div class="about-content">
-        <p class="about-role">${t('Junior Art Director', 'Junior Art Director')}</p>
         <p class="about-lead">${t('Bonjour ! Je suis Sofia, directrice artistique britannique.', 'Hello! I\'m Sofia, a British art director.')}</p>
         <p>${t('Après j\'ai obtenu mon bachelor en français et sciences politiques au Royaume-Uni, je me suis installée à Paris pour me tourner vers le milieu créatif et obtenir mon bachelor en Direction Artistique à LISAA Paris.', 'After completing my bachelor\'s degree in French and Political Science in the UK, I moved to Paris to turn towards the creative field and complete my bachelor\'s in Art Direction at LISAA Paris.')}</p>
         <p>${t('Mon portfolio reflète un mélange d\'influences culturelles, façonné par les lieux que j\'ai traversés et les études que j\'ai suivies.', 'My portfolio reflects a blend of cultural influences, shaped by the places I\'ve lived and the studies I\'ve pursued.')}</p>
         <p>${t('En dehors de mes études, j\'aime l\'escalade, la musique électronique, le cinéma, la cuisine et la lecture. Mes inspirations incluent Yorgos Lanthimos, Wolfgang Tillmans, Sofia Coppola, Jamie Hewlett et Robert Valley.', 'Outside of my studies, I enjoy climbing, electronic music, cinema, cooking and reading. My inspirations include Yorgos Lanthimos, Wolfgang Tillmans, Sofia Coppola, Jamie Hewlett and Robert Valley.')}</p>
-        <div class="about-refs">
-          <span class="about-refs-lbl">${t('Références', 'References')}</span>
-          Lanthimos · Coppola · Tillmans · Hewlett · Valley
-        </div>
       </div>
     </div>
   `,
