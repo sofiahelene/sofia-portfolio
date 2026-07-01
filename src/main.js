@@ -35,6 +35,13 @@ colorizeImg(document.querySelector('.pf-logo-img'));
 window.LANG = 'fr';
 window.t = (fr, en) => window.LANG === 'en' ? en : fr;
 
+// ── Session restore ───────────────────────────────────────────────────────────
+// sessionStorage survives normal refresh (F5) but clears on hard refresh
+// (Ctrl+Shift+R / Cmd+Shift+R) and new sessions — exactly the signal we need.
+const _savedLang = sessionStorage.getItem('pf-lang');
+const _savedPage = sessionStorage.getItem('pf-page');
+const _isReturning = (_savedLang === 'fr' || _savedLang === 'en') && !!_savedPage;
+
 // ── Router ────────────────────────────────────────────────────────────────────
 const pfPage        = document.getElementById('pf-page');
 let gooeyCleanup    = null;
@@ -47,6 +54,7 @@ function navigateTo(pageId) {
   if (dfCleanup)         { dfCleanup();         dfCleanup         = null; }
   if (window._lbCleanup) { window._lbCleanup(); window._lbCleanup = null; }
   currentPage = pageId;
+  sessionStorage.setItem('pf-page', pageId);
 
   // Hide the star splash canvas when navigating away from home
   const sc = document.getElementById('splash-canvas');
@@ -1457,6 +1465,7 @@ document.getElementById('pf-app').addEventListener('click', e => {
 // ── Language splash ───────────────────────────────────────────────────────────
 function applyLang(lang) {
   window.LANG = lang;
+  sessionStorage.setItem('pf-lang', lang);
   document.documentElement.lang = lang;
   const navProjets = document.getElementById('nav-projets');
   const navApropos = document.getElementById('nav-apropos');
@@ -1482,14 +1491,31 @@ const startSite = (lang) => {
 document.getElementById('lang-fr').addEventListener('click', () => startSite('fr'));
 document.getElementById('lang-en').addEventListener('click', () => startSite('en'));
 
-// Load the site immediately so the nav/app is interactive behind the language splash
-navigateTo('home');
+if (_isReturning) {
+  // Normal refresh — skip splash entirely, restore session state
+  applyLang(_savedLang);
+  langSplash.classList.add('lang-hidden');
+  navigateTo(_savedPage);
+} else {
+  // First visit or hard refresh — load home behind the splash as usual
+  navigateTo('home');
+}
 
 // ── Splash canvas ─────────────────────────────────────────────────────────────
 const splashCanvas  = document.getElementById('splash-canvas');
 const splashCtx     = splashCanvas.getContext('2d');
 const projectsLayer = document.getElementById('projects-layer');
 const hint          = document.getElementById('scroll-hint');
+
+// Skip star canvas entirely on normal refresh
+if (_isReturning) {
+  handedOff = true;
+  zoomTarget = 1;
+  zoomProgress = 1;
+  splashCanvas.style.display = 'none';
+  hint.style.display = 'none';
+  projectsLayer.classList.add('active');
+}
 
 const SENSITIVITY    = 0.012;
 const STAR_SCALE_MIN = 0.18;
