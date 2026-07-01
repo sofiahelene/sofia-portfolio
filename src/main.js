@@ -1446,6 +1446,8 @@ function applyLang(lang) {
   const navApropos = document.getElementById('nav-apropos');
   if (navProjets) { navProjets.textContent = lang === 'en' ? 'PROJECTS' : 'PROJETS'; initLetterSwap(navProjets); }
   if (navApropos) { navApropos.textContent = lang === 'en' ? 'ABOUT' : 'À PROPOS'; initLetterSwap(navApropos); }
+  const scrollHint = document.getElementById('scroll-hint');
+  if (scrollHint) scrollHint.textContent = lang === 'en' ? 'scroll' : 'défiler';
   // Re-colorize header logo in case the img reloaded during language switch
   const logoImg = document.querySelector('.pf-logo-img');
   if (logoImg) colorizeImg(logoImg);
