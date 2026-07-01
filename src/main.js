@@ -66,6 +66,13 @@ function navigateTo(pageId) {
     if (!incoming) return;
     incoming.querySelectorAll('.proj-logo-anim').forEach(colorizeImg);
 
+    // Clear residual transform after page-in animation — an identity transform
+    // still creates a stacking context that can clip overflowing child content.
+    incoming.addEventListener('animationend', () => {
+      incoming.style.transform = '';
+      incoming.style.opacity = '';
+    }, { once: true });
+
     if (pageId === 'home') {
       animateHomeEntrance(incoming, false);
       incoming.querySelectorAll('video').forEach(v => {
