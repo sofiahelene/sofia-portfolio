@@ -373,7 +373,7 @@ export const pages = {
         <div class="sc-viewport">
           <div class="sc-container">
             <div class="sc-item"><img src="/images/KAP/edition/1.jpg" alt="1.jpg" loading="lazy"></div>
-            <div class="sc-item"><video autoplay muted loop playsinline src="/images/KAP/edition/2.mp4" style="height:100%;width:auto;display:block;"></video></div>
+            <div class="sc-item"><video autoplay muted loop playsinline src="/images/KAP/edition/2.mp4" data-trim-end="2" style="height:100%;width:auto;display:block;"></video></div>
           </div>
         </div>
       </div>

@@ -421,7 +421,16 @@ function initToggle(toggle) {
             emblaInstances[id] = true;
           }
           // Autoplay videos inside the revealed panel
-          el.querySelectorAll('video').forEach(v => v.play().catch(() => {}));
+          el.querySelectorAll('video').forEach(v => {
+            v.play().catch(() => {});
+            const trimEnd = parseFloat(v.dataset.trimEnd);
+            if (trimEnd > 0 && !v._trimWired) {
+              v._trimWired = true;
+              v.addEventListener('timeupdate', () => {
+                if (v.duration && v.currentTime >= v.duration - trimEnd) v.currentTime = 0;
+              });
+            }
+          });
           // Init book for charte panel
           if (key === 'charte') initBook();
           // Init flow art for identite panel
