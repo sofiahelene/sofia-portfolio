@@ -149,15 +149,14 @@ function navigateTo(pageId) {
           if (activeBtn && activeBtn.dataset.view === 'identite') {
             setTimeout(() => initFlowArt(), 50);
           }
-          // Wire motion play/pause if motion is the default active tab
+          // Wire motion play/pause if motion is the default active tab (don't autoplay)
           if (activeBtn && activeBtn.dataset.view === 'motion') {
             const motionPanel = document.getElementById('sc-motion');
             if (motionPanel) {
               const vid = motionPanel.querySelector('video');
               const playBtn = motionPanel.querySelector('.motion-playpause');
               if (vid && playBtn) {
-                vid.play().catch(() => {});
-                playBtn.textContent = '❚❚';
+                playBtn.textContent = '▶';
                 playBtn.onclick = () => {
                   if (vid.paused) { vid.play(); playBtn.textContent = '❚❚'; }
                   else { vid.pause(); playBtn.textContent = '▶'; }
@@ -433,11 +432,12 @@ function initToggle(toggle) {
           const bookCtrl = document.getElementById('book-controls');
           if (bookCtrl) bookCtrl.style.display = (isActive && key === 'charte') ? 'flex' : 'none';
 
-          // Wire play/pause for motion panel
+          // Wire play/pause for motion panel — restart from beginning on tab click
           if (isActive && key === 'motion') {
             const vid = el.querySelector('video');
             const playBtn = el.querySelector('.motion-playpause');
             if (vid) {
+              vid.currentTime = 0;
               vid.play().catch(() => {});
               if (playBtn) {
                 playBtn.textContent = '❚❚';

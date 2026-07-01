@@ -324,7 +324,7 @@ export const pages = {
         <button class="readme-btn" data-readme="petits-freres">${t('Lisez-moi', 'Read me')}</button>
       </div>
       <div class="pf-motion-panel" id="sc-motion" style="display:none;">
-        <video autoplay muted loop playsinline src="/videos/Take3_2.mp4" class="pf-motion-video"></video>
+        <video muted loop playsinline src="/videos/Take3_2.mp4" class="pf-motion-video"></video>
       </div>
       <div class="proj-story-strip" id="sc-contexte" style="display:none;">
         <div class="sc-viewport">
