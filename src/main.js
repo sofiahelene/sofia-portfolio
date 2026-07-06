@@ -1689,13 +1689,21 @@ gsap.ticker.add(() => {
   resize();
   window.addEventListener('resize', resize);
 
+  // Use WHITE cursor only while the splash backgrounds are still opaque enough to
+  // contrast against. Once either starts fading the page beneath becomes visible
+  // (white), so we switch to BLUE before the cursor disappears into the background.
   function onSplash() {
     const langSplash = document.getElementById('lang-splash');
     const splashCanvas = document.getElementById('splash-canvas');
-    const langVisible = langSplash && !langSplash.classList.contains('lang-hidden');
-    const starVisible = splashCanvas && splashCanvas.style.display !== 'none';
+    const langOpacity = parseFloat(langSplash?.style.opacity ?? '1');
+    const langVisible = langSplash && !langSplash.classList.contains('lang-hidden') && langOpacity > 0.5;
+    const starOpacity = parseFloat(splashCanvas?.style.opacity ?? '1');
+    const starVisible = splashCanvas && splashCanvas.style.display !== 'none' && starOpacity > 0.5;
     return langVisible || starVisible;
   }
+
+  // Hide cursor dot when mouse leaves the browser window
+  document.addEventListener('mouseleave', () => { mx = -999; my = -999; });
 
   window.addEventListener('mousemove', e => {
     px = mx; py = my;
