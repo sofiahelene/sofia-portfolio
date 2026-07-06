@@ -220,7 +220,7 @@ export const pages = {
       <div class="proj-story-strip" id="sc-identite">
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0">
-            ${['Slide plans.jpg','Slide plans2.jpg','Slide plans3.jpg','Slide plans4.jpg','Slide plans5.jpg']
+            ${['Slide plans1.jpg','Slide plans2.jpg','Slide plans3.jpg','Slide plans4.jpg','Slide plans5.jpg']
               .map(f => `<div class="sc-item"><img src="/DO%20IT%20AGAIN/SLIDES/${encodeURIComponent(f)}" alt="${f}" loading="lazy" style="object-fit:contain;background:#fff;"></div>`).join('')}
           </div>
         </div>
