@@ -1507,16 +1507,6 @@ const splashCtx     = splashCanvas.getContext('2d');
 const projectsLayer = document.getElementById('projects-layer');
 const hint          = document.getElementById('scroll-hint');
 
-// Skip star canvas entirely on normal refresh
-if (_isReturning) {
-  handedOff = true;
-  zoomTarget = 1;
-  zoomProgress = 1;
-  splashCanvas.style.display = 'none';
-  hint.style.display = 'none';
-  projectsLayer.classList.add('active');
-}
-
 const SENSITIVITY    = 0.012;
 const STAR_SCALE_MIN = 0.18;
 const STAR_SCALE_MAX = 8.0;
@@ -1526,6 +1516,16 @@ let zoomTarget   = 0;  // raw scroll input drives this
 let zoomProgress = 0;  // smoothed display value
 let hintGone     = false;
 let handedOff    = false;
+
+// Skip star canvas entirely on normal refresh (must be after let declarations above)
+if (_isReturning) {
+  handedOff = true;
+  zoomTarget = 1;
+  zoomProgress = 1;
+  splashCanvas.style.display = 'none';
+  hint.style.display = 'none';
+  projectsLayer.classList.add('active');
+}
 let starImg       = null;
 let starCentroidX = 0.5;  // fractional position of star's visual centre within the image
 let starCentroidY = 0.5;
@@ -1670,6 +1670,14 @@ gsap.ticker.add(() => {
   const FADE_DELAY = 120;
   const FADE_DURATION = 200;
 
+  // The dot is a CSS element positioned directly in mousemove — no rAF dependency,
+  // so it can never disappear due to loop interruption or canvas issues.
+  const dot = document.createElement('div');
+  dot.id = 'pf-cursor-dot';
+  dot.style.cssText = `position:fixed;width:${RADIUS*2}px;height:${RADIUS*2}px;border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);top:0;left:0;display:none;background:${BLUE};`;
+  document.body.appendChild(dot);
+
+  // Canvas is used only for the trailing tail line
   const canvas = document.createElement('canvas');
   canvas.id = 'pf-cursor-canvas';
   document.body.appendChild(canvas);
@@ -1689,25 +1697,35 @@ gsap.ticker.add(() => {
   resize();
   window.addEventListener('resize', resize);
 
-  // Use WHITE cursor only while the splash backgrounds are still opaque enough to
-  // contrast against. Once either starts fading the page beneath becomes visible
-  // (white), so we switch to BLUE before the cursor disappears into the background.
+  // WHITE only while splash backgrounds are opaque; switch to BLUE as they fade
+  // so the cursor never blends into the white page behind a fading overlay.
   function onSplash() {
     const langSplash = document.getElementById('lang-splash');
     const splashCanvas = document.getElementById('splash-canvas');
     const langOpacity = parseFloat(langSplash?.style.opacity ?? '1');
     const langVisible = langSplash && !langSplash.classList.contains('lang-hidden') && langOpacity > 0.5;
-    const starOpacity = parseFloat(splashCanvas?.style.opacity ?? '1');
+    const starOpacity = parseFloat(splashCanvas?.style.opacity || '1');
     const starVisible = splashCanvas && splashCanvas.style.display !== 'none' && starOpacity > 0.5;
     return langVisible || starVisible;
   }
 
-  // Hide cursor dot when mouse leaves the browser window
-  document.addEventListener('mouseleave', () => { mx = -999; my = -999; });
+  // Hide when mouse leaves the browser window (relatedTarget null = left to OS/chrome)
+  document.documentElement.addEventListener('mouseleave', e => {
+    if (e.relatedTarget === null) {
+      mx = -999; my = -999;
+      dot.style.display = 'none';
+    }
+  });
 
   window.addEventListener('mousemove', e => {
     px = mx; py = my;
     mx = e.clientX; my = e.clientY;
+
+    // Position the dot immediately — no frame delay
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+    dot.style.display = 'block';
+
     tailOpacity = 1;
     moving = true;
     if (fadeTimer) { clearTimeout(fadeTimer); fadeTimer = null; fadeStart = null; }
@@ -1719,6 +1737,12 @@ gsap.ticker.add(() => {
 
   function draw(now) {
     requestAnimationFrame(draw);
+
+    // Keep dot colour in sync with splash state
+    const color = onSplash() ? WHITE : BLUE;
+    dot.style.background = color;
+
+    // Canvas handles only the tail
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     if (mx < 0) return;
 
@@ -1726,8 +1750,6 @@ gsap.ticker.add(() => {
       const elapsed = now - fadeStart;
       tailOpacity = Math.max(0, 1 - elapsed / FADE_DURATION);
     }
-
-    const color = onSplash() ? WHITE : BLUE;
 
     if (tailOpacity > 0 && px > -999) {
       const dx = px - mx, dy = py - my;
@@ -1748,13 +1770,6 @@ gsap.ticker.add(() => {
         ctx.restore();
       }
     }
-
-    ctx.save();
-    ctx.fillStyle = color;
-    ctx.beginPath();
-    ctx.arc(mx, my, RADIUS, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
   }
 
   requestAnimationFrame(draw);

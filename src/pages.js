@@ -206,7 +206,6 @@ export const pages = {
           <button class="pf-toggle-btn" data-view="edition">${t('Édition', 'Editorial')}</button>
           <button class="pf-toggle-btn" data-view="motion">Motion</button>
           <button class="pf-toggle-btn" data-view="uxui">UX/UI</button>
-          <button class="pf-toggle-btn" data-view="charte">${t('Charte Graphique', 'Brand Guidelines')}</button>
         </div>
         <button class="readme-btn" data-readme="do-it-again">${t('Lisez-moi', 'Read me')}</button>
         <span class="brume-note" id="dia-edition-note" style="display:none">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition is printed on 180g and 300g gloss paper')}</span>
@@ -254,12 +253,6 @@ export const pages = {
           <div style="display:flex;gap:0.75rem;align-items:flex-start;overflow-x:auto;">
             ${['1','2','3','4'].map(n => `<img src="/DO%20IT%20AGAIN/Motion/${n}.png" alt="Storyboard ${n}" style="height:80vh;width:auto;flex-shrink:0;display:block;">`).join('')}
           </div>
-        </div>
-      </div>
-      <div id="sc-charte" style="display:none;margin-top:2cm;">
-        <div class="book-wrap">
-          <p class="book-loading" id="book-loading">${t('Chargement…', 'Loading…')}</p>
-          <div class="book-container" id="book-container" style="display:none;"></div>
         </div>
       </div>
       <div id="sc-uxui" style="display:none;" class="sc-uxui-panel">
