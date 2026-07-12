@@ -186,7 +186,7 @@ html, body {
   filter: blur(10px) invert(1);
 
   --white:       #ffffff;
-  --black:       #000000;
+  --black:       #210a0b;
   --transparent: transparent;
 
   background-image:
@@ -1516,7 +1516,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 /* ── Slide 1 : Cover ──────────────────────────────────────────────────────── */
 .slide1-inner { padding: 0; gap: 0; justify-content: flex-start; }
 .slide1-header {
-  background: #000;
+  background: #210a0b;
   padding: clamp(1.2rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 3.5rem);
   flex-shrink: 0;
 }
@@ -1615,8 +1615,8 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   font-style: italic;
 }
 .slide3-carousel { flex: 1; min-height: 0; }
-.slide3-carousel .sc-viewport { background: #000; }
-.slide3-carousel .sc-item { background: #000; }
+.slide3-carousel .sc-viewport { background: #210a0b; }
+.slide3-carousel .sc-item { background: #210a0b; }
 
 /* ── Slide image layout ───────────────────────────────────────────────────── */
 /* flow-art-container is the element GSAP rotates — make it fill 100vh and hold the slide image */
@@ -1624,7 +1624,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   position: relative;
   padding: 0;
   min-height: 100vh;
-  background: #000;
+  background: #210a0b;
 }
 .flow-slide .slide-img {
   width: 100%;
@@ -1632,7 +1632,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   object-fit: contain;
   object-position: center;
   display: block;
-  background: #000;
+  background: #210a0b;
 }
 /* Marquee overlays the orange band on slide 2 */
 .slide2-marquee-wrap {
@@ -1677,7 +1677,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   width: 150px;
   height: 200px;
   position: relative;
-  background: #000;
+  background: #210a0b;
 }
 .affiche-img {
   position: absolute;

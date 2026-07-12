@@ -52,7 +52,7 @@ export const pages = {
       <div class="proj-toc-inner">
       <div class="proj-toc-spacer"></div>
       <div class="proj-logo-anim-wrap">
-        <img src="/STAR.png" alt="" class="proj-logo-anim" aria-hidden="true">
+        <img src="/images/etoilebleu2.png" alt="" class="proj-logo-anim" aria-hidden="true">
       </div>
       <div class="proj-toc-wrap">
         <p class="proj-discover-heading">${t('Choisissez un projet ou faites défiler pour découvrir', 'Choose a project or scroll down to discover')}</p>
@@ -449,7 +449,7 @@ export const pages = {
     <div class="page page-cv">
       <img src="/cv.png" alt="CV Sofia Lucas" class="cv-img">
       <div class="cv-logo-wrap">
-        <img src="/STAR.png" alt="" class="proj-logo-anim" aria-hidden="true">
+        <img src="/images/etoilebleu2.png" alt="" class="proj-logo-anim" aria-hidden="true">
       </div>
     </div>
   `,
