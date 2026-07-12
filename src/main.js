@@ -6,30 +6,10 @@ import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl'
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-// ── Logo colour ───────────────────────────────────────────────────────────────
-// CSS filters cannot reliably produce an exact colour across rendering engines.
-// Instead we pixel-replace: every opaque pixel becomes exactly #00bbd1.
-function colorizeImg(img) {
-  const apply = () => {
-    const c = document.createElement('canvas');
-    c.width = img.naturalWidth; c.height = img.naturalHeight;
-    const ctx = c.getContext('2d');
-    ctx.drawImage(img, 0, 0);
-    const id = ctx.getImageData(0, 0, c.width, c.height);
-    const d = id.data;
-    for (let i = 0; i < d.length; i += 4) {
-      if (d[i + 3] > 0) { d[i] = 0; d[i + 1] = 187; d[i + 2] = 209; }
-    }
-    ctx.putImageData(id, 0, 0);
-    img.src = c.toDataURL('image/png');
-    img.style.filter = 'none';
-  };
-  if (img.complete && img.naturalWidth) apply();
-  else img.addEventListener('load', apply, { once: true });
-}
-
-// Colorize header logo immediately
-colorizeImg(document.querySelector('.pf-logo-img'));
+// The new logo (etoilebleu2.png) is already in the correct brand colour — no
+// pixel-replace needed. colorizeImg is kept as a no-op stub so existing call
+// sites don't break.
+function colorizeImg(img) { /* logo already cyan — no recolour needed */ }
 
 // ── Language ──────────────────────────────────────────────────────────────────
 window.LANG = 'fr';
