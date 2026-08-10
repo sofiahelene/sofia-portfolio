@@ -190,7 +190,7 @@
       </div>
       <div class="pf-motion-panel" id="sc-motion" style="margin-top:1cm">
         <div class="motion-player">
-          <video loop playsinline src="/videos/FINALVIDEO.mp4" class="pf-motion-video"></video>
+          <video loop playsinline src="/videos/Trainanimation_1.MP4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
       </div>
@@ -236,7 +236,7 @@
       </div>
       <div class="pf-motion-panel" id="sc-motion" style="display:none;margin-top:1cm">
         <div class="motion-player">
-          <video loop playsinline src="/videos/LUCAS-Sofia-dossiermotion.mp4" class="pf-motion-video"></video>
+          <video loop playsinline src="/videos/FINALVIDEO.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
       </div>
