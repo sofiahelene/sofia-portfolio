@@ -213,7 +213,6 @@
         </div>
         <button class="readme-btn" data-readme="do-it-again">${j("Lisez-moi","Read me")}</button>
         <span class="brume-note" id="dia-edition-note" style="display:none">${j("Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g","Do It Again Collectors Edition is printed on 180g and 300g gloss paper")}</span>
-        <button class="storyboard-btn" id="storyboard-btn" style="display:none;">Storyboard</button>
         <div class="book-controls" id="book-controls" style="display:none;">
           <button class="book-ctrl-btn" id="book-prev">← ${j("Préc.","Prev.")}</button>
           <span class="book-page-label" id="book-page-label"></span>
@@ -238,14 +237,6 @@
         <div class="motion-player">
           <video loop playsinline src="/videos/FINALVIDEO.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
-        </div>
-      </div>
-      <div class="sb-overlay" id="sb-overlay" style="display:none;">
-        <div class="sb-card" id="sb-card">
-          <button class="sb-close" id="sb-close">✕</button>
-          <div style="display:flex;gap:0.75rem;align-items:flex-start;overflow-x:auto;">
-            ${["1","2","3","4"].map(o=>`<img src="/DO%20IT%20AGAIN/Motion/${o}.png" alt="Storyboard ${o}" style="height:80vh;width:auto;flex-shrink:0;display:block;">`).join("")}
-          </div>
         </div>
       </div>
       <div id="sc-uxui" style="display:none;" class="sc-uxui-panel">
