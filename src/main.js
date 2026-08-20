@@ -433,7 +433,7 @@ function initToggle(toggle) {
             ];
             let current = 0;
             const wrap = document.createElement('div');
-            wrap.style.cssText = 'position:relative;margin-top:2cm;';
+            wrap.style.cssText = 'position:relative;margin-top:2cm;overflow:hidden;';
             const iframe = document.createElement('iframe');
             iframe.src = mockups[0];
             iframe.dataset.mockupSrc = mockups[0];
@@ -455,8 +455,19 @@ function initToggle(toggle) {
             };
             prev.addEventListener('click', () => swap(-1));
             next.addEventListener('click', () => swap(1));
+            // Transparent overlay so the parent cursor keeps tracking over the iframe
+            const overlay = document.createElement('div');
+            overlay.style.cssText = 'position:absolute;inset:0;z-index:5;cursor:none;';
+            // On mousedown, step aside so drag/zoom reaches the iframe
+            overlay.addEventListener('mousedown', () => {
+              overlay.style.pointerEvents = 'none';
+            });
+            window.addEventListener('mouseup', () => {
+              overlay.style.pointerEvents = '';
+            });
             wrap.appendChild(prev);
             wrap.appendChild(iframe);
+            wrap.appendChild(overlay);
             wrap.appendChild(next);
             el.appendChild(wrap);
           }
