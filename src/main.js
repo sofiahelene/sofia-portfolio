@@ -371,7 +371,7 @@ function initReadMe(btn) {
 // ── Toggle ────────────────────────────────────────────────────────────────────
 function initToggle(toggle) {
   const btns = toggle.querySelectorAll('.pf-toggle-btn');
-  const panels = { identite: 'sc-identite', contexte: 'sc-contexte', motion: 'sc-motion', livrables: 'sc-livrables', images: 'sc-images', illustration: 'sc-illustration', edition: 'sc-edition', logo: 'sc-logo', affiche: 'sc-affiche', goodies: 'sc-goodies', charte: 'sc-charte', uxui: 'sc-uxui', paris: 'sc-paris', whitby: 'sc-whitby', diptyques: 'sc-diptyques' };
+  const panels = { identite: 'sc-identite', contexte: 'sc-contexte', motion: 'sc-motion', livrables: 'sc-livrables', images: 'sc-images', illustration: 'sc-illustration', edition: 'sc-edition', logo: 'sc-logo', affiche: 'sc-affiche', goodies: 'sc-goodies', charte: 'sc-charte', uxui: 'sc-uxui', paris: 'sc-paris', whitby: 'sc-whitby', diptyques: 'sc-diptyques', mockup3d: 'sc-mockup3d' };
   const emblaInstances = {};
 
   // Pre-init Embla only on the active (visible) panel; lazy-init hidden ones on first show
@@ -419,6 +419,14 @@ function initToggle(toggle) {
               });
             }
           });
+          // Lazy-load 3D mockup iframe only on first click
+          if (key === 'mockup3d' && !el.querySelector('iframe')) {
+            const iframe = document.createElement('iframe');
+            iframe.src = '/DO%20IT%20AGAIN/MOCKUP/cap-viewer/cap-mockup.html';
+            iframe.style.cssText = 'border:none;width:100%;height:80vh;display:block;';
+            iframe.allowFullscreen = true;
+            el.appendChild(iframe);
+          }
           // Init book for charte panel
           if (key === 'charte') initBook();
           // Init flow art for identite panel
