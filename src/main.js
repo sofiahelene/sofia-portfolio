@@ -423,7 +423,7 @@ function initToggle(toggle) {
           if (key === 'mockup3d' && !el.querySelector('iframe')) {
             const iframe = document.createElement('iframe');
             iframe.src = '/DO%20IT%20AGAIN/MOCKUP/cap-viewer/cap-mockup.html';
-            iframe.style.cssText = 'border:none;width:100%;height:60vh;display:block;';
+            iframe.style.cssText = 'border:none;width:100%;height:60vh;display:block;margin-top:2cm;';
             iframe.allowFullscreen = true;
             el.appendChild(iframe);
           }
