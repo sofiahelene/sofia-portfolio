@@ -232,7 +232,7 @@ sc.near = 0.05; sc.far = 3; sc.updateProjectionMatrix();
 
 const VIEWS = {
   front: [0, 0.10, 0.44],
-  'three-quarter': [0.30, 0.17, 0.36],
+  'three-quarter': [0.18, 0.10, 0.22],
   side: [0.46, 0.09, 0.03],
   back: [-0.12, 0.15, -0.42],
   above: [0.15, 0.38, 0.26],
@@ -253,7 +253,7 @@ for (const name of Object.keys(VIEWS)) {
   row.append(b);
 }
 row.querySelector('[data-view="three-quarter"]').setAttribute('aria-pressed', 'true');
-camera.position.set(0.32, 0.20, 0.40);
+camera.position.set(0.18, 0.10, 0.22);
 controls.target.copy(target);
 controls.update();
 faceCamera(camera);
