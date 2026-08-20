@@ -401,6 +401,8 @@ function initToggle(toggle) {
         el.style.display = isActive ? '' : 'none';
         if (!isActive) {
           el.querySelectorAll('video').forEach(v => v.pause());
+          // Freeze 3D iframes when hidden so they don't consume GPU
+          el.querySelectorAll('iframe[data-mockup-src]').forEach(f => { f.src = 'about:blank'; });
         }
         if (isActive) {
           // Lazy-init native carousel on first reveal
@@ -419,6 +421,10 @@ function initToggle(toggle) {
               });
             }
           });
+          // Restore 3D iframe src when tab becomes active again
+          el.querySelectorAll('iframe[data-mockup-src]').forEach(f => {
+            if (f.src.includes('about:blank') || f.src === '') f.src = f.dataset.mockupSrc;
+          });
           // Lazy-load 3D mockup viewer with arrow nav on first click
           if (key === 'mockup3d' && !el.querySelector('iframe')) {
             const mockups = [
@@ -430,6 +436,7 @@ function initToggle(toggle) {
             wrap.style.cssText = 'position:relative;margin-top:2cm;';
             const iframe = document.createElement('iframe');
             iframe.src = mockups[0];
+            iframe.dataset.mockupSrc = mockups[0];
             iframe.style.cssText = 'border:none;width:100%;height:60vh;display:block;';
             iframe.allowFullscreen = true;
             const btnStyle = 'position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:0.5rem;z-index:10;font-size:1.8rem;color:#210a0b;line-height:1;';
@@ -444,6 +451,7 @@ function initToggle(toggle) {
             const swap = (dir) => {
               current = (current + dir + mockups.length) % mockups.length;
               iframe.src = mockups[current];
+              iframe.dataset.mockupSrc = mockups[current];
             };
             prev.addEventListener('click', () => swap(-1));
             next.addEventListener('click', () => swap(1));
