@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cap mockup</title>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
+    "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js",
+    "three/addons/exporters/OBJExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js",
+    "three/addons/exporters/GLTFExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js",
+    "three/addons/loaders/GLTFLoader.js": "https://unpkg.com/three@0.184.0/examples/jsm/loaders/GLTFLoader.js",
+    "three/addons/utils/BufferGeometryUtils.js": "https://unpkg.com/three@0.184.0/examples/jsm/utils/BufferGeometryUtils.js"
+  }
+}
+</script>
+<style>
+  html, body { margin: 0; height: 100%; background: #f4f2ee; }
+  three-d-stage:not(:defined) { visibility: hidden; }
+  three-d-stage { display: block; width: 100vw; height: 100vh; }
+  #ui { position: fixed; left: 20px; top: 20px; z-index: 10;
+        display: flex; flex-direction: column; gap: 6px;
+        font: 11px/1.4 ui-monospace, "SF Mono", Menlo, monospace;
+        letter-spacing: 0.08em; text-transform: uppercase; color: #2c2a27; }
+  #ui .label { color: #9a958c; font-size: 10px; }
+  #ui .row { display: flex; gap: 6px; flex-wrap: wrap; }
+  button { font: inherit; letter-spacing: inherit; text-transform: inherit;
+           padding: 7px 11px; border: 1px solid #d9d5cb; border-radius: 2px;
+           background: #fbfaf7; color: #2c2a27; cursor: pointer; }
+  button:hover { border-color: #b3ada0; }
+  button[aria-pressed="true"] { background: #2c2a27; border-color: #2c2a27; color: #fbfaf7; }
+  #loading { position: fixed; inset: 0; display: grid; place-items: center; z-index: 20;
+             background: #f4f2ee; color: #9a958c;
+             font: 11px/1 ui-monospace, Menlo, monospace; letter-spacing: 0.12em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div id="loading">loading cap…</div>
+<div id="ui" hidden>
+  <div class="label">view</div>
+  <div class="row" id="views"></div>
+</div>
+<three-d-stage name="cap-mockup" background="#f4f2ee"></three-d-stage>
+<script src="./three-d-stage.js"></script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+const stage = document.querySelector('three-d-stage');
+await stage.ready;
+
+const gltf = await new GLTFLoader().loadAsync('./cap/scene.gltf');
+const cap = new THREE.Group();
+cap.name = 'cap';
+cap.add(gltf.scene);
+
+// strip the model's own cameras and lights; the stage owns the studio
+gltf.scene.traverse(o => { if (o.isCamera || o.isLight) o.visible = false; });
+
+// black fabric, keeping the twill/stitch detail from the diffuse map
+const fabric = [];
+gltf.scene.traverse(o => {
+  if (!o.isMesh) return;
+  o.castShadow = o.receiveShadow = true;
+  const m = o.material;
+  if (m.name === 'baseballCap') {
+    m.color.setHex(0x0d0d0f);
+    m.roughness = 0.95;
+    m.metalness = 0;
+    if (m.map) m.map.colorSpace = THREE.SRGBColorSpace;
+    fabric.push(o);
+  } else {
+    // snap closure and eyelets: black hardware
+    m.color.setHex(0x1a1a1c);
+    m.roughness = 0.5;
+    m.metalness = 0.1;
+  }
+});
+
+// normalise scale and orientation: bill toward +Z, resting on the ground
+gltf.scene.updateMatrixWorld(true);
+const box = new THREE.Box3().setFromObject(gltf.scene);
+const size = box.getSize(new THREE.Vector3());
+const scale = 0.20 / Math.max(size.x, size.z);
+gltf.scene.scale.multiplyScalar(scale);
+gltf.scene.updateMatrixWorld(true);
+
+const bill = gltf.scene.getObjectByName('bill') || gltf.scene.getObjectByName('Bill');
+let box2 = new THREE.Box3().setFromObject(gltf.scene);
+const centre = box2.getCenter(new THREE.Vector3());
+if (bill) {
+  const b = new THREE.Box3().setFromObject(bill).getCenter(new THREE.Vector3());
+  const angle = Math.atan2(b.x - centre.x, b.z - centre.z);
+  cap.rotation.y = -angle;
+}
+cap.updateMatrixWorld(true);
+box2 = new THREE.Box3().setFromObject(cap);
+const c2 = box2.getCenter(new THREE.Vector3());
+gltf.scene.position.sub(new THREE.Vector3(c2.x, box2.min.y, c2.z).applyEuler(new THREE.Euler(0, -cap.rotation.y, 0)));
+cap.updateMatrixWorld(true);
+
+// ── project the logo onto the front panels ────────────────────────────────
+const tex = await new THREE.TextureLoader().loadAsync('./logo-sun-v4.png');
+tex.colorSpace = THREE.SRGBColorSpace;
+tex.anisotropy = 8;
+tex.name = 'logo';
+
+const bounds = new THREE.Box3().setFromObject(cap);
+const span = bounds.getSize(new THREE.Vector3());
+const W = span.x * 0.225, HH = W * (929 / 956);           // the art's true aspect — a circle
+const yc = bounds.min.y + span.y * 0.62;   // centred on the front panel
+const zStart = bounds.max.z + span.z * 0.5;
+
+// Anchor: where the front panel sits, found once.
+const ray = new THREE.Raycaster();
+ray.set(new THREE.Vector3(0, yc, zStart), new THREE.Vector3(0, 0, -1));
+const aHit = ray.intersectObjects(fabric, true)[0];
+const A = aHit ? aHit.point.clone() : new THREE.Vector3(0, yc, bounds.max.z);
+const N0 = aHit ? aHit.face.normal.clone().transformDirection(aHit.object.matrixWorld)
+                : new THREE.Vector3(0, 0, 1);
+
+// The decal is conformed to the cap AND circular from every angle. Both at once
+// means the patch must be re-projected along the view direction — so every
+// projection is precomputed at load over a grid of view angles, and the frame
+// loop only blends between the nearest four. No runtime raycasting, no lag.
+const N = 32, uv = [], idx = [];
+for (let i = 0; i <= N; i++) for (let j = 0; j <= N; j++) uv.push(i / N, 1 - j / N);
+for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) {
+  const p0 = i * (N + 1) + j, p1 = p0 + (N + 1);
+  idx.push(p0, p1, p0 + 1, p1, p1 + 1, p0 + 1);
+}
+const VERTS = (N + 1) * (N + 1);
+const lg = new THREE.BufferGeometry();
+lg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(VERTS * 3), 3));
+lg.setAttribute('normal', new THREE.BufferAttribute(new Float32Array(VERTS * 3), 3));
+lg.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+lg.setIndex(idx);
+
+// lift each vertex clear of the chordal sag between samples: spacing²/(8R),
+// where R is the crown's local radius, plus a hair for z-fighting
+const spacing = Math.max(W, HH) / N;
+const R = span.x * 0.5;
+const eps = spacing * spacing / (8 * R) + span.z * 0.0025;
+const lift = span.z * 0.8;
+const UP = new THREE.Vector3(0, 1, 0);
+
+function project(dir) {
+  const r = new THREE.Vector3().crossVectors(UP, dir);
+  if (r.lengthSq() < 1e-8) r.set(1, 0, 0);
+  r.normalize();
+  const u = new THREE.Vector3().crossVectors(dir, r).normalize();
+  const o = A.clone().addScaledVector(dir, lift);
+  const back = dir.clone().negate();
+  const P = new Float32Array(VERTS * 3), NM = new Float32Array(VERTS * 3);
+  const p = new THREE.Vector3(), n = new THREE.Vector3();
+  // walk each row outward from the centre column; once the surface turns away
+  // from the view, collapse the rest onto the last good vertex (zero-area, so
+  // the decal stops at the silhouette instead of wrapping past it)
+  const mid = N >> 1;
+  for (let j = 0; j <= N; j++) {
+    for (const dirn of [-1, 1]) {
+      let lastGood = -1;
+      for (let s = 0; s <= mid + 1; s++) {
+        const i = dirn < 0 ? mid - s : mid + s;
+        if (i < 0 || i > N) break;
+        const k = (i * (N + 1) + j) * 3;
+        p.copy(o).addScaledVector(r, (i / N - 0.5) * W).addScaledVector(u, (0.5 - j / N) * HH);
+        ray.set(p, back);
+        const hit = ray.intersectObjects(fabric, true)[0];
+        let ok = false;
+        if (hit) {
+          n.copy(hit.face.normal).transformDirection(hit.object.matrixWorld);
+          if (n.dot(dir) > 0.12) { p.copy(hit.point).addScaledVector(n, eps); ok = true; }
+        }
+        if (ok) {
+          cap.worldToLocal(p);
+          P[k] = p.x; P[k + 1] = p.y; P[k + 2] = p.z;
+          NM[k] = n.x; NM[k + 1] = n.y; NM[k + 2] = n.z;
+          lastGood = k;
+        } else if (lastGood >= 0) {
+          P[k] = P[lastGood]; P[k + 1] = P[lastGood + 1]; P[k + 2] = P[lastGood + 2];
+          NM[k] = NM[lastGood]; NM[k + 1] = NM[lastGood + 1]; NM[k + 2] = NM[lastGood + 2];
+        } else {
+          p.copy(A); cap.worldToLocal(p);
+          P[k] = p.x; P[k + 1] = p.y; P[k + 2] = p.z;
+          NM[k] = dir.x; NM[k + 1] = dir.y; NM[k + 2] = dir.z;
+        }
+      }
+    }
+  }
+  return { P, NM };
+}
+
+cap.updateMatrixWorld(true);
+// Projected once, along the straight-on front direction, then left alone: the
+// patch is part of the cap from then on, so turning the cap turns the logo with
+// it instead of re-warping it.
+{
+  const FRONT = new THREE.Vector3(0, 0.10, 0.44).sub(A).normalize();
+  const { P, NM } = project(FRONT);
+  lg.attributes.position.array.set(P);
+  lg.attributes.normal.array.set(NM);
+  lg.attributes.position.needsUpdate = true;
+  lg.attributes.normal.needsUpdate = true;
+  lg.computeBoundingSphere();
+}
+
+const logo = new THREE.Mesh(lg, new THREE.MeshStandardMaterial({
+  name: 'logo_embroidery', map: tex, transparent: true, alphaTest: 0.4,
+  roughness: 0.74, metalness: 0.02, bumpMap: tex, bumpScale: 1.1,
+  side: THREE.DoubleSide,
+  polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -4,
+}));
+logo.name = 'front_logo';
+logo.renderOrder = 2;
+logo.castShadow = false;
+cap.add(logo);
+
+// the crown hides the patch on its own once it is fixed to the fabric
+function faceCamera() {}
+
+stage.setObject(cap);
+
+const camera = stage._camera, controls = stage._controls;
+camera.near = 0.005; camera.far = 20; camera.updateProjectionMatrix();
+stage._ground.material.opacity = 0.13;
+stage._key.position.set(0.5, 1.9, 0.8);
+const sc = stage._key.shadow.camera;
+sc.left = -0.22; sc.right = 0.22; sc.top = 0.22; sc.bottom = -0.22;
+sc.near = 0.05; sc.far = 3; sc.updateProjectionMatrix();
+
+const VIEWS = {
+  front: [0, 0.10, 0.44],
+  'three-quarter': [0.30, 0.17, 0.36],
+  side: [0.46, 0.09, 0.03],
+  back: [-0.12, 0.15, -0.42],
+  above: [0.15, 0.38, 0.26],
+};
+const target = new THREE.Vector3(0, span.y * 0.45, 0);
+const to = new THREE.Vector3(...VIEWS['three-quarter']);
+let driving = false;
+
+const row = document.getElementById('views');
+for (const name of Object.keys(VIEWS)) {
+  const b = document.createElement('button');
+  b.textContent = name; b.dataset.view = name;
+  b.addEventListener('click', () => {
+    driving = false;
+    to.set(...VIEWS[name]);
+    row.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  });
+  row.append(b);
+}
+row.querySelector('[data-view="three-quarter"]').setAttribute('aria-pressed', 'true');
+camera.position.set(0.32, 0.20, 0.40);
+controls.target.copy(target);
+controls.update();
+faceCamera(camera);
+controls.addEventListener('start', () => {
+  driving = true;
+  row.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', 'false'));
+});
+(function tick() {
+  faceCamera(camera);
+  if (!driving) {
+    camera.position.lerp(to, 0.06);
+    controls.target.lerp(target, 0.08);
+    controls.update();
+  }
+  requestAnimationFrame(tick);
+})();
+
+document.getElementById('loading').remove();
+document.getElementById('ui').hidden = false;
+</script>
+</body>
+</html>
