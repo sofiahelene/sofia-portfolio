@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tour tee mockup</title>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
+    "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js",
+    "three/addons/exporters/OBJExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js",
+    "three/addons/exporters/GLTFExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js",
+    "three/addons/loaders/GLTFLoader.js": "https://unpkg.com/three@0.184.0/examples/jsm/loaders/GLTFLoader.js",
+    "three-mesh-bvh": "https://unpkg.com/three-mesh-bvh@0.9.0/build/index.module.js"
+  }
+}
+</script>
+<style>
+  html, body { margin: 0; height: 100%; background: #f4f2ee; }
+  three-d-stage:not(:defined) { visibility: hidden; }
+  three-d-stage { display: block; width: 100vw; height: 100vh; }
+  #ui { position: fixed; left: 20px; top: 20px; z-index: 10;
+        display: flex; flex-direction: column; gap: 6px;
+        font: 11px/1.4 ui-monospace, "SF Mono", Menlo, monospace;
+        letter-spacing: 0.08em; text-transform: uppercase; color: #2c2a27; }
+  #ui .label { color: #9a958c; font-size: 10px; }
+  #ui .row { display: flex; gap: 6px; flex-wrap: wrap; }
+  button { font: inherit; letter-spacing: inherit; text-transform: inherit;
+           padding: 7px 11px; border: 1px solid #d9d5cb; border-radius: 2px;
+           background: #fbfaf7; color: #2c2a27; cursor: pointer; }
+  button:hover { border-color: #b3ada0; }
+  button[aria-pressed="true"] { background: #2c2a27; border-color: #2c2a27; color: #fbfaf7; }
+  #loading { position: fixed; inset: 0; display: grid; place-items: center; z-index: 20;
+             background: #f4f2ee; color: #9a958c;
+             font: 11px/1 ui-monospace, Menlo, monospace; letter-spacing: 0.12em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div id="loading">loading tee…</div>
+<div id="ui" hidden>
+  <div class="label">view</div>
+  <div class="row" id="views"></div>
+</div>
+<three-d-stage name="tour-tee" background="#f4f2ee"></three-d-stage>
+<script src="./three-d-stage.js"></script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+// the tee is a dense mesh; without a BVH the decal raycasts freeze the page
+let BVH = null;
+try {
+  BVH = await import('three-mesh-bvh');
+  THREE.BufferGeometry.prototype.computeBoundsTree = BVH.computeBoundsTree;
+  THREE.Mesh.prototype.raycast = BVH.acceleratedRaycast;
+} catch (e) { console.warn('BVH unavailable, using a coarser decal grid', e); }
+
+const stage = document.querySelector('three-d-stage');
+await stage.ready;
+
+const gltf = await new GLTFLoader().loadAsync('./tshirt/scene.gltf');
+const shirt = new THREE.Group();
+shirt.name = 'tour_tee';
+shirt.add(gltf.scene);
+gltf.scene.traverse(o => { if (o.isCamera || o.isLight) o.visible = false; });
+
+const cloth = [];
+gltf.scene.traverse(o => {
+  if (!o.isMesh) return;
+  o.castShadow = o.receiveShadow = true;
+  o.material = new THREE.MeshStandardMaterial({
+    name: 'tee_fabric', color: 0x17171a, roughness: 0.97, metalness: 0,
+    side: THREE.DoubleSide,
+  });
+  if (BVH) o.geometry.computeBoundsTree();
+  cloth.push(o);
+});
+
+// normalise: shoulders-wide on X, ~0.55 m tall, standing on the ground
+gltf.scene.updateMatrixWorld(true);
+let box = new THREE.Box3().setFromObject(gltf.scene);
+const size = box.getSize(new THREE.Vector3());
+gltf.scene.scale.multiplyScalar(0.55 / size.y);
+gltf.scene.updateMatrixWorld(true);
+box = new THREE.Box3().setFromObject(gltf.scene);
+const c = box.getCenter(new THREE.Vector3());
+gltf.scene.position.sub(new THREE.Vector3(c.x, box.min.y, c.z));
+shirt.updateMatrixWorld(true);
+
+const bounds = new THREE.Box3().setFromObject(shirt);
+const span = bounds.getSize(new THREE.Vector3());
+
+// which face of the model is the chest? the front of a tee bulges less at the
+// shoulders, so compare surface depth at collar height on both sides
+const ray = new THREE.Raycaster();
+const depthAt = (sign) => {
+  let sum = 0, n = 0;
+  for (let i = -2; i <= 2; i++) {
+    const x = (i / 6) * span.x * 0.5;
+    const y = bounds.min.y + span.y * 0.78;
+    ray.set(new THREE.Vector3(x, y, sign * span.z), new THREE.Vector3(0, 0, -sign));
+    const hit = ray.intersectObjects(cloth, true)[0];
+    if (hit) { sum += Math.abs(hit.point.z); n++; }
+  }
+  return n ? sum / n : 0;
+};
+const FRONT_Z = depthAt(1) <= depthAt(-1) ? 1 : -1;
+
+const loader = new THREE.TextureLoader();
+const [frontTex, backTex] = await Promise.all([
+  loader.loadAsync('./print-front-v2.png'),
+  loader.loadAsync('./print-back-clean.png'),
+]);
+for (const t of [frontTex, backTex]) { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; }
+
+// Screen-print decals: a grid projected straight onto the cloth along the
+// panel's axis, so the artwork follows every fold instead of floating.
+function printDecal({ tex, aspect, widthFrac, centreY, axis, name, shiftX = 0 }) {
+  const W = span.x * widthFrac, H = W / aspect;
+  const N = BVH ? 44 : 18;
+  const uv = [], idx = [], pos = new Float32Array((N + 1) * (N + 1) * 3);
+  for (let i = 0; i <= N; i++) for (let j = 0; j <= N; j++) uv.push(i / N, 1 - j / N);
+  for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) {
+    const a = i * (N + 1) + j, b = a + (N + 1);
+    idx.push(a, b, a + 1, b, b + 1, a + 1);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+  geo.setIndex(idx);
+
+  const dir = new THREE.Vector3(0, 0, -axis);
+  const start = span.z * 1.2;
+  const eps = span.z * 0.006;
+  const p = new THREE.Vector3(), n = new THREE.Vector3();
+  const yTop = bounds.min.y + span.y * centreY + H / 2;
+  const mid = N >> 1;
+  for (let j = 0; j <= N; j++) {
+    for (const step of [-1, 1]) {
+      let good = -1;
+      for (let s = 0; s <= mid + 1; s++) {
+        const i = step < 0 ? mid - s : mid + s;
+        if (i < 0 || i > N) break;
+        const k = (i * (N + 1) + j) * 3;
+        const x = (i / N - 0.5) * W * axis + shiftX;
+        p.set(x, yTop - (j / N) * H, axis * start);
+        ray.set(p, dir);
+        const hit = ray.intersectObjects(cloth, true)[0];
+        let ok = false;
+        if (hit) {
+          n.copy(hit.face.normal).transformDirection(hit.object.matrixWorld);
+          if (n.z * axis > 0.15) { p.copy(hit.point).addScaledVector(n, eps); ok = true; }
+        }
+        if (ok) {
+          shirt.worldToLocal(p);
+          pos[k] = p.x; pos[k + 1] = p.y; pos[k + 2] = p.z;
+          good = k;
+        } else if (good >= 0) {
+          pos[k] = pos[good]; pos[k + 1] = pos[good + 1]; pos[k + 2] = pos[good + 2];
+        } else {
+          pos[k] = x; pos[k + 1] = yTop - (j / N) * H; pos[k + 2] = axis * span.z * 0.5;   // off-cloth
+        }
+      }
+    }
+  }
+  geo.computeVertexNormals();
+  geo.computeBoundingSphere();
+
+  const mesh = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({
+    name, map: tex, transparent: true, alphaTest: 0.06,
+    roughness: 0.86, metalness: 0, side: THREE.DoubleSide,
+    polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -4,
+  }));
+  mesh.name = name;
+  mesh.castShadow = false;
+  shirt.add(mesh);
+  return mesh;
+}
+
+printDecal({ tex: frontTex, aspect: 1120 / 1520, widthFrac: 0.34, centreY: 0.60,
+             axis: FRONT_Z, name: 'front_print' });
+printDecal({ tex: backTex, aspect: 1153 / 1194, widthFrac: 0.34, centreY: 0.62,
+             axis: -FRONT_Z, name: 'back_print' });
+
+stage.setObject(shirt);
+
+const camera = stage._camera, controls = stage._controls;
+camera.near = 0.01; camera.far = 30; camera.updateProjectionMatrix();
+stage._ground.material.opacity = 0.14;
+stage._key.position.set(1.1, 2.6, 1.6);
+
+const f = FRONT_Z;
+const VIEWS = {
+  front: [0, 0.30, 0.95 * f],
+  'three-quarter': [0.62 * f, 0.34, 0.72 * f],
+  side: [0.95, 0.30, 0.05 * f],
+  back: [0, 0.32, -0.92 * f],
+};
+const target = new THREE.Vector3(0, span.y * 0.55, 0);
+const to = new THREE.Vector3(...VIEWS['three-quarter']);
+let driving = false;
+
+const row = document.getElementById('views');
+for (const name of Object.keys(VIEWS)) {
+  const b = document.createElement('button');
+  b.textContent = name; b.dataset.view = name;
+  b.addEventListener('click', () => {
+    driving = false;
+    to.set(...VIEWS[name]);
+    row.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  });
+  row.append(b);
+}
+row.querySelector('[data-view="three-quarter"]').setAttribute('aria-pressed', 'true');
+camera.position.copy(to);
+controls.target.copy(target);
+controls.update();
+controls.addEventListener('start', () => {
+  driving = true;
+  row.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', 'false'));
+});
+(function tick() {
+  if (!driving) {
+    camera.position.lerp(to, 0.06);
+    controls.target.lerp(target, 0.08);
+    controls.update();
+  }
+  requestAnimationFrame(tick);
+})();
+
+document.getElementById('loading').remove();
+document.getElementById('ui').hidden = false;
+</script>
+</body>
+</html>

@@ -419,13 +419,38 @@ function initToggle(toggle) {
               });
             }
           });
-          // Lazy-load 3D mockup iframe only on first click
+          // Lazy-load 3D mockup viewer with arrow nav on first click
           if (key === 'mockup3d' && !el.querySelector('iframe')) {
+            const mockups = [
+              '/DO%20IT%20AGAIN/MOCKUP/cap-viewer/cap-mockup.html',
+              '/DO%20IT%20AGAIN/MOCKUP/tshirt-viewer/tshirt-mockup.html',
+            ];
+            let current = 0;
+            const wrap = document.createElement('div');
+            wrap.style.cssText = 'position:relative;margin-top:2cm;';
             const iframe = document.createElement('iframe');
-            iframe.src = '/DO%20IT%20AGAIN/MOCKUP/cap-viewer/cap-mockup.html';
-            iframe.style.cssText = 'border:none;width:100%;height:60vh;display:block;margin-top:2cm;';
+            iframe.src = mockups[0];
+            iframe.style.cssText = 'border:none;width:100%;height:60vh;display:block;';
             iframe.allowFullscreen = true;
-            el.appendChild(iframe);
+            const btnStyle = 'position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:0.5rem;z-index:10;font-size:1.8rem;color:#210a0b;line-height:1;';
+            const prev = document.createElement('button');
+            prev.innerHTML = '&#10094;';
+            prev.setAttribute('aria-label', 'Previous');
+            prev.style.cssText = btnStyle + 'left:0.5rem;';
+            const next = document.createElement('button');
+            next.innerHTML = '&#10095;';
+            next.setAttribute('aria-label', 'Next');
+            next.style.cssText = btnStyle + 'right:0.5rem;';
+            const swap = (dir) => {
+              current = (current + dir + mockups.length) % mockups.length;
+              iframe.src = mockups[current];
+            };
+            prev.addEventListener('click', () => swap(-1));
+            next.addEventListener('click', () => swap(1));
+            wrap.appendChild(prev);
+            wrap.appendChild(iframe);
+            wrap.appendChild(next);
+            el.appendChild(wrap);
           }
           // Init book for charte panel
           if (key === 'charte') initBook();
