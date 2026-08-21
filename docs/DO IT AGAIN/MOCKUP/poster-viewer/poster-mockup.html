@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Poster mockup</title>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
+    "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js",
+    "three/addons/exporters/OBJExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js",
+    "three/addons/exporters/GLTFExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js",
+    "three/addons/loaders/GLTFLoader.js": "https://unpkg.com/three@0.184.0/examples/jsm/loaders/GLTFLoader.js",
+    "three/addons/utils/BufferGeometryUtils.js": "https://unpkg.com/three@0.184.0/examples/jsm/utils/BufferGeometryUtils.js"
+  }
+}
+</script>
+<style>
+  html, body { margin: 0; height: 100%; background: #f4f2ee; }
+  three-d-stage:not(:defined) { visibility: hidden; }
+  three-d-stage { display: block; width: 100vw; height: 100vh; }
+  #ui { position: fixed; left: 20px; top: 20px; z-index: 10;
+        display: flex; flex-direction: column; gap: 6px;
+        font: 11px/1.4 ui-monospace, "SF Mono", Menlo, monospace;
+        letter-spacing: 0.08em; text-transform: uppercase; color: #2c2a27; }
+  #ui .label { color: #9a958c; font-size: 10px; }
+  #ui .row { display: flex; gap: 6px; flex-wrap: wrap; }
+  button { font: inherit; letter-spacing: inherit; text-transform: inherit;
+           padding: 7px 11px; border: 1px solid #d9d5cb; border-radius: 2px;
+           background: #fbfaf7; color: #2c2a27; cursor: pointer; }
+  button:hover { border-color: #b3ada0; }
+  button[aria-pressed="true"] { background: #2c2a27; border-color: #2c2a27; color: #fbfaf7; }
+  #loading { position: fixed; inset: 0; display: grid; place-items: center; z-index: 20;
+             background: #f4f2ee; color: #9a958c;
+             font: 11px/1 ui-monospace, Menlo, monospace; letter-spacing: 0.12em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div id="loading">loading poster…</div>
+<div id="ui" hidden>
+  <div class="label">view</div>
+  <div class="row" id="views"></div>
+</div>
+<three-d-stage name="do-it-again-poster" background="#f4f2ee"></three-d-stage>
+<script src="./three-d-stage.js"></script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+const stage = document.querySelector('three-d-stage');
+await stage.ready;
+
+const gltf = await new GLTFLoader().loadAsync('./frame/scene.gltf');
+const art = new THREE.Group();
+art.name = 'do_it_again_poster';
+art.add(gltf.scene);
+
+const posterTex = await new THREE.TextureLoader().loadAsync('./frame/textures/poster.png');
+posterTex.colorSpace = THREE.SRGBColorSpace;
+posterTex.anisotropy = 8;
+posterTex.name = 'poster';
+
+// the frame's four parts, told apart by the material the model ships with:
+// Material.002 is the print aperture, Material.003 the glazing over it
+gltf.scene.traverse(o => {
+  if (o.isCamera || o.isLight) o.visible = false;
+  if (!o.isMesh) return;
+  o.castShadow = o.receiveShadow = true;
+  const n = o.material.name;
+  if (n === 'Material.002') {
+    // the model ships this quad with degenerate UVs, so unwrap it from its own
+    // corners: the print then fills the aperture exactly
+    const g = o.geometry;
+    g.computeBoundingBox();
+    const b = g.boundingBox, p = g.attributes.position;
+    const w = b.max.x - b.min.x, h = b.max.y - b.min.y;
+    const uv = new Float32Array(p.count * 2);
+    for (let i = 0; i < p.count; i++) {
+      uv[i * 2] = (p.getX(i) - b.min.x) / w;
+      uv[i * 2 + 1] = (p.getY(i) - b.min.y) / h;
+    }
+    g.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+    // sit just inside the aperture so the print never laps onto the moulding
+    const c = b.getCenter(new THREE.Vector3());
+    g.translate(-c.x, -c.y, -c.z);
+    g.scale(0.99, 0.99, 1);
+    g.translate(c.x, c.y, c.z);
+    // and a black board behind it, oversized, so no daylight shows through the
+    // gap between the print and the frame
+    const bg = g.clone();
+    bg.translate(-c.x, -c.y, -c.z);
+    bg.scale(1.16, 1.12, 1);
+    bg.translate(c.x, c.y, c.z - 0.08);
+    const backer = new THREE.Mesh(bg, new THREE.MeshStandardMaterial({
+      name: 'aperture_board', color: 0x08080a, roughness: 0.8, metalness: 0,
+      side: THREE.DoubleSide,
+    }));
+    backer.name = 'aperture_board';
+    o.parent.add(backer);
+    o.material = new THREE.MeshStandardMaterial({
+      name: 'poster', map: posterTex, roughness: 0.62, metalness: 0,
+      side: THREE.DoubleSide,
+    });
+    o.name = 'poster';
+  } else if (n === 'Material.003') {
+    // glazing: a whisper of reflection, not a black sheet over the print
+    o.material = new THREE.MeshPhysicalMaterial({
+      name: 'glazing', color: 0xffffff, transparent: true, opacity: 0.06,
+      roughness: 0.04, metalness: 0, side: THREE.DoubleSide,
+      depthWrite: false,
+    });
+    o.castShadow = false;
+    o.name = 'glazing';
+  } else {
+    // moulding and back board: matte painted timber
+    o.material = new THREE.MeshStandardMaterial({
+      name: n === 'Material.001' ? 'moulding' : 'backing',
+      color: n === 'Material.001' ? 0x1b1a18 : 0x0e0e0f,
+      roughness: 0.58, metalness: 0.05, side: THREE.FrontSide,
+    });
+  }
+});
+
+// normalise: a 50 x 70 cm framed print standing on the ground
+gltf.scene.updateMatrixWorld(true);
+let box = new THREE.Box3().setFromObject(gltf.scene);
+const size = box.getSize(new THREE.Vector3());
+gltf.scene.scale.multiplyScalar(0.70 / size.y);
+gltf.scene.updateMatrixWorld(true);
+box = new THREE.Box3().setFromObject(art);
+const ctr = box.getCenter(new THREE.Vector3());
+art.position.sub(new THREE.Vector3(ctr.x, box.min.y, ctr.z));
+art.updateMatrixWorld(true);
+
+stage.setObject(art);
+
+const bounds = new THREE.Box3().setFromObject(art);
+const span = bounds.getSize(new THREE.Vector3());
+const camera = stage._camera, controls = stage._controls;
+camera.near = 0.01; camera.far = 40; camera.updateProjectionMatrix();
+stage._ground.material.opacity = 0.15;
+stage._key.position.set(1.1, 2.4, 1.8);
+
+const VIEWS = {
+  front: [0, 0.40, 1.20],
+  'three-quarter': [0.72, 0.46, 0.98],
+  detail: [0.22, 0.60, 0.44],
+  edge: [1.12, 0.38, 0.22],
+};
+const target = new THREE.Vector3(0, span.y * 0.52, 0);
+const to = new THREE.Vector3(...VIEWS['three-quarter']);
+let driving = false;
+
+const row = document.getElementById('views');
+for (const name of Object.keys(VIEWS)) {
+  const b = document.createElement('button');
+  b.textContent = name; b.dataset.view = name;
+  b.addEventListener('click', () => {
+    driving = false;
+    to.set(...VIEWS[name]);
+    row.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  });
+  row.append(b);
+}
+row.querySelector('[data-view="three-quarter"]').setAttribute('aria-pressed', 'true');
+camera.position.copy(to);
+controls.target.copy(target);
+controls.update();
+controls.addEventListener('start', () => {
+  driving = true;
+  row.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', 'false'));
+});
+(function tick() {
+  if (!driving) {
+    camera.position.lerp(to, 0.06);
+    controls.target.lerp(target, 0.08);
+    controls.update();
+  }
+  requestAnimationFrame(tick);
+})();
+
+document.getElementById('loading').remove();
+document.getElementById('ui').hidden = false;
+</script>
+</body>
+</html>
