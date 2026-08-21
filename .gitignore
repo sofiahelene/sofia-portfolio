@@ -19,3 +19,4 @@ macbook_pro_m3_16_inch_2024/
 # Only exclude videos truly over GitHub's 100MB hard limit
 public/videos/Book_open_1.mov
 docs/videos/Book_open_1.mov
+*.zip
