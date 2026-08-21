@@ -457,41 +457,12 @@ function initToggle(toggle) {
             };
             prev.addEventListener('click', () => swap(-1));
             next.addEventListener('click', () => swap(1));
-            // Transparent overlay keeps cursor tracking; forwards pointer+wheel into iframe
-            const overlay = document.createElement('div');
-            overlay.style.cssText = 'position:absolute;inset:0;z-index:5;cursor:none;';
-            const fwd = (type, e) => {
-              const doc = iframe.contentDocument;
-              if (!doc) return;
-              const rect = iframe.getBoundingClientRect();
-              const target = doc.elementFromPoint(e.clientX - rect.left, e.clientY - rect.top) || doc.documentElement;
-              target.dispatchEvent(new PointerEvent(type, {
-                bubbles: true, cancelable: true,
-                pointerId: e.pointerId, pointerType: e.pointerType || 'mouse',
-                clientX: e.clientX - rect.left, clientY: e.clientY - rect.top,
-                screenX: e.screenX, screenY: e.screenY,
-                button: e.button, buttons: e.buttons,
-                movementX: e.movementX, movementY: e.movementY,
-              }));
-            };
-            overlay.addEventListener('pointerdown', e => { overlay.setPointerCapture(e.pointerId); fwd('pointerdown', e); });
-            overlay.addEventListener('pointermove', e => fwd('pointermove', e));
-            overlay.addEventListener('pointerup',   e => fwd('pointerup', e));
-            overlay.addEventListener('wheel', e => {
-              e.preventDefault();
-              const rect = iframe.getBoundingClientRect();
-              const doc = iframe.contentDocument;
-              if (!doc) return;
-              const target = doc.elementFromPoint(e.clientX - rect.left, e.clientY - rect.top) || doc.documentElement;
-              target.dispatchEvent(new WheelEvent('wheel', {
-                bubbles: true, cancelable: true,
-                deltaX: e.deltaX, deltaY: e.deltaY, deltaMode: e.deltaMode,
-                clientX: e.clientX - rect.left, clientY: e.clientY - rect.top,
-              }));
-            }, { passive: false });
+            // Hide custom cursor dot while inside the iframe, restore on exit
+            const dot = document.getElementById('pf-cursor-dot');
+            iframe.addEventListener('mouseenter', () => { if (dot) dot.style.display = 'none'; });
+            iframe.addEventListener('mouseleave', () => { if (dot) dot.style.display = 'block'; });
             wrap.appendChild(prev);
             wrap.appendChild(iframe);
-            wrap.appendChild(overlay);
             wrap.appendChild(next);
             el.appendChild(wrap);
           }
