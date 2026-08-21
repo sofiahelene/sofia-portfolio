@@ -430,6 +430,7 @@ function initToggle(toggle) {
             const mockups = [
               '/DO%20IT%20AGAIN/MOCKUP/cap-viewer/cap-mockup.html',
               '/DO%20IT%20AGAIN/MOCKUP/tshirt-viewer/tshirt-mockup.html',
+              '/DO%20IT%20AGAIN/MOCKUP/totebag-viewer/tote-mockup.html',
             ];
             let current = 0;
             const wrap = document.createElement('div');
