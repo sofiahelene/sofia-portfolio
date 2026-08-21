@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vinyl mockup</title>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.184.0/build/three.module.js",
+    "three/addons/controls/OrbitControls.js": "https://unpkg.com/three@0.184.0/examples/jsm/controls/OrbitControls.js",
+    "three/addons/exporters/OBJExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/OBJExporter.js",
+    "three/addons/exporters/GLTFExporter.js": "https://unpkg.com/three@0.184.0/examples/jsm/exporters/GLTFExporter.js",
+    "three/addons/loaders/GLTFLoader.js": "https://unpkg.com/three@0.184.0/examples/jsm/loaders/GLTFLoader.js",
+    "three/addons/utils/BufferGeometryUtils.js": "https://unpkg.com/three@0.184.0/examples/jsm/utils/BufferGeometryUtils.js"
+  }
+}
+</script>
+<style>
+  html, body { margin: 0; height: 100%; background: #f4f2ee; }
+  three-d-stage:not(:defined) { visibility: hidden; }
+  three-d-stage { display: block; width: 100vw; height: 100vh; }
+  #ui { position: fixed; left: 20px; top: 20px; z-index: 10;
+        display: flex; flex-direction: column; gap: 6px;
+        font: 11px/1.4 ui-monospace, "SF Mono", Menlo, monospace;
+        letter-spacing: 0.08em; text-transform: uppercase; color: #2c2a27; }
+  #ui .label { color: #9a958c; font-size: 10px; }
+  #ui .row { display: flex; gap: 6px; flex-wrap: wrap; }
+  button { font: inherit; letter-spacing: inherit; text-transform: inherit;
+           padding: 7px 11px; border: 1px solid #d9d5cb; border-radius: 2px;
+           background: #fbfaf7; color: #2c2a27; cursor: pointer; }
+  button:hover { border-color: #b3ada0; }
+  button[aria-pressed="true"] { background: #2c2a27; border-color: #2c2a27; color: #fbfaf7; }
+  #loading { position: fixed; inset: 0; display: grid; place-items: center; z-index: 20;
+             background: #f4f2ee; color: #9a958c;
+             font: 11px/1 ui-monospace, Menlo, monospace; letter-spacing: 0.12em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div id="loading">loading record…</div>
+<div id="ui" hidden>
+  <div class="label">view</div>
+  <div class="row" id="views"></div>
+</div>
+<three-d-stage name="do-it-again-12in" background="#f4f2ee"></three-d-stage>
+<script src="./three-d-stage.js"></script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+const stage = document.querySelector('three-d-stage');
+await stage.ready;
+
+const gltf = await new GLTFLoader().loadAsync('./vinyl/scene.gltf');
+const rec = new THREE.Group();
+rec.name = 'do_it_again_12in';
+rec.add(gltf.scene);
+
+const tl = new THREE.TextureLoader();
+const labelTex = await tl.loadAsync('./vinyl/textures/label.png');
+labelTex.colorSpace = THREE.SRGBColorSpace;
+labelTex.anisotropy = 8;
+labelTex.name = 'label';
+
+const sleeves = [], discs = [];
+gltf.scene.traverse(o => {
+  if (o.isCamera || o.isLight) o.visible = false;
+  if (!o.isMesh) return;
+  o.castShadow = o.receiveShadow = true;
+  const m = o.material;
+  if (m.map) {
+    // printed board: matte litho stock, not plastic
+    m.roughness = 0.72;
+    m.metalness = 0;
+    m.map.colorSpace = THREE.SRGBColorSpace;
+    m.map.anisotropy = 8;
+    m.needsUpdate = true;
+    sleeves.push(o);
+  } else {
+    // pressed vinyl: near-black with a tight specular sheen so the grooves read
+    m.color.setHex(0x0a0a0b);
+    m.roughness = 0.24;
+    m.metalness = 0.08;
+    m.needsUpdate = true;
+    discs.push(o);
+  }
+});
+
+// ── record label ──────────────────────────────────────────────────────────
+// parented to the pressing itself and measured in its own local space, so it
+// inherits every transform above it and lands exactly on the label area
+for (const disc of discs) {
+  disc.geometry.computeBoundingBox();
+  const b = disc.geometry.boundingBox;
+  const s = b.getSize(new THREE.Vector3());
+  const c = b.getCenter(new THREE.Vector3());
+  const axes = [['x', s.x], ['y', s.y], ['z', s.z]].sort((a, b2) => a[1] - b2[1]);
+  const thin = axes[0][0];
+  const radius = axes[2][1] / 2;
+  const mat = new THREE.MeshStandardMaterial({
+    name: 'label', map: labelTex, transparent: true, alphaTest: 0.5,
+    roughness: 0.85, metalness: 0, side: THREE.DoubleSide,
+    polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -4,
+  });
+  for (const sign of [1, -1]) {
+    const mesh = new THREE.Mesh(new THREE.CircleGeometry(radius * 0.345, 96), mat);
+    mesh.name = sign > 0 ? 'label_a' : 'label_b';
+    mesh.position.copy(c);
+    mesh.position[thin] = (sign > 0 ? b.max[thin] : b.min[thin]) + sign * radius * 0.002;
+    if (thin === 'z') mesh.rotation.y = sign > 0 ? 0 : Math.PI;
+    else if (thin === 'y') mesh.rotation.x = sign > 0 ? -Math.PI / 2 : Math.PI / 2;
+    else mesh.rotation.y = sign > 0 ? Math.PI / 2 : -Math.PI / 2;
+    mesh.castShadow = false;
+    disc.add(mesh);
+  }
+}
+
+// normalise: a 12" sleeve is 31.5 cm across, resting on the ground
+gltf.scene.updateMatrixWorld(true);
+let box = new THREE.Box3().setFromObject(gltf.scene);
+const size = box.getSize(new THREE.Vector3());
+gltf.scene.scale.multiplyScalar(0.315 / Math.max(size.x, size.y, size.z));
+gltf.scene.updateMatrixWorld(true);
+// the sleeve is a flat slab: turn its broad face toward +Z
+box = new THREE.Box3().setFromObject(gltf.scene);
+const s2 = box.getSize(new THREE.Vector3());
+if (s2.x < s2.z) rec.rotation.y = Math.PI / 2;
+rec.updateMatrixWorld(true);
+// the sleeve carries an intrinsic yaw: square its printed face to the camera by
+// measuring the slab's own normal (its thin axis) and rotating that onto +Z
+{
+  const caja = gltf.scene.getObjectByName('caja');
+  if (caja) {
+    const n = new THREE.Vector3(1, 0, 0).transformDirection(caja.matrixWorld).normalize();
+    rec.rotation.y -= Math.atan2(n.x, n.z);
+    rec.updateMatrixWorld(true);
+  }
+}
+// ...and its printed face, not its back, toward the viewer
+{
+  const cover = sleeves.find(o => o.material.map && o.material.map.name !== 'label');
+  const g = cover.geometry;
+  g.computeBoundingBox();
+  const c = g.boundingBox.getCenter(new THREE.Vector3()).applyMatrix4(cover.matrixWorld);
+  const wc = new THREE.Box3().setFromObject(rec).getCenter(new THREE.Vector3());
+  if (c.z - wc.z < 0) rec.rotation.y += Math.PI;
+  rec.updateMatrixWorld(true);
+}
+// slide the pressing out of the sleeve, the way it sits in the artwork
+{
+  const vin = gltf.scene.getObjectByName('vinilo');
+  if (vin) {
+    rec.updateMatrixWorld(true);
+    // a 12" pressing is a shade shorter than its sleeve — match that first
+    const sb = new THREE.Box3();
+    for (const s of sleeves) sb.expandByObject(s);
+    const vb = new THREE.Box3().setFromObject(vin);
+    const vs = vb.getSize(new THREE.Vector3());
+    const discD = Math.max(vs.x, vs.y, vs.z);
+    const sleeveH = sb.getSize(new THREE.Vector3()).y;
+    if (discD > 0) vin.scale.multiplyScalar((sleeveH * 0.955) / discD);
+    rec.updateMatrixWorld(true);
+
+    const basis = new THREE.Matrix3().setFromMatrix4(vin.parent.matrixWorld);
+    const local = new THREE.Vector3(1, 0, 0).applyMatrix3(basis.clone().invert()).normalize();
+    const unit = local.clone().applyMatrix3(basis).length();  // world length of one local unit
+    vin.position.addScaledVector(local, (0.315 * 0.42) / unit);
+    // and set it behind the sleeve, so the cover reads over the pressing
+    const back = new THREE.Vector3(0, 0, -1).applyMatrix3(basis.clone().invert()).normalize();
+    const backUnit = back.clone().applyMatrix3(basis).length();
+    vin.position.addScaledVector(back, (0.315 * 0.10) / backUnit);
+  }
+}
+rec.updateMatrixWorld(true);
+box = new THREE.Box3().setFromObject(rec);
+const ctr = box.getCenter(new THREE.Vector3());
+rec.position.sub(new THREE.Vector3(ctr.x, box.min.y, ctr.z));
+rec.updateMatrixWorld(true);
+stage.setObject(rec);
+
+const bounds = new THREE.Box3().setFromObject(rec);
+const span = bounds.getSize(new THREE.Vector3());
+const camera = stage._camera, controls = stage._controls;
+camera.near = 0.005; camera.far = 30; camera.updateProjectionMatrix();
+stage._ground.material.opacity = 0.16;
+stage._key.position.set(1.0, 2.0, 1.6);
+
+const VIEWS = {
+  front: [0, 0.20, 0.78],
+  'three-quarter': [0.42, 0.26, 0.66],
+  sleeve: [-0.40, 0.22, 0.60],
+  edge: [0.74, 0.18, 0.12],
+  back: [0, 0.22, -0.76],
+};
+const target = new THREE.Vector3(0, span.y * 0.5, 0);
+const to = new THREE.Vector3(...VIEWS['three-quarter']);
+let driving = false;
+
+const row = document.getElementById('views');
+for (const name of Object.keys(VIEWS)) {
+  const b = document.createElement('button');
+  b.textContent = name; b.dataset.view = name;
+  b.addEventListener('click', () => {
+    driving = false;
+    to.set(...VIEWS[name]);
+    row.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  });
+  row.append(b);
+}
+row.querySelector('[data-view="three-quarter"]').setAttribute('aria-pressed', 'true');
+camera.position.copy(to);
+controls.target.copy(target);
+controls.update();
+controls.addEventListener('start', () => {
+  driving = true;
+  row.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', 'false'));
+});
+(function tick() {
+  if (!driving) {
+    camera.position.lerp(to, 0.06);
+    controls.target.lerp(target, 0.08);
+    controls.update();
+  }
+  requestAnimationFrame(tick);
+})();
+
+document.getElementById('loading').remove();
+document.getElementById('ui').hidden = false;
+</script>
+</body>
+</html>

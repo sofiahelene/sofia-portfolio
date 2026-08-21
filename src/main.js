@@ -428,6 +428,7 @@ function initToggle(toggle) {
           // Lazy-load 3D mockup viewer with arrow nav on first click
           if (key === 'mockup3d' && !el.querySelector('iframe')) {
             const mockups = [
+              '/DO%20IT%20AGAIN/MOCKUP/vinyl-viewer/vinyl-mockup.html',
               '/DO%20IT%20AGAIN/MOCKUP/cap-viewer/cap-mockup.html',
               '/DO%20IT%20AGAIN/MOCKUP/tshirt-viewer/tshirt-mockup.html',
               '/DO%20IT%20AGAIN/MOCKUP/totebag-viewer/tote-mockup.html',
