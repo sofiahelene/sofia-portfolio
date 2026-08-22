@@ -428,11 +428,11 @@ function initToggle(toggle) {
           // Lazy-load 3D mockup viewer with arrow nav on first click
           if (key === 'mockup3d' && !el.querySelector('iframe')) {
             const mockups = [
-              '/DO%20IT%20AGAIN/MOCKUP/vinyl-viewer/vinyl-mockup.html',
-              '/DO%20IT%20AGAIN/MOCKUP/cap-viewer/cap-mockup.html',
-              '/DO%20IT%20AGAIN/MOCKUP/tshirt-viewer/tshirt-mockup.html',
-              '/DO%20IT%20AGAIN/MOCKUP/totebag-viewer/tote-mockup.html',
-              '/DO%20IT%20AGAIN/MOCKUP/poster-viewer/poster-mockup.html',
+              '/DO%20IT%20AGAIN/MOCKUP/HTML/VITNYLHTML.html',
+              '/DO%20IT%20AGAIN/MOCKUP/HTML/CAPHTML.html',
+              '/DO%20IT%20AGAIN/MOCKUP/HTML/TSHIRTHTML.html',
+              '/DO%20IT%20AGAIN/MOCKUP/HTML/TOTEHTML.html',
+              '/DO%20IT%20AGAIN/MOCKUP/HTML/POSTERHTML.html',
             ];
             let current = 0;
             const wrap = document.createElement('div');
