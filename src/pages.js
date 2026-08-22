@@ -124,7 +124,7 @@ export const pages = {
           </div>
           <h3 class="proj-inline-title">Star Guitar</h3>
           <div class="proj-inline-video-wrap">
-            <video class="proj-inline-video proj-inline-video--clip" muted playsinline src="/videos/Trainanimation_1.MP4"></video>
+            <video class="proj-inline-video proj-inline-video--clip" muted playsinline preload="none" src="/videos/Trainanimation_1.MP4"></video>
           </div>
         </section>
 
@@ -176,7 +176,7 @@ export const pages = {
       </div>
       <div class="pf-motion-panel" id="sc-motion" style="margin-top:1cm">
         <div class="motion-player">
-          <video loop playsinline src="/videos/Trainanimation_1.MP4" class="pf-motion-video"></video>
+          <video loop playsinline preload="none" src="/videos/Trainanimation_1.MP4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
       </div>
@@ -243,7 +243,7 @@ export const pages = {
       </div>
       <div class="pf-motion-panel" id="sc-motion" style="display:none;margin-top:1cm">
         <div class="motion-player">
-          <video loop playsinline src="/videos/FINALVIDEO.mp4" class="pf-motion-video"></video>
+          <video loop playsinline preload="none" src="/videos/FINALVIDEO.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
       </div>
@@ -281,7 +281,7 @@ export const pages = {
           <div class="sc-container" style="gap:0">
             ${['1.png','2.png','3.png','4.png','5.png','6.png','7.png','8.png']
               .map(f => `<div class="sc-item"><img src="/images/Brume/${f}" alt="${f}" loading="lazy"></div>`).join('')}
-            <div class="sc-item" style="height:85vh"><video autoplay muted loop playsinline src="/videos/Brumejpeg.mp4" style="height:120%;width:auto;display:block;margin-top:calc(-10% - 2cm);margin-left:-3mm;"></video></div>
+            <div class="sc-item" style="height:85vh"><video autoplay muted loop playsinline preload="none" src="/videos/Brumejpeg.mp4" style="height:120%;width:auto;display:block;margin-top:calc(-10% - 2cm);margin-left:-3mm;"></video></div>
           </div>
         </div>
       </div>
@@ -310,7 +310,7 @@ export const pages = {
         <button class="readme-btn" data-readme="petits-freres">${t('Lisez-moi', 'Read me')}</button>
       </div>
       <div class="pf-motion-panel" id="sc-motion" style="display:none;">
-        <video muted loop playsinline src="/videos/Take3_2.mp4" class="pf-motion-video"></video>
+        <video muted loop playsinline preload="none" src="/videos/Take3_2.mp4" class="pf-motion-video"></video>
       </div>
       <div class="proj-story-strip" id="sc-contexte" style="display:none;">
         <div class="sc-viewport">
@@ -359,7 +359,7 @@ export const pages = {
         <div class="sc-viewport">
           <div class="sc-container">
             <div class="sc-item"><img src="/images/KAP/edition/1.jpg" alt="1.jpg" loading="lazy"></div>
-            <div class="sc-item"><video autoplay muted loop playsinline src="/images/KAP/edition/2.mp4" data-trim-end="2" style="height:100%;width:auto;display:block;"></video></div>
+            <div class="sc-item"><video autoplay muted loop playsinline preload="none" src="/images/KAP/edition/2.mp4" data-trim-end="2" style="height:100%;width:auto;display:block;"></video></div>
           </div>
         </div>
       </div>
