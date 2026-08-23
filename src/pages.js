@@ -210,6 +210,7 @@ export const pages = {
         </div>
         <button class="readme-btn" data-readme="do-it-again">${t('Lisez-moi', 'Read me')}</button>
         <span class="brume-note" id="dia-edition-note" style="display:none">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition is printed on 180g and 300g gloss paper')}</span>
+        <span class="brume-note" id="dia-mockup3d-note" style="display:none">${t('Mockups créés avec des modèles 3D et Claude', 'Mockups created with 3D models and Claude')}</span>
         <div class="book-controls" id="book-controls" style="display:none;">
           <button class="book-ctrl-btn" id="book-prev">← ${t('Préc.', 'Prev.')}</button>
           <span class="book-page-label" id="book-page-label"></span>

@@ -383,6 +383,8 @@ function initToggle(toggle) {
       // Show Do It Again edition note only on edition tab
       const diaNote = document.getElementById('dia-edition-note');
       if (diaNote) diaNote.style.display = view === 'edition' ? '' : 'none';
+      const mockup3dNote = document.getElementById('dia-mockup3d-note');
+      if (mockup3dNote) mockup3dNote.style.display = view === 'mockup3d' ? '' : 'none';
       // Update photo readme button when switching tabs
       const photoReadmeBtn = document.getElementById('photo-readme-btn');
       if (photoReadmeBtn) {
