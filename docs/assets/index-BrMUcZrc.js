@@ -322,7 +322,7 @@
       <div class="pf-controls">
         <div class="pf-toggle" id="pf-toggle">
           <button class="pf-toggle-btn active" data-view="illustration">${O("Illustration","Illustration")}</button>
-          <button class="pf-toggle-btn" data-view="edition">${O("Édition","Editorial")}</button>
+          <button class="pf-toggle-btn" data-view="edition">Instagram</button>
           <button class="pf-toggle-btn" data-view="contexte">${O("Contexte","Context")}</button>
         </div>
         <button class="readme-btn" data-readme="terrasses">${O("Lisez-moi","Read me")}</button>
@@ -337,8 +337,9 @@
       <div class="proj-story-strip" id="sc-edition" style="display:none;">
         <div class="sc-viewport">
           <div class="sc-container">
-            <div class="sc-item"><img src="/images/KAP/edition/1.jpg" alt="1.jpg" loading="lazy"></div>
-            <div class="sc-item"><video autoplay muted loop playsinline preload="none" src="/images/KAP/edition/2.mp4" data-trim-end="2" style="height:100%;width:auto;display:block;"></video></div>
+            <div class="sc-item" style="width:100%;border:none;overflow:hidden;color-scheme:light;">
+              <iframe src="/images/KAP/Instagram/CARROUSELFINAL.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" style="width:100%;height:100%;display:block;border:none;color-scheme:light;" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </div>
