@@ -42,10 +42,11 @@ export const pages = {
     const rows = [
       { num: '01.', cat: t('Édition','Editorial'),             title: 'Brume',                        page: 'proj_brume',         sid: 'proj-s-01' },
       { num: '02.', cat: t('Identité Visuelle','Visual Identity'), title: 'Do It Again',              page: 'proj_do_it_again',   sid: 'proj-s-02' },
-      { num: '03.', cat: t('Identité Visuelle II','Visual Identity II'), title: 'Les Petits Frères des Pauvres', page: 'proj_petits_freres', sid: 'proj-s-03' },
-      { num: '04.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-04' },
-      { num: '05.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-05' },
-      { num: '06.', cat: t('Photographie','Photography'),      title: t('Paris et Whitby','Paris & Whitby'), page: 'proj_photographie', sid: 'proj-s-06' },
+      { num: '03.', cat: t('Identité Visuelle II','Visual Identity II'), title: 'The Caymans',        page: 'proj_caymans',       sid: 'proj-s-03' },
+      { num: '04.', cat: t('Identité Visuelle III','Visual Identity III'), title: 'Les Petits Frères des Pauvres', page: 'proj_petits_freres', sid: 'proj-s-04' },
+      { num: '05.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-05' },
+      { num: '06.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-06' },
+      { num: '07.', cat: t('Photographie','Photography'),      title: t('Paris et Whitby','Paris & Whitby'), page: 'proj_photographie', sid: 'proj-s-07' },
     ];
     return `
     <div class="page proj-toc-page">
@@ -106,6 +107,20 @@ export const pages = {
           <div class="proj-inline-header">
             <span class="proj-toc-num">03.</span>
             <span class="proj-toc-cat">${t('Identité Visuelle II','Visual Identity II')}</span>
+            <a class="proj-inline-link" data-page="proj_caymans" href="#proj_caymans">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <h3 class="proj-inline-title">The Caymans</h3>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              ${['1.png','2.png','3.png'].map(f=>`<div class="sc-item"><img src="${encodeURI('/The caymans/Pochettes/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
+            </div></div>
+          </div>
+        </section>
+
+        <section class="proj-inline-section" id="proj-s-04">
+          <div class="proj-inline-header">
+            <span class="proj-toc-num">04.</span>
+            <span class="proj-toc-cat">${t('Identité Visuelle III','Visual Identity III')}</span>
             <a class="proj-inline-link" data-page="proj_petits_freres" href="#proj_petits_freres">${t('Voir le projet →','View project →')}</a>
           </div>
           <h3 class="proj-inline-title">Les Petits Frères des Pauvres</h3>
@@ -116,9 +131,9 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-04">
+        <section class="proj-inline-section" id="proj-s-05">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">04.</span>
+            <span class="proj-toc-num">05.</span>
             <span class="proj-toc-cat">Motion</span>
             <a class="proj-inline-link" data-page="proj_star_guitar" href="#proj_star_guitar">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -128,9 +143,9 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-05">
+        <section class="proj-inline-section" id="proj-s-06">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">05.</span>
+            <span class="proj-toc-num">06.</span>
             <span class="proj-toc-cat">${t('Illustration','Illustration')}</span>
             <a class="proj-inline-link" data-page="proj_terrasses" href="#proj_terrasses">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -142,9 +157,9 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-06">
+        <section class="proj-inline-section" id="proj-s-07">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">06.</span>
+            <span class="proj-toc-num">07.</span>
             <span class="proj-toc-cat">${t('Photographie','Photography')}</span>
             <a class="proj-inline-link" data-page="proj_photographie" href="#proj_photographie">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -433,6 +448,36 @@ export const pages = {
           <div class="sc-container" style="gap:0.5rem">
             ${['diptyque1.png','diptyque2.png','diptyque3.png']
               .map(f => `<div class="sc-item"><img src="/images/Photographie/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>`,
+
+  proj_caymans: () => `
+    <div class="page page-inner proj-detail">
+      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-detail-info">
+        <h2 class="proj-name">The Caymans</h2>
+      </div>
+      <div class="pf-controls">
+        <div class="pf-toggle" id="pf-toggle">
+          <button class="pf-toggle-btn active" data-view="photos">Photos</button>
+          <button class="pf-toggle-btn" data-view="pochettes">Pochettes</button>
+        </div>
+      </div>
+      <div class="proj-story-strip" id="sc-photos">
+        <div class="sc-viewport">
+          <div class="sc-container" style="gap:0.5rem">
+            ${['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg']
+              .map(f => `<div class="sc-item"><img src="${encodeURI('/The caymans/Photos/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div class="proj-story-strip" id="sc-pochettes" style="display:none;">
+        <div class="sc-viewport">
+          <div class="sc-container" style="gap:0.5rem">
+            ${['1.png','2.png','3.png']
+              .map(f => `<div class="sc-item"><img src="${encodeURI('/The caymans/Pochettes/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
       </div>
