@@ -449,7 +449,7 @@ export const pages = {
       <div class="proj-story-strip" id="sc-instagram" style="display:none;">
         <div class="sc-viewport">
           <div class="sc-container">
-            <div class="sc-item"><img src="/images/KAP/Instagram/CARROUSELFINAL.jpg" alt="Instagram" loading="lazy"></div>
+            <div class="sc-item" style="height:min(84vh,calc(100svh - 9.6rem))"><img src="/images/KAP/Instagram/CARROUSELFINAL.jpg" alt="Instagram" loading="lazy"></div>
           </div>
         </div>
       </div>
