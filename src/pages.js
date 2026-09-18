@@ -433,7 +433,7 @@ export const pages = {
       <div class="pf-controls">
         <div class="pf-toggle" id="pf-toggle">
           <button class="pf-toggle-btn active" data-view="illustration">${t('Illustration', 'Illustration')}</button>
-          <button class="pf-toggle-btn" data-view="edition">${t('Livrables', 'Deliverables')}</button>
+          <button class="pf-toggle-btn" data-view="instagram">Instagram</button>
           <button class="pf-toggle-btn" data-view="contexte">${t('Contexte', 'Context')}</button>
         </div>
         <button class="readme-btn" data-readme="terrasses">${t('Lisez-moi', 'Read me')}</button>
@@ -446,10 +446,10 @@ export const pages = {
           </div>
         </div>
       </div>
-      <div class="proj-story-strip" id="sc-edition" style="display:none;">
+      <div class="proj-story-strip" id="sc-instagram" style="display:none;">
         <div class="sc-viewport">
           <div class="sc-container">
-            <div class="sc-item"><img src="/images/KAP/Instagram/CARROUSELFINAL.jpg" alt="Livrables" loading="lazy"></div>
+            <div class="sc-item"><img src="/images/KAP/Instagram/CARROUSELFINAL.jpg" alt="Instagram" loading="lazy"></div>
           </div>
         </div>
       </div>

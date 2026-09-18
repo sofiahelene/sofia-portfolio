@@ -371,7 +371,7 @@ function initReadMe(btn) {
 // ── Toggle ────────────────────────────────────────────────────────────────────
 function initToggle(toggle) {
   const btns = toggle.querySelectorAll('.pf-toggle-btn');
-  const panels = { identite: 'sc-identite', contexte: 'sc-contexte', motion: 'sc-motion', livrables: 'sc-livrables', images: 'sc-images', illustration: 'sc-illustration', edition: 'sc-edition', logo: 'sc-logo', affiche: 'sc-affiche', goodies: 'sc-goodies', charte: 'sc-charte', uxui: 'sc-uxui', paris: 'sc-paris', whitby: 'sc-whitby', diptyques: 'sc-diptyques', mockup3d: 'sc-mockup3d', photos: 'sc-photos', pochettes: 'sc-pochettes' };
+  const panels = { identite: 'sc-identite', contexte: 'sc-contexte', motion: 'sc-motion', livrables: 'sc-livrables', images: 'sc-images', illustration: 'sc-illustration', edition: 'sc-edition', instagram: 'sc-instagram', logo: 'sc-logo', affiche: 'sc-affiche', goodies: 'sc-goodies', charte: 'sc-charte', uxui: 'sc-uxui', paris: 'sc-paris', whitby: 'sc-whitby', diptyques: 'sc-diptyques', mockup3d: 'sc-mockup3d', photos: 'sc-photos', pochettes: 'sc-pochettes' };
   const emblaInstances = {};
 
   // Pre-init Embla only on the active (visible) panel; lazy-init hidden ones on first show
