@@ -143,21 +143,22 @@ function navigateTo(pageId) {
           if (activeBtn && activeBtn.dataset.view === 'identite') {
             setTimeout(() => initFlowArt(), 50);
           }
-          // Wire motion play/pause if motion is the default active tab — autoplay
+          // Wire motion play/pause if motion is the default active tab
           if (activeBtn && activeBtn.dataset.view === 'motion') {
             const motionPanel = document.getElementById('sc-motion');
             if (motionPanel) {
               const vid = motionPanel.querySelector('video');
               const playBtn = motionPanel.querySelector('.motion-playpause');
-              if (vid) {
+              if (vid && playBtn) {
+                // autoplay attr handles playback; sync button state once playing
+                const syncBtn = () => { playBtn.textContent = vid.paused ? '▶' : '❚❚'; };
+                vid.addEventListener('play',  syncBtn);
+                vid.addEventListener('pause', syncBtn);
                 vid.play().catch(() => {});
-                if (playBtn) {
-                  playBtn.textContent = '❚❚';
-                  playBtn.onclick = () => {
-                    if (vid.paused) { vid.play(); playBtn.textContent = '❚❚'; }
-                    else { vid.pause(); playBtn.textContent = '▶'; }
-                  };
-                }
+                playBtn.onclick = () => {
+                  if (vid.paused) { vid.play().catch(() => {}); }
+                  else { vid.pause(); }
+                };
               }
             }
           }
