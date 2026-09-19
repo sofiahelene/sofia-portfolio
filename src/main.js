@@ -1336,6 +1336,8 @@ function animateHomeEntrance(root, fromSplash = false) {
 
   const nameGroup = root.querySelector('.home-name-group');
   if (nameGroup) gsap.fromTo(nameGroup, { opacity: 0 }, { opacity: 1, duration: 1.0, delay: delay + 0.05, ease: 'power2.out', clearProps: 'opacity' });
+  const openingVideo = root.querySelector('.home-opening-video');
+  if (openingVideo) openingVideo.play().catch(() => { openingVideo.muted = true; openingVideo.play(); });
 
   const crosses = root.querySelectorAll('.home-cross');
   gsap.fromTo(crosses,
