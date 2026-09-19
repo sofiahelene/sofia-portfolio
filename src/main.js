@@ -433,6 +433,11 @@ function initToggle(toggle) {
             if (f.src.includes('about:blank') || f.src === '') f.src = f.dataset.mockupSrc;
           });
           // Lazy-load 3D mockup viewer with arrow nav on first click
+          // Lazy-load Figma embed — set src only on first tab click
+          if (key === 'uxui') {
+            const figma = el.querySelector('iframe[data-src]');
+            if (figma && !figma.src) figma.src = figma.dataset.src;
+          }
           if (key === 'mockup3d' && !el.querySelector('iframe')) {
             const mockups = [
               '/DO%20IT%20AGAIN/MOCKUP/HTML/VITNYLHTML.html',
