@@ -172,7 +172,7 @@ function navigateTo(pageId) {
   // Pages whose default tab auto-plays unmuted video need vid.play() in the same
   // synchronous call stack as the originating user gesture. Delaying via GSAP's
   // onComplete breaks user-activation propagation in Safari and some Chrome builds.
-  const syncRenderPages = ['proj_star_guitar'];
+  const syncRenderPages = ['proj_star_guitar', 'proj_elderflower_tea'];
 
   if (outgoing && !syncRenderPages.includes(pageId)) {
     gsap.to(outgoing, {

@@ -46,8 +46,9 @@ export const pages = {
       { num: '04.', cat: 'Freelance',                          title: 'The Caymans',                  page: 'proj_caymans',       sid: 'proj-s-04' },
       { num: '05.', cat: 'Freelance II',                       title: 'Katerina',                     page: 'proj_katerina',      sid: 'proj-s-05' },
       { num: '06.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
-      { num: '07.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-07' },
-      { num: '08.', cat: t('Photographie','Photography'),      title: t('Paris et Whitby','Paris & Whitby'), page: 'proj_photographie', sid: 'proj-s-08' },
+      { num: '07.', cat: 'Montage/Motion',                    title: 'Elderflower Tea',               page: 'proj_elderflower_tea', sid: 'proj-s-09' },
+      { num: '08.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-07' },
+      { num: '09.', cat: t('Photographie','Photography'),      title: t('Paris et Whitby','Paris & Whitby'), page: 'proj_photographie', sid: 'proj-s-08' },
     ];
     return `
     <div class="page proj-toc-page">
@@ -158,9 +159,21 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-07">
+        <section class="proj-inline-section" id="proj-s-09">
           <div class="proj-inline-header">
             <span class="proj-toc-num">07.</span>
+            <span class="proj-toc-cat">Montage/Motion</span>
+            <a class="proj-inline-link" data-page="proj_elderflower_tea" href="#proj_elderflower_tea">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <h3 class="proj-inline-title">Elderflower Tea</h3>
+          <div class="proj-inline-video-wrap">
+            <video class="proj-inline-video proj-inline-video--clip" muted playsinline preload="none" src="/videos/elderflower_tea.mp4"></video>
+          </div>
+        </section>
+
+        <section class="proj-inline-section" id="proj-s-07">
+          <div class="proj-inline-header">
+            <span class="proj-toc-num">08.</span>
             <span class="proj-toc-cat">${t('Illustration','Illustration')}</span>
             <a class="proj-inline-link" data-page="proj_terrasses" href="#proj_terrasses">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -174,7 +187,7 @@ export const pages = {
 
         <section class="proj-inline-section" id="proj-s-08">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">08.</span>
+            <span class="proj-toc-num">09.</span>
             <span class="proj-toc-cat">${t('Photographie','Photography')}</span>
             <a class="proj-inline-link" data-page="proj_photographie" href="#proj_photographie">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -223,6 +236,25 @@ export const pages = {
               'Portfolio_elements_SG_7.jpg',
             ].map(f => `<div class="sc-item"><img src="/images/star-guitar/${f}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
+        </div>
+      </div>
+    </div>`,
+
+  proj_elderflower_tea: () => `
+    <div class="page page-inner proj-detail">
+      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-detail-info">
+        <h2 class="proj-name">Elderflower Tea</h2>
+      </div>
+      <div class="pf-controls">
+        <div class="pf-toggle" id="pf-toggle">
+          <button class="pf-toggle-btn active" data-view="motion">Montage/Motion</button>
+        </div>
+      </div>
+      <div class="pf-motion-panel" id="sc-motion" style="margin-top:1cm">
+        <div class="motion-player">
+          <video loop playsinline preload="metadata" src="/videos/elderflower_tea.mp4" class="pf-motion-video"></video>
+          <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
       </div>
     </div>`,
@@ -447,6 +479,8 @@ export const pages = {
         <div class="sc-viewport">
           <div class="sc-container">
             <div class="sc-item" style="height:min(84vh,calc(100svh - 9.6rem))"><img src="/images/KAP/Instagram/CARROUSELFINAL.jpg" alt="Instagram" loading="lazy"></div>
+            ${['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg']
+              .map(f => `<div class="sc-item"><img src="/images/KAP/Instagram/${f}" alt="Instagram post ${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
       </div>
