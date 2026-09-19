@@ -1175,7 +1175,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .contact-ribbon-single {
   width: 100%;
   overflow: hidden;
-  background: #fff;
+  background: #00bbd1;
   padding: 0.7rem 0;
   margin-top: 1cm;
 }
@@ -1227,20 +1227,20 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .contact-field { display: flex; flex-direction: column; gap: 0.47rem; flex: 1; }
 .contact-field label { font-size: 0.73rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #00bbd1; }
 .contact-field input, .contact-field textarea {
-  border: 1px solid rgba(0,187,209,0.3); border-radius: 8px; padding: 0.73rem 1rem;
-  font-size: 0.87rem; font-family: inherit; color: #00bbd1;
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 0.73rem 1rem;
+  font-size: 0.87rem; font-family: inherit; color: #fff;
   background: #111; outline: none; transition: border-color 0.2s;
   resize: none;
 }
 .contact-field input:focus, .contact-field textarea:focus { border-color: #00bbd1; }
 .contact-field input::placeholder, .contact-field textarea::placeholder { color: #bbb; }
 .contact-submit {
-  background: #fff; color: #000; border: none; border-radius: 8px;
+  background: #00bbd1; color: #000; border: none; border-radius: 8px;
   padding: 0.93rem 2rem; font-size: 0.8rem; font-weight: 700;
   letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
   transition: background 0.2s; width: 100%;
 }
-.contact-submit:hover { background: rgba(255,255,255,0.85); }
+.contact-submit:hover { background: rgba(0,187,209,0.8); }
 .contact-success { font-size: 0.8rem; font-weight: 700; color: #00bbd1; text-align: center; letter-spacing: 0.06em; }
 @media (max-width: 640px) {
   .contact-split { flex-direction: column; gap: 2.67rem; }

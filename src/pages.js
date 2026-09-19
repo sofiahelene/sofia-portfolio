@@ -99,7 +99,7 @@ export const pages = {
           <h3 class="proj-inline-title">Do It Again</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
-              ${['Cover.png','doublepage1.png','doublespread2.png','double page 3.png','double page4.png','double page5.png','double page6.png','double page7.png','double page8.png'].map(f=>`<div class="sc-item"><img src="/images/mockup-do-it-again-edition/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
+              ${['Slide plans1.jpg','Slide plans2.jpg'].map(f=>`<div class="sc-item"><img src="/DO%20IT%20AGAIN/SLIDES/${encodeURIComponent(f)}" alt="${f}" loading="lazy" style="object-fit:contain;background:#fff;"></div>`).join('')}
             </div></div>
           </div>
         </section>
