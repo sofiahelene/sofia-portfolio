@@ -597,19 +597,19 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   flex-wrap: wrap;
 }
 .readme-btn {
-  background: none;
-  border: 1px solid rgba(0,187,209,0.5);
+  background: #00bbd1;
+  border: 1px solid #00bbd1;
   border-radius: 2rem;
   padding: 0.4rem 1.2rem;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #00bbd1;
+  color: #000;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
-.readme-btn:hover { background: #00bbd1; border-color: #00bbd1; color: #fff; }
+.readme-btn:hover { background: rgba(0,187,209,0.82); border-color: rgba(0,187,209,0.82); color: #000; }
 .readme-btn--spaced { display: block; margin: 1.5rem 0; }
 .brume-note {
   font-size: 0.75rem;
@@ -672,29 +672,30 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .pf-toggle {
   display: flex;
   gap: 0;
-  border: 1px solid #210a0b;
+  border: 1px solid #00bbd1;
   border-radius: 2rem;
   width: fit-content;
   overflow: hidden;
+  background: #00bbd1;
 }
 .pf-toggle-btn {
-  background: none;
+  background: #00bbd1;
   border: none;
   padding: 0.4rem 1.2rem;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #00bbd1;
+  color: #000;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
 .pf-toggle-btn.active {
-  background: #fff;
+  background: #00bbd1;
   color: #000;
 }
 .pf-toggle-btn:hover:not(.active) {
-  background: #fff;
+  background: rgba(0,187,209,0.82);
   color: #000;
 }
 
