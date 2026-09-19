@@ -828,7 +828,6 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   display: block;
   object-fit: contain;
   pointer-events: none;
-  aspect-ratio: 4/3; /* fallback space reservation before load */
 }
 
 

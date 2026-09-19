@@ -1,3 +1,4 @@
+import '@fontsource-variable/inter';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -142,18 +143,21 @@ function navigateTo(pageId) {
           if (activeBtn && activeBtn.dataset.view === 'identite') {
             setTimeout(() => initFlowArt(), 50);
           }
-          // Wire motion play/pause if motion is the default active tab (don't autoplay)
+          // Wire motion play/pause if motion is the default active tab — autoplay
           if (activeBtn && activeBtn.dataset.view === 'motion') {
             const motionPanel = document.getElementById('sc-motion');
             if (motionPanel) {
               const vid = motionPanel.querySelector('video');
               const playBtn = motionPanel.querySelector('.motion-playpause');
-              if (vid && playBtn) {
-                playBtn.textContent = '▶';
-                playBtn.onclick = () => {
-                  if (vid.paused) { vid.play(); playBtn.textContent = '❚❚'; }
-                  else { vid.pause(); playBtn.textContent = '▶'; }
-                };
+              if (vid) {
+                vid.play().catch(() => {});
+                if (playBtn) {
+                  playBtn.textContent = '❚❚';
+                  playBtn.onclick = () => {
+                    if (vid.paused) { vid.play(); playBtn.textContent = '❚❚'; }
+                    else { vid.pause(); playBtn.textContent = '▶'; }
+                  };
+                }
               }
             }
           }
