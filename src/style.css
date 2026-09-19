@@ -120,6 +120,11 @@ html, body {
 #pf-page.page-scrollable { overflow-y: auto; }
 #pf-page:has(.page-home) { overflow: visible; }
 
+/* Home page: hide text strip and aurora behind the video */
+.page-home .home-strip { display: none; }
+.page-home .aurora-root { display: none; }
+.page-home .home-cross { display: none; }
+
 /* Home page: video fills full screen, header floats transparent over it */
 #pf-app:has(.page-home) {
   position: relative;

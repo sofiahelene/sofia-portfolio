@@ -70,7 +70,7 @@ function navigateTo(pageId) {
     if (pageId === 'home') {
       animateHomeEntrance(incoming, false);
       incoming.querySelectorAll('video').forEach(v => {
-        v.muted = true;
+        if (!v.classList.contains('home-opening-video')) v.muted = true;
         const frac = parseFloat(v.dataset.offset || 0);
         const maxDur = parseFloat(v.dataset.maxDuration || 0);
         v.addEventListener('loadedmetadata', () => {
