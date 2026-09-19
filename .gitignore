@@ -25,9 +25,7 @@ docs/videos/Book_open_1.mov
 public/Ethan/
 docs/Ethan/
 
-# Elderflower Tea video is served from GitHub Releases, not tracked here
-public/videos/elderflower_tea.mp4
-docs/videos/elderflower_tea.mp4
+# Elderflower Tea — compressed to <100MB and committed directly
 
 # PDF source files — not needed on the site (converted to JPG)
 public/images/KAP/Instagram/*.pdf
