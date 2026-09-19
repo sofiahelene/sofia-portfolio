@@ -21,6 +21,9 @@ window.t = (fr, en) => window.LANG === 'en' ? en : fr;
 const _savedLang = sessionStorage.getItem('pf-lang');
 const _savedPage = sessionStorage.getItem('pf-page');
 const _isReturning = (_savedLang === 'fr' || _savedLang === 'en') && !!_savedPage;
+// Consume any path saved by 404.html redirect
+const _redirectPath = sessionStorage.getItem('pf-redirect-path');
+if (_redirectPath) { sessionStorage.removeItem('pf-redirect-path'); history.replaceState(null, '', _redirectPath); }
 
 // ── Router ────────────────────────────────────────────────────────────────────
 const pfPage        = document.getElementById('pf-page');
@@ -35,6 +38,8 @@ function navigateTo(pageId) {
   if (window._lbCleanup) { window._lbCleanup(); window._lbCleanup = null; }
   currentPage = pageId;
   sessionStorage.setItem('pf-page', pageId);
+  const urlPath = pageId === 'home' ? '/' : '/' + pageId;
+  if (window.location.pathname !== urlPath) history.pushState({ pageId }, '', urlPath);
 
   // Hide the star splash canvas when navigating away from home
   const sc = document.getElementById('splash-canvas');
@@ -1521,7 +1526,25 @@ const startSite = (lang) => {
 document.getElementById('lang-fr').addEventListener('click', () => startSite('fr'));
 document.getElementById('lang-en').addEventListener('click', () => startSite('en'));
 
-if (_isReturning) {
+// Handle browser back/forward
+window.addEventListener('popstate', e => {
+  const pageId = e.state?.pageId || pageFromPath(window.location.pathname);
+  if (pageId) navigateTo(pageId);
+});
+
+function pageFromPath(path) {
+  const id = path.replace(/^\//, '') || 'home';
+  return pages[id] ? id : null;
+}
+
+const _urlPage = pageFromPath(window.location.pathname);
+
+if (_urlPage && _urlPage !== 'home') {
+  // Direct link to a specific page — skip splash, use saved or default lang
+  applyLang(_savedLang || 'fr');
+  langSplash.classList.add('lang-hidden');
+  navigateTo(_urlPage);
+} else if (_isReturning) {
   // Normal refresh — skip splash entirely, restore session state
   applyLang(_savedLang);
   langSplash.classList.add('lang-hidden');
