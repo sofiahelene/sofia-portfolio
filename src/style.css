@@ -1177,7 +1177,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   overflow: hidden;
   background: #00bbd1;
   padding: 0.7rem 0;
-  margin-top: 1cm;
+  margin-top: 2cm;
 }
 
 .ribbon-track {

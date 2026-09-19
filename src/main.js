@@ -104,6 +104,16 @@ function navigateTo(pageId) {
       });
       // Init carousels for inline sections
       incoming.querySelectorAll('.proj-story-strip').forEach(strip => initNativeCarousel(strip));
+      // Autoplay TOC clip videos (loop between data-clip-start and data-clip-end seconds)
+      incoming.querySelectorAll('.sc-toc-clip').forEach(v => {
+        const start = parseFloat(v.dataset.clipStart || 0);
+        const end   = parseFloat(v.dataset.clipEnd   || 0);
+        if (v.dataset.src) { v.src = v.dataset.src; delete v.dataset.src; }
+        v.muted = true;
+        v.addEventListener('loadedmetadata', () => { if (start > 0) v.currentTime = start; }, { once: true });
+        if (end > 0) v.addEventListener('timeupdate', () => { if (v.currentTime >= end) v.currentTime = start; });
+        v.play().catch(() => {});
+      });
       // Autoplay inline video
       incoming.querySelectorAll('.proj-inline-video').forEach(v => {
         v.muted = true;
