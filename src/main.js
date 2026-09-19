@@ -136,35 +136,35 @@ function navigateTo(pageId) {
       const strips = incoming.querySelectorAll('.proj-story-strip');
       if (strips.length) {
         strips.forEach(s => initStoryCarousel(s));
-        const toggle = incoming.querySelector('.pf-toggle');
-        if (toggle) {
-          initToggle(toggle);
-          const activeBtn = toggle.querySelector('.pf-toggle-btn.active');
-          if (activeBtn && activeBtn.dataset.view === 'identite') {
-            setTimeout(() => initFlowArt(), 50);
-          }
-          // Wire motion play/pause if motion is the default active tab
-          if (activeBtn && activeBtn.dataset.view === 'motion') {
-            const motionPanel = document.getElementById('sc-motion');
-            if (motionPanel) {
-              const vid = motionPanel.querySelector('video');
-              const playBtn = motionPanel.querySelector('.motion-playpause');
-              if (vid && playBtn) {
-                const syncBtn = () => { playBtn.textContent = vid.paused ? '▶' : '❚❚'; };
-                vid.addEventListener('play',  syncBtn);
-                vid.addEventListener('pause', syncBtn);
-                vid.play().catch(() => {});
-                playBtn.onclick = () => {
-                  if (vid.paused) { vid.play().catch(() => {}); }
-                  else { vid.pause(); }
-                };
-              }
-            }
-          }
-        }
       } else {
         const strip = incoming.querySelector('.proj-story-strip');
         if (strip) initStoryCarousel(strip);
+      }
+      // Toggle + motion init runs regardless of whether there are story strips
+      const toggle = incoming.querySelector('.pf-toggle');
+      if (toggle) {
+        initToggle(toggle);
+        const activeBtn = toggle.querySelector('.pf-toggle-btn.active');
+        if (activeBtn && activeBtn.dataset.view === 'identite') {
+          setTimeout(() => initFlowArt(), 50);
+        }
+        if (activeBtn && activeBtn.dataset.view === 'motion') {
+          const motionPanel = document.getElementById('sc-motion');
+          if (motionPanel) {
+            const vid = motionPanel.querySelector('video');
+            const playBtn = motionPanel.querySelector('.motion-playpause');
+            if (vid && playBtn) {
+              const syncBtn = () => { playBtn.textContent = vid.paused ? '▶' : '❚❚'; };
+              vid.addEventListener('play',  syncBtn);
+              vid.addEventListener('pause', syncBtn);
+              vid.play().catch(() => {});
+              playBtn.onclick = () => {
+                if (vid.paused) { vid.play().catch(() => {}); }
+                else { vid.pause(); }
+              };
+            }
+          }
+        }
       }
     }
   };
