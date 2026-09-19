@@ -28,3 +28,13 @@ docs/Ethan/
 # Elderflower Tea video is served from GitHub Releases, not tracked here
 public/videos/elderflower_tea.mp4
 docs/videos/elderflower_tea.mp4
+
+# PDF source files — not needed on the site (converted to JPG)
+public/images/KAP/Instagram/*.pdf
+docs/images/KAP/Instagram/*.pdf
+public/images/KAP/**/*.pdf
+docs/images/KAP/**/*.pdf
+
+# Unreferenced video files sitting in public/images
+public/images/sofia*video.MP4
+docs/images/sofia*video.MP4
