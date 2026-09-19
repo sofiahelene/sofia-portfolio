@@ -259,21 +259,7 @@ export const pages = {
       </div>
       <div class="proj-story-strip" id="sc-histoire" style="display:none;">
         <div class="sc-viewport"><div class="sc-container">
-          ${[
-            "Capture d'écran 2026-09-19 à 21.22.28.png",
-            "Capture d'écran 2026-09-19 à 21.22.51.png",
-            "Capture d'écran 2026-09-19 à 21.23.05.png",
-            "Capture d'écran 2026-09-19 à 21.23.39.png",
-            "Capture d'écran 2026-09-19 à 21.24.02.png",
-            "Capture d'écran 2026-09-19 à 21.24.27.png",
-            "Capture d'écran 2026-09-19 à 21.24.39.png",
-            "Capture d'écran 2026-09-19 à 21.24.58.png",
-            "Capture d'écran 2026-09-19 à 21.25.09.png",
-            "Capture d'écran 2026-09-19 à 21.25.22.png",
-            "Capture d'écran 2026-09-19 à 21.25.34.png",
-            "Capture d'écran 2026-09-19 à 21.26.29.png",
-            "Capture d'écran 2026-09-19 à 21.26.54.png",
-          ].map(f => `<div class="sc-item"><img src="/images/elderflower/histoire/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
+          ${Array.from({length:13},(_,i)=>`<div class="sc-item"><img src="/images/elderflower/histoire/${i+1}.png" alt="" loading="lazy"></div>`).join('')}
         </div></div>
       </div>
     </div>`,
