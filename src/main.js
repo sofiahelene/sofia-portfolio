@@ -150,11 +150,12 @@ function navigateTo(pageId) {
               const vid = motionPanel.querySelector('video');
               const playBtn = motionPanel.querySelector('.motion-playpause');
               if (vid && playBtn) {
-                // autoplay attr handles playback; sync button state once playing
                 const syncBtn = () => { playBtn.textContent = vid.paused ? '▶' : '❚❚'; };
                 vid.addEventListener('play',  syncBtn);
                 vid.addEventListener('pause', syncBtn);
-                vid.play().catch(() => {});
+                const tryPlay = () => vid.play().catch(() => {});
+                if (vid.readyState >= 1) { tryPlay(); }
+                else { vid.addEventListener('loadedmetadata', tryPlay, { once: true }); }
                 playBtn.onclick = () => {
                   if (vid.paused) { vid.play().catch(() => {}); }
                   else { vid.pause(); }

@@ -767,9 +767,9 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   justify-content: center;
 }
 .pf-motion-video {
-  max-width: min(90.25vw, 1282px);
+  width: min(90.25vw, 1282px);
   max-height: calc(100vh - 72px - 1cm - 13rem);
-  width: auto;
+  aspect-ratio: 16/9;
   height: auto;
   border-radius: 4px;
   display: block;
