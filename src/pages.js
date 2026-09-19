@@ -167,7 +167,7 @@ export const pages = {
           </div>
           <h3 class="proj-inline-title">Elderflower Tea</h3>
           <div class="proj-inline-video-wrap">
-            <video class="proj-inline-video proj-inline-video--clip" muted playsinline preload="none" src="/videos/elderflower_tea.mp4"></video>
+            <video class="proj-inline-video proj-inline-video--clip" muted playsinline preload="none" src="https://github.com/sofiahelene/sofia-portfolio/releases/download/v1-video-assets/elderflower_tea.mp4"></video>
           </div>
         </section>
 
@@ -253,7 +253,7 @@ export const pages = {
       </div>
       <div class="pf-motion-panel" id="sc-motion" style="margin-top:1cm">
         <div class="motion-player">
-          <video loop playsinline preload="metadata" src="/videos/elderflower_tea.mp4" class="pf-motion-video"></video>
+          <video loop playsinline preload="metadata" src="https://github.com/sofiahelene/sofia-portfolio/releases/download/v1-video-assets/elderflower_tea.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
       </div>
