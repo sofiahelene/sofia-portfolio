@@ -28,10 +28,9 @@ export const pages = {
         </div>
       </div>
 
-      <!-- Name + subtitle grouped above reel -->
+      <!-- Opening video (replaces name + role) -->
       <div class="home-name-group">
-        <p class="home-name"><span>sofia</span><span>lucas</span></p>
-        <p class="home-role">${t('DIRECTRICE ARTISTIQUE JUNIOR', 'JUNIOR ART DIRECTOR')}</p>
+        <video class="home-opening-video" autoplay muted loop playsinline src="/videos/sofia_opening.mp4"></video>
       </div>
 
     </div>

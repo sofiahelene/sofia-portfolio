@@ -33,6 +33,8 @@ docs/images/KAP/Instagram/*.pdf
 public/images/KAP/**/*.pdf
 docs/images/KAP/**/*.pdf
 
-# Unreferenced video files sitting in public/images
+# Unreferenced video files sitting in public/images (original kept local only)
 public/images/sofia*video.MP4
 docs/images/sofia*video.MP4
+
+# sofia_opening.mp4 in public/videos is committed (51MB, under GitHub limit)

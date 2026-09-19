@@ -1335,7 +1335,7 @@ function animateHomeEntrance(root, fromSplash = false) {
   if (aurora) gsap.fromTo(aurora, { opacity: 0 }, { opacity: 1, duration: 1.2, delay, ease: 'power2.out' });
 
   const nameGroup = root.querySelector('.home-name-group');
-  if (nameGroup) gsap.fromTo(nameGroup, { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.7, delay: delay + 0.05, ease: 'power3.out', clearProps: 'transform,opacity' });
+  if (nameGroup) gsap.fromTo(nameGroup, { opacity: 0 }, { opacity: 1, duration: 1.0, delay: delay + 0.05, ease: 'power2.out', clearProps: 'opacity' });
 
   const crosses = root.querySelectorAll('.home-cross');
   gsap.fromTo(crosses,
@@ -1536,20 +1536,15 @@ const STAR_SCALE_MIN = 0.18;
 const STAR_SCALE_MAX = 8.0;
 const DAMPING        = 0.08;  // lerp factor — lower = more momentum
 
-let zoomTarget   = 0;  // raw scroll input drives this
-let zoomProgress = 0;  // smoothed display value
-let hintGone     = false;
-let handedOff    = false;
+let zoomTarget   = 1;  // star splash disabled — always handed off
+let zoomProgress = 1;
+let hintGone     = true;
+let handedOff    = true;
 
-// Skip star canvas entirely on normal refresh (must be after let declarations above)
-if (_isReturning) {
-  handedOff = true;
-  zoomTarget = 1;
-  zoomProgress = 1;
-  splashCanvas.style.display = 'none';
-  hint.style.display = 'none';
-  projectsLayer.classList.add('active');
-}
+// Star splash removed — skip immediately
+splashCanvas.style.display = 'none';
+if (hint) hint.style.display = 'none';
+projectsLayer.classList.add('active');
 let starImg       = null;
 let starCentroidX = 0.5;  // fractional position of star's visual centre within the image
 let starCentroidY = 0.5;
