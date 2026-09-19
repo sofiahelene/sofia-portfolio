@@ -248,6 +248,7 @@ export const pages = {
       <div class="pf-controls">
         <div class="pf-toggle" id="pf-toggle">
           <button class="pf-toggle-btn active" data-view="motion">Montage/Motion</button>
+          <button class="pf-toggle-btn" data-view="histoire">${t("L'histoire", "The Story")}</button>
         </div>
       </div>
       <div class="pf-motion-panel" id="sc-motion" style="margin-top:1cm">
@@ -255,6 +256,25 @@ export const pages = {
           <video loop playsinline preload="metadata" src="/videos/elderflower_tea.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
+      </div>
+      <div class="proj-story-strip" id="sc-histoire" style="display:none;">
+        <div class="sc-viewport"><div class="sc-container">
+          ${[
+            "Capture d'écran 2026-09-19 à 21.22.28.png",
+            "Capture d'écran 2026-09-19 à 21.22.51.png",
+            "Capture d'écran 2026-09-19 à 21.23.05.png",
+            "Capture d'écran 2026-09-19 à 21.23.39.png",
+            "Capture d'écran 2026-09-19 à 21.24.02.png",
+            "Capture d'écran 2026-09-19 à 21.24.27.png",
+            "Capture d'écran 2026-09-19 à 21.24.39.png",
+            "Capture d'écran 2026-09-19 à 21.24.58.png",
+            "Capture d'écran 2026-09-19 à 21.25.09.png",
+            "Capture d'écran 2026-09-19 à 21.25.22.png",
+            "Capture d'écran 2026-09-19 à 21.25.34.png",
+            "Capture d'écran 2026-09-19 à 21.26.29.png",
+            "Capture d'écran 2026-09-19 à 21.26.54.png",
+          ].map(f => `<div class="sc-item"><img src="/images/elderflower/histoire/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
+        </div></div>
       </div>
     </div>`,
 
