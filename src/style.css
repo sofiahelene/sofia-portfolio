@@ -120,6 +120,24 @@ html, body {
 #pf-page.page-scrollable { overflow-y: auto; }
 #pf-page:has(.page-home) { overflow: visible; }
 
+/* Home page: video fills full screen, header floats transparent over it */
+#pf-app:has(.page-home) {
+  position: relative;
+}
+#pf-app:has(.page-home) .pf-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent !important;
+  border-bottom: none !important;
+  z-index: 10;
+}
+#pf-app:has(.page-home) #pf-page {
+  position: absolute;
+  inset: 0;
+}
+
 /* page-enter animation */
 .page { animation: pageIn 0.35s ease both; }
 @keyframes pageIn {
