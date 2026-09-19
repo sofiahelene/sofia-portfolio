@@ -46,8 +46,8 @@ export const pages = {
       { num: '05.', cat: 'Freelance II',                       title: 'Katerina',                     page: 'proj_katerina',      sid: 'proj-s-05' },
       { num: '06.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
       { num: '07.', cat: 'Montage/Motion',                    title: 'Elderflower Tea',               page: 'proj_elderflower_tea', sid: 'proj-s-09' },
-      { num: '08.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-07' },
-      { num: '09.', cat: t('Photographie','Photography'),      title: t('Paris et Whitby','Paris & Whitby'), page: 'proj_photographie', sid: 'proj-s-08' },
+      { num: '08.', cat: t('Photographie','Photography'),      title: t('Paris et Whitby','Paris & Whitby'), page: 'proj_photographie', sid: 'proj-s-08' },
+      { num: '09.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-07' },
     ];
     return `
     <div class="page proj-toc-page">
@@ -99,7 +99,7 @@ export const pages = {
           <h3 class="proj-inline-title">Do It Again</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
-              <div class="sc-item sc-item--video"><video muted playsinline preload="metadata" src="/videos/FINALVIDEO.mp4" data-clip-start="23" data-clip-end="33" class="sc-toc-clip" style="width:100%;height:100%;object-fit:cover;display:block;"></video></div>
+              <div class="sc-item sc-item--video"><video muted playsinline preload="auto" src="/videos/FINALVIDEO.mp4" data-clip-start="23" data-clip-end="33" class="sc-toc-clip" style="width:100%;height:100%;object-fit:contain;background:#000;display:block;"></video></div>
             </div></div>
           </div>
         </section>
@@ -170,23 +170,9 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-07">
-          <div class="proj-inline-header">
-            <span class="proj-toc-num">08.</span>
-            <span class="proj-toc-cat">${t('Illustration','Illustration')}</span>
-            <a class="proj-inline-link" data-page="proj_terrasses" href="#proj_terrasses">${t('Voir le projet →','View project →')}</a>
-          </div>
-          <h3 class="proj-inline-title">Terrasses des Oliviers</h3>
-          <div class="proj-story-strip">
-            <div class="sc-viewport"><div class="sc-container">
-              ${['1.jpg','2.jpg','3.jpg','4.jpg'].map(f=>`<div class="sc-item"><img src="/images/KAP/Illustration/${f}" alt="${f}" loading="lazy"></div>`).join('')}
-            </div></div>
-          </div>
-        </section>
-
         <section class="proj-inline-section" id="proj-s-08">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">09.</span>
+            <span class="proj-toc-num">08.</span>
             <span class="proj-toc-cat">${t('Photographie','Photography')}</span>
             <a class="proj-inline-link" data-page="proj_photographie" href="#proj_photographie">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -194,6 +180,20 @@ export const pages = {
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container" style="gap:0.5rem">
               ${['LUCAS-Sofia-001.jpg','LUCAS-Sofia-002.jpg','LUCAS-Sofia-003.jpg','LUCAS-Sofia-004.jpg','LUCAS-Sofia-006.jpg','LUCAS-Sofia-008.jpg','IMG_6833.jpg'].map(f=>`<div class="sc-item"><img src="/images/Photographie/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
+            </div></div>
+          </div>
+        </section>
+
+        <section class="proj-inline-section" id="proj-s-07">
+          <div class="proj-inline-header">
+            <span class="proj-toc-num">09.</span>
+            <span class="proj-toc-cat">${t('Illustration','Illustration')}</span>
+            <a class="proj-inline-link" data-page="proj_terrasses" href="#proj_terrasses">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <h3 class="proj-inline-title">Terrasses des Oliviers</h3>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              ${['1.jpg','2.jpg','3.jpg','4.jpg'].map(f=>`<div class="sc-item"><img src="/images/KAP/Illustration/${f}" alt="${f}" loading="lazy"></div>`).join('')}
             </div></div>
           </div>
         </section>

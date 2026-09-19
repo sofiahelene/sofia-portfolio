@@ -108,11 +108,15 @@ function navigateTo(pageId) {
       incoming.querySelectorAll('.sc-toc-clip').forEach(v => {
         const start = parseFloat(v.dataset.clipStart || 0);
         const end   = parseFloat(v.dataset.clipEnd   || 0);
-        if (v.dataset.src) { v.src = v.dataset.src; delete v.dataset.src; }
         v.muted = true;
-        v.addEventListener('loadedmetadata', () => { if (start > 0) v.currentTime = start; }, { once: true });
         if (end > 0) v.addEventListener('timeupdate', () => { if (v.currentTime >= end) v.currentTime = start; });
-        v.play().catch(() => {});
+        const startPlayback = () => {
+          if (start > 0) v.currentTime = start;
+          v.addEventListener('seeked', () => v.play().catch(() => {}), { once: true });
+          if (start === 0) v.play().catch(() => {});
+        };
+        if (v.readyState >= 1) startPlayback();
+        else v.addEventListener('loadedmetadata', startPlayback, { once: true });
       });
       // Autoplay inline video
       incoming.querySelectorAll('.proj-inline-video').forEach(v => {
