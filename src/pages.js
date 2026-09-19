@@ -236,11 +236,9 @@ export const pages = {
           <button class="pf-toggle-btn" data-view="edition">${t('Édition', 'Editorial')}</button>
           <button class="pf-toggle-btn" data-view="motion">Motion</button>
           <button class="pf-toggle-btn" data-view="uxui">UX/UI</button>
-          <button class="pf-toggle-btn" data-view="mockup3d">Mockups 3D</button>
         </div>
         <button class="readme-btn" data-readme="do-it-again">${t('Lisez-moi', 'Read me')}</button>
         <span class="brume-note" id="dia-edition-note" style="display:none">${t('Do It Again Collectors Edition est imprimée sur papier brillant 180g et 300g', 'Do It Again Collectors Edition is printed on 180g and 300g gloss paper')}</span>
-        <span class="brume-note" id="dia-mockup3d-note" style="display:none">${t('Mockups créés avec des modèles 3D et Claude', 'Mockups created with 3D models and Claude')}</span>
         <div class="book-controls" id="book-controls" style="display:none;">
           <button class="book-ctrl-btn" id="book-prev">← ${t('Préc.', 'Prev.')}</button>
           <span class="book-page-label" id="book-page-label"></span>
@@ -281,7 +279,6 @@ export const pages = {
       <div id="sc-uxui" style="display:none;" class="sc-uxui-panel">
         <iframe style="border:1px solid rgba(0,0,0,0.1);width:100%;height:80vh;" data-src="https://embed.figma.com/proto/Kr5ime3omFXrMqLmSK9myq/PCG?page-id=265%3A1455&node-id=6-370&viewport=-1193%2C334%2C0.15&scaling=scale-down&content-scaling=fixed&starting-point-node-id=6%3A370&embed-host=share" allowfullscreen></iframe>
       </div>
-      <div id="sc-mockup3d" style="display:none;"></div>
     </div>`,
 
   proj_brume: () => `

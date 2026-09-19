@@ -380,7 +380,7 @@ function initReadMe(btn) {
 // ── Toggle ────────────────────────────────────────────────────────────────────
 function initToggle(toggle) {
   const btns = toggle.querySelectorAll('.pf-toggle-btn');
-  const panels = { identite: 'sc-identite', contexte: 'sc-contexte', motion: 'sc-motion', livrables: 'sc-livrables', images: 'sc-images', illustration: 'sc-illustration', edition: 'sc-edition', instagram: 'sc-instagram', logo: 'sc-logo', affiche: 'sc-affiche', goodies: 'sc-goodies', charte: 'sc-charte', uxui: 'sc-uxui', paris: 'sc-paris', whitby: 'sc-whitby', diptyques: 'sc-diptyques', mockup3d: 'sc-mockup3d', photos: 'sc-photos', pochettes: 'sc-pochettes' };
+  const panels = { identite: 'sc-identite', contexte: 'sc-contexte', motion: 'sc-motion', livrables: 'sc-livrables', images: 'sc-images', illustration: 'sc-illustration', edition: 'sc-edition', instagram: 'sc-instagram', logo: 'sc-logo', affiche: 'sc-affiche', goodies: 'sc-goodies', charte: 'sc-charte', uxui: 'sc-uxui', paris: 'sc-paris', whitby: 'sc-whitby', diptyques: 'sc-diptyques', photos: 'sc-photos', pochettes: 'sc-pochettes' };
   const emblaInstances = {};
 
   // Pre-init Embla only on the active (visible) panel; lazy-init hidden ones on first show
@@ -392,8 +392,6 @@ function initToggle(toggle) {
       // Show Do It Again edition note only on edition tab
       const diaNote = document.getElementById('dia-edition-note');
       if (diaNote) diaNote.style.display = view === 'edition' ? '' : 'none';
-      const mockup3dNote = document.getElementById('dia-mockup3d-note');
-      if (mockup3dNote) mockup3dNote.style.display = view === 'mockup3d' ? '' : 'none';
       // Update photo readme button when switching tabs
       const photoReadmeBtn = document.getElementById('photo-readme-btn');
       if (photoReadmeBtn) {
@@ -441,47 +439,6 @@ function initToggle(toggle) {
           if (key === 'uxui') {
             const figma = el.querySelector('iframe[data-src]');
             if (figma && !figma.src) figma.src = figma.dataset.src;
-          }
-          if (key === 'mockup3d' && !el.querySelector('iframe')) {
-            const mockups = [
-              '/DO%20IT%20AGAIN/MOCKUP/HTML/VITNYLHTML.html',
-              '/DO%20IT%20AGAIN/MOCKUP/HTML/CAPHTML.html',
-              '/DO%20IT%20AGAIN/MOCKUP/HTML/TSHIRTHTML.html',
-              '/DO%20IT%20AGAIN/MOCKUP/HTML/TOTEHTML.html',
-              '/DO%20IT%20AGAIN/MOCKUP/HTML/POSTERHTML.html',
-            ];
-            let current = 0;
-            const wrap = document.createElement('div');
-            wrap.style.cssText = 'position:relative;margin-top:2cm;overflow:hidden;';
-            const iframe = document.createElement('iframe');
-            iframe.src = mockups[0];
-            iframe.dataset.mockupSrc = mockups[0];
-            iframe.style.cssText = 'border:none;width:100%;height:60vh;display:block;';
-            iframe.allowFullscreen = true;
-            const btnStyle = 'position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;padding:0.5rem;z-index:10;font-size:1.8rem;color:#210a0b;line-height:1;';
-            const prev = document.createElement('button');
-            prev.innerHTML = '&#10094;';
-            prev.setAttribute('aria-label', 'Previous');
-            prev.style.cssText = btnStyle + 'left:0.5rem;';
-            const next = document.createElement('button');
-            next.innerHTML = '&#10095;';
-            next.setAttribute('aria-label', 'Next');
-            next.style.cssText = btnStyle + 'right:0.5rem;';
-            const swap = (dir) => {
-              current = (current + dir + mockups.length) % mockups.length;
-              iframe.src = mockups[current];
-              iframe.dataset.mockupSrc = mockups[current];
-            };
-            prev.addEventListener('click', () => swap(-1));
-            next.addEventListener('click', () => swap(1));
-            // Hide custom cursor dot while inside the iframe, restore on exit
-            const dot = document.getElementById('pf-cursor-dot');
-            iframe.addEventListener('mouseenter', () => { if (dot) dot.style.display = 'none'; });
-            iframe.addEventListener('mouseleave', () => { if (dot) dot.style.display = 'block'; });
-            wrap.appendChild(prev);
-            wrap.appendChild(iframe);
-            wrap.appendChild(next);
-            el.appendChild(wrap);
           }
           // Init book for charte panel
           if (key === 'charte') initBook();
