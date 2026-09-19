@@ -620,7 +620,7 @@ export const pages = {
             </ul>
           </div>
           <div class="contact-socials">
-            <a href="https://www.instagram.com/ssofialucas" target="_blank" rel="noopener" class="contact-soc">INSTAGRAM</a>
+            <a href="https://www.instagram.com/sofialucasdesign/" target="_blank" rel="noopener" class="contact-soc">INSTAGRAM</a>
             <a href="https://www.linkedin.com/in/sofiahelenelucas" target="_blank" rel="noopener" class="contact-soc">LINKEDIN</a>
           </div>
         </div>
