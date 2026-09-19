@@ -259,7 +259,7 @@ export const pages = {
       </div>
       <div class="proj-story-strip" id="sc-histoire" style="display:none;">
         <div class="sc-viewport"><div class="sc-container">
-          ${Array.from({length:13},(_,i)=>`<div class="sc-item"><img src="/images/elderflower/histoire/${i+1}.png" alt="" loading="lazy"></div>`).join('')}
+          ${[12,13,1,2,3,4,5,6,7,8,9,10,11].map(n=>`<div class="sc-item"><img src="/images/elderflower/histoire/${n}.png" alt="" loading="lazy"></div>`).join('')}
         </div></div>
       </div>
     </div>`,
