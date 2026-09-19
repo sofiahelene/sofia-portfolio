@@ -169,7 +169,12 @@ function navigateTo(pageId) {
     }
   };
 
-  if (outgoing) {
+  // Pages whose default tab auto-plays unmuted video need vid.play() in the same
+  // synchronous call stack as the originating user gesture. Delaying via GSAP's
+  // onComplete breaks user-activation propagation in Safari and some Chrome builds.
+  const syncRenderPages = ['proj_star_guitar'];
+
+  if (outgoing && !syncRenderPages.includes(pageId)) {
     gsap.to(outgoing, {
       opacity: 0, y: -10, duration: 0.22, ease: 'power2.in',
       onComplete: doRender,

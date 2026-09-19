@@ -20,3 +20,7 @@ macbook_pro_m3_16_inch_2024/
 public/videos/Book_open_1.mov
 docs/videos/Book_open_1.mov
 *.zip
+
+# Exclude files in public/Ethan — not yet part of the site
+public/Ethan/
+docs/Ethan/
