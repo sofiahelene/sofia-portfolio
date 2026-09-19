@@ -153,9 +153,7 @@ function navigateTo(pageId) {
                 const syncBtn = () => { playBtn.textContent = vid.paused ? '▶' : '❚❚'; };
                 vid.addEventListener('play',  syncBtn);
                 vid.addEventListener('pause', syncBtn);
-                const tryPlay = () => vid.play().catch(() => {});
-                if (vid.readyState >= 1) { tryPlay(); }
-                else { vid.addEventListener('loadedmetadata', tryPlay, { once: true }); }
+                vid.play().catch(() => {});
                 playBtn.onclick = () => {
                   if (vid.paused) { vid.play().catch(() => {}); }
                   else { vid.pause(); }
