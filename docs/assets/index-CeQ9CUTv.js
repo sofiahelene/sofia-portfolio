@@ -405,8 +405,6 @@
           <div class="sc-container" style="gap:0.5rem">
               <div class="sc-item"><img src="/The%20caymans/Affiches/3.png" alt="" loading="lazy"></div>
               <div class="sc-item"><img src="/The%20caymans/Affiches/4.png" alt="" loading="lazy"></div>
-              <div class="sc-item"><img src="/The%20caymans/Affiches/1.png" alt="" loading="lazy" style="box-shadow:inset 0 0 0 3px #e0501a;"></div>
-              <div class="sc-item"><img src="/The%20caymans/Affiches/2.png" alt="" loading="lazy" style="box-shadow:inset 0 0 0 3px #cc1a3c;"></div>
           </div>
         </div>
       </div>
