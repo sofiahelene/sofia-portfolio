@@ -409,6 +409,7 @@ export const pages = {
         <div class="pf-toggle" id="pf-toggle">
           <button class="pf-toggle-btn active" data-view="photos">Photos</button>
           <button class="pf-toggle-btn" data-view="pochettes">Pochettes</button>
+          <button class="pf-toggle-btn" data-view="affiche">${t('Affiches', 'Posters')}</button>
         </div>
       </div>
       <div class="proj-story-strip" id="sc-photos">
@@ -424,6 +425,14 @@ export const pages = {
           <div class="sc-container" style="gap:0.5rem">
             ${['1.png','2.png','3.png']
               .map(f => `<div class="sc-item"><img src="${encodeURI('/The caymans/Pochettes/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div class="proj-story-strip" id="sc-affiche" style="display:none;">
+        <div class="sc-viewport">
+          <div class="sc-container" style="gap:0.5rem">
+            ${['1.png','2.png','3.png','4.png']
+              .map(f => `<div class="sc-item"><img src="${encodeURI('/The caymans/Affiches/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
       </div>
