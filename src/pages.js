@@ -113,7 +113,7 @@ export const pages = {
           <h3 class="proj-inline-title">Do It Again</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
-              ${['Cover.png','doublepage1.png','doublespread2.png','double page 3.png','double page4.png','double page5.png'].map(f=>`<div class="sc-item"><img src="/images/mockup-do-it-again-edition/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
+              ${['Cover.webp','doublepage1.webp','doublespread2.webp','double page 3.webp','double page4.webp','double page5.webp'].map(f=>`<div class="sc-item"><img src="/images/mockup-do-it-again-edition/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
             </div></div>
           </div>
         </section>
@@ -127,7 +127,7 @@ export const pages = {
           <h3 class="proj-inline-title">Les Petits Frères des Pauvres</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
-              ${['poster.png','mockup.png','3.jpg','mockup2.png','flyers.jpg','flyers.2.jpg','goodies-1.png','goodies-2.png'].map(f=>`<div class="sc-item"><img src="/images/petits-freres/${f}" alt="${f}" loading="lazy"></div>`).join('')}
+              ${['poster.webp','mockup.webp','3.jpg','mockup2.webp','flyers.jpg','flyers.2.jpg','goodies-1.webp','goodies-2.webp'].map(f=>`<div class="sc-item"><img src="/images/petits-freres/${f}" alt="${f}" loading="lazy"></div>`).join('')}
             </div></div>
           </div>
         </section>
@@ -295,15 +295,15 @@ export const pages = {
         <div class="sc-viewport">
           <div class="sc-container">
             ${[
-              'Cover.png',
-              'doublepage1.png','doublespread2.png',
-              'double page 3.png','double page4.png','double page5.png',
-              'double page6.png','double page7.png','double page8.png',
-              'double page9.png','double page10.png','double page11.png',
-              'double page12.png','double page13.png','double page14.png',
-              'double page15.png','double page16.png','double page17.png',
-              'double page18.png','double page19.png','double page20.png',
-              'double page21.png','back cover.png'
+              'Cover.webp',
+              'doublepage1.webp','doublespread2.webp',
+              'double page 3.webp','double page4.webp','double page5.webp',
+              'double page6.webp','double page7.webp','double page8.webp',
+              'double page9.webp','double page10.webp','double page11.webp',
+              'double page12.webp','double page13.webp','double page14.webp',
+              'double page15.webp','double page16.webp','double page17.webp',
+              'double page18.webp','double page19.webp','double page20.webp',
+              'double page21.webp','back cover.webp'
             ].map(f => `<div class="sc-item"><img src="/images/mockup-do-it-again-edition/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
@@ -346,7 +346,7 @@ export const pages = {
       <div class="proj-story-strip" id="sc-livrables" style="display:none;">
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0">
-            ${['1.png','2.png','3.png','4.png','5.png','6.png','7.png','8.png']
+            ${['1.webp','2.webp','3.webp','4.webp','5.webp','6.webp','7.webp','8.webp']
               .map(f => `<div class="sc-item"><img src="/images/Brume/${f}" alt="${f}" loading="lazy"></div>`).join('')}
             <div class="sc-item" style="height:85vh"><video autoplay muted loop playsinline preload="none" src="/videos/Brumejpeg.mp4" style="height:120%;width:auto;display:block;margin-top:calc(-10% - 2cm);margin-left:-3mm;"></video></div>
           </div>
@@ -392,8 +392,8 @@ export const pages = {
         <div class="sc-viewport">
           <div class="sc-container">
             ${[
-              'poster.png','mockup.png','3.jpg','mockup2.png',
-              'flyers.jpg','flyers.2.jpg','goodies-1.png','goodies-2.png',
+              'poster.webp','mockup.webp','3.jpg','mockup2.webp',
+              'flyers.jpg','flyers.2.jpg','goodies-1.webp','goodies-2.webp',
             ].map(f => `<div class="sc-item"><img src="/images/petits-freres/${f}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
@@ -433,9 +433,9 @@ export const pages = {
       <div class="proj-story-strip" id="sc-affiche" style="display:none;">
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">
-              <div class="sc-item"><img src="/The%20caymans/Affiches/3.png" alt="" loading="lazy"></div>
-              <div class="sc-item"><img src="/The%20caymans/Affiches/5.png" alt="" loading="lazy"></div>
-              <div class="sc-item"><img src="/The%20caymans/Affiches/4.png" alt="" loading="lazy"></div>
+              <div class="sc-item"><img src="/The%20caymans/Affiches/3.webp" alt="" loading="lazy"></div>
+              <div class="sc-item"><img src="/The%20caymans/Affiches/5.webp" alt="" loading="lazy"></div>
+              <div class="sc-item"><img src="/The%20caymans/Affiches/4.webp" alt="" loading="lazy"></div>
           </div>
         </div>
       </div>
@@ -525,15 +525,15 @@ export const pages = {
         <div class="sc-viewport">
           <div class="sc-container">
             ${[
-              'Cover.png',
-              'doublepage1.png','doublespread2.png',
-              'double page 3.png','double page4.png','double page5.png',
-              'double page6.png','double page7.png','double page8.png',
-              'double page9.png','double page10.png','double page11.png',
-              'double page12.png','double page13.png','double page14.png',
-              'double page15.png','double page16.png','double page17.png',
-              'double page18.png','double page19.png','double page20.png',
-              'double page21.png','back cover.png'
+              'Cover.webp',
+              'doublepage1.webp','doublespread2.webp',
+              'double page 3.webp','double page4.webp','double page5.webp',
+              'double page6.webp','double page7.webp','double page8.webp',
+              'double page9.webp','double page10.webp','double page11.webp',
+              'double page12.webp','double page13.webp','double page14.webp',
+              'double page15.webp','double page16.webp','double page17.webp',
+              'double page18.webp','double page19.webp','double page20.webp',
+              'double page21.webp','back cover.webp'
             ].map(f => `<div class="sc-item"><img src="/images/mockup-do-it-again-edition/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
