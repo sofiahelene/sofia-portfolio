@@ -431,8 +431,10 @@ export const pages = {
       <div class="proj-story-strip" id="sc-affiche" style="display:none;">
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">
-            ${['3.png','4.png','1.png','2.png']
-              .map(f => `<div class="sc-item"><img src="${encodeURI('/The caymans/Affiches/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
+              <div class="sc-item" style="outline:2px solid #d45018;"><img src="/The%20caymans/Affiches/3.png" alt="" loading="lazy"></div>
+              <div class="sc-item" style="outline:2px solid #d41a52;"><img src="/The%20caymans/Affiches/4.png" alt="" loading="lazy"></div>
+              <div class="sc-item"><img src="/The%20caymans/Affiches/1.png" alt="" loading="lazy"></div>
+              <div class="sc-item"><img src="/The%20caymans/Affiches/2.png" alt="" loading="lazy"></div>
           </div>
         </div>
       </div>
