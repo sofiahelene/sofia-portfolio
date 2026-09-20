@@ -79,8 +79,8 @@
             ${s.map(e=>`
             <tr class="proj-toc-row" data-scroll-to="#${e.sid}" role="button" tabindex="0">
               <td class="proj-toc-num">${e.num}</td>
-              <td class="proj-toc-cat">${e.cat}</td>
-              <td class="proj-toc-title">${e.title}</td>
+              <td class="proj-toc-cat">${e.title}</td>
+              <td class="proj-toc-title">${e.cat}</td>
             </tr>
             <tr class="proj-toc-divider"><td colspan="3"><hr class="proj-toc-rule"></td></tr>
             `).join("")}

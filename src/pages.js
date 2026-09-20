@@ -64,8 +64,8 @@ export const pages = {
             ${rows.map(r => `
             <tr class="proj-toc-row" data-scroll-to="#${r.sid}" role="button" tabindex="0">
               <td class="proj-toc-num">${r.num}</td>
-              <td class="proj-toc-cat">${r.cat}</td>
-              <td class="proj-toc-title">${r.title}</td>
+              <td class="proj-toc-cat">${r.title}</td>
+              <td class="proj-toc-title">${r.cat}</td>
             </tr>
             <tr class="proj-toc-divider"><td colspan="3"><hr class="proj-toc-rule"></td></tr>
             `).join('')}
