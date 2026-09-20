@@ -225,6 +225,13 @@ const readmeContent = {
       `Inspired by the Chemical Brothers' clip Star Guitar, my idea was to have the train travel through day and night, as well as different climates. As it follows its route, the train tells the story of its surrounding environment.\n\nI chose a blue and turquoise theme for the train to add a touch of colour, in keeping with the fun, dynamic rhythms of the music, while complementing the natural environment in the background.\n\nEach variation exists in two versions: one with turquoise windows representing lights off during the day, and one with yellow lights representing lit-up carriages at night.`
     ),
   },
+  'caymans': {
+    title: () => 'The Caymans',
+    body: () => window.t(
+      `The Caymans est un groupe de rock indépendant émergent basé en Angleterre. Leurs influences visuelles et musicales s'inspirent d'Oasis, Blur et des Stone Roses. Ma dernière séance photo avec eux sera utilisée pour promouvoir leur prochain single, puis leur album. Nous sommes également en train de tourner et monter un clip ensemble, qui sera publié prochainement.`,
+      `The Caymans are a rising indie band based in England. Their visual and musical influences derive from Oasis, Blur and the Stone Roses. My latest shoot with them will be used to promote their upcoming single and later, their album. We are also in the process of shooting and editing a music video together, which will be published soon.`
+    ),
+  },
   'elderflower-tea': {
     title: () => 'Elderflower Tea',
     body: () => window.t(
