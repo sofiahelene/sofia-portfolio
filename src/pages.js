@@ -452,6 +452,7 @@ export const pages = {
           <button class="pf-toggle-btn active" data-view="photos">${t('Photos', 'Photos')}</button>
           <button class="pf-toggle-btn" data-view="pochettes">${t('Pochettes', 'Covers')}</button>
         </div>
+        <button class="readme-btn" data-readme="katerina">${t('Lisez-moi', 'Read me')}</button>
       </div>
       <div class="proj-story-strip" id="sc-photos">
         <div class="sc-viewport">

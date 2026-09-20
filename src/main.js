@@ -225,6 +225,13 @@ const readmeContent = {
       `Inspired by the Chemical Brothers' clip Star Guitar, my idea was to have the train travel through day and night, as well as different climates. As it follows its route, the train tells the story of its surrounding environment.\n\nI chose a blue and turquoise theme for the train to add a touch of colour, in keeping with the fun, dynamic rhythms of the music, while complementing the natural environment in the background.\n\nEach variation exists in two versions: one with turquoise windows representing lights off during the day, and one with yellow lights representing lit-up carriages at night.`
     ),
   },
+  'katerina': {
+    title: () => 'Katerina',
+    body: () => window.t(
+      `Katerina est une musicienne émergente basée en Angleterre. Ma dernière séance photo avec elle sera utilisée pour promouvoir son prochain single.`,
+      `Katerina is an emerging musician based in England. My latest shoot with her will be used to promote her upcoming single.`
+    ),
+  },
   'caymans': {
     title: () => 'The Caymans',
     body: () => window.t(
