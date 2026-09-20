@@ -549,10 +549,11 @@
       </div>
       <div class="about-content">
         <div class="about-content-inner">
-          <p class="about-lead">${A("Bonjour ! Je suis Sofia, directrice artistique britannique.","Hello! I'm Sofia, a British art director.")}</p>
-          <p>${A("Après j'ai obtenu mon bachelor en français et sciences politiques au Royaume-Uni, je me suis installée à Paris pour me tourner vers le milieu créatif et obtenir mon bachelor en Direction Artistique à LISAA Paris.","After completing my bachelor's degree in French and Political Science in the UK, I moved to Paris to turn towards the creative field and complete my bachelor's in Art Direction at LISAA Paris.")}</p>
+          <p class="about-lead">${A("Bonjour ! Je suis Sofia, directrice artistique britannique.","Hey! I'm Sofia, a British art director living in France.")}</p>
+          <p>${A("Après j'ai obtenu mon bachelor en français et sciences politiques au Royaume-Uni, je me suis installée à Paris pour me tourner vers le milieu créatif et obtenir mon bachelor en Direction Artistique à LISAA Paris.","After completing my bachelor's degree in French and Politics in the UK, I moved to Paris to turn towards the creative field and complete a bachelor's in Art Direction at LISAA Paris.")}</p>
           <p>${A("Mon portfolio reflète un mélange d'influences culturelles, façonné par les lieux que j'ai traversés et les études que j'ai suivies.","My portfolio reflects a blend of cultural influences, shaped by the places I've lived and the studies I've pursued.")}</p>
-          <p>${A("En dehors de mes études, j'aime l'escalade, la musique électronique, le cinéma, la cuisine et la lecture. Mes inspirations incluent Yorgos Lanthimos, Wolfgang Tillmans, Sofia Coppola, Jamie Hewlett et Robert Valley.","Outside of my studies, I enjoy climbing, electronic music, cinema, cooking and reading. My inspirations include Yorgos Lanthimos, Wolfgang Tillmans, Sofia Coppola, Jamie Hewlett and Robert Valley.")}</p>
+          <p>${A("En dehors de mes études, j'aime l'escalade, la musique électronique, le cinéma, la cuisine et la lecture.","Outside of my studies, I'm obsessed with music — especially electronic, and I love collaborating with musicians and working on musical projects. I also love motion design, photography, storytelling, montage, and in my free time you'll find me watching a film or reading a book (bonus points if it's a thriller!)")}</p>
+          <p>${A("Mes inspirations incluent Yorgos Lanthimos, Wolfgang Tillmans, Sofia Coppola, Jamie Hewlett et Robert Valley.","My inspirations include Yorgos Lanthimos, Wolfgang Tillmans, Sofia Coppola, Jamie Hewlett and Robert Valley.")}</p>
         </div>
       </div>
     </div>
