@@ -403,10 +403,10 @@
       <div class="proj-story-strip" id="sc-affiche" style="display:none;">
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">
-              <div class="sc-item" style="outline:2px solid #d45018;"><img src="/The%20caymans/Affiches/3.png" alt="" loading="lazy"></div>
-              <div class="sc-item" style="outline:2px solid #d41a52;"><img src="/The%20caymans/Affiches/4.png" alt="" loading="lazy"></div>
-              <div class="sc-item"><img src="/The%20caymans/Affiches/1.png" alt="" loading="lazy"></div>
-              <div class="sc-item"><img src="/The%20caymans/Affiches/2.png" alt="" loading="lazy"></div>
+              <div class="sc-item"><img src="/The%20caymans/Affiches/3.png" alt="" loading="lazy"></div>
+              <div class="sc-item"><img src="/The%20caymans/Affiches/4.png" alt="" loading="lazy"></div>
+              <div class="sc-item"><img src="/The%20caymans/Affiches/1.png" alt="" loading="lazy" style="outline:2px solid #e0501a;"></div>
+              <div class="sc-item"><img src="/The%20caymans/Affiches/2.png" alt="" loading="lazy" style="outline:2px solid #cc1a3c;"></div>
           </div>
         </div>
       </div>
