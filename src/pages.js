@@ -99,7 +99,7 @@ export const pages = {
           <h3 class="proj-inline-title">Do It Again</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
-              <div class="sc-item sc-item--video"><video muted playsinline preload="auto" src="/videos/FINALVIDEO.mp4" data-clip-start="23" data-clip-end="33" class="sc-toc-clip" style="width:100%;height:100%;object-fit:contain;background:#000;display:block;"></video></div>
+              ${['Slide plans1.jpg','Slide plans2.jpg'].map(f=>`<div class="sc-item"><img src="/DO%20IT%20AGAIN/SLIDES/${encodeURIComponent(f)}" alt="${f}" loading="lazy" style="object-fit:contain;background:#fff;"></div>`).join('')}
             </div></div>
           </div>
         </section>
