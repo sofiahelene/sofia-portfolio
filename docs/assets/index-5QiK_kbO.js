@@ -142,7 +142,7 @@
           <h3 class="proj-inline-title">The Caymans</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
-              ${["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg"].map(e=>`<div class="sc-item"><img src="${encodeURI("/The caymans/Photos/"+e)}" alt="${e}" loading="lazy"></div>`).join("")}
+              ${["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"].map(e=>`<div class="sc-item"><img src="${encodeURI("/The caymans/Photos/"+e)}" alt="${e}" loading="lazy"></div>`).join("")}
             </div></div>
           </div>
         </section>
@@ -389,7 +389,7 @@
       <div class="proj-story-strip" id="sc-photos">
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">
-            ${["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg"].map(s=>`<div class="sc-item"><img src="${encodeURI("/The caymans/Photos/"+s)}" alt="${s}" loading="lazy"></div>`).join("")}
+            ${["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"].map(s=>`<div class="sc-item"><img src="${encodeURI("/The caymans/Photos/"+s)}" alt="${s}" loading="lazy"></div>`).join("")}
           </div>
         </div>
       </div>
