@@ -250,6 +250,7 @@ export const pages = {
           <button class="pf-toggle-btn active" data-view="motion">Montage/Motion</button>
           <button class="pf-toggle-btn" data-view="histoire">${t("L'histoire", "The Story")}</button>
         </div>
+        <button class="readme-btn" data-readme="elderflower-tea">${t('Lisez-moi', 'Read me')}</button>
       </div>
       <div class="pf-motion-panel" id="sc-motion" style="margin-top:1cm">
         <div class="motion-player">

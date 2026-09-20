@@ -225,6 +225,13 @@ const readmeContent = {
       `Inspired by the Chemical Brothers' clip Star Guitar, my idea was to have the train travel through day and night, as well as different climates. As it follows its route, the train tells the story of its surrounding environment.\n\nI chose a blue and turquoise theme for the train to add a touch of colour, in keeping with the fun, dynamic rhythms of the music, while complementing the natural environment in the background.\n\nEach variation exists in two versions: one with turquoise windows representing lights off during the day, and one with yellow lights representing lit-up carriages at night.`
     ),
   },
+  'elderflower-tea': {
+    title: () => 'Elderflower Tea',
+    body: () => window.t(
+      `Elderflower Tea est un clip musical réalisé pour un artiste local émergent. La chanson parle de la peur de l'auteur à l'idée de tomber amoureux. En développant le concept du clip avec l'artiste, cette peur nous a semblé trop profonde pour être représentée par des personnages ; nous avons donc choisi de la traduire uniquement à travers la nature et les animaux. Le clip suit le parcours d'un pissenlit à travers la nature, reflétant le cheminement intérieur de l'auteur vers la découverte de soi. À la fin, on aperçoit deux personnes marchant côte à côte, signe qu'il est presque prêt à affronter à nouveau l'amour. Enfin, le pissenlit achève son voyage et éclot en fleur. La vidéo est composée d'un mélange d'images d'archives et de séquences tournées dans le West Yorkshire, en Angleterre.`,
+      `Elderflower Tea is a music video created for an upcoming local artist. The song is about the writer's fear to fall in love. When developing the concept for the clip and speaking with the artist, his fear felt too deep to be represented with people, therefore we chose to do it just through nature and animals. The clip follows a dandelion's journey through nature, reflecting the writer's journey of self discovery. At the end, we see 2 people walking along, signifying he is nearly ready to face love again. Finally, the dandelions finish their journey and bloom into flowers at the end of their journey. The video is made from a mixture of found footage, and footage taken in West Yorkshire, England.`
+    ),
+  },
   'do-it-again-edition': {
     title: () => window.t('Do It Again Édition', 'Do It Again Editorial'),
     body: () => window.t(
