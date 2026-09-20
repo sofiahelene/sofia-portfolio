@@ -403,7 +403,7 @@
       <div class="proj-story-strip" id="sc-affiche" style="display:none;">
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">
-            ${["1.png","2.png","3.png","4.png"].map(s=>`<div class="sc-item"><img src="${encodeURI("/The caymans/Affiches/"+s)}" alt="${s}" loading="lazy"></div>`).join("")}
+            ${["3.png","4.png","1.png","2.png"].map(s=>`<div class="sc-item"><img src="${encodeURI("/The caymans/Affiches/"+s)}" alt="${s}" loading="lazy"></div>`).join("")}
           </div>
         </div>
       </div>

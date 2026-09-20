@@ -431,7 +431,7 @@ export const pages = {
       <div class="proj-story-strip" id="sc-affiche" style="display:none;">
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">
-            ${['1.png','2.png','3.png','4.png']
+            ${['3.png','4.png','1.png','2.png']
               .map(f => `<div class="sc-item"><img src="${encodeURI('/The caymans/Affiches/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
