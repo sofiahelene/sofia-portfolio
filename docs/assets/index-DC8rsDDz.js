@@ -64,7 +64,7 @@
       </div>
 
     </div>
-  `,projets:()=>{const s=[{num:"01.",cat:A("Édition","Editorial"),title:"Brume",page:"proj_brume",sid:"proj-s-01"},{num:"02.",cat:A("Identité Visuelle","Visual Identity"),title:"Do It Again",page:"proj_do_it_again",sid:"proj-s-02"},{num:"03.",cat:A("Identité Visuelle II","Visual Identity II"),title:"Les Petits Frères des Pauvres",page:"proj_petits_freres",sid:"proj-s-03"},{num:"04.",cat:"Freelance",title:"The Caymans",page:"proj_caymans",sid:"proj-s-04"},{num:"05.",cat:"Freelance II",title:"Katerina",page:"proj_katerina",sid:"proj-s-05"},{num:"06.",cat:"Motion",title:"Star Guitar",page:"proj_star_guitar",sid:"proj-s-06"},{num:"07.",cat:"Montage/Motion",title:"Elderflower Tea",page:"proj_elderflower_tea",sid:"proj-s-09"},{num:"08.",cat:A("Photographie","Photography"),title:A("Paris et Whitby","Paris & Whitby"),page:"proj_photographie",sid:"proj-s-08"},{num:"09.",cat:A("Illustration","Illustration"),title:"Terrasses des Oliviers",page:"proj_terrasses",sid:"proj-s-07"}];return`
+  `,projets:()=>{const s=[{num:"01.",cat:A("Édition","Editorial"),title:"Brume",page:"proj_brume",sid:"proj-s-01"},{num:"02.",cat:"Freelance",title:"The Caymans",page:"proj_caymans",sid:"proj-s-04"},{num:"03.",cat:A("Identité Visuelle","Visual Identity"),title:"Do It Again",page:"proj_do_it_again",sid:"proj-s-02"},{num:"04.",cat:A("Identité Visuelle II","Visual Identity II"),title:"Les Petits Frères des Pauvres",page:"proj_petits_freres",sid:"proj-s-03"},{num:"05.",cat:"Freelance II",title:"Katerina",page:"proj_katerina",sid:"proj-s-05"},{num:"06.",cat:"Motion",title:"Star Guitar",page:"proj_star_guitar",sid:"proj-s-06"},{num:"07.",cat:"Montage/Motion",title:"Elderflower Tea",page:"proj_elderflower_tea",sid:"proj-s-09"},{num:"08.",cat:A("Photographie","Photography"),title:A("Paris et Whitby","Paris & Whitby"),page:"proj_photographie",sid:"proj-s-08"},{num:"09.",cat:A("Illustration","Illustration"),title:"Terrasses des Oliviers",page:"proj_terrasses",sid:"proj-s-07"}];return`
     <div class="page proj-toc-page">
       <div class="proj-toc-inner">
       <div class="proj-toc-spacer"></div>
@@ -105,9 +105,23 @@
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-02">
+        <section class="proj-inline-section" id="proj-s-04">
           <div class="proj-inline-header">
             <span class="proj-toc-num">02.</span>
+            <span class="proj-toc-cat">Freelance</span>
+            <a class="proj-inline-link" data-page="proj_caymans" href="#proj_caymans">${A("Voir le projet →","View project →")}</a>
+          </div>
+          <h3 class="proj-inline-title">The Caymans</h3>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              ${["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"].map(e=>`<div class="sc-item"><img src="${encodeURI("/The caymans/Photos/"+e)}" alt="${e}" loading="lazy"></div>`).join("")}
+            </div></div>
+          </div>
+        </section>
+
+        <section class="proj-inline-section" id="proj-s-02">
+          <div class="proj-inline-header">
+            <span class="proj-toc-num">03.</span>
             <span class="proj-toc-cat">${A("Identité Visuelle","Visual Identity")}</span>
             <a class="proj-inline-link" data-page="proj_do_it_again" href="#proj_do_it_again">${A("Voir le projet →","View project →")}</a>
           </div>
@@ -121,7 +135,7 @@
 
         <section class="proj-inline-section" id="proj-s-03">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">03.</span>
+            <span class="proj-toc-num">04.</span>
             <span class="proj-toc-cat">${A("Identité Visuelle II","Visual Identity II")}</span>
             <a class="proj-inline-link" data-page="proj_petits_freres" href="#proj_petits_freres">${A("Voir le projet →","View project →")}</a>
           </div>
@@ -129,20 +143,6 @@
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
               ${["poster.png","mockup.png","3.jpg","mockup2.png","flyers.jpg","flyers.2.jpg","goodies-1.png","goodies-2.png"].map(e=>`<div class="sc-item"><img src="/images/petits-freres/${e}" alt="${e}" loading="lazy"></div>`).join("")}
-            </div></div>
-          </div>
-        </section>
-
-        <section class="proj-inline-section" id="proj-s-04">
-          <div class="proj-inline-header">
-            <span class="proj-toc-num">04.</span>
-            <span class="proj-toc-cat">Freelance</span>
-            <a class="proj-inline-link" data-page="proj_caymans" href="#proj_caymans">${A("Voir le projet →","View project →")}</a>
-          </div>
-          <h3 class="proj-inline-title">The Caymans</h3>
-          <div class="proj-story-strip">
-            <div class="sc-viewport"><div class="sc-container">
-              ${["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"].map(e=>`<div class="sc-item"><img src="${encodeURI("/The caymans/Photos/"+e)}" alt="${e}" loading="lazy"></div>`).join("")}
             </div></div>
           </div>
         </section>
