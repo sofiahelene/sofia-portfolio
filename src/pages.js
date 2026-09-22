@@ -48,6 +48,7 @@ export const pages = {
       { num: '07.', cat: 'Montage/Motion',                    title: 'Elderflower Tea',               page: 'proj_elderflower_tea', sid: 'proj-s-09' },
       { num: '08.', cat: t('Photographie','Photography'),      title: t('Paris et Whitby','Paris & Whitby'), page: 'proj_photographie', sid: 'proj-s-08' },
       { num: '09.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-07' },
+      { num: '10.', cat: 'Post Production',                   title: 'Pray for your Neighbours',      page: 'proj_pray',          sid: 'proj-s-10' },
     ];
     return `
     <div class="page proj-toc-page">
@@ -198,11 +199,56 @@ export const pages = {
           </div>
         </section>
 
+        <section class="proj-inline-section" id="proj-s-10">
+          <div class="proj-inline-header">
+            <span class="proj-toc-num">10.</span>
+            <span class="proj-toc-cat">Post Production</span>
+            <a class="proj-inline-link" data-page="proj_pray" href="#proj_pray">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <h3 class="proj-inline-title">Pray for your Neighbours</h3>
+          <div class="proj-inline-video-wrap">
+            <video class="proj-inline-video proj-inline-video--clip" muted playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4"></video>
+          </div>
+        </section>
+
       </div>
     </div>`;
   },
 
   // ── PROJECT DETAIL PAGES ─────────────────────────────────────────────────
+  proj_pray: () => `
+    <div class="page page-inner proj-detail">
+      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-detail-info">
+        <h2 class="proj-name">Pray for your Neighbours</h2>
+      </div>
+      <div class="pf-controls">
+        <div class="pf-toggle" id="pf-toggle">
+          <button class="pf-toggle-btn active" data-view="clip1">Clip 1</button>
+          <button class="pf-toggle-btn" data-view="clip2">Clip 2</button>
+          <button class="pf-toggle-btn" data-view="clip3">Clip 3</button>
+        </div>
+      </div>
+      <div class="pf-motion-panel" id="sc-clip1" style="margin-top:1cm">
+        <div class="motion-player">
+          <video loop playsinline preload="metadata" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4" class="pf-motion-video"></video>
+          <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+        </div>
+      </div>
+      <div class="pf-motion-panel" id="sc-clip2" style="display:none;margin-top:1cm">
+        <div class="motion-player">
+          <video loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/2.mp4" class="pf-motion-video"></video>
+          <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+        </div>
+      </div>
+      <div class="pf-motion-panel" id="sc-clip3" style="display:none;margin-top:1cm">
+        <div class="motion-player">
+          <video loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/3.mp4" class="pf-motion-video"></video>
+          <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+        </div>
+      </div>
+    </div>`,
+
   proj_star_guitar: () => `
     <div class="page page-inner proj-detail">
       <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
