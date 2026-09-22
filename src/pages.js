@@ -228,6 +228,7 @@ export const pages = {
           <button class="pf-toggle-btn" data-view="clip2">Clip 2</button>
           <button class="pf-toggle-btn" data-view="clip3">Clip 3</button>
         </div>
+        <button class="readme-btn" data-readme="pray">${t('Lisez-moi', 'Read me')}</button>
       </div>
       <div class="pf-motion-panel" id="sc-clip1" style="margin-top:1cm">
         <div class="motion-player">

@@ -225,6 +225,13 @@ const readmeContent = {
       `Inspired by the Chemical Brothers' clip Star Guitar, my idea was to have the train travel through day and night, as well as different climates. As it follows its route, the train tells the story of its surrounding environment.\n\nI chose a blue and turquoise theme for the train to add a touch of colour, in keeping with the fun, dynamic rhythms of the music, while complementing the natural environment in the background.\n\nEach variation exists in two versions: one with turquoise windows representing lights off during the day, and one with yellow lights representing lit-up carriages at night.`
     ),
   },
+  'pray': {
+    title: () => 'Pray for your Neighbours',
+    body: () => window.t(
+      `Ces 3 extraits vidéo sont des passages que j'ai réalisés et montés pour le clip « Pray for Your Neighbours » du groupe The Caymans. Ils ont été réalisés en filmant l'arrière-plan avec une vitesse d'obturation lente, puis en filmant le sujet normalement, en séparant les deux à l'aide du rotoscopie sur After Effects, avant d'appliquer un étalonnage colorimétrique.`,
+      `These 3 clips are extracts I edited from the "Pray for Your Neighbours" music video by The Caymans. They were created by filming the background at a slow shutter speed, then filming the subject normally, separating the two using rotoscoping in After Effects, and finishing with a colour grade.`
+    ),
+  },
   'katerina': {
     title: () => 'Katerina',
     body: () => window.t(
