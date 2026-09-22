@@ -162,11 +162,11 @@ function navigateTo(pageId) {
         if (activeBtn && activeBtn.dataset.view === 'identite') {
           setTimeout(() => initFlowArt(), 50);
         }
-        const activePanelId = activeBtn ? panels[activeBtn.dataset.view] : null;
-        const activePanel = activePanelId ? document.getElementById(activePanelId) : null;
-        if (activePanel) {
-          const vid = activePanel.querySelector('video');
-          const playBtn = activePanel.querySelector('.motion-playpause');
+        // Wire up whichever motion panel is visible on load
+        incoming.querySelectorAll('.pf-motion-panel').forEach(panel => {
+          if (panel.style.display === 'none') return;
+          const vid = panel.querySelector('video');
+          const playBtn = panel.querySelector('.motion-playpause');
           if (vid && playBtn) {
             const syncBtn = () => { playBtn.textContent = vid.paused ? '▶' : '❚❚'; };
             vid.addEventListener('play',  syncBtn);
@@ -177,7 +177,7 @@ function navigateTo(pageId) {
               else { vid.pause(); }
             };
           }
-        }
+        });
       }
     }
   };
