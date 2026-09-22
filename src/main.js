@@ -162,21 +162,20 @@ function navigateTo(pageId) {
         if (activeBtn && activeBtn.dataset.view === 'identite') {
           setTimeout(() => initFlowArt(), 50);
         }
-        if (activeBtn && activeBtn.dataset.view === 'motion') {
-          const motionPanel = document.getElementById('sc-motion');
-          if (motionPanel) {
-            const vid = motionPanel.querySelector('video');
-            const playBtn = motionPanel.querySelector('.motion-playpause');
-            if (vid && playBtn) {
-              const syncBtn = () => { playBtn.textContent = vid.paused ? '▶' : '❚❚'; };
-              vid.addEventListener('play',  syncBtn);
-              vid.addEventListener('pause', syncBtn);
-              vid.play().catch(() => {});
-              playBtn.onclick = () => {
-                if (vid.paused) { vid.play().catch(() => {}); }
-                else { vid.pause(); }
-              };
-            }
+        const activePanelId = activeBtn ? panels[activeBtn.dataset.view] : null;
+        const activePanel = activePanelId ? document.getElementById(activePanelId) : null;
+        if (activePanel) {
+          const vid = activePanel.querySelector('video');
+          const playBtn = activePanel.querySelector('.motion-playpause');
+          if (vid && playBtn) {
+            const syncBtn = () => { playBtn.textContent = vid.paused ? '▶' : '❚❚'; };
+            vid.addEventListener('play',  syncBtn);
+            vid.addEventListener('pause', syncBtn);
+            vid.play().catch(() => {});
+            playBtn.onclick = () => {
+              if (vid.paused) { vid.play().catch(() => {}); }
+              else { vid.pause(); }
+            };
           }
         }
       }
@@ -186,7 +185,7 @@ function navigateTo(pageId) {
   // Pages whose default tab auto-plays unmuted video need vid.play() in the same
   // synchronous call stack as the originating user gesture. Delaying via GSAP's
   // onComplete breaks user-activation propagation in Safari and some Chrome builds.
-  const syncRenderPages = ['proj_star_guitar', 'proj_elderflower_tea'];
+  const syncRenderPages = ['proj_star_guitar', 'proj_elderflower_tea', 'proj_pray'];
 
   if (outgoing && !syncRenderPages.includes(pageId)) {
     gsap.to(outgoing, {
@@ -497,8 +496,8 @@ function initToggle(toggle) {
           const bookCtrl = document.getElementById('book-controls');
           if (bookCtrl) bookCtrl.style.display = (isActive && key === 'charte') ? 'flex' : 'none';
 
-          // Wire play/pause for motion panel — restart from beginning on tab click
-          if (isActive && key === 'motion') {
+          // Wire play/pause for any motion player panel — restart from beginning on tab click
+          if (isActive && el.querySelector('.motion-player')) {
             const vid = el.querySelector('video');
             const playBtn = el.querySelector('.motion-playpause');
             if (vid) {
