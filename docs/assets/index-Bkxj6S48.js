@@ -60,7 +60,7 @@
 
       <!-- Opening video (replaces name + role) -->
       <div class="home-name-group">
-        <video class="home-opening-video" autoplay loop playsinline src="/videos/comp1_1.mp4"></video>
+        <video class="home-opening-video" autoplay loop playsinline preload="auto" src="/videos/comp1_1.mp4"></video>
       </div>
 
     </div>
