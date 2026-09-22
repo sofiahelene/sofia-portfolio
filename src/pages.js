@@ -231,19 +231,19 @@ export const pages = {
       </div>
       <div class="pf-motion-panel" id="sc-clip1" style="margin-top:1cm">
         <div class="motion-player">
-          <video loop playsinline preload="metadata" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4" class="pf-motion-video"></video>
+          <video muted loop playsinline preload="metadata" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
       </div>
       <div class="pf-motion-panel" id="sc-clip2" style="display:none;margin-top:1cm">
         <div class="motion-player">
-          <video loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/2.mp4" class="pf-motion-video"></video>
+          <video muted loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/2.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
       </div>
       <div class="pf-motion-panel" id="sc-clip3" style="display:none;margin-top:1cm">
         <div class="motion-player">
-          <video loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/3.mp4" class="pf-motion-video"></video>
+          <video muted loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/3.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
       </div>
