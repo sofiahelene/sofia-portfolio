@@ -185,7 +185,7 @@ function navigateTo(pageId) {
   // Pages whose default tab auto-plays unmuted video need vid.play() in the same
   // synchronous call stack as the originating user gesture. Delaying via GSAP's
   // onComplete breaks user-activation propagation in Safari and some Chrome builds.
-  const syncRenderPages = ['proj_star_guitar', 'proj_elderflower_tea', 'proj_pray'];
+  const syncRenderPages = ['proj_star_guitar', 'proj_pray'];
 
   if (outgoing && !syncRenderPages.includes(pageId)) {
     gsap.to(outgoing, {
@@ -243,13 +243,6 @@ const readmeContent = {
     body: () => window.t(
       `The Caymans est un groupe de rock indépendant émergent basé en Angleterre. Leurs influences visuelles et musicales s'inspirent d'Oasis, Blur et des Stone Roses. Ma dernière séance photo avec eux sera utilisée pour promouvoir leur prochain single, puis leur album. Nous sommes également en train de tourner et monter un clip ensemble, qui sera publié prochainement.`,
       `The Caymans are a rising indie band based in England. Their visual and musical influences derive from Oasis, Blur and the Stone Roses. My latest shoot with them will be used to promote their upcoming single and later, their album. We are also in the process of shooting and editing a music video together, which will be published soon.`
-    ),
-  },
-  'elderflower-tea': {
-    title: () => 'Elderflower Tea',
-    body: () => window.t(
-      `Elderflower Tea est un clip musical réalisé pour un artiste local émergent. La chanson parle de la peur de l'auteur à l'idée de tomber amoureux. En développant le concept du clip avec l'artiste, cette peur nous a semblé trop profonde pour être représentée par des personnages ; nous avons donc choisi de la traduire uniquement à travers la nature et les animaux. Le clip suit le parcours d'un pissenlit à travers la nature, reflétant le cheminement intérieur de l'auteur vers la découverte de soi. À la fin, on aperçoit deux personnes marchant côte à côte, signe qu'il est presque prêt à affronter à nouveau l'amour. Enfin, le pissenlit achève son voyage et éclot en fleur. La vidéo est composée d'un mélange d'images d'archives et de séquences tournées dans le West Yorkshire, en Angleterre.`,
-      `Elderflower Tea is a music video created for an upcoming local artist. The song is about the writer's fear to fall in love. When developing the concept for the clip and speaking with the artist, his fear felt too deep to be represented with people, therefore we chose to do it just through nature and animals. The clip follows a dandelion's journey through nature, reflecting the writer's journey of self discovery. At the end, we see 2 people walking along, signifying he is nearly ready to face love again. Finally, the dandelions finish their journey and bloom into flowers at the end of their journey. The video is made from a mixture of found footage, and footage taken in West Yorkshire, England.`
     ),
   },
   'do-it-again-edition': {
