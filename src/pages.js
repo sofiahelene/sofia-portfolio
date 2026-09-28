@@ -44,10 +44,11 @@ export const pages = {
       { num: '03.', cat: 'Post Production',                   title: 'Pray for your Neighbours',      page: 'proj_pray',          sid: 'proj-s-10' },
       { num: '04.', cat: t('Identité Visuelle','Visual Identity'), title: 'Do It Again',              page: 'proj_do_it_again',   sid: 'proj-s-02' },
       { num: '05.', cat: t('Identité Visuelle II','Visual Identity II'), title: 'Les Petits Frères des Pauvres', page: 'proj_petits_freres', sid: 'proj-s-03' },
-      { num: '06.', cat: 'Freelance II',                       title: 'Katerina',                     page: 'proj_katerina',      sid: 'proj-s-05' },
-      { num: '07.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
-      { num: '08.', cat: t('Photographie','Photography'),      title: t('Paris et Whitby','Paris & Whitby'), page: 'proj_photographie', sid: 'proj-s-08' },
-      { num: '09.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-07' },
+      { num: '06.', cat: 'Packaging',                          title: 'Seabreeze',                    page: 'proj_seabreeze',     sid: 'proj-s-11' },
+      { num: '07.', cat: 'Freelance II',                       title: 'Katerina',                     page: 'proj_katerina',      sid: 'proj-s-05' },
+      { num: '08.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
+      { num: '09.', cat: t('Photographie','Photography'),      title: t('Paris et Whitby','Paris & Whitby'), page: 'proj_photographie', sid: 'proj-s-08' },
+      { num: '10.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-07' },
     ];
     return `
     <div class="page proj-toc-page">
@@ -144,9 +145,23 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-05">
+        <section class="proj-inline-section" id="proj-s-11">
           <div class="proj-inline-header">
             <span class="proj-toc-num">05.</span>
+            <span class="proj-toc-cat">Packaging</span>
+            <a class="proj-inline-link" data-page="proj_seabreeze" href="#proj_seabreeze">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <h3 class="proj-inline-title">Seabreeze</h3>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              <div class="sc-item"><img src="/le%20crabe/cosmetics%20cove.webp" alt="" loading="lazy"></div>
+            </div></div>
+          </div>
+        </section>
+
+        <section class="proj-inline-section" id="proj-s-05">
+          <div class="proj-inline-header">
+            <span class="proj-toc-num">06.</span>
             <span class="proj-toc-cat">Freelance II</span>
             <a class="proj-inline-link" data-page="proj_katerina" href="#proj_katerina">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -413,6 +428,20 @@ export const pages = {
             ].map(f => `<div class="sc-item"><img src="/images/petits-freres/${f}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
+      </div>
+    </div>`,
+
+  proj_seabreeze: () => `
+    <div class="page page-inner proj-detail">
+      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-detail-info">
+        <h2 class="proj-name">Seabreeze</h2>
+      </div>
+      <div class="proj-story-strip">
+        <div class="sc-viewport"><div class="sc-container">
+          <div class="sc-item"><img src="/le%20crabe/cosmetics%20cove.webp" alt="" loading="lazy"></div>
+          <div class="sc-item"><img src="/le%20crabe/presentation%20le%20crabe.webp" alt="" loading="lazy"></div>
+        </div></div>
       </div>
     </div>`,
 
