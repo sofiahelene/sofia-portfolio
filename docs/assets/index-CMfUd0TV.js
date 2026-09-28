@@ -228,7 +228,7 @@
           <button class="pf-toggle-btn" data-view="extrait3">Extrait 3</button>
         </div>
         <button class="readme-btn" data-readme="pray">${A("Lisez-moi","Read me")}</button>
-        <span style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#00bbd1;">${A("Son désactivé jusqu'à la sortie officielle","Sound disabled until official release")}</span>
+        <span class="brume-note">${A("Son désactivé jusqu'à la sortie officielle","Sound disabled until official release")}</span>
       </div>
       <div class="pf-motion-panel" id="sc-clip" style="margin-top:1cm">
         <div class="motion-player">
