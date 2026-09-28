@@ -211,25 +211,32 @@ export const pages = {
       </div>
       <div class="pf-controls">
         <div class="pf-toggle" id="pf-toggle">
-          <button class="pf-toggle-btn active" data-view="clip1">Clip 1</button>
-          <button class="pf-toggle-btn" data-view="clip2">Clip 2</button>
-          <button class="pf-toggle-btn" data-view="clip3">Clip 3</button>
+          <button class="pf-toggle-btn active" data-view="clip">Clip</button>
+          <button class="pf-toggle-btn" data-view="extrait1">Extrait 1</button>
+          <button class="pf-toggle-btn" data-view="extrait2">Extrait 2</button>
+          <button class="pf-toggle-btn" data-view="extrait3">Extrait 3</button>
         </div>
         <button class="readme-btn" data-readme="pray">${t('Lisez-moi', 'Read me')}</button>
       </div>
-      <div class="pf-motion-panel" id="sc-clip1" style="margin-top:1cm">
+      <div class="pf-motion-panel" id="sc-clip" style="margin-top:1cm">
         <div class="motion-player">
-          <video muted loop playsinline preload="metadata" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4" class="pf-motion-video"></video>
+          <video muted loop playsinline preload="metadata" src="/images/Pray%20for%20your%20Neighbours/Clip/sofias_part.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
       </div>
-      <div class="pf-motion-panel" id="sc-clip2" style="display:none;margin-top:1cm">
+      <div class="pf-motion-panel" id="sc-extrait1" style="display:none;margin-top:1cm">
+        <div class="motion-player">
+          <video muted loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4" class="pf-motion-video"></video>
+          <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+        </div>
+      </div>
+      <div class="pf-motion-panel" id="sc-extrait2" style="display:none;margin-top:1cm">
         <div class="motion-player">
           <video muted loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/2.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
         </div>
       </div>
-      <div class="pf-motion-panel" id="sc-clip3" style="display:none;margin-top:1cm">
+      <div class="pf-motion-panel" id="sc-extrait3" style="display:none;margin-top:1cm">
         <div class="motion-player">
           <video muted loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/3.mp4" class="pf-motion-video"></video>
           <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
