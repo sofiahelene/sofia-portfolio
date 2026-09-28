@@ -210,6 +210,13 @@ const readmeContent = {
       `We also had to integrate and respect elements and rules from the brand guidelines, in order to ensure consistency with the association's existing identity. We built our communication campaign around two main characters: Annie and Léo, representing a person supported by and a volunteer of Petits Frères des Pauvres.\n\nThey feature across every communication channel to create emotional attachment and allow readers to identify with and feel concerned by the cause. The goal of the event was not only to bring people together around dance, but also to raise awareness of the association and recruit new volunteers. We therefore designed flyers aimed at attracting a young, engaged audience.\n\nFinally, we created a series of goodies for the event, featuring Annie and Léo on every item alongside the original logo and brand guideline elements.`
     ),
   },
+  'seabreeze': {
+    title: () => 'Seabreeze',
+    body: () => window.t(
+      `Le concept de Seabreeze est celui d'un hôtel de plage tendance et stylé en Australie, destiné aux jeunes adultes. Sont présentés des packagings de shampoing, de tonique et de nettoyant, une carte de chambre, des panneaux de porte d'hôtel, des cartes postales qui transmettent l'univers visuel, ainsi que des savons, générés par IA.`,
+      `The concept of Seabreeze is a hip and stylish beach hotel in Australia aimed at young adults. Presented are shampoo, toner and cleanser packaging, a key card, hotel door signs, postcards which convey the univers visuel and bars of soap, made by AI.`
+    ),
+  },
   'brume': {
     title: () => 'Brume',
     body: () => window.t(

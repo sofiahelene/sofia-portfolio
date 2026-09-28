@@ -438,6 +438,9 @@ export const pages = {
       <div class="proj-detail-info">
         <h2 class="proj-name">Seabreeze</h2>
       </div>
+      <div class="pf-controls">
+        <button class="readme-btn" data-readme="seabreeze">${t('Lisez-moi', 'Read me')}</button>
+      </div>
       <div class="proj-story-strip">
         <div class="sc-viewport"><div class="sc-container">
           <div class="sc-item"><img src="/le%20crabe/presentation%20le%20crabe.webp" alt="" loading="lazy"></div>
