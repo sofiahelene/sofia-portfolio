@@ -227,8 +227,8 @@ const readmeContent = {
   'pray': {
     title: () => 'Pray for your Neighbours',
     body: () => window.t(
-      `Ces 3 extraits vidéo sont des passages que j'ai réalisés et montés pour le clip « Pray for Your Neighbours » du groupe The Caymans. Ils ont été réalisés en filmant l'arrière-plan avec une vitesse d'obturation lente, puis en filmant le sujet normalement, en séparant les deux à l'aide du rotoscopie sur After Effects, avant d'appliquer un étalonnage colorimétrique.`,
-      `These 3 clips are extracts I edited from the "Pray for Your Neighbours" music video by The Caymans. They were created by filming the background at a slow shutter speed, then filming the subject normally, separating the two using rotoscoping in After Effects, and finishing with a colour grade.`
+      `Ces 3 extraits vidéo sont des passages que j'ai réalisés et montés pour le clip « Pray for Your Neighbours » du groupe The Caymans. Ils ont été réalisés en filmant l'arrière-plan avec une vitesse d'obturation lente, puis en filmant le sujet normalement, en séparant les deux à l'aide du rotoscopie sur After Effects, avant d'appliquer un étalonnage colorimétrique.\n\nA short extract from the full video awaiting release. The band wanted an 'MTV' style, with visual effects and jump cuts to match the beat of the music.`,
+      `A short extract from the full video awaiting release. The band wanted an 'MTV' style, with visual effects and jump cuts to match the beat of the music.\n\nCes 3 extraits vidéo sont des passages que j'ai réalisés et montés pour le clip « Pray for Your Neighbours » du groupe The Caymans. Ils ont été réalisés en filmant l'arrière-plan avec une vitesse d'obturation lente, puis en filmant le sujet normalement, en séparant les deux à l'aide du rotoscopie sur After Effects, avant d'appliquer un étalonnage colorimétrique.`
     ),
   },
   'katerina': {
