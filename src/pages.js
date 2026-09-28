@@ -155,7 +155,7 @@ export const pages = {
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
               <div class="sc-item"><img src="/le%20crabe/cosmetics%20cove.webp" alt="" loading="lazy"></div>
-              <div class="sc-item"><img src="/le%20crabe/postcards2.webp" alt="" loading="lazy"></div>
+              <div class="sc-item sc-item--portrait"><img src="/le%20crabe/postcards2.webp" alt="" loading="lazy"></div>
             </div></div>
           </div>
         </section>

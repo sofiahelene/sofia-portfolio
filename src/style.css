@@ -797,6 +797,14 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   object-fit: contain;
   pointer-events: none;
 }
+.sc-item--portrait {
+  aspect-ratio: 3/4;
+  width: auto;
+}
+.sc-item--portrait img {
+  width: 100%;
+  object-fit: cover;
+}
 
 
 /* Progress bar — appended to every carousel by initNativeCarousel */
