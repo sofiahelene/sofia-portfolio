@@ -453,6 +453,7 @@
               <div class="sc-item"><img src="/The%20caymans/Affiches/3.webp" alt="" loading="lazy"></div>
               <div class="sc-item"><img src="/The%20caymans/Affiches/5.webp" alt="" loading="lazy"></div>
               <div class="sc-item"><img src="/The%20caymans/Affiches/4.webp" alt="" loading="lazy"></div>
+              <div class="sc-item"><img src="/The%20caymans/Affiches/6.webp" alt="" loading="lazy"></div>
           </div>
         </div>
       </div>
