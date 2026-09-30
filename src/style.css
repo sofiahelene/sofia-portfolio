@@ -1885,3 +1885,54 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   /* Lang splash */
   #lang-splash { gap: 1.5rem; flex-direction: column; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   TOUCH DEVICES — scoped to (hover: none, pointer: coarse) so mouse/trackpad
+   users (including narrow desktop windows) are completely unaffected.
+══════════════════════════════════════════════════════════════════════════ */
+@media (hover: none) and (pointer: coarse) {
+  /* Snappy taps: no 300ms delay, no blue tap-highlight flash */
+  a, button, [role="button"], .proj-toc-row {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Enlarge tap targets to the 44px minimum. For plain text links this is
+     invisible padding (the surrounding header/row is already tall enough);
+     for the pill buttons it makes the pill itself a bit taller. */
+  .nav-link,
+  .proj-back,
+  .proj-inline-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .pf-toggle-btn,
+  .readme-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .proj-toc-row td { padding-top: 1rem; padding-bottom: 1rem; }
+  .lb-close, .lb-prev, .lb-next {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Touch has no hover — a tapped element can otherwise stay stuck in its
+     :hover appearance until something else is tapped. Reset back to the
+     default look on the elements visitors actually tap on project pages. */
+  .proj-toc-row:hover td { color: #00bbd1; }
+  .proj-toc-row:hover td.proj-toc-num { color: #00bbd1; }
+  .readme-btn:hover { background: #00bbd1; border-color: #00bbd1; color: #000; }
+  .pf-toggle-btn:hover { background: #00bbd1; color: #000; }
+  .pf-toggle-btn.active:hover { background: #00bbd1; color: #000; }
+  .nav-link:hover { color: #00bbd1; }
+  .nav-link.active:hover { color: #00bbd1; }
+  .proj-back:hover { color: #00bbd1; }
+  .proj-inline-link:hover { color: #00bbd1; }
+}

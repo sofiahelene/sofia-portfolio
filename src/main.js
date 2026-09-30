@@ -16,6 +16,13 @@ function colorizeImg(img) { /* logo already cyan — no recolour needed */ }
 window.LANG = 'fr';
 window.t = (fr, en) => window.LANG === 'en' ? en : fr;
 
+// ── Touch device detection ──────────────────────────────────────────────────────
+// Used to skip the mouse-driven home hero (never designed for touch) and to
+// suppress the custom mouse-cursor overlay, which otherwise sticks on screen
+// after a tap since touch devices never fire the mousemove events it relies on.
+const IS_TOUCH_DEVICE = ('ontouchstart' in window) || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+if (IS_TOUCH_DEVICE) document.documentElement.classList.add('is-touch');
+
 // ── Session restore ───────────────────────────────────────────────────────────
 // sessionStorage survives normal refresh (F5) but clears on hard refresh
 // (Ctrl+Shift+R / Cmd+Shift+R) and new sessions — exactly the signal we need.
@@ -33,6 +40,9 @@ let dfCleanup       = null;
 let currentPage     = 'projets';
 
 function navigateTo(pageId) {
+  // The home hero is mouse-driven and isn't built for touch — send touch
+  // visitors to Projects instead, wherever the navigation came from.
+  if (pageId === 'home' && IS_TOUCH_DEVICE) pageId = 'projets';
   if (!pages[pageId]) return;
   if (gooeyCleanup)      { gooeyCleanup();      gooeyCleanup      = null; }
   if (dfCleanup)         { dfCleanup();         dfCleanup         = null; }
@@ -1534,7 +1544,9 @@ const startSite = (lang) => {
     opacity: 0, duration: 0.4, ease: 'power2.in',
     onComplete: () => { langSplash.classList.add('lang-hidden'); },
   });
-  navigateTo('home');
+  // The home hero relies on mouse movement and isn't built for touch —
+  // touch visitors go straight to Projects instead.
+  navigateTo(IS_TOUCH_DEVICE ? 'projets' : 'home');
 };
 
 document.getElementById('lang-fr').addEventListener('click', () => startSite('fr'));
@@ -1562,10 +1574,12 @@ if (_urlPage && _urlPage !== 'home') {
   // Normal refresh — skip splash entirely, restore session state
   applyLang(_savedLang);
   langSplash.classList.add('lang-hidden');
-  navigateTo(_savedPage);
+  // The home hero isn't built for touch — never restore into it there
+  navigateTo(IS_TOUCH_DEVICE && _savedPage === 'home' ? 'projets' : _savedPage);
 } else {
-  // First visit or hard refresh — load home behind the splash as usual
-  navigateTo('home');
+  // First visit or hard refresh — load the post-splash page behind the splash.
+  // Touch devices skip the mouse-driven home hero and land straight on Projects.
+  navigateTo(IS_TOUCH_DEVICE ? 'projets' : 'home');
 }
 
 // ── Splash canvas ─────────────────────────────────────────────────────────────
@@ -1725,6 +1739,9 @@ gsap.ticker.add(() => {
 
 // ── Custom cursor ─────────────────────────────────────────────────────────────
 (function initCustomCursor() {
+  // Touch devices never fire mousemove, so the dot would just appear at the
+  // last tap position and stay there forever. Skip the whole overlay.
+  if (IS_TOUCH_DEVICE) return;
   const BLUE  = '#00bbd1';
   const WHITE = '#ffffff';
   const RADIUS = 6;
