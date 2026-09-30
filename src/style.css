@@ -2005,7 +2005,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 
   /* ── 6. About page: no scroll hint, title on one line, centred under the photo ── */
   .aph-scroll-btn { display: none; }
-  .aph-title { white-space: nowrap; font-size: clamp(1.5rem, 8vw, 2.2rem); }
+  .aph-title { white-space: nowrap; font-size: clamp(1.5rem, 8vw, 2.2rem); line-height: 1.3; }
   .about-content-inner { align-items: center; text-align: center; }
 }
 
@@ -2015,8 +2015,13 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 @media (hover: none) and (pointer: coarse) {
   /* Top nav: spread evenly across the available width instead of being
      bunched in the top-right corner */
-  .pf-spacer { flex: 0; }
-  .pf-nav { flex: 1; justify-content: space-between; gap: 0.5rem; }
+  /* .pf-header is CSS Grid (auto 1fr auto), not flex — flex properties on
+     a grid item do nothing. Collapse the spacer column out of the grid
+     entirely so .pf-nav's track becomes the 1fr one and actually has
+     room to spread its links across. */
+  .pf-spacer { display: none; }
+  .pf-header { grid-template-columns: auto 1fr; }
+  .pf-nav { width: 100%; justify-content: space-between; gap: 0.3rem; }
 
   /* Projects list: the title text lives in the ".proj-toc-cat" cell (the
      other machine's edit repurposed it), but a pre-existing 480px rule
@@ -2028,7 +2033,11 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
      together instead of at normal gallery spacing */
   .proj-brume .brume-note { display: none; }
   .proj-brume .brume-livrables-video { display: none; }
-  .proj-brume #sc-contexte .sc-container { gap: 0.15rem; }
+  /* Brume's Contexte images carry an inline style="height:50vh" (kept for
+     desktop) that beats the general .sc-item{height:auto} mobile rule since
+     inline styles win over stylesheets — override it here so Brume stacks
+     exactly like every other project's Contexte section. */
+  .proj-brume #sc-contexte .sc-item { height: auto !important; }
 
   /* Motion videos (all except Petits Frères, which has no .motion-player
      wrapper and so isn't matched by these selectors): play/pause moves
@@ -2088,8 +2097,15 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 
   /* About page: more room between the photo and the title, and the
      paragraph text pulled up closer to the title for better balance */
-  .aph-group { gap: 2rem; }
-  .about-content-inner { padding-top: 1rem; }
+  /* The photo+title group was vertically centered inside the (much taller)
+     sticky box, so most of the "gap after the title" was actually dead
+     space below the group, not the padding below. Bottom-align the group
+     instead so that space collapses to ~0, then give the paragraph the
+     same explicit gap as the photo-title one for a real, predictable
+     match — not just a smaller-but-still-arbitrary number. Photo-to-title
+     gap itself (.aph-group's own gap) is untouched from before. */
+  .aph-group { gap: 2rem; justify-content: flex-end; }
+  .about-content-inner { padding-top: 2rem; }
 
   /* Contact page: form (white card) directly under the intro text,
      contact details/socials moved below the form, everything centred
@@ -2105,9 +2121,11 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   .contact-details { order: 4; }
   .contact-socials { order: 5; }
   .contact-form {
-    background: #fff;
-    border-color: rgba(0,0,0,0.15);
+    background: #000;
     width: 100%;
     margin: 0 auto;
   }
+
+  /* Blue ribbon bar removed entirely on mobile (not just de-animated) */
+  .contact-ribbon-single { display: none; }
 }

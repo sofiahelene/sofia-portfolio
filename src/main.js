@@ -387,11 +387,15 @@ function initContactForm(form) {
     if (btn) { btn.disabled = true; btn.textContent = window.t('Envoi…', 'Sending…'); }
 
     try {
-      const data = new FormData(form);
-      const res  = await fetch(form.action, {
+      // FormSubmit only sends CORS headers (required for fetch/XHR) from its
+      // /ajax/ endpoint, and that endpoint expects a JSON body rather than
+      // multipart FormData.
+      const formObj = Object.fromEntries(new FormData(form).entries());
+      const ajaxAction = form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+      const res  = await fetch(ajaxAction, {
         method:  'POST',
-        body:    data,
-        headers: { Accept: 'application/json' },
+        body:    JSON.stringify(formObj),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       });
 
       if (res.ok) {
@@ -609,7 +613,16 @@ function initNativeCarousel(strip) {
   // Mobile: images stack vertically in normal document flow (see CSS) instead
   // of a horizontal carousel, so none of the scroll-axis/drag/progress-bar
   // setup below applies.
-  if (IS_TOUCH_DEVICE) return;
+  if (IS_TOUCH_DEVICE) {
+    // Each stacked item starts at height:auto with an unloaded (0-height)
+    // image, so as earlier images load, later ones shift down. The
+    // browser's native loading="lazy" intersection check runs once against
+    // that pre-reflow layout and never re-checks — later images can end up
+    // permanently stuck unloaded even though they're on-screen. Loading
+    // eagerly avoids the whole class of bug.
+    strip.querySelectorAll('img[loading="lazy"]').forEach(img => { img.loading = 'eager'; });
+    return;
+  }
 
   // Apply native scroll to viewport
   viewport.style.overflowX = 'scroll';
