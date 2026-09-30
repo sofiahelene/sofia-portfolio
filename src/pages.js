@@ -238,25 +238,37 @@ export const pages = {
       <div class="pf-motion-panel" id="sc-clip" style="margin-top:1cm">
         <div class="motion-player">
           <video muted loop playsinline preload="metadata" src="/images/Pray%20for%20your%20Neighbours/Clip/sofias_part.mp4" class="pf-motion-video"></video>
-          <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+          <div class="motion-controls">
+            <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+            <button class="readme-btn motion-fullscreen-btn" aria-label="Full screen">${t('Plein écran', 'Full screen')}</button>
+          </div>
         </div>
       </div>
       <div class="pf-motion-panel" id="sc-extrait1" style="display:none;margin-top:1cm">
         <div class="motion-player">
           <video muted loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4" class="pf-motion-video"></video>
-          <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+          <div class="motion-controls">
+            <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+            <button class="readme-btn motion-fullscreen-btn" aria-label="Full screen">${t('Plein écran', 'Full screen')}</button>
+          </div>
         </div>
       </div>
       <div class="pf-motion-panel" id="sc-extrait2" style="display:none;margin-top:1cm">
         <div class="motion-player">
           <video muted loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/2.mp4" class="pf-motion-video"></video>
-          <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+          <div class="motion-controls">
+            <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+            <button class="readme-btn motion-fullscreen-btn" aria-label="Full screen">${t('Plein écran', 'Full screen')}</button>
+          </div>
         </div>
       </div>
       <div class="pf-motion-panel" id="sc-extrait3" style="display:none;margin-top:1cm">
         <div class="motion-player">
           <video muted loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/3.mp4" class="pf-motion-video"></video>
-          <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+          <div class="motion-controls">
+            <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+            <button class="readme-btn motion-fullscreen-btn" aria-label="Full screen">${t('Plein écran', 'Full screen')}</button>
+          </div>
         </div>
       </div>
     </div>`,
@@ -277,7 +289,10 @@ export const pages = {
       <div class="pf-motion-panel" id="sc-motion" style="margin-top:1cm">
         <div class="motion-player">
           <video loop playsinline preload="metadata" src="/videos/Trainanimation_1.MP4" class="pf-motion-video"></video>
-          <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+          <div class="motion-controls">
+            <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+            <button class="readme-btn motion-fullscreen-btn" aria-label="Full screen">${t('Plein écran', 'Full screen')}</button>
+          </div>
         </div>
       </div>
       <div class="proj-story-strip" id="sc-contexte" style="display:none;">
@@ -343,7 +358,10 @@ export const pages = {
       <div class="pf-motion-panel" id="sc-motion" style="display:none;margin-top:1cm">
         <div class="motion-player">
           <video loop playsinline preload="none" src="/videos/FINALVIDEO.mp4" class="pf-motion-video"></video>
-          <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+          <div class="motion-controls">
+            <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+            <button class="readme-btn motion-fullscreen-btn" aria-label="Full screen">${t('Plein écran', 'Full screen')}</button>
+          </div>
         </div>
       </div>
       <div id="sc-uxui" style="display:none;" class="sc-uxui-panel">
@@ -353,7 +371,7 @@ export const pages = {
     </div>`,
 
   proj_brume: () => `
-    <div class="page page-inner proj-detail">
+    <div class="page page-inner proj-detail proj-brume">
       <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
       <div class="proj-detail-info">
         <h2 class="proj-name">Brume</h2>
@@ -380,7 +398,7 @@ export const pages = {
           <div class="sc-container" style="gap:0">
             ${['1.webp','2.webp','3.webp','4.webp','5.webp','6.webp','7.webp','8.webp']
               .map(f => `<div class="sc-item"><img src="/images/Brume/${f}" alt="${f}" loading="lazy"></div>`).join('')}
-            <div class="sc-item" style="height:85vh"><video autoplay muted loop playsinline preload="none" src="/videos/Brumejpeg.mp4" style="height:120%;width:auto;display:block;margin-top:calc(-10% - 2cm);margin-left:-3mm;"></video></div>
+            <div class="sc-item brume-livrables-video" style="height:85vh"><video autoplay muted loop playsinline preload="none" src="/videos/Brumejpeg.mp4" style="height:120%;width:auto;display:block;margin-top:calc(-10% - 2cm);margin-left:-3mm;"></video></div>
           </div>
         </div>
       </div>

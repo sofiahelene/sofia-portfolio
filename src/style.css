@@ -632,6 +632,8 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   cursor: pointer;
 }
 .readme-btn:hover { background: #fff; border-color: #fff; color: #000; transition: none; }
+/* Full-screen button only exists for mobile (see touch media block below) */
+.motion-fullscreen-btn { display: none; }
 .readme-btn--spaced { display: block; margin: 1.5rem 0; }
 .brume-note {
   font-size: 0.75rem;
@@ -1969,9 +1971,10 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
     flex-shrink: 0;
   }
   .pf-toggle::-webkit-scrollbar { display: none; }
+  .pf-controls { gap: 0.2rem; }
   .pf-toggle-btn, .readme-btn {
-    padding: 0.28rem 0.84rem;
-    font-size: 0.55rem;
+    padding: 0.28rem 0.4rem;
+    font-size: 0.48rem;
     min-height: 38px;
     display: inline-flex;
     align-items: center;
@@ -2004,4 +2007,107 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   .aph-scroll-btn { display: none; }
   .aph-title { white-space: nowrap; font-size: clamp(1.5rem, 8vw, 2.2rem); }
   .about-content-inner { align-items: center; text-align: center; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   TOUCH DEVICES — round 2 of refinements. Same scoping as above.
+══════════════════════════════════════════════════════════════════════════ */
+@media (hover: none) and (pointer: coarse) {
+  /* Top nav: spread evenly across the available width instead of being
+     bunched in the top-right corner */
+  .pf-spacer { flex: 0; }
+  .pf-nav { flex: 1; justify-content: space-between; gap: 0.5rem; }
+
+  /* Projects list: the title text lives in the ".proj-toc-cat" cell (the
+     other machine's edit repurposed it), but a pre-existing 480px rule
+     still hides that cell — restoring it so titles are visible again */
+  .proj-toc-cat { display: table-cell; }
+
+  /* Brume: the blue note moves into the Lisez-Moi panel (see main.js),
+     the Livrables video is dropped, and the 3 Contexte images sit close
+     together instead of at normal gallery spacing */
+  .proj-brume .brume-note { display: none; }
+  .proj-brume .brume-livrables-video { display: none; }
+  .proj-brume #sc-contexte .sc-container { gap: 0.15rem; }
+
+  /* Motion videos (all except Petits Frères, which has no .motion-player
+     wrapper and so isn't matched by these selectors): play/pause moves
+     below the video instead of overlaying it, and sits next to the new
+     full-screen button */
+  .motion-player { flex-direction: column; gap: 0.6rem; }
+  .motion-controls {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .motion-playpause { position: static; }
+  .motion-fullscreen-btn { display: inline-flex; }
+
+  /* Full-screen video overlay */
+  .video-fs-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-fs-close {
+    position: fixed;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  .video-fs-rotate-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    color: #fff;
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  .video-fs-rotate-icon { font-size: 2.4rem; }
+  .video-fs-video-wrap { display: none; width: 100%; height: 100%; align-items: center; justify-content: center; }
+  .video-fs-video-wrap video { max-width: 100%; max-height: 100%; }
+  .video-fs-overlay.is-landscape .video-fs-rotate-hint { display: none; }
+  .video-fs-overlay.is-landscape .video-fs-video-wrap { display: flex; }
+
+  /* About page: more room between the photo and the title, and the
+     paragraph text pulled up closer to the title for better balance */
+  .aph-group { gap: 2rem; }
+  .about-content-inner { padding-top: 1rem; }
+
+  /* Contact page: form (white card) directly under the intro text,
+     contact details/socials moved below the form, everything centred
+     vertically. display:contents flattens .contact-left so its children
+     can be reordered independently of .contact-right without touching
+     the DOM (and therefore without touching desktop's 2-column layout). */
+  .page-contact { justify-content: center; }
+  .contact-split { display: flex; flex-direction: column; }
+  .contact-left { display: contents; }
+  .contact-heading { order: 1; }
+  .contact-intro { order: 2; }
+  .contact-right { order: 3; }
+  .contact-details { order: 4; }
+  .contact-socials { order: 5; }
+  .contact-form {
+    background: #fff;
+    border-color: rgba(0,0,0,0.15);
+    width: 100%;
+    margin: 0 auto;
+  }
 }

@@ -189,6 +189,7 @@ function navigateTo(pageId) {
               else { vid.pause(); }
             };
           }
+          wireFullscreenBtn(panel);
         });
       }
     }
@@ -413,13 +414,20 @@ function initReadMe(btn) {
   if (!content) return;
 
   btn.addEventListener('click', () => {
+    let bodyHtml = content.body().split('\n\n').map(p => `<p style="margin-bottom:0.8em">${p}</p>`).join('');
+    // Mobile: Brume's blue note (normally shown next to the buttons, hidden on
+    // mobile) is prepended here instead, so the info isn't lost.
+    if (IS_TOUCH_DEVICE && key === 'brume') {
+      const note = document.querySelector('.proj-brume .brume-note')?.textContent;
+      if (note) bodyHtml = `<p style="margin-bottom:0.8em"><strong>${note}</strong></p>` + bodyHtml;
+    }
     const overlay = document.createElement('div');
     overlay.className = 'rm-overlay';
     overlay.innerHTML = `
       <div class="rm-card">
         <button class="rm-close">✕</button>
         <h3 class="rm-title">${content.title()}</h3>
-        <div class="rm-body">${content.body().split('\n\n').map(p => `<p style="margin-bottom:0.8em">${p}</p>`).join('')}</div>
+        <div class="rm-body">${bodyHtml}</div>
       </div>`;
     document.body.appendChild(overlay);
 
@@ -433,6 +441,58 @@ function initReadMe(btn) {
 
     requestAnimationFrame(() => overlay.classList.add('rm-active'));
   });
+}
+
+// ── Mobile video full screen (landscape) ────────────────────────────────────────
+// Custom overlay rather than the Fullscreen/orientation-lock APIs: iOS Safari
+// doesn't support screen.orientation.lock() at all, so the only cross-browser
+// approach is to ask the visitor to physically rotate their phone and react to
+// the resulting viewport change.
+function openVideoFullscreen(video) {
+  const originalParent = video.parentElement;
+  const originalNext   = video.nextSibling;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'video-fs-overlay';
+  overlay.innerHTML = `
+    <button class="video-fs-close" aria-label="Close">✕</button>
+    <div class="video-fs-rotate-hint">
+      <span class="video-fs-rotate-icon">⟳</span>
+      <span>${window.t('Faites pivoter votre téléphone', 'Rotate your phone')}</span>
+    </div>
+    <div class="video-fs-video-wrap"></div>`;
+  document.body.appendChild(overlay);
+  overlay.querySelector('.video-fs-video-wrap').appendChild(video);
+
+  const wasPaused = video.paused;
+  video.play().catch(() => {});
+
+  document.body.style.overflow = 'hidden';
+  screen.orientation?.lock?.('landscape').catch(() => {});
+
+  const syncOrientation = () => {
+    overlay.classList.toggle('is-landscape', window.innerWidth > window.innerHeight);
+  };
+  syncOrientation();
+  window.addEventListener('resize', syncOrientation);
+
+  function close() {
+    window.removeEventListener('resize', syncOrientation);
+    screen.orientation?.unlock?.();
+    document.body.style.overflow = '';
+    if (originalNext) originalParent.insertBefore(video, originalNext);
+    else originalParent.appendChild(video);
+    if (wasPaused) video.pause();
+    overlay.remove();
+  }
+  overlay.querySelector('.video-fs-close').addEventListener('click', close);
+}
+
+function wireFullscreenBtn(panel) {
+  const btn = panel.querySelector('.motion-fullscreen-btn');
+  const video = panel.querySelector('video');
+  if (!btn || !video) return;
+  btn.onclick = () => openVideoFullscreen(video);
 }
 
 // ── Toggle ────────────────────────────────────────────────────────────────────
@@ -522,6 +582,7 @@ function initToggle(toggle) {
                   else { vid.pause(); playBtn.textContent = '▶'; }
                 };
               }
+              wireFullscreenBtn(el);
             }
             // Wire storyboard modal (lives outside sc-motion)
             const sbOverlay = document.getElementById('sb-overlay');
