@@ -419,10 +419,11 @@ function initReadMe(btn) {
 
   btn.addEventListener('click', () => {
     let bodyHtml = content.body().split('\n\n').map(p => `<p style="margin-bottom:0.8em">${p}</p>`).join('');
-    // Mobile: Brume's blue note (normally shown next to the buttons, hidden on
-    // mobile) is prepended here instead, so the info isn't lost.
-    if (IS_TOUCH_DEVICE && key === 'brume') {
-      const note = document.querySelector('.proj-brume .brume-note')?.textContent;
+    // Mobile: some projects' blue note (normally shown next to the buttons,
+    // hidden on mobile) is prepended here instead, so the info isn't lost.
+    const notesByKey = { brume: '.proj-brume', pray: '.proj-pray' };
+    if (IS_TOUCH_DEVICE && notesByKey[key]) {
+      const note = document.querySelector(`${notesByKey[key]} .brume-note`)?.textContent;
       if (note) bodyHtml = `<p style="margin-bottom:0.8em"><strong>${note}</strong></p>` + bodyHtml;
     }
     const overlay = document.createElement('div');

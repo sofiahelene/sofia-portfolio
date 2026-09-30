@@ -634,6 +634,8 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .readme-btn:hover { background: #fff; border-color: #fff; color: #000; transition: none; }
 /* Full-screen button only exists for mobile (see touch media block below) */
 .motion-fullscreen-btn { display: none; }
+/* Seabreeze's mobile-only images stay hidden until the touch media block below */
+.seabreeze-mobile-only { display: none; }
 .readme-btn--spaced { display: block; margin: 1.5rem 0; }
 .brume-note {
   font-size: 0.75rem;
@@ -2020,8 +2022,30 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
      entirely so .pf-nav's track becomes the 1fr one and actually has
      room to spread its links across. */
   .pf-spacer { display: none; }
-  .pf-header { grid-template-columns: auto 1fr; }
-  .pf-nav { width: 100%; justify-content: space-between; gap: 0.3rem; }
+  /* padding-right and the grid's own gap both sat between the logo and the
+     nav's true edges, on top of whatever space-evenly produced internally —
+     zeroing both means the nav's box IS exactly "logo's right edge to the
+     screen's right edge", so space-evenly's 5 gaps are genuinely equal
+     (logo-left padding is untouched — the logo itself doesn't move). */
+  .pf-header { grid-template-columns: auto 1fr; gap: 0; padding-right: 0; }
+  /* space-evenly (not space-between) gives 5 equal gaps for 4 links: one
+     before the first link, one between each pair, and one after the last —
+     matching the logo-to-Projets gap to every other gap, including the
+     final one to the screen edge. */
+  .pf-nav { width: 100%; justify-content: space-evenly; gap: 0; }
+  /* Same padding on every link regardless of state, so toggling the active
+     background never changes a link's box size and therefore never shifts
+     the space-evenly gaps. */
+  .nav-link {
+    padding: 0.35rem 0.6rem;
+    border-radius: 1rem;
+    background: transparent;
+  }
+  .nav-link.active,
+  .nav-link:active {
+    background: #fff;
+    color: #000;
+  }
 
   /* Projects list: the title text lives in the ".proj-toc-cat" cell (the
      other machine's edit repurposed it), but a pre-existing 480px rule
@@ -2031,7 +2055,12 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   /* Brume: the blue note moves into the Lisez-Moi panel (see main.js),
      the Livrables video is dropped, and the 3 Contexte images sit close
      together instead of at normal gallery spacing */
-  .proj-brume .brume-note { display: none; }
+  .proj-brume .brume-note,
+  .proj-pray .brume-note { display: none; }
+
+  /* Seabreeze: swap the desktop presentation file for the 6 "Mobile only" images */
+  .seabreeze-desktop-only { display: none; }
+  .seabreeze-mobile-only { display: block; }
   .proj-brume .brume-livrables-video { display: none; }
   /* Brume's Contexte images carry an inline style="height:50vh" (kept for
      desktop) that beats the general .sc-item{height:auto} mobile rule since

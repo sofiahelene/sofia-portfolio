@@ -220,7 +220,7 @@ export const pages = {
 
   // ── PROJECT DETAIL PAGES ─────────────────────────────────────────────────
   proj_pray: () => `
-    <div class="page page-inner proj-detail">
+    <div class="page page-inner proj-detail proj-pray">
       <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
       <div class="proj-detail-info">
         <h2 class="proj-name">Pray for your Neighbours</h2>
@@ -459,9 +459,15 @@ export const pages = {
       <div class="pf-controls">
         <button class="readme-btn" data-readme="seabreeze">${t('Lisez-moi', 'Read me')}</button>
       </div>
-      <div class="proj-story-strip">
+      <div class="proj-story-strip seabreeze-desktop-only">
         <div class="sc-viewport"><div class="sc-container">
           <div class="sc-item"><img src="/le%20crabe/presentation%20le%20crabe.webp" alt="" loading="lazy"></div>
+        </div></div>
+      </div>
+      <div class="proj-story-strip seabreeze-mobile-only">
+        <div class="sc-viewport"><div class="sc-container">
+          ${['1.PNG','2.PNG','3.jpg','4.png','5.PNG','6.PNG']
+            .map(f => `<div class="sc-item"><img src="${encodeURI('/le crabe/Mobile only/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
         </div></div>
       </div>
     </div>`,
