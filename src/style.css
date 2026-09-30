@@ -1935,4 +1935,73 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   .nav-link.active:hover { color: #00bbd1; }
   .proj-back:hover { color: #00bbd1; }
   .proj-inline-link:hover { color: #00bbd1; }
+
+  /* ── 1. No preview step — TOC shows just the list, tap goes straight to
+     the project page (see main.js for the matching navigation change) ── */
+  .proj-inline-sections { display: none; }
+
+  /* ── 2. Project images stack vertically, one per row ── */
+  .sc-viewport { overflow: visible; }
+  .sc-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .sc-item, .sc-item--portrait {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+  }
+  .sc-item img, .sc-item video,
+  .sc-item--portrait img { width: 100%; height: auto; object-fit: contain; }
+
+  /* ── 3. Button bar: ~30% smaller, single row, never wraps ── */
+  .pf-controls {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .pf-controls::-webkit-scrollbar { display: none; }
+  .pf-toggle {
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex-shrink: 0;
+  }
+  .pf-toggle::-webkit-scrollbar { display: none; }
+  .pf-toggle-btn, .readme-btn {
+    padding: 0.28rem 0.84rem;
+    font-size: 0.55rem;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .brume-note { flex-shrink: 0; }
+
+  /* ── 4. Motion videos scale to the phone's width, keeping their own
+     aspect ratio instead of being forced into a fixed 16:9 box (which
+     crushed portrait-shot videos down to a sliver) ── */
+  .motion-player { width: 100%; display: flex; }
+  .pf-motion-video {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: auto;
+    max-height: 80vh;
+  }
+
+  /* ── 5. Contact page: no animation, everything centred ── */
+  .ribbon-track, .ribbon-track--reverse { animation: none; }
+  .contact-split { align-items: center; }
+  .contact-left { align-items: center; text-align: center; }
+  .contact-details-list li { align-items: center; }
+  .contact-socials { justify-content: center; }
+  .contact-form { width: 100%; margin: 0 auto; }
+
+  /* ── 6. About page: no scroll hint, title on one line, centred under the photo ── */
+  .aph-scroll-btn { display: none; }
+  .aph-title { white-space: nowrap; font-size: clamp(1.5rem, 8vw, 2.2rem); }
+  .about-content-inner { align-items: center; text-align: center; }
 }

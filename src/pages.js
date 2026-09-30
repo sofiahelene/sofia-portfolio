@@ -63,7 +63,7 @@ export const pages = {
         <table class="proj-toc-table">
           <tbody>
             ${rows.map(r => `
-            <tr class="proj-toc-row" data-scroll-to="#${r.sid}" role="button" tabindex="0">
+            <tr class="proj-toc-row" data-scroll-to="#${r.sid}" data-project-page="${r.page}" role="button" tabindex="0">
               <td class="proj-toc-num">${r.num}</td>
               <td class="proj-toc-cat">${r.title}</td>
               <td class="proj-toc-title">${r.cat}</td>

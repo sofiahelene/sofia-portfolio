@@ -95,9 +95,11 @@ function navigateTo(pageId) {
         v.play().catch(() => {});
       });
     } else if (pageId === 'projets') {
-      // TOC rows smooth-scroll to their section
+      // Desktop: TOC rows smooth-scroll to their inline preview section.
+      // Touch/mobile: no preview step — tapping a row goes straight to the project page.
       incoming.querySelectorAll('.proj-toc-row[data-scroll-to]').forEach(row => {
         const go = () => {
+          if (IS_TOUCH_DEVICE) { navigateTo(row.dataset.projectPage); return; }
           const target = incoming.querySelector(row.dataset.scrollTo);
           if (!target) return;
           const containerTop = incoming.getBoundingClientRect().top;
@@ -542,6 +544,11 @@ function initNativeCarousel(strip) {
   const viewport = strip.querySelector('.sc-viewport');
   if (!viewport || strip.dataset.nativeReady) return;
   strip.dataset.nativeReady = '1';
+
+  // Mobile: images stack vertically in normal document flow (see CSS) instead
+  // of a horizontal carousel, so none of the scroll-axis/drag/progress-bar
+  // setup below applies.
+  if (IS_TOUCH_DEVICE) return;
 
   // Apply native scroll to viewport
   viewport.style.overflowX = 'scroll';
