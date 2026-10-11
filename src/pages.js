@@ -47,7 +47,7 @@ export const pages = {
       { num: '06.', cat: 'Packaging',                          title: 'Seabreeze',                    page: 'proj_seabreeze',     sid: 'proj-s-11' },
       { num: '07.', cat: 'Freelance II',                       title: 'Katerina',                     page: 'proj_katerina',      sid: 'proj-s-05' },
       { num: '08.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
-      { num: '09.', cat: t('Photographie','Photography'),      title: t('Paris et Whitby','Paris & Whitby'), page: 'proj_photographie', sid: 'proj-s-08' },
+      { num: '09.', cat: t('Photographie','Photography'),      title: 'un monde en partage', page: 'proj_photographie', sid: 'proj-s-08' },
       { num: '10.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-07' },
     ];
     return `
@@ -192,7 +192,7 @@ export const pages = {
             <span class="proj-toc-cat">${t('Photographie','Photography')}</span>
             <a class="proj-inline-link" data-page="proj_photographie" href="#proj_photographie">${t('Voir le projet →','View project →')}</a>
           </div>
-          <h3 class="proj-inline-title">${t('Paris et Whitby','Paris & Whitby')}</h3>
+          <h3 class="proj-inline-title">un monde en partage</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container" style="gap:0.5rem">
               ${['LUCAS-Sofia-001.jpg','LUCAS-Sofia-002.jpg','LUCAS-Sofia-003.jpg','LUCAS-Sofia-004.jpg','LUCAS-Sofia-006.jpg','LUCAS-Sofia-008.jpg','IMG_6833.jpg'].map(f=>`<div class="sc-item"><img src="/images/Photographie/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
@@ -620,6 +620,7 @@ export const pages = {
         <div class="pf-toggle" id="pf-toggle">
           <button class="pf-toggle-btn active" data-view="paris">Paris</button>
           <button class="pf-toggle-btn" data-view="whitby">Whitby</button>
+          <button class="pf-toggle-btn" data-view="athenes">Athènes</button>
           <button class="pf-toggle-btn" data-view="diptyques">${t('Diptyques', 'Diptychs')}</button>
         </div>
         <button class="readme-btn" id="photo-readme-btn" data-readme="paris">${t('Lisez-moi', 'Read me')}</button>
@@ -637,6 +638,14 @@ export const pages = {
           <div class="sc-container" style="gap:0.5rem">
             ${['13.jpg','14.jpg','15.jpg','16.jpg','17.jpg','18.jpg']
               .map(f => `<div class="sc-item"><img src="/images/Photographie/whitby/${encodeURIComponent(f)}" alt="Whitby ${f}" loading="lazy"></div>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div class="proj-story-strip" id="sc-athenes" style="display:none;">
+        <div class="sc-viewport">
+          <div class="sc-container" style="gap:0.5rem">
+            ${['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg']
+              .map(f => `<div class="sc-item"><img src="/images/Photographie/Ath%C3%A8nes/${encodeURIComponent(f)}" alt="Athènes ${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
       </div>
