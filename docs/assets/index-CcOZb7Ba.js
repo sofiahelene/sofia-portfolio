@@ -363,8 +363,8 @@
       </div>
       <div class="pf-controls">
         <div class="pf-toggle" id="pf-toggle">
-          <button class="pf-toggle-btn active" data-view="images">${A("Images","Images")}</button>
-          <button class="pf-toggle-btn" data-view="livrables">${A("Livrables","Deliverables")}</button>
+          <button class="pf-toggle-btn active" data-view="images">${A("Photos","Photos")}</button>
+          <button class="pf-toggle-btn" data-view="livrables">${A("Édition","Edition")}</button>
           <button class="pf-toggle-btn" data-view="contexte">${A("Contexte","Context")}</button>
         </div>
         <button class="readme-btn" data-readme="brume">${A("Lisez-moi","Read me")}</button>

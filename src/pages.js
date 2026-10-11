@@ -378,8 +378,8 @@ export const pages = {
       </div>
       <div class="pf-controls">
         <div class="pf-toggle" id="pf-toggle">
-          <button class="pf-toggle-btn active" data-view="images">${t('Images', 'Images')}</button>
-          <button class="pf-toggle-btn" data-view="livrables">${t('Livrables', 'Deliverables')}</button>
+          <button class="pf-toggle-btn active" data-view="images">${t('Photos', 'Photos')}</button>
+          <button class="pf-toggle-btn" data-view="livrables">${t('Édition', 'Edition')}</button>
           <button class="pf-toggle-btn" data-view="contexte">${t('Contexte', 'Context')}</button>
         </div>
         <button class="readme-btn" data-readme="brume">${t('Lisez-moi', 'Read me')}</button>
