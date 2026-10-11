@@ -64,7 +64,7 @@
       </div>
 
     </div>
-  `,projets:()=>{const s=[{num:"01.",cat:A("Édition","Editorial"),title:"Brume",page:"proj_brume",sid:"proj-s-01"},{num:"02.",cat:"Freelance",title:"The Caymans",page:"proj_caymans",sid:"proj-s-04"},{num:"03.",cat:"Post Production",title:"Pray for your Neighbours",page:"proj_pray",sid:"proj-s-10"},{num:"04.",cat:A("Identité Visuelle","Visual Identity"),title:"Do It Again",page:"proj_do_it_again",sid:"proj-s-02"},{num:"05.",cat:A("Identité Visuelle II","Visual Identity II"),title:"Les Petits Frères des Pauvres",page:"proj_petits_freres",sid:"proj-s-03"},{num:"06.",cat:"Packaging",title:"Seabreeze",page:"proj_seabreeze",sid:"proj-s-11"},{num:"07.",cat:"Freelance II",title:"Katerina",page:"proj_katerina",sid:"proj-s-05"},{num:"08.",cat:"Motion",title:"Star Guitar",page:"proj_star_guitar",sid:"proj-s-06"},{num:"09.",cat:A("Photographie","Photography"),title:"un monde en partage",page:"proj_photographie",sid:"proj-s-08"},{num:"10.",cat:A("Illustration","Illustration"),title:"Terrasses des Oliviers",page:"proj_terrasses",sid:"proj-s-07"}];return`
+  `,projets:()=>{const s=[{num:"01.",cat:A("Édition","Editorial"),title:"Brume",page:"proj_brume",sid:"proj-s-01"},{num:"02.",cat:"Freelance",title:"The Caymans",page:"proj_caymans",sid:"proj-s-04"},{num:"03.",cat:"Post Production",title:"Pray for your Neighbours",page:"proj_pray",sid:"proj-s-10"},{num:"04.",cat:A("Identité Visuelle","Visual Identity"),title:"Do It Again",page:"proj_do_it_again",sid:"proj-s-02"},{num:"05.",cat:A("Identité Visuelle II","Visual Identity II"),title:"Les Petits Frères des Pauvres",page:"proj_petits_freres",sid:"proj-s-03"},{num:"06.",cat:"Packaging",title:"Seabreeze",page:"proj_seabreeze",sid:"proj-s-11"},{num:"07.",cat:"Freelance II",title:"Katerina",page:"proj_katerina",sid:"proj-s-05"},{num:"08.",cat:"Motion",title:"Star Guitar",page:"proj_star_guitar",sid:"proj-s-06"},{num:"09.",cat:A("Photographie","Photography"),title:"Un Monde en Partage",page:"proj_photographie",sid:"proj-s-08"},{num:"10.",cat:A("Illustration","Illustration"),title:"Terrasses des Oliviers",page:"proj_terrasses",sid:"proj-s-07"}];return`
     <div class="page proj-toc-page">
       <div class="proj-toc-inner">
       <div class="proj-toc-spacer"></div>
@@ -206,7 +206,7 @@
             <span class="proj-toc-cat">${A("Photographie","Photography")}</span>
             <a class="proj-inline-link" data-page="proj_photographie" href="#proj_photographie">${A("Voir le projet →","View project →")}</a>
           </div>
-          <h3 class="proj-inline-title">un monde en partage</h3>
+          <h3 class="proj-inline-title">Un Monde en Partage</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container" style="gap:0.5rem">
               ${["LUCAS-Sofia-001.jpg","LUCAS-Sofia-002.jpg","LUCAS-Sofia-003.jpg","LUCAS-Sofia-004.jpg","LUCAS-Sofia-006.jpg","LUCAS-Sofia-008.jpg","IMG_6833.jpg"].map(e=>`<div class="sc-item"><img src="/images/Photographie/${encodeURIComponent(e)}" alt="${e}" loading="lazy"></div>`).join("")}

@@ -47,7 +47,7 @@ export const pages = {
       { num: '06.', cat: 'Packaging',                          title: 'Seabreeze',                    page: 'proj_seabreeze',     sid: 'proj-s-11' },
       { num: '07.', cat: 'Freelance II',                       title: 'Katerina',                     page: 'proj_katerina',      sid: 'proj-s-05' },
       { num: '08.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
-      { num: '09.', cat: t('Photographie','Photography'),      title: 'un monde en partage', page: 'proj_photographie', sid: 'proj-s-08' },
+      { num: '09.', cat: t('Photographie','Photography'),      title: 'Un Monde en Partage', page: 'proj_photographie', sid: 'proj-s-08' },
       { num: '10.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-07' },
     ];
     return `
@@ -192,7 +192,7 @@ export const pages = {
             <span class="proj-toc-cat">${t('Photographie','Photography')}</span>
             <a class="proj-inline-link" data-page="proj_photographie" href="#proj_photographie">${t('Voir le projet →','View project →')}</a>
           </div>
-          <h3 class="proj-inline-title">un monde en partage</h3>
+          <h3 class="proj-inline-title">Un Monde en Partage</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container" style="gap:0.5rem">
               ${['LUCAS-Sofia-001.jpg','LUCAS-Sofia-002.jpg','LUCAS-Sofia-003.jpg','LUCAS-Sofia-004.jpg','LUCAS-Sofia-006.jpg','LUCAS-Sofia-008.jpg','IMG_6833.jpg'].map(f=>`<div class="sc-item"><img src="/images/Photographie/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
