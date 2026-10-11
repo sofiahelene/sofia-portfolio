@@ -623,7 +623,6 @@ export const pages = {
           <button class="pf-toggle-btn" data-view="athenes">Athènes</button>
           <button class="pf-toggle-btn" data-view="diptyques">${t('Diptyques', 'Diptychs')}</button>
         </div>
-        <button class="readme-btn" id="photo-readme-btn" data-readme="paris">${t('Lisez-moi', 'Read me')}</button>
       </div>
       <div class="proj-story-strip" id="sc-paris">
         <div class="sc-viewport">
@@ -645,7 +644,7 @@ export const pages = {
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">
             ${['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg']
-              .map(f => `<div class="sc-item"><img src="/images/Photographie/Ath%C3%A8nes/${encodeURIComponent(f)}" alt="Athènes ${f}" loading="lazy"></div>`).join('')}
+              .map(f => `<div class="sc-item"><img src="/images/Photographie/Athenes/${encodeURIComponent(f)}" alt="Athènes ${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
       </div>

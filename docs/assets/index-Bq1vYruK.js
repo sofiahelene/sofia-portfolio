@@ -568,7 +568,6 @@
           <button class="pf-toggle-btn" data-view="athenes">Athènes</button>
           <button class="pf-toggle-btn" data-view="diptyques">${A("Diptyques","Diptychs")}</button>
         </div>
-        <button class="readme-btn" id="photo-readme-btn" data-readme="paris">${A("Lisez-moi","Read me")}</button>
       </div>
       <div class="proj-story-strip" id="sc-paris">
         <div class="sc-viewport">
@@ -587,7 +586,7 @@
       <div class="proj-story-strip" id="sc-athenes" style="display:none;">
         <div class="sc-viewport">
           <div class="sc-container" style="gap:0.5rem">
-            ${["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"].map(s=>`<div class="sc-item"><img src="/images/Photographie/Ath%C3%A8nes/${encodeURIComponent(s)}" alt="Athènes ${s}" loading="lazy"></div>`).join("")}
+            ${["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"].map(s=>`<div class="sc-item"><img src="/images/Photographie/Athenes/${encodeURIComponent(s)}" alt="Athènes ${s}" loading="lazy"></div>`).join("")}
           </div>
         </div>
       </div>
