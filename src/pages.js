@@ -45,10 +45,10 @@ export const pages = {
       { num: '04.', cat: t('Identité Visuelle','Visual Identity'), title: 'Do It Again',              page: 'proj_do_it_again',   sid: 'proj-s-02' },
       { num: '05.', cat: t('Identité Visuelle II','Visual Identity II'), title: 'Les Petits Frères des Pauvres', page: 'proj_petits_freres', sid: 'proj-s-03' },
       { num: '06.', cat: 'Packaging',                          title: 'Seabreeze',                    page: 'proj_seabreeze',     sid: 'proj-s-11' },
-      { num: '07.', cat: 'Freelance II',                       title: 'Katerina',                     page: 'proj_katerina',      sid: 'proj-s-05' },
-      { num: '08.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
-      { num: '09.', cat: t('Photographie','Photography'),      title: 'Un Monde en Partage', page: 'proj_photographie', sid: 'proj-s-08' },
-      { num: '10.', cat: t('Illustration','Illustration'),     title: 'Terrasses des Oliviers',        page: 'proj_terrasses',     sid: 'proj-s-07' },
+      { num: '07.', cat: t('Photographie','Photography'),       title: 'La Manif',                     page: 'proj_lamanif',       sid: 'proj-s-12' },
+      { num: '08.', cat: 'Freelance II',                       title: 'Katerina',                     page: 'proj_katerina',      sid: 'proj-s-05' },
+      { num: '09.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
+      { num: '10.', cat: t('Photographie','Photography'),      title: 'Un Monde en Partage',          page: 'proj_photographie',  sid: 'proj-s-08' },
     ];
     return `
     <div class="page proj-toc-page">
@@ -147,7 +147,7 @@ export const pages = {
 
         <section class="proj-inline-section" id="proj-s-11">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">05.</span>
+            <span class="proj-toc-num">06.</span>
             <span class="proj-toc-cat">Packaging</span>
             <a class="proj-inline-link" data-page="proj_seabreeze" href="#proj_seabreeze">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -160,9 +160,23 @@ export const pages = {
           </div>
         </section>
 
+        <section class="proj-inline-section" id="proj-s-12">
+          <div class="proj-inline-header">
+            <span class="proj-toc-num">07.</span>
+            <span class="proj-toc-cat">${t('Photographie','Photography')}</span>
+            <a class="proj-inline-link" data-page="proj_lamanif" href="#proj_lamanif">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <h3 class="proj-inline-title">La Manif</h3>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              ${['1.webp','2.webp','3.webp'].map(f=>`<div class="sc-item"><img src="/LA%20MANIF/${f}" alt="${f}" loading="lazy"></div>`).join('')}
+            </div></div>
+          </div>
+        </section>
+
         <section class="proj-inline-section" id="proj-s-05">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">06.</span>
+            <span class="proj-toc-num">08.</span>
             <span class="proj-toc-cat">Freelance II</span>
             <a class="proj-inline-link" data-page="proj_katerina" href="#proj_katerina">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -176,7 +190,7 @@ export const pages = {
 
         <section class="proj-inline-section" id="proj-s-06">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">06.</span>
+            <span class="proj-toc-num">09.</span>
             <span class="proj-toc-cat">Motion</span>
             <a class="proj-inline-link" data-page="proj_star_guitar" href="#proj_star_guitar">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -186,9 +200,9 @@ export const pages = {
           </div>
         </section>
 
-<section class="proj-inline-section" id="proj-s-08">
+        <section class="proj-inline-section" id="proj-s-08">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">08.</span>
+            <span class="proj-toc-num">10.</span>
             <span class="proj-toc-cat">${t('Photographie','Photography')}</span>
             <a class="proj-inline-link" data-page="proj_photographie" href="#proj_photographie">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -196,20 +210,6 @@ export const pages = {
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container" style="gap:0.5rem">
               ${['LUCAS-Sofia-001.jpg','LUCAS-Sofia-002.jpg','LUCAS-Sofia-003.jpg','LUCAS-Sofia-004.jpg','LUCAS-Sofia-006.jpg','LUCAS-Sofia-008.jpg','IMG_6833.jpg'].map(f=>`<div class="sc-item"><img src="/images/Photographie/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
-            </div></div>
-          </div>
-        </section>
-
-        <section class="proj-inline-section" id="proj-s-07">
-          <div class="proj-inline-header">
-            <span class="proj-toc-num">09.</span>
-            <span class="proj-toc-cat">${t('Illustration','Illustration')}</span>
-            <a class="proj-inline-link" data-page="proj_terrasses" href="#proj_terrasses">${t('Voir le projet →','View project →')}</a>
-          </div>
-          <h3 class="proj-inline-title">Terrasses des Oliviers</h3>
-          <div class="proj-story-strip">
-            <div class="sc-viewport"><div class="sc-container">
-              ${['1.jpg','2.jpg','3.jpg','4.jpg'].map(f=>`<div class="sc-item"><img src="/images/KAP/Illustration/${f}" alt="${f}" loading="lazy"></div>`).join('')}
             </div></div>
           </div>
         </section>
@@ -545,42 +545,17 @@ export const pages = {
       </div>
     </div>`,
 
-  proj_terrasses: () => `
+  proj_lamanif: () => `
     <div class="page page-inner proj-detail">
       <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
       <div class="proj-detail-info">
-        <h2 class="proj-name">Terrasses des Oliviers</h2>
+        <h2 class="proj-name">La Manif</h2>
       </div>
-      <div class="pf-controls">
-        <div class="pf-toggle" id="pf-toggle">
-          <button class="pf-toggle-btn active" data-view="illustration">${t('Illustration', 'Illustration')}</button>
-          <button class="pf-toggle-btn" data-view="instagram">Instagram</button>
-          <button class="pf-toggle-btn" data-view="contexte">${t('Contexte', 'Context')}</button>
-        </div>
-        <button class="readme-btn" data-readme="terrasses">${t('Lisez-moi', 'Read me')}</button>
-      </div>
-      <div class="proj-story-strip" id="sc-illustration">
+      <div class="proj-story-strip">
         <div class="sc-viewport">
-          <div class="sc-container">
-            ${['1.jpg','2.jpg','3.jpg','4.jpg']
-              .map(f => `<div class="sc-item"><img src="/images/KAP/Illustration/${f}" alt="${f}" loading="lazy"></div>`).join('')}
-          </div>
-        </div>
-      </div>
-      <div class="proj-story-strip" id="sc-instagram" style="display:none;">
-        <div class="sc-viewport">
-          <div class="sc-container">
-            <div class="sc-item" style="height:min(84vh,calc(100svh - 9.6rem))"><img src="/images/KAP/Instagram/CARROUSELFINAL.jpg" alt="Instagram" loading="lazy"></div>
-            ${['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg']
-              .map(f => `<div class="sc-item"><img src="/images/KAP/Instagram/${f}" alt="Instagram post ${f}" loading="lazy"></div>`).join('')}
-          </div>
-        </div>
-      </div>
-      <div class="proj-story-strip" id="sc-contexte" style="display:none;">
-        <div class="sc-viewport">
-          <div class="sc-container">
-            ${['1.jpg','2.jpg','3.jpg','5.png']
-              .map(f => `<div class="sc-item"><img src="/images/KAP/Contexte/${f}" alt="${f}" loading="lazy"></div>`).join('')}
+          <div class="sc-container" style="gap:0.5rem">
+            ${['1.webp','2.webp','3.webp','4.webp','5.webp','6.webp','7.webp','8.webp','9.webp','10.webp','11.webp','12.webp','13.webp','14.webp','15.webp']
+              .map(f => `<div class="sc-item"><img src="/LA%20MANIF/${f}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
       </div>
