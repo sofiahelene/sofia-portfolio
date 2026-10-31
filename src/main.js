@@ -1083,7 +1083,7 @@ function initOGLCarousel(container, items) {
       p.x          = p.width * i;
       // Create title label on first resize
       if (!p.title && p.label) {
-        p.title = makeTitleMesh(gl, p.plane, p.label, 'bold 28px Inter,sans-serif', '#00bbd1');
+        p.title = makeTitleMesh(gl, p.plane, p.label, 'bold 28px "Avenir Next Condensed","Avenir Next",Inter,sans-serif', '#00bbd1');
       }
       if (p.title) {
         const th = p.plane.scale.y * 0.10;
