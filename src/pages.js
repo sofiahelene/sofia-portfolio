@@ -142,8 +142,7 @@ export const pages = {
           <h3 class="proj-inline-title">Seabreeze</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
-              <div class="sc-item"><img src="/le%20crabe/cosmetics%20cove.webp" alt="" loading="lazy"></div>
-              <div class="sc-item"><img src="/le%20crabe/postcards2.webp" alt="" loading="lazy"></div>
+              <div class="sc-item"><img src="/Seabreeze/1.webp" alt="1" loading="lazy"></div>
             </div></div>
           </div>
         </section>
@@ -471,19 +470,12 @@ export const pages = {
       <div class="proj-detail-info">
         <h2 class="proj-name">Seabreeze</h2>
       </div>
-      <div class="pf-controls">
-        <button class="readme-btn" data-readme="seabreeze">${t('Lisez-moi', 'Read me')}</button>
-      </div>
-      <div class="proj-story-strip seabreeze-desktop-only">
-        <div class="sc-viewport"><div class="sc-container">
-          <div class="sc-item"><img src="/le%20crabe/presentation%20le%20crabe.webp" alt="" loading="lazy"></div>
-        </div></div>
-      </div>
-      <div class="proj-story-strip seabreeze-mobile-only">
-        <div class="sc-viewport"><div class="sc-container">
-          ${['1.PNG','2.PNG','3.jpg','4.png','5.PNG','6.PNG']
-            .map(f => `<div class="sc-item"><img src="${encodeURI('/le crabe/Mobile only/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
-        </div></div>
+      <div class="proj-story-strip">
+        <div class="sc-viewport">
+          <div class="sc-container" style="gap:0.5rem">
+            ${['1.webp','2.webp','3.webp','4.webp','5.webp'].map(f=>`<div class="sc-item sc-item--fullh"><img src="/Seabreeze/${f}" alt="${f}" loading="lazy"></div>`).join('')}
+          </div>
+        </div>
       </div>
     </div>`,
 
@@ -497,7 +489,6 @@ export const pages = {
         <div class="pf-toggle" id="pf-toggle">
           <button class="pf-toggle-btn active" data-view="photos">Photos</button>
           <button class="pf-toggle-btn" data-view="pochettes">Pochettes</button>
-          <button class="pf-toggle-btn" data-view="affiche">${t('Affiches', 'Posters')}</button>
         </div>
         <button class="readme-btn" data-readme="caymans">${t('Lisez-moi', 'Read me')}</button>
       </div>
@@ -514,16 +505,6 @@ export const pages = {
           <div class="sc-container" style="gap:0.5rem">
             ${['1.png','2.png','3.png']
               .map(f => `<div class="sc-item"><img src="${encodeURI('/The caymans/Pochettes/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
-          </div>
-        </div>
-      </div>
-      <div class="proj-story-strip" id="sc-affiche" style="display:none;">
-        <div class="sc-viewport">
-          <div class="sc-container" style="gap:0.5rem">
-              <div class="sc-item"><img src="/The%20caymans/Affiches/3.webp" alt="" loading="lazy"></div>
-              <div class="sc-item"><img src="/The%20caymans/Affiches/5.webp" alt="" loading="lazy"></div>
-              <div class="sc-item"><img src="/The%20caymans/Affiches/4.webp" alt="" loading="lazy"></div>
-              <div class="sc-item"><img src="/The%20caymans/Affiches/6.webp" alt="" loading="lazy"></div>
           </div>
         </div>
       </div>
