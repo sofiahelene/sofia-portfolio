@@ -55,8 +55,6 @@ export const pages = {
 
       <!-- ── Desktop sidebar (hidden on mobile) ── -->
       <nav class="proj-toc-sidebar" aria-label="${t('Navigation projets', 'Projects navigation')}">
-        <p class="proj-discover-heading">${t('Découvrir<br>un projet', 'Discover<br>a project')}</p>
-
         <div class="proj-cat-group">
           <h3 class="proj-cat-heading">Graphisme</h3>
           <ul class="proj-cat-list">
@@ -114,6 +112,7 @@ export const pages = {
 
       <!-- ── Main content — project preview sections (hidden on mobile) ── -->
       <div class="proj-toc-main">
+      <p class="proj-main-title">${t('Découvrir un projet', 'Discover a project')}</p>
       <div class="proj-inline-sections">
 
         <section class="proj-inline-section" id="proj-s-01">

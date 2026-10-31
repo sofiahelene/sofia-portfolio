@@ -1300,12 +1300,6 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   border-right: 1px solid rgba(255,255,255,0.1);
   scrollbar-width: none;
 }
-.proj-toc-sidebar .proj-discover-heading {
-  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
-  white-space: normal;
-  line-height: 1.15;
-  margin: 0 0 2.5rem;
-}
 .proj-cat-group {
   margin-bottom: 1.8rem;
 }
@@ -1351,6 +1345,17 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   min-width: 0;
   padding: 0 4rem 1cm;
   box-sizing: border-box;
+}
+.proj-main-title {
+  font-family: 'DX Burst', sans-serif;
+  color: #00bbd1;
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 3rem 0 0;
+}
+.proj-toc-main .proj-inline-section:first-child {
+  border-top: none;
 }
 .proj-toc-inner {
   display: none; /* shown on mobile via media query */
