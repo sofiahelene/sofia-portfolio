@@ -39,17 +39,16 @@ export const pages = {
   // ── PROJETS ──────────────────────────────────────────────────────────────
   projets: () => {
     const rows = [
-      { num: '01.', cat: t('Édition','Editorial'),             title: 'Brume',                        page: 'proj_brume',         sid: 'proj-s-01' },
-      { num: '02.', cat: 'Freelance',                          title: 'The Caymans',                  page: 'proj_caymans',       sid: 'proj-s-04' },
-      { num: '03.', cat: 'Post Production',                   title: 'Pray for your Neighbours',      page: 'proj_pray',          sid: 'proj-s-10' },
-      { num: '04.', cat: t('Identité Visuelle','Visual Identity'), title: 'Do It Again',              page: 'proj_do_it_again',   sid: 'proj-s-02' },
-      { num: '05.', cat: t('Identité Visuelle II','Visual Identity II'), title: 'Les Petits Frères des Pauvres', page: 'proj_petits_freres', sid: 'proj-s-03' },
-      { num: '06.', cat: 'Packaging',                          title: 'Seabreeze',                    page: 'proj_seabreeze',     sid: 'proj-s-11' },
-      { num: '07.', cat: t('Photographie','Photography'),       title: 'La Manif',                     page: 'proj_lamanif',       sid: 'proj-s-12' },
-      { num: '08.', cat: 'Freelance II',                       title: 'Katerina',                     page: 'proj_katerina',      sid: 'proj-s-05' },
-      { num: '09.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
-      { num: '10.', cat: t('Photographie','Photography'),      title: 'Un Monde en Partage',          page: 'proj_photographie',  sid: 'proj-s-08' },
-      { num: '11.', cat: t('Direction Artistique','Art Direction'), title: 'OTTO',                    page: 'proj_otto',          sid: 'proj-s-13' },
+      { num: '01.', cat: t('Édition','Editorial'),                   title: 'Brume',                        page: 'proj_brume',         sid: 'proj-s-01' },
+      { num: '02.', cat: t('Identité Visuelle','Visual Identity'),   title: 'OTTO',                         page: 'proj_otto',          sid: 'proj-s-13' },
+      { num: '03.', cat: t('Identité Visuelle','Visual Identity'),  title: 'Do It Again',                  page: 'proj_do_it_again',   sid: 'proj-s-02' },
+      { num: '04.', cat: t('Identité Visuelle','Visual Identity'),  title: 'The Caymans',                  page: 'proj_caymans',       sid: 'proj-s-04' },
+      { num: '05.', cat: t('Identité Visuelle','Visual Identity'),  title: 'Seabreeze',                    page: 'proj_seabreeze',     sid: 'proj-s-11' },
+      { num: '06.', cat: t('Identité Visuelle II','Visual Identity II'), title: 'Les Petits Frères des Pauvres', page: 'proj_petits_freres', sid: 'proj-s-03' },
+      { num: '07.', cat: 'Motion',                                  title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
+      { num: '08.', cat: 'Post Production',                         title: 'Pray for your Neighbours',     page: 'proj_pray',          sid: 'proj-s-10' },
+      { num: '09.', cat: t('Photographie','Photography'),           title: 'Un Monde en Partage',          page: 'proj_photographie',  sid: 'proj-s-08' },
+      { num: '10.', cat: t('Photographie','Photography'),           title: 'La Manif',                     page: 'proj_lamanif',       sid: 'proj-s-12' },
     ];
     return `
     <div class="page proj-toc-page">
@@ -92,35 +91,23 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-04">
+        <section class="proj-inline-section" id="proj-s-13">
           <div class="proj-inline-header">
             <span class="proj-toc-num">02.</span>
-            <span class="proj-toc-cat">Freelance</span>
-            <a class="proj-inline-link" data-page="proj_caymans" href="#proj_caymans">${t('Voir le projet →','View project →')}</a>
+            <span class="proj-toc-cat">${t('Identité Visuelle','Visual Identity')}</span>
+            <a class="proj-inline-link" data-page="proj_otto" href="#proj_otto">${t('Voir le projet →','View project →')}</a>
           </div>
-          <h3 class="proj-inline-title">The Caymans</h3>
+          <h3 class="proj-inline-title">OTTO</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
-              ${['1.jpg','2.jpg','3.jpg','5.jpg','7.jpg'].map(f=>`<div class="sc-item"><img src="${encodeURI('/The caymans/Photos/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
+              <div class="sc-item"><img src="/OTTO/1.webp" alt="1" loading="lazy"></div>
             </div></div>
-          </div>
-        </section>
-
-        <section class="proj-inline-section" id="proj-s-10">
-          <div class="proj-inline-header">
-            <span class="proj-toc-num">03.</span>
-            <span class="proj-toc-cat">Post Production</span>
-            <a class="proj-inline-link" data-page="proj_pray" href="#proj_pray">${t('Voir le projet →','View project →')}</a>
-          </div>
-          <h3 class="proj-inline-title">Pray for your Neighbours</h3>
-          <div class="proj-inline-video-wrap">
-            <video class="proj-inline-video proj-inline-video--clip" muted playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4"></video>
           </div>
         </section>
 
         <section class="proj-inline-section" id="proj-s-02">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">04.</span>
+            <span class="proj-toc-num">03.</span>
             <span class="proj-toc-cat">${t('Identité Visuelle','Visual Identity')}</span>
             <a class="proj-inline-link" data-page="proj_do_it_again" href="#proj_do_it_again">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -132,24 +119,24 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-03">
+        <section class="proj-inline-section" id="proj-s-04">
           <div class="proj-inline-header">
             <span class="proj-toc-num">04.</span>
-            <span class="proj-toc-cat">${t('Identité Visuelle II','Visual Identity II')}</span>
-            <a class="proj-inline-link" data-page="proj_petits_freres" href="#proj_petits_freres">${t('Voir le projet →','View project →')}</a>
+            <span class="proj-toc-cat">${t('Identité Visuelle','Visual Identity')}</span>
+            <a class="proj-inline-link" data-page="proj_caymans" href="#proj_caymans">${t('Voir le projet →','View project →')}</a>
           </div>
-          <h3 class="proj-inline-title">Les Petits Frères des Pauvres</h3>
+          <h3 class="proj-inline-title">The Caymans</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
-              ${['poster.webp','mockup.webp','3.jpg','mockup2.webp','flyers.jpg','flyers.2.jpg','goodies-1.webp','goodies-2.webp'].map(f=>`<div class="sc-item"><img src="/images/petits-freres/${f}" alt="${f}" loading="lazy"></div>`).join('')}
+              ${['1.jpg','2.jpg','3.jpg','5.jpg','7.jpg'].map(f=>`<div class="sc-item"><img src="${encodeURI('/The caymans/Photos/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
             </div></div>
           </div>
         </section>
 
         <section class="proj-inline-section" id="proj-s-11">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">06.</span>
-            <span class="proj-toc-cat">Packaging</span>
+            <span class="proj-toc-num">05.</span>
+            <span class="proj-toc-cat">${t('Identité Visuelle','Visual Identity')}</span>
             <a class="proj-inline-link" data-page="proj_seabreeze" href="#proj_seabreeze">${t('Voir le projet →','View project →')}</a>
           </div>
           <h3 class="proj-inline-title">Seabreeze</h3>
@@ -161,37 +148,23 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-12">
+        <section class="proj-inline-section" id="proj-s-03">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">07.</span>
-            <span class="proj-toc-cat">${t('Photographie','Photography')}</span>
-            <a class="proj-inline-link" data-page="proj_lamanif" href="#proj_lamanif">${t('Voir le projet →','View project →')}</a>
+            <span class="proj-toc-num">06.</span>
+            <span class="proj-toc-cat">${t('Identité Visuelle II','Visual Identity II')}</span>
+            <a class="proj-inline-link" data-page="proj_petits_freres" href="#proj_petits_freres">${t('Voir le projet →','View project →')}</a>
           </div>
-          <h3 class="proj-inline-title">La Manif</h3>
+          <h3 class="proj-inline-title">Les Petits Frères des Pauvres</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
-              ${['1.webp','2.webp','3.webp'].map(f=>`<div class="sc-item"><img src="/LA%20MANIF/${f}" alt="${f}" loading="lazy"></div>`).join('')}
-            </div></div>
-          </div>
-        </section>
-
-        <section class="proj-inline-section" id="proj-s-05">
-          <div class="proj-inline-header">
-            <span class="proj-toc-num">08.</span>
-            <span class="proj-toc-cat">Freelance II</span>
-            <a class="proj-inline-link" data-page="proj_katerina" href="#proj_katerina">${t('Voir le projet →','View project →')}</a>
-          </div>
-          <h3 class="proj-inline-title">Katerina</h3>
-          <div class="proj-story-strip">
-            <div class="sc-viewport"><div class="sc-container">
-              ${['Cover1.jpg','Cover2.jpg'].map(f=>`<div class="sc-item"><img src="/Katerina/Edits/${f}" alt="${f}" loading="lazy"></div>`).join('')}
+              ${['poster.webp','mockup.webp','3.jpg','mockup2.webp','flyers.jpg','flyers.2.jpg','goodies-1.webp','goodies-2.webp'].map(f=>`<div class="sc-item"><img src="/images/petits-freres/${f}" alt="${f}" loading="lazy"></div>`).join('')}
             </div></div>
           </div>
         </section>
 
         <section class="proj-inline-section" id="proj-s-06">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">09.</span>
+            <span class="proj-toc-num">07.</span>
             <span class="proj-toc-cat">Motion</span>
             <a class="proj-inline-link" data-page="proj_star_guitar" href="#proj_star_guitar">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -201,9 +174,21 @@ export const pages = {
           </div>
         </section>
 
+        <section class="proj-inline-section" id="proj-s-10">
+          <div class="proj-inline-header">
+            <span class="proj-toc-num">08.</span>
+            <span class="proj-toc-cat">Post Production</span>
+            <a class="proj-inline-link" data-page="proj_pray" href="#proj_pray">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <h3 class="proj-inline-title">Pray for your Neighbours</h3>
+          <div class="proj-inline-video-wrap">
+            <video class="proj-inline-video proj-inline-video--clip" muted playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4"></video>
+          </div>
+        </section>
+
         <section class="proj-inline-section" id="proj-s-08">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">10.</span>
+            <span class="proj-toc-num">09.</span>
             <span class="proj-toc-cat">${t('Photographie','Photography')}</span>
             <a class="proj-inline-link" data-page="proj_photographie" href="#proj_photographie">${t('Voir le projet →','View project →')}</a>
           </div>
@@ -215,16 +200,16 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-13">
+        <section class="proj-inline-section" id="proj-s-12">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">11.</span>
-            <span class="proj-toc-cat">${t('Direction Artistique','Art Direction')}</span>
-            <a class="proj-inline-link" data-page="proj_otto" href="#proj_otto">${t('Voir le projet →','View project →')}</a>
+            <span class="proj-toc-num">10.</span>
+            <span class="proj-toc-cat">${t('Photographie','Photography')}</span>
+            <a class="proj-inline-link" data-page="proj_lamanif" href="#proj_lamanif">${t('Voir le projet →','View project →')}</a>
           </div>
-          <h3 class="proj-inline-title">OTTO</h3>
+          <h3 class="proj-inline-title">La Manif</h3>
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
-              <div class="sc-item"><img src="/OTTO/1.webp" alt="1" loading="lazy"></div>
+              ${['1.webp','2.webp','3.webp'].map(f=>`<div class="sc-item"><img src="/LA%20MANIF/${f}" alt="${f}" loading="lazy"></div>`).join('')}
             </div></div>
           </div>
         </section>
