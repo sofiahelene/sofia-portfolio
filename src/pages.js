@@ -60,30 +60,30 @@ export const pages = {
         <div class="proj-cat-group">
           <h3 class="proj-cat-heading">Graphisme</h3>
           <ul class="proj-cat-list">
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-01" data-project-page="proj_brume" href="#"><span class="proj-cat-num">01.</span> Brume</a></li>
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-13" data-project-page="proj_otto" href="#"><span class="proj-cat-num">02.</span> OTTO</a></li>
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-02" data-project-page="proj_do_it_again" href="#"><span class="proj-cat-num">03.</span> Do It Again</a></li>
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-11" data-project-page="proj_seabreeze" href="#"><span class="proj-cat-num">04.</span> Seabreeze</a></li>
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-03" data-project-page="proj_petits_freres" href="#"><span class="proj-cat-num">05.</span> Les Petits Frères</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-01" data-project-page="proj_brume" href="#">Brume</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-13" data-project-page="proj_otto" href="#">OTTO</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-02" data-project-page="proj_do_it_again" href="#">Do It Again</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-11" data-project-page="proj_seabreeze" href="#">Seabreeze</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-03" data-project-page="proj_petits_freres" href="#">Les Petits Frères</a></li>
           </ul>
         </div>
 
         <div class="proj-cat-group">
           <h3 class="proj-cat-heading">Motion</h3>
           <ul class="proj-cat-list">
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-02" data-project-page="proj_do_it_again" href="#"><span class="proj-cat-num">03.</span> Do It Again</a></li>
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-03" data-project-page="proj_petits_freres" href="#"><span class="proj-cat-num">05.</span> Les Petits Frères</a></li>
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-06" data-project-page="proj_star_guitar" href="#"><span class="proj-cat-num">06.</span> Star Guitar</a></li>
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-10" data-project-page="proj_pray" href="#"><span class="proj-cat-num">07.</span> Pray for your Neighbours</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-02" data-project-page="proj_do_it_again" href="#">Do It Again</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-03" data-project-page="proj_petits_freres" href="#">Les Petits Frères</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-06" data-project-page="proj_star_guitar" href="#">Star Guitar</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-10" data-project-page="proj_pray" href="#">Pray for your Neighbours</a></li>
           </ul>
         </div>
 
         <div class="proj-cat-group">
           <h3 class="proj-cat-heading">${t('Photographie', 'Photography')}</h3>
           <ul class="proj-cat-list">
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-04" data-project-page="proj_caymans" href="#"><span class="proj-cat-num">08.</span> The Caymans</a></li>
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-08" data-project-page="proj_photographie" href="#"><span class="proj-cat-num">09.</span> Un Monde en Partage</a></li>
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-12" data-project-page="proj_lamanif" href="#"><span class="proj-cat-num">10.</span> La Manif</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-04" data-project-page="proj_caymans" href="#">The Caymans</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-08" data-project-page="proj_photographie" href="#">Un Monde en Partage</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-12" data-project-page="proj_lamanif" href="#">La Manif</a></li>
           </ul>
         </div>
       </nav>
