@@ -64,7 +64,7 @@
       </div>
 
     </div>
-  `,projets:()=>{const s=[{num:"01.",cat:E("Édition","Editorial"),title:"Brume",page:"proj_brume",sid:"proj-s-01"},{num:"02.",cat:E("Identité Visuelle","Visual Identity"),title:"OTTO",page:"proj_otto",sid:"proj-s-13"},{num:"03.",cat:E("Identité Visuelle","Visual Identity"),title:"Do It Again",page:"proj_do_it_again",sid:"proj-s-02"},{num:"04.",cat:E("Identité Visuelle","Visual Identity"),title:"The Caymans",page:"proj_caymans",sid:"proj-s-04"},{num:"05.",cat:E("Identité Visuelle","Visual Identity"),title:"Seabreeze",page:"proj_seabreeze",sid:"proj-s-11"},{num:"06.",cat:E("Identité Visuelle II","Visual Identity II"),title:"Les Petits Frères des Pauvres",page:"proj_petits_freres",sid:"proj-s-03"},{num:"07.",cat:"Motion",title:"Star Guitar",page:"proj_star_guitar",sid:"proj-s-06"},{num:"08.",cat:"Post Production",title:"Pray for your Neighbours",page:"proj_pray",sid:"proj-s-10"},{num:"09.",cat:E("Photographie","Photography"),title:"Un Monde en Partage",page:"proj_photographie",sid:"proj-s-08"},{num:"10.",cat:E("Photographie","Photography"),title:"La Manif",page:"proj_lamanif",sid:"proj-s-12"}];return`
+  `,projets:()=>{const s=[{num:"01.",cat:E("Édition","Editorial"),title:"Brume",page:"proj_brume",sid:"proj-s-01"},{num:"02.",cat:E("Identité Visuelle","Visual Identity"),title:"OTTO",page:"proj_otto",sid:"proj-s-13"},{num:"03.",cat:E("Identité Visuelle","Visual Identity"),title:"Do It Again",page:"proj_do_it_again",sid:"proj-s-02"},{num:"04.",cat:E("Identité Visuelle","Visual Identity"),title:"Seabreeze",page:"proj_seabreeze",sid:"proj-s-11"},{num:"05.",cat:E("Identité Visuelle II","Visual Identity II"),title:"Les Petits Frères des Pauvres",page:"proj_petits_freres",sid:"proj-s-03"},{num:"06.",cat:"Motion",title:"Star Guitar",page:"proj_star_guitar",sid:"proj-s-06"},{num:"07.",cat:"Post Production",title:"Pray for your Neighbours",page:"proj_pray",sid:"proj-s-10"},{num:"08.",cat:E("Photographie","Photography"),title:"The Caymans",page:"proj_caymans",sid:"proj-s-04"},{num:"09.",cat:E("Photographie","Photography"),title:"Un Monde en Partage",page:"proj_photographie",sid:"proj-s-08"},{num:"10.",cat:E("Photographie","Photography"),title:"La Manif",page:"proj_lamanif",sid:"proj-s-12"}];return`
     <div class="page proj-toc-page">
       <div class="proj-toc-inner">
       <div class="proj-toc-spacer"></div>
@@ -133,23 +133,9 @@
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-04">
-          <div class="proj-inline-header">
-            <span class="proj-toc-num">04.</span>
-            <span class="proj-toc-cat">${E("Identité Visuelle","Visual Identity")}</span>
-            <a class="proj-inline-link" data-page="proj_caymans" href="#proj_caymans">${E("Voir le projet →","View project →")}</a>
-          </div>
-          <h3 class="proj-inline-title">The Caymans</h3>
-          <div class="proj-story-strip">
-            <div class="sc-viewport"><div class="sc-container">
-              ${["1.jpg","2.jpg","3.jpg","5.jpg","7.jpg"].map(e=>`<div class="sc-item"><img src="${encodeURI("/The caymans/Photos/"+e)}" alt="${e}" loading="lazy"></div>`).join("")}
-            </div></div>
-          </div>
-        </section>
-
         <section class="proj-inline-section" id="proj-s-11">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">05.</span>
+            <span class="proj-toc-num">04.</span>
             <span class="proj-toc-cat">${E("Identité Visuelle","Visual Identity")}</span>
             <a class="proj-inline-link" data-page="proj_seabreeze" href="#proj_seabreeze">${E("Voir le projet →","View project →")}</a>
           </div>
@@ -163,7 +149,7 @@
 
         <section class="proj-inline-section" id="proj-s-03">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">06.</span>
+            <span class="proj-toc-num">05.</span>
             <span class="proj-toc-cat">${E("Identité Visuelle II","Visual Identity II")}</span>
             <a class="proj-inline-link" data-page="proj_petits_freres" href="#proj_petits_freres">${E("Voir le projet →","View project →")}</a>
           </div>
@@ -177,7 +163,7 @@
 
         <section class="proj-inline-section" id="proj-s-06">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">07.</span>
+            <span class="proj-toc-num">06.</span>
             <span class="proj-toc-cat">Motion</span>
             <a class="proj-inline-link" data-page="proj_star_guitar" href="#proj_star_guitar">${E("Voir le projet →","View project →")}</a>
           </div>
@@ -189,13 +175,27 @@
 
         <section class="proj-inline-section" id="proj-s-10">
           <div class="proj-inline-header">
-            <span class="proj-toc-num">08.</span>
+            <span class="proj-toc-num">07.</span>
             <span class="proj-toc-cat">Post Production</span>
             <a class="proj-inline-link" data-page="proj_pray" href="#proj_pray">${E("Voir le projet →","View project →")}</a>
           </div>
           <h3 class="proj-inline-title">Pray for your Neighbours</h3>
           <div class="proj-inline-video-wrap">
             <video class="proj-inline-video proj-inline-video--clip" muted playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4"></video>
+          </div>
+        </section>
+
+        <section class="proj-inline-section" id="proj-s-04">
+          <div class="proj-inline-header">
+            <span class="proj-toc-num">08.</span>
+            <span class="proj-toc-cat">${E("Photographie","Photography")}</span>
+            <a class="proj-inline-link" data-page="proj_caymans" href="#proj_caymans">${E("Voir le projet →","View project →")}</a>
+          </div>
+          <h3 class="proj-inline-title">The Caymans</h3>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              ${["1.jpg","2.jpg","3.jpg","5.jpg","7.jpg"].map(e=>`<div class="sc-item"><img src="${encodeURI("/The caymans/Photos/"+e)}" alt="${e}" loading="lazy"></div>`).join("")}
+            </div></div>
           </div>
         </section>
 
