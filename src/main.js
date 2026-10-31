@@ -109,6 +109,18 @@ function navigateTo(pageId) {
         row.addEventListener('click', go);
         row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') go(); });
       });
+      // Sidebar category links: scroll on desktop, navigate on touch
+      incoming.querySelectorAll('.proj-cat-link[data-scroll-to]').forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          if (IS_TOUCH_DEVICE) { navigateTo(link.dataset.projectPage); return; }
+          const target = incoming.querySelector(link.dataset.scrollTo);
+          if (!target) return;
+          const containerTop = incoming.getBoundingClientRect().top;
+          const targetTop = target.getBoundingClientRect().top - containerTop + incoming.scrollTop - 32;
+          incoming.scrollTo({ top: targetTop, behavior: 'smooth' });
+        });
+      });
       // "Voir le projet" links navigate to the full project page
       incoming.querySelectorAll('.proj-inline-link[data-page]').forEach(link => {
         link.addEventListener('click', e => { e.preventDefault(); navigateTo(link.dataset.page); });
