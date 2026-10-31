@@ -49,6 +49,7 @@ export const pages = {
       { num: '08.', cat: 'Freelance II',                       title: 'Katerina',                     page: 'proj_katerina',      sid: 'proj-s-05' },
       { num: '09.', cat: 'Motion',                             title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
       { num: '10.', cat: t('Photographie','Photography'),      title: 'Un Monde en Partage',          page: 'proj_photographie',  sid: 'proj-s-08' },
+      { num: '11.', cat: t('Direction Artistique','Art Direction'), title: 'OTTO',                    page: 'proj_otto',          sid: 'proj-s-13' },
     ];
     return `
     <div class="page proj-toc-page">
@@ -214,9 +215,38 @@ export const pages = {
           </div>
         </section>
 
+        <section class="proj-inline-section" id="proj-s-13">
+          <div class="proj-inline-header">
+            <span class="proj-toc-num">11.</span>
+            <span class="proj-toc-cat">${t('Direction Artistique','Art Direction')}</span>
+            <a class="proj-inline-link" data-page="proj_otto" href="#proj_otto">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <h3 class="proj-inline-title">OTTO</h3>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              <div class="sc-item"><img src="/OTTO/1.webp" alt="1" loading="lazy"></div>
+            </div></div>
+          </div>
+        </section>
+
       </div>
     </div>`;
   },
+
+  proj_otto: () => `
+    <div class="page page-inner proj-detail">
+      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-detail-info">
+        <h2 class="proj-name">OTTO</h2>
+      </div>
+      <div class="proj-story-strip proj-story-strip--fullh">
+        <div class="sc-viewport">
+          <div class="sc-container" style="gap:0.5rem">
+            ${['1.webp','2.webp','3.webp','4.webp','5.webp'].map(f=>`<div class="sc-item sc-item--fullh"><img src="/OTTO/${f}" alt="${f}" loading="lazy"></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>`,
 
   // ── PROJECT DETAIL PAGES ─────────────────────────────────────────────────
   proj_pray: () => `

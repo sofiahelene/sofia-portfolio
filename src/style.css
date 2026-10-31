@@ -809,6 +809,9 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   width: 100%;
   object-fit: cover;
 }
+.sc-item--fullh {
+  height: calc(100svh - 8rem);
+}
 
 
 /* Progress bar — appended to every carousel by initNativeCarousel */

@@ -64,7 +64,7 @@
       </div>
 
     </div>
-  `,projets:()=>{const s=[{num:"01.",cat:A("Édition","Editorial"),title:"Brume",page:"proj_brume",sid:"proj-s-01"},{num:"02.",cat:"Freelance",title:"The Caymans",page:"proj_caymans",sid:"proj-s-04"},{num:"03.",cat:"Post Production",title:"Pray for your Neighbours",page:"proj_pray",sid:"proj-s-10"},{num:"04.",cat:A("Identité Visuelle","Visual Identity"),title:"Do It Again",page:"proj_do_it_again",sid:"proj-s-02"},{num:"05.",cat:A("Identité Visuelle II","Visual Identity II"),title:"Les Petits Frères des Pauvres",page:"proj_petits_freres",sid:"proj-s-03"},{num:"06.",cat:"Packaging",title:"Seabreeze",page:"proj_seabreeze",sid:"proj-s-11"},{num:"07.",cat:A("Photographie","Photography"),title:"La Manif",page:"proj_lamanif",sid:"proj-s-12"},{num:"08.",cat:"Freelance II",title:"Katerina",page:"proj_katerina",sid:"proj-s-05"},{num:"09.",cat:"Motion",title:"Star Guitar",page:"proj_star_guitar",sid:"proj-s-06"},{num:"10.",cat:A("Photographie","Photography"),title:"Un Monde en Partage",page:"proj_photographie",sid:"proj-s-08"}];return`
+  `,projets:()=>{const s=[{num:"01.",cat:A("Édition","Editorial"),title:"Brume",page:"proj_brume",sid:"proj-s-01"},{num:"02.",cat:"Freelance",title:"The Caymans",page:"proj_caymans",sid:"proj-s-04"},{num:"03.",cat:"Post Production",title:"Pray for your Neighbours",page:"proj_pray",sid:"proj-s-10"},{num:"04.",cat:A("Identité Visuelle","Visual Identity"),title:"Do It Again",page:"proj_do_it_again",sid:"proj-s-02"},{num:"05.",cat:A("Identité Visuelle II","Visual Identity II"),title:"Les Petits Frères des Pauvres",page:"proj_petits_freres",sid:"proj-s-03"},{num:"06.",cat:"Packaging",title:"Seabreeze",page:"proj_seabreeze",sid:"proj-s-11"},{num:"07.",cat:A("Photographie","Photography"),title:"La Manif",page:"proj_lamanif",sid:"proj-s-12"},{num:"08.",cat:"Freelance II",title:"Katerina",page:"proj_katerina",sid:"proj-s-05"},{num:"09.",cat:"Motion",title:"Star Guitar",page:"proj_star_guitar",sid:"proj-s-06"},{num:"10.",cat:A("Photographie","Photography"),title:"Un Monde en Partage",page:"proj_photographie",sid:"proj-s-08"},{num:"11.",cat:A("Direction Artistique","Art Direction"),title:"OTTO",page:"proj_otto",sid:"proj-s-13"}];return`
     <div class="page proj-toc-page">
       <div class="proj-toc-inner">
       <div class="proj-toc-spacer"></div>
@@ -228,8 +228,35 @@
           </div>
         </section>
 
+        <section class="proj-inline-section" id="proj-s-13">
+          <div class="proj-inline-header">
+            <span class="proj-toc-num">11.</span>
+            <span class="proj-toc-cat">${A("Direction Artistique","Art Direction")}</span>
+            <a class="proj-inline-link" data-page="proj_otto" href="#proj_otto">${A("Voir le projet →","View project →")}</a>
+          </div>
+          <h3 class="proj-inline-title">OTTO</h3>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              <div class="sc-item"><img src="/OTTO/1.webp" alt="1" loading="lazy"></div>
+            </div></div>
+          </div>
+        </section>
+
       </div>
-    </div>`},proj_pray:()=>`
+    </div>`},proj_otto:()=>`
+    <div class="page page-inner proj-detail">
+      <a class="proj-back" href="#projets" data-page="projets">← ${A("Projets","Projects")}</a>
+      <div class="proj-detail-info">
+        <h2 class="proj-name">OTTO</h2>
+      </div>
+      <div class="proj-story-strip proj-story-strip--fullh">
+        <div class="sc-viewport">
+          <div class="sc-container" style="gap:0.5rem">
+            ${["1.webp","2.webp","3.webp","4.webp","5.webp"].map(s=>`<div class="sc-item sc-item--fullh"><img src="/OTTO/${s}" alt="${s}" loading="lazy"></div>`).join("")}
+          </div>
+        </div>
+      </div>
+    </div>`,proj_pray:()=>`
     <div class="page page-inner proj-detail proj-pray">
       <a class="proj-back" href="#projets" data-page="projets">← ${A("Projets","Projects")}</a>
       <div class="proj-detail-info">
