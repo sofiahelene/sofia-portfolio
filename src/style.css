@@ -1291,7 +1291,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 /* ── Desktop sidebar ── */
 .proj-toc-sidebar {
   flex-shrink: 0;
-  width: 240px;
+  width: 260px;
   position: sticky;
   top: 0;
   height: calc(100svh - 72px);
@@ -1324,9 +1324,10 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   display: flex;
   align-items: baseline;
   gap: 0.55rem;
-  font-size: 0.82rem;
+  font-size: 0.93rem;
   font-weight: 400;
   text-transform: uppercase;
+  white-space: nowrap;
   color: rgba(0,187,209,0.75);
   text-decoration: none;
   padding: 0.28rem 0;
@@ -1461,7 +1462,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   display: flex;
   align-items: baseline;
   gap: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .proj-inline-header .proj-toc-title { text-align: left; }
 .proj-inline-header .proj-toc-num { color: #00bbd1; font-size: 1.25em; }
@@ -1487,7 +1488,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: #00bbd1;
-  margin: 0 0 1.2rem;
+  margin: 0;
 }
 .proj-inline-section .sc-item {
   height: 40vh !important;
