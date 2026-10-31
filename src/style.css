@@ -1305,11 +1305,11 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   margin-bottom: 1.8rem;
 }
 .proj-cat-heading {
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(0,187,209,0.5);
+  color: #00bbd1;
   margin: 0 0 0.6rem;
 }
 .proj-cat-list {
@@ -1325,9 +1325,9 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   align-items: baseline;
   gap: 0.55rem;
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
-  color: #00bbd1;
+  color: rgba(0,187,209,0.75);
   text-decoration: none;
   padding: 0.28rem 0;
   letter-spacing: 0.06em;
