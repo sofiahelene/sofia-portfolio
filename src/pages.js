@@ -40,15 +40,15 @@ export const pages = {
   projets: () => {
     const rows = [
       { num: '01.', cat: t('Édition','Editorial'),                   title: 'Brume',                        page: 'proj_brume',         sid: 'proj-s-01' },
-      { num: '02.', cat: t('Identité Visuelle','Visual Identity'),   title: 'OTTO',                         page: 'proj_otto',          sid: 'proj-s-13' },
-      { num: '03.', cat: t('Identité Visuelle','Visual Identity'),  title: 'Do It Again',                  page: 'proj_do_it_again',   sid: 'proj-s-02' },
-      { num: '04.', cat: t('Identité Visuelle','Visual Identity'),  title: 'Seabreeze',                    page: 'proj_seabreeze',     sid: 'proj-s-11' },
-      { num: '05.', cat: t('Identité Visuelle II','Visual Identity II'), title: 'Les Petits Frères des Pauvres', page: 'proj_petits_freres', sid: 'proj-s-03' },
-      { num: '06.', cat: 'Motion',                                  title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
-      { num: '07.', cat: 'Post Production',                         title: 'Pray for your Neighbours',     page: 'proj_pray',          sid: 'proj-s-10' },
-      { num: '08.', cat: t('Photographie','Photography'),           title: 'The Caymans',                  page: 'proj_caymans',       sid: 'proj-s-04' },
-      { num: '09.', cat: t('Photographie','Photography'),           title: 'Un Monde en Partage',          page: 'proj_photographie',  sid: 'proj-s-08' },
-      { num: '10.', cat: t('Photographie','Photography'),           title: 'La Manif',                     page: 'proj_lamanif',       sid: 'proj-s-12' },
+      { num: '02.', cat: t('Identité Visuelle','Visual Identity'),  title: 'Do It Again',                  page: 'proj_do_it_again',   sid: 'proj-s-02' },
+      { num: '03.', cat: t('Identité Visuelle','Visual Identity'),   title: 'OTTO',                         page: 'proj_otto',          sid: 'proj-s-13' },
+      { num: '04.', cat: t('Identité Visuelle','Visual Identity'),  title: 'Studio soie',                  page: 'proj_studio_soie',   sid: 'proj-s-14' },
+      { num: '05.', cat: t('Identité Visuelle','Visual Identity'),  title: 'Seabreeze',                    page: 'proj_seabreeze',     sid: 'proj-s-11' },
+      { num: '06.', cat: t('Identité Visuelle II','Visual Identity II'), title: 'Les Petits Frères des Pauvres', page: 'proj_petits_freres', sid: 'proj-s-03' },
+      { num: '07.', cat: 'Motion',                                  title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
+      { num: '08.', cat: 'Post Production',                         title: 'Pray for your Neighbours',     page: 'proj_pray',          sid: 'proj-s-10' },
+      { num: '09.', cat: t('Photographie','Photography'),           title: 'The Caymans',                  page: 'proj_caymans',       sid: 'proj-s-04' },
+      { num: '10.', cat: t('Photographie','Photography'),           title: 'Un Monde en Partage',          page: 'proj_photographie',  sid: 'proj-s-08' },
     ];
     return `
     <div class="page proj-toc-page">
@@ -59,8 +59,9 @@ export const pages = {
           <h3 class="proj-cat-heading">Graphisme</h3>
           <ul class="proj-cat-list">
             <li><a class="proj-cat-link" data-scroll-to="#proj-s-01" data-project-page="proj_brume" href="#">Brume</a></li>
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-13" data-project-page="proj_otto" href="#">OTTO</a></li>
             <li><a class="proj-cat-link" data-scroll-to="#proj-s-02" data-project-page="proj_do_it_again" href="#">Do It Again</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-13" data-project-page="proj_otto" href="#">OTTO</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-14" data-project-page="proj_studio_soie" href="#">Studio soie</a></li>
             <li><a class="proj-cat-link" data-scroll-to="#proj-s-11" data-project-page="proj_seabreeze" href="#">Seabreeze</a></li>
             <li><a class="proj-cat-link" data-scroll-to="#proj-s-03" data-project-page="proj_petits_freres" href="#">Les Petits Frères</a></li>
           </ul>
@@ -81,7 +82,6 @@ export const pages = {
           <ul class="proj-cat-list">
             <li><a class="proj-cat-link" data-scroll-to="#proj-s-04" data-project-page="proj_caymans" href="#">The Caymans</a></li>
             <li><a class="proj-cat-link" data-scroll-to="#proj-s-08" data-project-page="proj_photographie" href="#">Un Monde en Partage</a></li>
-            <li><a class="proj-cat-link" data-scroll-to="#proj-s-12" data-project-page="proj_lamanif" href="#">La Manif</a></li>
           </ul>
         </div>
       </nav>
@@ -127,18 +127,6 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-13">
-          <div class="proj-inline-header">
-            <h3 class="proj-inline-title">OTTO</h3>
-            <a class="proj-inline-link" data-page="proj_otto" href="#proj_otto">${t('Voir le projet →','View project →')}</a>
-          </div>
-          <div class="proj-story-strip">
-            <div class="sc-viewport"><div class="sc-container">
-              <div class="sc-item"><img src="/OTTO/1.webp" alt="1" loading="lazy"></div>
-            </div></div>
-          </div>
-        </section>
-
         <section class="proj-inline-section" id="proj-s-02">
           <div class="proj-inline-header">
             <h3 class="proj-inline-title">Do It Again</h3>
@@ -151,13 +139,37 @@ export const pages = {
           </div>
         </section>
 
+        <section class="proj-inline-section" id="proj-s-13">
+          <div class="proj-inline-header">
+            <h3 class="proj-inline-title">OTTO</h3>
+            <a class="proj-inline-link" data-page="proj_otto" href="#proj_otto">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <div class="proj-story-strip" data-loop="1">
+            <div class="sc-viewport"><div class="sc-container" style="gap:0">
+              ${['1.webp','2.webp','3.webp','4.webp','5.webp'].map(f=>`<div class="sc-item sc-item--fullh"><img src="/OTTO/${f}" alt="${f}" loading="lazy"></div>`).join('')}
+            </div></div>
+          </div>
+        </section>
+
+        <section class="proj-inline-section" id="proj-s-14">
+          <div class="proj-inline-header">
+            <h3 class="proj-inline-title">Studio soie</h3>
+            <a class="proj-inline-link" data-page="proj_studio_soie" href="#proj_studio_soie">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container" style="gap:0">
+              ${['1.jpg','2.jpg','3.jpg','4.png','5.jpg','6.jpg','7.jpg'].map(f=>`<div class="sc-item"><img src="${encodeURI('/Studio soie/' + f)}?v=2" alt="${f}" loading="lazy"></div>`).join('')}
+            </div></div>
+          </div>
+        </section>
+
         <section class="proj-inline-section" id="proj-s-11">
           <div class="proj-inline-header">
             <h3 class="proj-inline-title">Seabreeze</h3>
             <a class="proj-inline-link" data-page="proj_seabreeze" href="#proj_seabreeze">${t('Voir le projet →','View project →')}</a>
           </div>
           <div class="proj-story-strip">
-            <div class="sc-viewport"><div class="sc-container">
+            <div class="sc-viewport"><div class="sc-container" style="gap:0">
               ${['1.webp','2.webp','3.webp','4.webp','5.webp'].map(f=>`<div class="sc-item"><img src="/Seabreeze/${f}" alt="${f}" loading="lazy"></div>`).join('')}
             </div></div>
           </div>
@@ -169,7 +181,7 @@ export const pages = {
             <a class="proj-inline-link" data-page="proj_petits_freres" href="#proj_petits_freres">${t('Voir le projet →','View project →')}</a>
           </div>
           <div class="proj-story-strip">
-            <div class="sc-viewport"><div class="sc-container">
+            <div class="sc-viewport"><div class="sc-container" style="gap:0">
               ${['poster.webp','mockup.webp','3.jpg','mockup2.webp','flyers.jpg','flyers.2.jpg','goodies-1.webp','goodies-2.webp'].map(f=>`<div class="sc-item"><img src="/images/petits-freres/${f}" alt="${f}" loading="lazy"></div>`).join('')}
             </div></div>
           </div>
@@ -180,8 +192,11 @@ export const pages = {
             <h3 class="proj-inline-title">Star Guitar</h3>
             <a class="proj-inline-link" data-page="proj_star_guitar" href="#proj_star_guitar">${t('Voir le projet →','View project →')}</a>
           </div>
-          <div class="proj-inline-video-wrap">
-            <video class="proj-inline-video proj-inline-video--clip" muted playsinline preload="none" src="/videos/Trainanimation_1.MP4"></video>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              <div class="sc-item" style="width:calc(40vh * 16/9)"><video class="proj-inline-sc-video" autoplay muted loop playsinline preload="metadata" src="/videos/Trainanimation_1.MP4"></video></div>
+              ${['Portfolio_elements_SG_1.jpg','Portfolio_elements_SG_2.jpg','Portfolio_elements_SG_3.jpg','Portfolio_elements_sg_4.jpg','Portfolio_elements_SG_5.jpg','Portfolio_elements_SG_6.jpg','Portfolio_elements_SG_7.jpg'].map(f=>`<div class="sc-item"><img src="/images/star-guitar/${f}" alt="${f}" loading="lazy"></div>`).join('')}
+            </div></div>
           </div>
         </section>
 
@@ -190,8 +205,10 @@ export const pages = {
             <h3 class="proj-inline-title">Pray for your Neighbours</h3>
             <a class="proj-inline-link" data-page="proj_pray" href="#proj_pray">${t('Voir le projet →','View project →')}</a>
           </div>
-          <div class="proj-inline-video-wrap">
-            <video class="proj-inline-video proj-inline-video--clip" muted playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4"></video>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              ${['sofias_part.mp4','1.mp4','2.mp4','3.mp4'].map(f=>`<div class="sc-item" style="width:calc(40vh * 16/9)"><video class="proj-inline-sc-video" autoplay muted loop playsinline preload="metadata" src="/images/Pray%20for%20your%20Neighbours/Clip/${encodeURIComponent(f)}"></video></div>`).join('')}
+            </div></div>
           </div>
         </section>
 
@@ -219,17 +236,6 @@ export const pages = {
           </div>
         </section>
 
-        <section class="proj-inline-section" id="proj-s-12">
-          <div class="proj-inline-header">
-            <h3 class="proj-inline-title">La Manif</h3>
-            <a class="proj-inline-link" data-page="proj_lamanif" href="#proj_lamanif">${t('Voir le projet →','View project →')}</a>
-          </div>
-          <div class="proj-story-strip">
-            <div class="sc-viewport"><div class="sc-container">
-              ${['1.webp','2.webp','3.webp'].map(f=>`<div class="sc-item"><img src="/LA%20MANIF/${f}" alt="${f}" loading="lazy"></div>`).join('')}
-            </div></div>
-          </div>
-        </section>
 
       </div>
       </div><!-- /proj-toc-main -->
@@ -238,13 +244,16 @@ export const pages = {
 
   proj_otto: () => `
     <div class="page page-inner proj-detail">
-      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+        <a class="proj-next" href="#proj_studio_soie" data-page="proj_studio_soie">${t('Prochain projet →', 'Next project →')}</a>
+      </div>
       <div class="proj-detail-info">
         <h2 class="proj-name">OTTO</h2>
       </div>
       <div class="proj-story-strip proj-story-strip--fullh">
         <div class="sc-viewport">
-          <div class="sc-container" style="gap:0.5rem">
+          <div class="sc-container" style="gap:0">
             ${['1.webp','2.webp','3.webp','4.webp','5.webp'].map(f=>`<div class="sc-item sc-item--fullh"><img src="/OTTO/${f}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
@@ -254,7 +263,10 @@ export const pages = {
   // ── PROJECT DETAIL PAGES ─────────────────────────────────────────────────
   proj_pray: () => `
     <div class="page page-inner proj-detail proj-pray">
-      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+        <a class="proj-next" href="#proj_caymans" data-page="proj_caymans">${t('Prochain projet →', 'Next project →')}</a>
+      </div>
       <div class="proj-detail-info">
         <h2 class="proj-name">Pray for your Neighbours</h2>
       </div>
@@ -308,7 +320,10 @@ export const pages = {
 
   proj_star_guitar: () => `
     <div class="page page-inner proj-detail">
-      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+        <a class="proj-next" href="#proj_pray" data-page="proj_pray">${t('Prochain projet →', 'Next project →')}</a>
+      </div>
       <div class="proj-detail-info">
         <h2 class="proj-name">Star Guitar</h2>
       </div>
@@ -347,7 +362,10 @@ export const pages = {
 
   proj_do_it_again: () => `
     <div class="page page-inner proj-detail">
-      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+        <a class="proj-next" href="#proj_otto" data-page="proj_otto">${t('Prochain projet →', 'Next project →')}</a>
+      </div>
       <div class="pf-controls">
         <div class="pf-toggle" id="pf-toggle">
           <button class="pf-toggle-btn active" data-view="identite">${t('Identité visuelle', 'Visual Identity')}</button>
@@ -403,9 +421,30 @@ export const pages = {
       </div>
     </div>`,
 
+  proj_studio_soie: () => `
+    <div class="page page-inner proj-detail">
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+        <a class="proj-next" href="#proj_seabreeze" data-page="proj_seabreeze">${t('Prochain projet →', 'Next project →')}</a>
+      </div>
+      <div class="proj-detail-info">
+        <h2 class="proj-name">Studio soie</h2>
+      </div>
+      <div class="proj-story-strip">
+        <div class="sc-viewport">
+          <div class="sc-container" style="gap:0">
+            ${['1.jpg','2.jpg','3.jpg','4.png','5.jpg','6.jpg','7.jpg'].map(f=>`<div class="sc-item sc-item--fullh"><img src="${encodeURI('/Studio soie/' + f)}?v=2" alt="${f}" loading="lazy"></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>`,
+
   proj_brume: () => `
     <div class="page page-inner proj-detail proj-brume">
-      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+        <a class="proj-next" href="#proj_do_it_again" data-page="proj_do_it_again">${t('Prochain projet →', 'Next project →')}</a>
+      </div>
       <div class="proj-detail-info">
         <h2 class="proj-name">Brume</h2>
       </div>
@@ -447,7 +486,10 @@ export const pages = {
 
   proj_petits_freres: () => `
     <div class="page page-inner proj-detail">
-      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+        <a class="proj-next" href="#proj_star_guitar" data-page="proj_star_guitar">${t('Prochain projet →', 'Next project →')}</a>
+      </div>
       <div class="proj-detail-info">
         <h2 class="proj-name">Les Petits Frères des Pauvres</h2>
       </div>
@@ -464,7 +506,7 @@ export const pages = {
       </div>
       <div class="proj-story-strip" id="sc-contexte" style="display:none;">
         <div class="sc-viewport">
-          <div class="sc-container">
+          <div class="sc-container" style="gap:0">
             ${[
               'instagram-strips.png','typoetc.jpg','billboards.png','annie-leo.jpg','1.jpg',
             ].map(f => `<div class="sc-item"><img src="/images/petits-freres/${f}" alt="${f}" loading="lazy"></div>`).join('')}
@@ -473,7 +515,7 @@ export const pages = {
       </div>
       <div class="proj-story-strip" id="sc-livrables">
         <div class="sc-viewport">
-          <div class="sc-container">
+          <div class="sc-container" style="gap:0">
             ${[
               'poster.webp','mockup.webp','3.jpg','mockup2.webp',
               'flyers.jpg','flyers.2.jpg','goodies-1.webp','goodies-2.webp',
@@ -485,13 +527,16 @@ export const pages = {
 
   proj_seabreeze: () => `
     <div class="page page-inner proj-detail">
-      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+        <a class="proj-next" href="#proj_petits_freres" data-page="proj_petits_freres">${t('Prochain projet →', 'Next project →')}</a>
+      </div>
       <div class="proj-detail-info">
         <h2 class="proj-name">Seabreeze</h2>
       </div>
       <div class="proj-story-strip">
         <div class="sc-viewport">
-          <div class="sc-container" style="gap:0.5rem">
+          <div class="sc-container" style="gap:0">
             ${['1.webp','2.webp','3.webp','4.webp','5.webp'].map(f=>`<div class="sc-item sc-item--fullh"><img src="/Seabreeze/${f}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
@@ -500,7 +545,10 @@ export const pages = {
 
   proj_caymans: () => `
     <div class="page page-inner proj-detail">
-      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+        <a class="proj-next" href="#proj_photographie" data-page="proj_photographie">${t('Prochain projet →', 'Next project →')}</a>
+      </div>
       <div class="proj-detail-info">
         <h2 class="proj-name">The Caymans</h2>
       </div>
@@ -560,21 +608,6 @@ export const pages = {
       </div>
     </div>`,
 
-  proj_lamanif: () => `
-    <div class="page page-inner proj-detail">
-      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
-      <div class="proj-detail-info">
-        <h2 class="proj-name">La Manif</h2>
-      </div>
-      <div class="proj-story-strip">
-        <div class="sc-viewport">
-          <div class="sc-container" style="gap:0.5rem">
-            ${['1.webp','2.webp','3.webp','4.webp','5.webp','6.webp','7.webp','8.webp','9.webp','10.webp','11.webp','12.webp','13.webp','14.webp','15.webp']
-              .map(f => `<div class="sc-item"><img src="/LA%20MANIF/${f}" alt="${f}" loading="lazy"></div>`).join('')}
-          </div>
-        </div>
-      </div>
-    </div>`,
 
   proj_do_it_again_edition: () => `
     <div class="page page-inner proj-detail">
@@ -605,7 +638,9 @@ export const pages = {
 
   proj_photographie: () => `
     <div class="page page-inner proj-detail">
-      <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+      </div>
       <div class="photo-toggle-row" style="display:flex;align-items:center;gap:0.75rem;margin-top:0.2rem">
         <div class="pf-toggle" id="pf-toggle">
           <button class="pf-toggle-btn active" data-view="paris">Paris</button>
@@ -680,10 +715,9 @@ export const pages = {
       </div>
       <div class="about-content">
         <div class="about-content-inner">
-          <p class="about-lead">${t('Bonjour ! Je suis Sofia, directrice artistique britannique vivant en France.', 'Hey! I\'m Sofia, a British art director living in France.')}</p>
-          <p>${t('Après avoir obtenu mon bachelor en français et sciences politiques au Royaume-Uni, je me suis installée à Paris pour me tourner vers le milieu créatif et obtenir mon bachelor en Direction Artistique à LISAA Paris.', 'After completing my bachelor\'s degree in French and Politics in the UK, I moved to Paris to turn towards the creative field and complete a bachelor\'s in Art Direction at LISAA Paris.')}</p>
-          <p>${t('Mon portfolio reflète un mélange d\'influences culturelles, façonné par les lieux que j\'ai traversés et les études que j\'ai suivies.', 'My portfolio reflects a blend of cultural influences, shaped by the places I\'ve lived and the studies I\'ve pursued.')}</p>
-          <p>${t('En dehors de mes études, je suis passionnée par la musique — notamment électronique — et j\'adore collaborer avec des musiciens et travailler sur des projets musicaux. J\'aime aussi le motion design, la photographie, le storytelling, le montage, et pendant mon temps libre vous me trouverez devant un film ou plongée dans un livre (bonus si c\'est un thriller !)', 'Outside of my studies, I\'m obsessed with music — especially electronic, and I love collaborating with musicians and working on musical projects. I also love motion design, photography, storytelling, montage, and in my free time you\'ll find me watching a film or reading a book (bonus points if it\'s a thriller!)')}</p>
+          <p class="about-lead">${t('Hello ! Moi, c\'est Sofia, directrice artistique britannique vivant en France.', 'Hey! I\'m Sofia, a British art director living in France.')}</p>
+          <p>${t('Mon portfolio reflète un mélange d\'influences culturelles, façonné par les lieux que j\'ai traversés, mes passions et les études que j\'ai suivies.', 'My portfolio reflects a blend of cultural influences, shaped by the places I\'ve lived, my passions and the studies I\'ve pursued.')}</p>
+          <p>${t('En dehors de mes études, je suis passionnée par la musique house et électronique, et j\'adore collaborer avec des musiciens en réalisant la photographie et les visuels de leurs projets. Sinon, vous me trouverez à la salle de sport, devant un film ou plongée dans un livre (bonus si c\'est un thriller !).', 'Outside of my studies, I\'m passionate about house and electronic music, and I love collaborating with musicians by creating photography and visuals for their projects. Otherwise, you\'ll find me at the gym, watching a film or reading a book (bonus if it\'s a thriller!).')}</p>
           <p>${t('Mes inspirations incluent Yorgos Lanthimos, Wolfgang Tillmans, Sofia Coppola, Jamie Hewlett et Robert Valley.', 'My inspirations include Yorgos Lanthimos, Wolfgang Tillmans, Sofia Coppola, Jamie Hewlett and Robert Valley.')}</p>
         </div>
       </div>

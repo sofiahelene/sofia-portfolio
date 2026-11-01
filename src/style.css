@@ -49,7 +49,7 @@ html, body {
 #pf-app {
   width: 100%; height: 100%;
   display: flex; flex-direction: column;
-  background: #000; color: #00bbd1;
+  background: #000; color: #fff;
   font-family: 'Avenir Next Condensed', 'AvenirNextCondensed-Regular', 'Avenir Next', 'Inter', sans-serif;
 }
 
@@ -73,12 +73,12 @@ html, body {
 .nav-link {
   font-size: 0.88rem; font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.14em; color: #00bbd1;
+  letter-spacing: 0.14em; color: #fff;
   text-decoration: none; cursor: pointer;
   white-space: nowrap;
   display: inline-flex; align-items: center;
 }
-.nav-link:hover { color: #fff; transition: none; }
+.nav-link:hover { color: #00bbd1; transition: none; }
 .nav-link.active { color: #00bbd1; }
 #nav-apropos .ls-char { margin-right: 0.18em; }
 
@@ -458,14 +458,14 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   text-transform: uppercase; color: rgba(255,255,255,0.6);
 }
 .cg-card-title {
-  font-size: 0.88rem; font-weight: 700; color: #00bbd1;
+  font-size: 0.88rem; font-weight: 700; color: #fff;
   line-height: 1.2; text-transform: uppercase;
 }
 .cg-drag-hint {
   position: absolute;
   bottom: 1.4rem; left: 50%; transform: translateX(-50%);
   font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: #00bbd1; pointer-events: none;
+  color: #fff; pointer-events: none;
 }
 
 /* ══════════════════════════════════════════
@@ -531,20 +531,30 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   text-transform: uppercase; color: rgba(255,255,255,.6);
 }
 .proj-vis-name {
-  font-size: 0.72rem; font-weight: 700; color: #00bbd1;
+  font-size: 0.72rem; font-weight: 700; color: #fff;
 }
 
 /* ── Project detail ── */
 .proj-detail { padding: 1cm 1.4rem 2rem; }
+.proj-nav-actions { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
 .proj-back {
-  display: inline-block; margin-bottom: 1rem;
+  display: inline-block;
   font-size: 0.9rem; font-weight: 600; letter-spacing: 0.12em;
-  color: #00bbd1; text-decoration: none; transition: opacity 0.15s;
+  color: #fff; text-decoration: none; transition: opacity 0.15s;
   overflow: hidden;
 }
-.proj-back:hover { color: #fff; transition: none; }
+.proj-back:hover { color: #00bbd1; transition: none; }
+.proj-next {
+  display: inline-block;
+  font-size: 0.9rem; font-weight: 600; letter-spacing: 0.12em;
+  color: #fff; text-decoration: none; transition: opacity 0.15s;
+  overflow: hidden;
+}
+.proj-next:hover { color: #00bbd1; transition: none; }
+.proj-inline-sc-video { height: 100%; width: 100%; display: block; object-fit: cover; }
 .proj-detail-media { margin-bottom: 1rem; border-radius: 2px; overflow: hidden; }
 .proj-detail-info { max-width: 480px; }
+.proj-name { color: #00bbd1; }
 
 /* ── Lightbox ── */
 .lb-overlay {
@@ -632,7 +642,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   color: #000;
   cursor: pointer;
 }
-.readme-btn:hover { background: #fff; border-color: #fff; color: #000; transition: none; }
+.readme-btn:hover { background: rgba(0,187,209,0.75); border-color: rgba(0,187,209,0.75); color: #000; transition: none; }
 /* Full-screen button only exists for mobile (see touch media block below) */
 .motion-fullscreen-btn { display: none; }
 /* Seabreeze's mobile-only images stay hidden until the touch media block below */
@@ -641,7 +651,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .brume-note {
   font-size: 0.75rem;
   font-weight: 400;
-  color: #00bbd1;
+  color: #fff;
   letter-spacing: 0.02em;
   white-space: nowrap;
   margin-left: 0.5cm;
@@ -669,7 +679,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   max-height: 80vh;
   overflow-y: auto;
   width: 90%;
-  color: #00bbd1;
+  color: #fff;
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 .rm-close {
@@ -721,7 +731,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   color: #000;
 }
 .pf-toggle-btn:hover {
-  background: #fff;
+  background: rgba(0,187,209,0.75);
   color: #000;
 }
 
@@ -1117,14 +1127,14 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #00bbd1;
+  color: #fff;
   background: none;
   border: none;
   cursor: pointer;
   pointer-events: auto;
   padding: 0;
 }
-.aph-scroll-btn:hover { color: #fff; transition: none; }
+.aph-scroll-btn:hover { color: #00bbd1; transition: none; }
 .aph-scroll-arrow {
   display: inline-block;
   font-size: 1em;
@@ -1164,10 +1174,10 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 }
 .about-lead,
 .about-content p {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Avenir Next Condensed', 'AvenirNextCondensed-Regular', 'Avenir Next', 'Inter', sans-serif;
   font-size: 1.2rem;
-  font-weight: 500;
-  color: #00bbd1;
+  font-weight: 400;
+  color: #fff;
   line-height: 1.6;
   max-width: 700px;
   margin-bottom: 1.2rem;
@@ -1210,7 +1220,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   display: inline-block;
   margin-right: 3rem;
   font-size: 1.05rem;
-  font-weight: 300;
+  font-weight: 700;
   letter-spacing: 0.04em;
   color: #000;
   user-select: none;
@@ -1233,15 +1243,15 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .contact-details-list { list-style: none; display: flex; flex-direction: column; gap: 0.53rem; }
 .contact-details-list li { font-size: 0.83rem; color: #ccc; display: flex; flex-direction: column; gap: 0.13rem; }
 .contact-detail-label { font-weight: 700; font-size: 0.69rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; }
-.contact-detail-link { color: #00bbd1; text-decoration: none; border-bottom: 1px solid currentColor; width: fit-content; }
-.contact-detail-link:hover { color: #fff; }
+.contact-detail-link { color: #fff; text-decoration: none; border-bottom: 1px solid currentColor; width: fit-content; }
+.contact-detail-link:hover { color: #00bbd1; }
 .contact-socials { display: flex; gap: 1.6rem; }
-.contact-soc { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.18em; color: #00bbd1; text-decoration: none; }
-.contact-soc:hover { color: #fff; }
+.contact-soc { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.18em; color: #fff; text-decoration: none; }
+.contact-soc:hover { color: #00bbd1; }
 .contact-form { display: flex; flex-direction: column; gap: 1.33rem; border: 1px solid rgba(255,255,255,0.15); border-radius: 13px; padding: 2.4rem; }
 .contact-form-row { display: flex; gap: 1.33rem; }
 .contact-field { display: flex; flex-direction: column; gap: 0.47rem; flex: 1; }
-.contact-field label { font-size: 0.73rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #00bbd1; }
+.contact-field label { font-size: 0.73rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; }
 .contact-field input, .contact-field textarea {
   border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 0.73rem 1rem;
   font-size: 0.87rem; font-family: inherit; color: #fff;
@@ -1257,7 +1267,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   transition: background 0.2s; width: 100%;
 }
 .contact-submit:hover { background: rgba(0,187,209,0.8); }
-.contact-success { font-size: 0.8rem; font-weight: 700; color: #00bbd1; text-align: center; letter-spacing: 0.06em; }
+.contact-success { font-size: 0.8rem; font-weight: 700; color: #fff; text-align: center; letter-spacing: 0.06em; }
 @media (max-width: 640px) {
   .contact-split { flex-direction: column; gap: 2.67rem; }
   .contact-left { flex: none; }
@@ -1328,13 +1338,13 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   font-weight: 400;
   text-transform: uppercase;
   white-space: nowrap;
-  color: rgba(0,187,209,0.75);
+  color: rgba(255,255,255,0.75);
   text-decoration: none;
   padding: 0.28rem 0;
   letter-spacing: 0.06em;
   cursor: pointer;
 }
-.proj-cat-link:hover { color: #fff; }
+.proj-cat-link:hover { color: #00bbd1; }
 .proj-cat-num {
   font-family: 'DX Burst', sans-serif;
   font-size: 0.75rem;
@@ -1422,10 +1432,10 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 .proj-toc-row td {
   padding: 1.1rem 0;
   font-size: clamp(0.85rem, 1.4vw, 1.05rem);
-  color: #00bbd1;
+  color: #fff;
 }
 .proj-toc-row:hover td {
-  color: #fff;
+  color: #00bbd1;
 }
 .proj-toc-num {
   font-weight: 700;
@@ -1434,7 +1444,7 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   white-space: nowrap;
   font-family: 'DX Burst', sans-serif;
 }
-.proj-toc-row td.proj-toc-num { color: #00bbd1; font-size: 1.25em; }
+.proj-toc-row td.proj-toc-num { color: #fff; font-size: 1.25em; }
 .proj-toc-cat {
   font-weight: 700;
   text-align: center;
@@ -1465,8 +1475,8 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   margin-bottom: 1rem;
 }
 .proj-inline-header .proj-toc-title { text-align: left; }
-.proj-inline-header .proj-toc-num { color: #00bbd1; font-size: 1.25em; }
-.proj-inline-header .proj-toc-cat { color: #00bbd1; }
+.proj-inline-header .proj-toc-num { color: #fff; font-size: 1.25em; }
+.proj-inline-header .proj-toc-cat { color: #fff; }
 .proj-inline-link .ls-char { margin-right: 0.18em; }
 .proj-inline-link {
   margin-left: auto;
@@ -1474,20 +1484,20 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
   font-weight: 600;
   letter-spacing: 0;
   text-transform: uppercase;
-  color: #00bbd1;
+  color: #fff;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
   transition: opacity 0.15s;
   overflow: hidden;
 }
-.proj-inline-link:hover { color: #fff; }
+.proj-inline-link:hover { color: #00bbd1; }
 .proj-inline-title {
   font-size: clamp(1.4rem, 3vw, 2.2rem);
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #00bbd1;
+  color: #fff;
   margin: 0;
 }
 .proj-inline-section .sc-item {
@@ -1784,8 +1794,8 @@ video::-webkit-media-controls-fullscreen-button { display: none !important; }
 }
 .lang-btn {
   background: transparent;
-  border: 1.5px solid rgba(0,187,209,0.7);
-  color: #00bbd1;
+  border: 1.5px solid rgba(255,255,255,0.7);
+  color: #fff;
   font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
   font-weight: 500;

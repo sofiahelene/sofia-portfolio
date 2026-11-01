@@ -637,6 +637,10 @@ function initNativeCarousel(strip) {
     return;
   }
 
+  // Eager-load all images in this carousel — lazy loading doesn't fire for items
+  // that start off-screen in an overflow:scroll container.
+  strip.querySelectorAll('img[loading="lazy"]').forEach(img => { img.loading = 'eager'; });
+
   // Apply native scroll to viewport
   viewport.style.overflowX = 'scroll';
   viewport.style.overflowY = 'hidden';
@@ -700,6 +704,27 @@ function initNativeCarousel(strip) {
   // Resize: recompute heights
   const ro = new ResizeObserver(() => { requestAnimationFrame(applyItemHeights); });
   ro.observe(document.body);
+
+  // Infinite loop: clone items so scrolling never hits the end
+  if (strip.dataset.loop) {
+    const container = viewport.querySelector('.sc-container');
+    requestAnimationFrame(() => {
+      const origItems = Array.from(container.querySelectorAll(':scope > .sc-item'));
+      // Append clones for forward scroll; prepend clones for backward scroll
+      origItems.forEach(item => container.appendChild(item.cloneNode(true)));
+      const prependFrag = document.createDocumentFragment();
+      origItems.forEach(item => prependFrag.appendChild(item.cloneNode(true)));
+      container.insertBefore(prependFrag, container.firstChild);
+      // Start positioned at the originals (middle third)
+      const third = container.scrollWidth / 3;
+      viewport.scrollLeft = third;
+      viewport.addEventListener('scroll', () => {
+        const third = container.scrollWidth / 3;
+        if (viewport.scrollLeft >= third * 2) viewport.scrollLeft -= third;
+        else if (viewport.scrollLeft < third) viewport.scrollLeft += third;
+      }, { passive: true });
+    });
+  }
 
   updateProgress();
 }
