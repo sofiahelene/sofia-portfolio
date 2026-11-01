@@ -42,7 +42,7 @@ let currentPage     = 'projets';
 function navigateTo(pageId) {
   // The home hero is mouse-driven and isn't built for touch — send touch
   // visitors to Projects instead, wherever the navigation came from.
-  if (pageId === 'home' && IS_TOUCH_DEVICE) pageId = 'projets';
+  if (pageId === 'home') pageId = 'projets';
   if (!pages[pageId]) return;
   if (gooeyCleanup)      { gooeyCleanup();      gooeyCleanup      = null; }
   if (dfCleanup)         { dfCleanup();         dfCleanup         = null; }
@@ -515,7 +515,7 @@ function wireFullscreenBtn(panel) {
 // ── Toggle ────────────────────────────────────────────────────────────────────
 function initToggle(toggle) {
   const btns = toggle.querySelectorAll('.pf-toggle-btn');
-  const panels = { identite: 'sc-identite', contexte: 'sc-contexte', motion: 'sc-motion', livrables: 'sc-livrables', images: 'sc-images', illustration: 'sc-illustration', edition: 'sc-edition', instagram: 'sc-instagram', logo: 'sc-logo', affiche: 'sc-affiche', goodies: 'sc-goodies', charte: 'sc-charte', uxui: 'sc-uxui', paris: 'sc-paris', whitby: 'sc-whitby', athenes: 'sc-athenes', diptyques: 'sc-diptyques', photos: 'sc-photos', pochettes: 'sc-pochettes', histoire: 'sc-histoire', clip: 'sc-clip', extrait1: 'sc-extrait1', extrait2: 'sc-extrait2', extrait3: 'sc-extrait3' };
+  const panels = { identite: 'sc-identite', visuels: 'sc-visuels', contexte: 'sc-contexte', motion: 'sc-motion', livrables: 'sc-livrables', images: 'sc-images', illustration: 'sc-illustration', edition: 'sc-edition', instagram: 'sc-instagram', logo: 'sc-logo', affiche: 'sc-affiche', goodies: 'sc-goodies', charte: 'sc-charte', uxui: 'sc-uxui', paris: 'sc-paris', whitby: 'sc-whitby', athenes: 'sc-athenes', diptyques: 'sc-diptyques', photos: 'sc-photos', pochettes: 'sc-pochettes', histoire: 'sc-histoire', clip: 'sc-clip', extrait1: 'sc-extrait1', extrait2: 'sc-extrait2', extrait3: 'sc-extrait3' };
   const emblaInstances = {};
 
   // Pre-init Embla only on the active (visible) panel; lazy-init hidden ones on first show
@@ -1663,9 +1663,7 @@ const startSite = (lang) => {
     opacity: 0, duration: 0.4, ease: 'power2.in',
     onComplete: () => { langSplash.classList.add('lang-hidden'); },
   });
-  // The home hero relies on mouse movement and isn't built for touch —
-  // touch visitors go straight to Projects instead.
-  navigateTo(IS_TOUCH_DEVICE ? 'projets' : 'home');
+  navigateTo('projets');
 };
 
 document.getElementById('lang-fr').addEventListener('click', () => startSite('fr'));
@@ -1678,13 +1676,13 @@ window.addEventListener('popstate', e => {
 });
 
 function pageFromPath(path) {
-  const id = path.replace(/^\//, '') || 'home';
+  const id = path.replace(/^\//, '') || 'projets';
   return pages[id] ? id : null;
 }
 
 const _urlPage = pageFromPath(window.location.pathname);
 
-if (_urlPage && _urlPage !== 'home') {
+if (_urlPage && _urlPage !== 'projets') {
   // Direct link to a specific page — skip splash, use saved or default lang
   applyLang(_savedLang || 'fr');
   langSplash.classList.add('lang-hidden');
@@ -1693,12 +1691,10 @@ if (_urlPage && _urlPage !== 'home') {
   // Normal refresh — skip splash entirely, restore session state
   applyLang(_savedLang);
   langSplash.classList.add('lang-hidden');
-  // The home hero isn't built for touch — never restore into it there
-  navigateTo(IS_TOUCH_DEVICE && _savedPage === 'home' ? 'projets' : _savedPage);
+  navigateTo(_savedPage === 'home' ? 'projets' : _savedPage);
 } else {
-  // First visit or hard refresh — load the post-splash page behind the splash.
-  // Touch devices skip the mouse-driven home hero and land straight on Projects.
-  navigateTo(IS_TOUCH_DEVICE ? 'projets' : 'home');
+  // First visit or hard refresh — go straight to projects
+  navigateTo('projets');
 }
 
 // ── Splash canvas ─────────────────────────────────────────────────────────────
