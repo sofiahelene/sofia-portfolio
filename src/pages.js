@@ -46,8 +46,9 @@ export const pages = {
       { num: '05.', cat: t('Identité Visuelle','Visual Identity'),  title: 'Seabreeze',                    page: 'proj_seabreeze',     sid: 'proj-s-11' },
       { num: '06.', cat: t('Identité Visuelle II','Visual Identity II'), title: 'Les Petits Frères des Pauvres', page: 'proj_petits_freres', sid: 'proj-s-03' },
       { num: '07.', cat: 'Motion',                                  title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
-      { num: '08.', cat: t('Photographie','Photography'),           title: 'The Caymans',                  page: 'proj_caymans',       sid: 'proj-s-04' },
-      { num: '09.', cat: t('Photographie','Photography'),           title: 'Un Monde en Partage',          page: 'proj_photographie',  sid: 'proj-s-08' },
+      { num: '08.', cat: 'Post Production',                         title: 'Pray for your Neighbours',     page: 'proj_pray',          sid: 'proj-s-10' },
+      { num: '09.', cat: t('Photographie','Photography'),           title: 'The Caymans',                  page: 'proj_caymans',       sid: 'proj-s-04' },
+      { num: '10.', cat: t('Photographie','Photography'),           title: 'Un Monde en Partage',          page: 'proj_photographie',  sid: 'proj-s-08' },
     ];
     return `
     <div class="page proj-toc-page">
@@ -72,6 +73,7 @@ export const pages = {
             <li><a class="proj-cat-link" data-scroll-to="#proj-s-02" data-project-page="proj_do_it_again" href="#">Do It Again</a></li>
             <li><a class="proj-cat-link" data-scroll-to="#proj-s-03" data-project-page="proj_petits_freres" href="#">Les Petits Frères</a></li>
             <li><a class="proj-cat-link" data-scroll-to="#proj-s-06" data-project-page="proj_star_guitar" href="#">Star Guitar</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-10" data-project-page="proj_pray" href="#">Pray for your Neighbours</a></li>
           </ul>
         </div>
 
@@ -198,6 +200,18 @@ export const pages = {
           </div>
         </section>
 
+        <section class="proj-inline-section" id="proj-s-10">
+          <div class="proj-inline-header">
+            <h3 class="proj-inline-title">Pray for your Neighbours</h3>
+            <a class="proj-inline-link" data-page="proj_pray" href="#proj_pray">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              ${['sofias_part.mp4','1.mp4','2.mp4','3.mp4'].map(f=>`<div class="sc-item" style="width:calc(40vh * 16/9)"><video class="proj-inline-sc-video" autoplay muted loop playsinline preload="metadata" src="/images/Pray%20for%20your%20Neighbours/Clip/${encodeURIComponent(f)}"></video></div>`).join('')}
+            </div></div>
+          </div>
+        </section>
+
         <section class="proj-inline-section" id="proj-s-04">
           <div class="proj-inline-header">
             <h3 class="proj-inline-title">The Caymans</h3>
@@ -250,11 +264,68 @@ export const pages = {
     </div>`,
 
   // ── PROJECT DETAIL PAGES ─────────────────────────────────────────────────
+  proj_pray: () => `
+    <div class="page page-inner proj-detail proj-pray">
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+        <a class="proj-next" href="#proj_caymans" data-page="proj_caymans">${t('Prochain projet →', 'Next project →')}</a>
+      </div>
+      <div class="proj-detail-info">
+        <h2 class="proj-name">Pray for your Neighbours</h2>
+      </div>
+      <div class="pf-controls">
+        <div class="pf-toggle" id="pf-toggle">
+          <button class="pf-toggle-btn active" data-view="clip">Clip</button>
+          <button class="pf-toggle-btn" data-view="extrait1">Extrait 1</button>
+          <button class="pf-toggle-btn" data-view="extrait2">Extrait 2</button>
+          <button class="pf-toggle-btn" data-view="extrait3">Extrait 3</button>
+        </div>
+        <button class="readme-btn" data-readme="pray">${t('Lisez-moi', 'Read me')}</button>
+        <span class="brume-note">${t('Son désactivé jusqu\'à la sortie officielle', 'Sound disabled until official release')}</span>
+      </div>
+      <div class="pf-motion-panel" id="sc-clip" style="margin-top:1cm">
+        <div class="motion-player">
+          <video muted loop playsinline preload="metadata" src="/images/Pray%20for%20your%20Neighbours/Clip/sofias_part.mp4" class="pf-motion-video"></video>
+          <div class="motion-controls">
+            <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+            <button class="readme-btn motion-fullscreen-btn" aria-label="Full screen">${t('Plein écran', 'Full screen')}</button>
+          </div>
+        </div>
+      </div>
+      <div class="pf-motion-panel" id="sc-extrait1" style="display:none;margin-top:1cm">
+        <div class="motion-player">
+          <video muted loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/1.mp4" class="pf-motion-video"></video>
+          <div class="motion-controls">
+            <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+            <button class="readme-btn motion-fullscreen-btn" aria-label="Full screen">${t('Plein écran', 'Full screen')}</button>
+          </div>
+        </div>
+      </div>
+      <div class="pf-motion-panel" id="sc-extrait2" style="display:none;margin-top:1cm">
+        <div class="motion-player">
+          <video muted loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/2.mp4" class="pf-motion-video"></video>
+          <div class="motion-controls">
+            <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+            <button class="readme-btn motion-fullscreen-btn" aria-label="Full screen">${t('Plein écran', 'Full screen')}</button>
+          </div>
+        </div>
+      </div>
+      <div class="pf-motion-panel" id="sc-extrait3" style="display:none;margin-top:1cm">
+        <div class="motion-player">
+          <video muted loop playsinline preload="none" src="/images/Pray%20for%20your%20Neighbours/Clip/3.mp4" class="pf-motion-video"></video>
+          <div class="motion-controls">
+            <button class="motion-playpause" aria-label="Play/Pause">&#9654;</button>
+            <button class="readme-btn motion-fullscreen-btn" aria-label="Full screen">${t('Plein écran', 'Full screen')}</button>
+          </div>
+        </div>
+      </div>
+    </div>`,
+
   proj_star_guitar: () => `
     <div class="page page-inner proj-detail">
       <div class="proj-nav-actions">
         <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
-        <a class="proj-next" href="#proj_caymans" data-page="proj_caymans">${t('Prochain projet →', 'Next project →')}</a>
+        <a class="proj-next" href="#proj_pray" data-page="proj_pray">${t('Prochain projet →', 'Next project →')}</a>
       </div>
       <div class="proj-detail-info">
         <h2 class="proj-name">Star Guitar</h2>
