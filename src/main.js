@@ -235,11 +235,25 @@ const readmeContent = {
       `We also had to integrate and respect elements and rules from the brand guidelines, in order to ensure consistency with the association's existing identity. We built our communication campaign around two main characters: Annie and Léo, representing a person supported by and a volunteer of Petits Frères des Pauvres.\n\nThey feature across every communication channel to create emotional attachment and allow readers to identify with and feel concerned by the cause. The goal of the event was not only to bring people together around dance, but also to raise awareness of the association and recruit new volunteers. We therefore designed flyers aimed at attracting a young, engaged audience.\n\nFinally, we created a series of goodies for the event, featuring Annie and Léo on every item alongside the original logo and brand guideline elements.`
     ),
   },
+  'studio-soie': {
+    title: () => 'Studio soie',
+    body: () => window.t(
+      `Soie est un studio de yoga où aucun détail n'est laissé au hasard. L'identité est douce, à l'image de la pratique du yoga elle-même, et les couleurs chaudes et terreuses créent une atmosphère accueillante qui invite les clients à ralentir et à se poser.`,
+      `Soie is a yoga studio where no detail is left to chance. The identity is soft, much like the practice of yoga itself, and the warm, earthy tones create a welcoming atmosphere that invites clients to slow down and settle in.`
+    ),
+  },
+  'otto': {
+    title: () => 'OTTO',
+    body: () => window.t(
+      `Le projet « Otto » est une identité visuelle et un branding pour un coffee shop indépendant, comprenant la conception du lieu ainsi que de ses propres produits, comme ses grains de café. J'ai choisi un branding audacieux et une icône de grain de café familière afin de rendre la marque immédiatement reconnaissable, tout en lui donnant une personnalité distinctive qui se démarque en rayon et sur les réseaux sociaux.`,
+      `The "Otto" project is a visual identity and branding for an independent coffee shop, including the design of the space as well as its own products, such as its coffee beans. I chose bold branding and a familiar coffee bean icon to make the brand instantly recognisable, while giving it a distinctive personality that stands out on shelves and on social media.`
+    ),
+  },
   'seabreeze': {
     title: () => 'Seabreeze',
     body: () => window.t(
-      `Seabreeze est un hôtel de plage branché et stylé en Australie, pensé pour les jeunes adultes. Le projet présente le packaging d'un shampoing, d'une lotion tonique et d'un nettoyant visage, une carte de chambre, des affichettes de porte et des cartes postales qui prolongent l'univers visuel de la marque, ainsi que des savons générés par IA.`,
-      `The concept of Seabreeze is a hip and stylish beach hotel in Australia aimed at young adults. Presented are shampoo, toner and cleanser packaging, a key card, hotel door signs, postcards which convey the univers visuel and bars of soap, made by IA.`
+      `Sea Breeze est un hôtel tendance basé en Australie. J'ai choisi des couleurs amusantes et audacieuses pour capturer l'énergie de la vie côtière et rendre la marque accueillante et mémorable, car elle vise à se démarquer et à se faire remarquer plutôt qu'à se fondre dans les autres marques hôtelières.`,
+      `Sea Breeze is a trendy hotel based in Australia. I chose fun, bold colours to capture the energy of coastal living and make the brand welcoming and memorable, as it aims to stand out and be noticed rather than blend in with other hotel brands.`
     ),
   },
   'brume': {

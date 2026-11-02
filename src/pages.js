@@ -142,7 +142,7 @@ export const pages = {
             <h3 class="proj-inline-title">OTTO</h3>
             <a class="proj-inline-link" data-page="proj_otto" href="#proj_otto">${t('Voir le projet →','View project →')}</a>
           </div>
-          <div class="proj-story-strip" data-loop="1">
+          <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container" style="gap:0">
               ${['1.webp','2.webp','3.webp','4.webp','5.webp'].map(f=>`<div class="sc-item sc-item--fullh"><img src="/OTTO/${f}" alt="${f}" loading="lazy"></div>`).join('')}
             </div></div>
@@ -236,6 +236,9 @@ export const pages = {
       </div>
       <div class="proj-detail-info">
         <h2 class="proj-name">OTTO</h2>
+      </div>
+      <div class="pf-controls">
+        <button class="readme-btn" data-readme="otto">${t('Lisez-moi', 'Read me')}</button>
       </div>
       <div class="proj-story-strip proj-story-strip--fullh">
         <div class="sc-viewport">
@@ -358,6 +361,9 @@ export const pages = {
       </div>
       <div class="proj-detail-info">
         <h2 class="proj-name">Studio soie</h2>
+      </div>
+      <div class="pf-controls">
+        <button class="readme-btn" data-readme="studio-soie">${t('Lisez-moi', 'Read me')}</button>
       </div>
       <div class="proj-story-strip">
         <div class="sc-viewport">
