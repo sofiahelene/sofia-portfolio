@@ -48,7 +48,8 @@ export const pages = {
       { num: '07.', cat: 'Motion',                                  title: 'Star Guitar',                  page: 'proj_star_guitar',   sid: 'proj-s-06' },
       { num: '08.', cat: 'Post Production',                         title: 'Pray for your Neighbours',     page: 'proj_pray',          sid: 'proj-s-10' },
       { num: '09.', cat: t('Photographie','Photography'),           title: 'The Caymans',                  page: 'proj_caymans',       sid: 'proj-s-04' },
-      { num: '10.', cat: t('Photographie','Photography'),           title: 'Un Monde en Partage',          page: 'proj_photographie',  sid: 'proj-s-08' },
+      { num: '10.', cat: t('Photographie','Photography'),           title: 'La Manif',                     page: 'proj_lamanif',       sid: 'proj-s-12' },
+      { num: '11.', cat: t('Photographie','Photography'),           title: 'Un Monde en Partage',          page: 'proj_photographie',  sid: 'proj-s-08' },
     ];
     return `
     <div class="page proj-toc-page">
@@ -81,6 +82,7 @@ export const pages = {
           <h3 class="proj-cat-heading">${t('Photographie', 'Photography')}</h3>
           <ul class="proj-cat-list">
             <li><a class="proj-cat-link" data-scroll-to="#proj-s-04" data-project-page="proj_caymans" href="#">The Caymans</a></li>
+            <li><a class="proj-cat-link" data-scroll-to="#proj-s-12" data-project-page="proj_lamanif" href="#">La Manif</a></li>
             <li><a class="proj-cat-link" data-scroll-to="#proj-s-08" data-project-page="proj_photographie" href="#">Un Monde en Partage</a></li>
           </ul>
         </div>
@@ -220,6 +222,18 @@ export const pages = {
           <div class="proj-story-strip">
             <div class="sc-viewport"><div class="sc-container">
               ${['1.jpg','2.jpg','3.jpg','5.jpg','7.jpg'].map(f=>`<div class="sc-item"><img src="${encodeURI('/The caymans/Photos/' + f)}" alt="${f}" loading="lazy"></div>`).join('')}
+            </div></div>
+          </div>
+        </section>
+
+        <section class="proj-inline-section" id="proj-s-12">
+          <div class="proj-inline-header">
+            <h3 class="proj-inline-title">La Manif</h3>
+            <a class="proj-inline-link" data-page="proj_lamanif" href="#proj_lamanif">${t('Voir le projet →','View project →')}</a>
+          </div>
+          <div class="proj-story-strip">
+            <div class="sc-viewport"><div class="sc-container">
+              ${['1.webp','2.webp','3.webp'].map(f=>`<div class="sc-item"><img src="/LA%20MANIF/${f}" alt="${f}" loading="lazy"></div>`).join('')}
             </div></div>
           </div>
         </section>
@@ -553,7 +567,7 @@ export const pages = {
     <div class="page page-inner proj-detail">
       <div class="proj-nav-actions">
         <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
-        <a class="proj-next" href="#proj_photographie" data-page="proj_photographie">${t('Prochain projet →', 'Next project →')}</a>
+        <a class="proj-next" href="#proj_lamanif" data-page="proj_lamanif">${t('Prochain projet →', 'Next project →')}</a>
       </div>
       <div class="proj-detail-info">
         <h2 class="proj-name">The Caymans</h2>
@@ -637,6 +651,25 @@ export const pages = {
               'double page18.webp','double page19.webp','double page20.webp',
               'double page21.webp','back cover.webp'
             ].map(f => `<div class="sc-item"><img src="/images/mockup-do-it-again-edition/${encodeURIComponent(f)}" alt="${f}" loading="lazy"></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>`,
+
+  proj_lamanif: () => `
+    <div class="page page-inner proj-detail">
+      <div class="proj-nav-actions">
+        <a class="proj-back" href="#projets" data-page="projets">← ${t('Projets', 'Projects')}</a>
+        <a class="proj-next" href="#proj_photographie" data-page="proj_photographie">${t('Prochain projet →', 'Next project →')}</a>
+      </div>
+      <div class="proj-detail-info">
+        <h2 class="proj-name">La Manif</h2>
+      </div>
+      <div class="proj-story-strip">
+        <div class="sc-viewport">
+          <div class="sc-container" style="gap:0">
+            ${['1.webp','2.webp','3.webp','4.webp','5.webp','6.webp','7.webp','8.webp','9.webp','10.webp','11.webp','12.webp','13.webp','14.webp','15.webp']
+              .map(f => `<div class="sc-item"><img src="/LA%20MANIF/${f}" alt="${f}" loading="lazy"></div>`).join('')}
           </div>
         </div>
       </div>
